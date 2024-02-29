@@ -5,7 +5,9 @@ class Crypto:
         self.buy_price = None
         self.max_price = None
         self.current_price = None
-        USDC_balance = None
+        self.USDC_balance = None
+        self.number_of_alert_authorized = 0
+
 
 
 fichier = "user_data.txt"
@@ -36,6 +38,8 @@ def getCRYPTO():
             current_crypto.USDC_balance = float(ligne.split(":")[1].strip())
         elif ligne.startswith("profit %"):
             current_crypto.profit_percent = float(ligne.split(":")[1].strip())
+        elif ligne.startswith("alert_ahthorized"):
+            current_crypto.number_of_alert_authorized = int(ligne.split(":")[1].strip())
     # Ajoutez la dernière crypto après la boucle
     if current_crypto:
         cryptos.append(current_crypto)
@@ -48,12 +52,13 @@ def getCRYPTO():
 def writeCRYPTO(cryptos):
     with open(fichier, 'w') as f:
         for crypto in cryptos:
-            f.write(f"crypto : {crypto.name}\n")
-            f.write(f"ammount : {crypto.amount}\n")
-            f.write(f"buy price : {crypto.buy_price}\n")
-            f.write(f"maximum price : {crypto.max_price}\n")
-            f.write(f"current price : {crypto.current_price}\n")
-            f.write(f"USDC_balance : {crypto.USDC_balance}\n")
-            f.write(f"profit % : {crypto.profit_percent}\n")
+            f.write(f"crypto            : {crypto.name}\n")
+            f.write(f"ammount           : {crypto.amount}\n")
+            f.write(f"buy price         : {crypto.buy_price}\n")
+            f.write(f"maximum price     : {crypto.max_price}\n")
+            f.write(f"current price     : {crypto.current_price}\n")
+            f.write(f"USDC_balance      : {crypto.USDC_balance}\n")
+            f.write(f"profit %          : {crypto.profit_percent}\n")
+            f.write(f"alert_ahthorized  : {crypto.number_of_alert_authorized}\n")
             f.write("\n")
 

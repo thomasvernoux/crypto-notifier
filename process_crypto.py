@@ -13,6 +13,19 @@ def crypto_process(crypto):
         crypto.max_price = crypto.current_price
     crypto.USDC_balance = crypto.amount * crypto.current_price
     crypto.profit_percent = crypto.current_price / crypto.buy_price * 100
+
+    if ((0.98 * crypto.current_price) < crypto.max_price) & (crypto.number_of_alert_authorized >= 1):
+        # time to sell alert
+        subject = "Time to sell alert"
+        body = f"{crypto.name} is 0.98% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
+        send_email(subject, body)
+        crypto.number_of_alert_authorized -= 1
+    
+    
+    
+    
+    
+    
     return crypto
 
 while True :
