@@ -7,6 +7,7 @@ class Crypto:
         self.current_price = None
         self.USDC_balance = None
         self.number_of_alert_authorized = 0
+        self.last_notification_time = 0
 
 
 
@@ -40,6 +41,8 @@ def getCRYPTO():
             current_crypto.profit_percent = float(ligne.split(":")[1].strip())
         elif ligne.startswith("alert_ahthorized"):
             current_crypto.number_of_alert_authorized = int(ligne.split(":")[1].strip())
+        elif ligne.startswith("last notif time"):
+            current_crypto.last_notification_time = int(ligne.split(":")[1].strip())
     # Ajoutez la dernière crypto après la boucle
     if current_crypto:
         cryptos.append(current_crypto)
@@ -60,5 +63,6 @@ def writeCRYPTO(cryptos):
             f.write(f"USDC_balance      : {crypto.USDC_balance}\n")
             f.write(f"profit %          : {crypto.profit_percent}\n")
             f.write(f"alert_ahthorized  : {crypto.number_of_alert_authorized}\n")
+            f.write(f"last notif time   : {int(crypto.last_notification_time)}\n")
             f.write("\n")
 
