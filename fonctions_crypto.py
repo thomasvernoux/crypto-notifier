@@ -51,7 +51,7 @@ def getCRYPTO():
         elif ligne.startswith("number_of_alert_authorized"):
             current_crypto.number_of_alert_authorized = int(ligne.split(":")[1].strip())
         elif ligne.startswith("last_notification_time"):
-            current_crypto.last_notification_time = int(ligne.split(":")[1].strip())
+            current_crypto.last_notification_time = float(ligne.split(":")[1].strip())
         elif ligne.startswith("peak_target"):
             current_crypto.peak_target = float(ligne.split(":")[1].strip())
     # Ajoutez la dernière crypto après la boucle

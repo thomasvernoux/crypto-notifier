@@ -37,7 +37,7 @@ Pprint the crypto in term, actaulise crypto value
     if ((crypto.peak_target / 100 * crypto.current_price) < crypto.max_price) & (crypto.number_of_alert_authorized >= 1) & time_interval(crypto):
         # time to sell alert
         subject = "Time to sell alert"
-        body = f"{crypto.name} is 0.98% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
+        body = f"{crypto.name} is {crypto.peak_target}% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
         send_email(subject, body)
         crypto.number_of_alert_authorized -= 1
 

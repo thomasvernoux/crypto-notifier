@@ -2,19 +2,19 @@ crypto            : PNG
 ammount           : 12.5060202
 buy price         : 0.46696
 maximum price     : 0.4803
-current price     : 0.4545
-USDC_balance      : 5.6839861809
-profit %          : 97.33167723145452
-alert_ahthorized  : 9
+current price     : 0.4576
+USDC_balance      : 5.72275484352
+profit %          : 97.9955456570156
+alert_ahthorized  : 0
 last notif time   : 1709215885
 
 crypto            : AUCTION
 ammount           : 0.20086
 buy price         : 29.77
 maximum price     : 30.36
-current price     : 30.18
-USDC_balance      : 6.0619548000000005
-profit %          : 101.37722539469264
+current price     : 30.14
+USDC_balance      : 6.053920400000001
+profit %          : 101.2428619415519
 alert_ahthorized  : 0
 last notif time   : 0
 
@@ -22,9 +22,9 @@ crypto            : PRO
 ammount           : 8.37833974
 buy price         : 0.57
 maximum price     : 0.5247
-current price     : 0.5247
-USDC_balance      : 4.396114861578
-profit %          : 92.05263157894738
+current price     : 0.5202
+USDC_balance      : 4.358412332747999
+profit %          : 91.26315789473685
 alert_ahthorized  : 0
 last notif time   : 0
 
@@ -32,9 +32,19 @@ crypto            : FOX
 ammount           : 32.95448789
 buy price         : 0.0901
 maximum price     : 0.0934
-current price     : 0.0919
-USDC_balance      : 3.028517437091
-profit %          : 101.99778024417314
+current price     : 0.0927
+USDC_balance      : 3.0548810274030003
+profit %          : 102.88568257491677
 alert_ahthorized  : 0
 last notif time   : 0
+
+crypto            : PRQ
+ammount           : 15.00058857
+buy price         : 0.1514
+maximum price     : 0.1516
+current price     : 0.1504
+USDC_balance      : 2.256088520928
+profit %          : 99.33949801849406
+alert_ahthorized  : 9
+last notif time   : 1709216223
 
