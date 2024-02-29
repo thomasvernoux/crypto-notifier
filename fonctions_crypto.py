@@ -5,7 +5,10 @@ class Crypto:
         self.buy_price = None
         self.max_price = None
 
-def lire_fichier(fichier):
+
+fichier = "user_data.txt"
+
+def getCRYPTO():
     with open(fichier, 'r') as f:
         lignes = f.readlines()
     
@@ -34,8 +37,8 @@ def lire_fichier(fichier):
 
     return cryptos
 
-def ecrire_fichier(cryptos, fichier_sortie):
-    with open(fichier_sortie, 'w') as f:
+def writeCRYPTO(cryptos):
+    with open(fichier, 'w') as f:
         for crypto in cryptos:
             f.write(f"crypto : {crypto.name}\n")
             f.write(f"ammount : {crypto.amount}\n")
