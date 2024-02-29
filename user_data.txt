@@ -2,23 +2,23 @@ name : PNG
 amount : 12.5060202
 buy_price : 0.46696
 max_price : 0
-current_price : 0.4554
-USDC_balance : 5.69524159908
+current_price : 0.46
+USDC_balance : 5.752769292
 number_of_alert_authorized : 10
 last_notification_time : 1709215885.6857548
 peak_target : 95.0
-profit_percent : 97.52441322597225
+profit_percent : 98.50950830906288
 
 name : AUCTION
 amount : 0.20086
 buy_price : 29.77
 max_price : 29.88
-current_price : 29.86
-USDC_balance : 5.9976796000000006
+current_price : 29.82
+USDC_balance : 5.9896452
 number_of_alert_authorized : 9
 last_notification_time : 1709219396.917228
 peak_target : 95.0
-profit_percent : 100.30231776956668
+profit_percent : 100.16795431642593
 
 name : PRO
 amount : 8.37833974
@@ -35,32 +35,32 @@ name : FOX
 amount : 32.95448789
 buy_price : 0.0901
 max_price : 0.0937
-current_price : 0.0918
-USDC_balance : 3.0252219883020004
+current_price : 0.0922
+USDC_balance : 3.0384037834580004
 number_of_alert_authorized : 9
 last_notification_time : 1709219398.7331383
 peak_target : 95.0
-profit_percent : 101.88679245283019
+profit_percent : 102.330743618202
 
 name : PRQ
 amount : 15.00058857
 buy_price : 0.1514
 max_price : 0
-current_price : 0.1487
-USDC_balance : 2.2305875203589998
+current_price : 0.1491
+USDC_balance : 2.236587755787
 number_of_alert_authorized : 10
 last_notification_time : 1709218771.7471771
 peak_target : 95.0
-profit_percent : 98.21664464993395
+profit_percent : 98.48084544253634
 
 name : NCT
 amount : 146.0
 buy_price : 0.02209
 max_price : 0
-current_price : 0.02204
-USDC_balance : 3.2178400000000003
-number_of_alert_authorized : 10
-last_notification_time : 0.0
+current_price : 0.02199
+USDC_balance : 3.21054
+number_of_alert_authorized : 9
+last_notification_time : 1709219466.7534683
 peak_target : 95.0
-profit_percent : 99.77365323675872
+profit_percent : 99.54730647351742
 
