@@ -1,14 +1,16 @@
 crypto : COTI
 ammount : 36.6
 buy price : 0.2109
-maximum price : 0.2109
-current price : 0.2109
-USDC_balance : 7.718940000000001
+maximum price : 0.2416
+current price : 0.2416
+USDC_balance : 8.84256
+profit % : 114.55666192508298
 
 crypto : PNG
 ammount : 12.5060202
 buy price : 0.46696
-maximum price : 0.46696
-current price : 0.46696
-USDC_balance : 5.839811192592
+maximum price : 0.4777
+current price : 0.4777
+USDC_balance : 5.97412584954
+profit % : 102.2999828679116
 

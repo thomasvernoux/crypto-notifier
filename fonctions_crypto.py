@@ -34,6 +34,8 @@ def getCRYPTO():
             current_crypto.current_price = float(ligne.split(":")[1].strip())
         elif ligne.startswith("USDC balance"):
             current_crypto.USDC_balance = float(ligne.split(":")[1].strip())
+        elif ligne.startswith("profit %"):
+            current_crypto.profit_percent = float(ligne.split(":")[1].strip())
     # Ajoutez la dernière crypto après la boucle
     if current_crypto:
         cryptos.append(current_crypto)
@@ -52,5 +54,6 @@ def writeCRYPTO(cryptos):
             f.write(f"maximum price : {crypto.max_price}\n")
             f.write(f"current price : {crypto.current_price}\n")
             f.write(f"USDC_balance : {crypto.USDC_balance}\n")
+            f.write(f"profit % : {crypto.profit_percent}\n")
             f.write("\n")
 
