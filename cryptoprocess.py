@@ -9,6 +9,7 @@ import cryptocompare
 import time
 from send_email_file import *
 from global_variables import *
+from function_history import *
 
 
 
@@ -43,8 +44,10 @@ def crypto_process(crypto):
     if crypto.current_price < crypto.buy_price : 
         crypto.max_price = 0
 
+
+
     ## peak detection
-    peak_limit = crypto.peak_target / 100 * crypto.current_price
+    peak_limit = crypto.peak_target * 100 * crypto.current_price
     if (peak_limit < crypto.max_price) & (crypto.number_of_alert_authorized >= 1) & time_interval(crypto):
         # a peak is detected
         # time to sell alert
@@ -59,6 +62,9 @@ def crypto_process(crypto):
 
         # update last notification time
         crypto.last_notification_time = time.time()
+
+    ## save price history in appropriate file
+    save_to_file(crypto)
 
     
     

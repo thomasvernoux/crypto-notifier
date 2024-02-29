@@ -1,3 +1,8 @@
 
 __pycache__/struct.cpython-310.pyc
 *.pyc
+user_data.txt
+user_data_userfriendly.txt
+cours/*
+user_data.txt
+user_data_userfriendly.txt

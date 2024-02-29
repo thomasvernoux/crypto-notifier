@@ -1,50 +1,50 @@
 crypto            : PNG
 ammount           : 12.5060202
 buy price         : 0.46696
-maximum price     : 0
-current price     : 0.46
-USDC_balance      : 5.752769292
-profit %          : 98.50950830906288
+maximum price     : 0.4924
+current price     : 0.4924
+USDC_balance      : 6.15796434648
+profit %          : 105.44800411170121
 alert_ahthorized  : 10
 last notif time   : 1709215885
 
 crypto            : AUCTION
 ammount           : 0.20086
 buy price         : 29.77
-maximum price     : 29.88
-current price     : 29.82
-USDC_balance      : 5.9896452
-profit %          : 100.16795431642593
-alert_ahthorized  : 9
-last notif time   : 1709219396
+maximum price     : 29.97
+current price     : 29.87
+USDC_balance      : 5.9996882000000005
+profit %          : 100.33590863285187
+alert_ahthorized  : 8
+last notif time   : 1709219999
 
 crypto            : PRO
 ammount           : 8.37833974
 buy price         : 0.57
 maximum price     : 0
-current price     : 0.52
-USDC_balance      : 4.3567366648
-profit %          : 91.2280701754386
+current price     : 0.5198
+USDC_balance      : 4.355060996852
+profit %          : 91.19298245614037
 alert_ahthorized  : 10
 last notif time   : 0
 
 crypto            : FOX
 ammount           : 32.95448789
 buy price         : 0.0901
-maximum price     : 0.0937
-current price     : 0.0922
-USDC_balance      : 3.0384037834580004
-profit %          : 102.330743618202
-alert_ahthorized  : 9
-last notif time   : 1709219398
+maximum price     : 0.0941
+current price     : 0.0938
+USDC_balance      : 3.091130964082
+profit %          : 104.10654827968924
+alert_ahthorized  : 8
+last notif time   : 1709220003
 
 crypto            : PRQ
 ammount           : 15.00058857
 buy price         : 0.1514
 maximum price     : 0
-current price     : 0.1491
-USDC_balance      : 2.236587755787
-profit %          : 98.48084544253634
+current price     : 0.1498
+USDC_balance      : 2.247088167786
+profit %          : 98.94319682959048
 alert_ahthorized  : 10
 last notif time   : 1709218771
 
@@ -52,9 +52,9 @@ crypto            : NCT
 ammount           : 146.0
 buy price         : 0.02209
 maximum price     : 0
-current price     : 0.02199
-USDC_balance      : 3.21054
-profit %          : 99.54730647351742
+current price     : 0.02149
+USDC_balance      : 3.13754
+profit %          : 97.28383884110457
 alert_ahthorized  : 9
 last notif time   : 1709219466
 
