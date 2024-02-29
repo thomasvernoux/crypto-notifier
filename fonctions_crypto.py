@@ -1,5 +1,6 @@
 
 import time
+from global_variables import *
 
 
 

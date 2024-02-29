@@ -8,6 +8,9 @@ from fonctions_crypto import *
 import cryptocompare
 import time
 from send_email_file import *
+from global_variables import *
+
+
 
 
 def crypto_process(crypto):
@@ -15,14 +18,17 @@ def crypto_process(crypto):
     input and output : crypto (from crypto class)
     The cryptoprocess functoin process a crypto once.
     The function do the following actions : 
-Pprint the crypto in term, actaulise crypto value
+    Print the crypto in term, actaulise crypto value
     Notify by email if necessary 
     """
+    
+
     # simple print
     print(f"Nom : {crypto.name}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
     
     # Price actualisation
-    crypto.current_price = cryptocompare.get_price(crypto.name, 'USD')[crypto.name]["USD"]
+    if get_variable_mode() == "real":
+        crypto.current_price = cryptocompare.get_price(crypto.name, 'USD')[crypto.name]["USD"]
     
     # Max price actualisation
     if crypto.current_price > crypto.max_price :
@@ -33,19 +39,27 @@ Pprint the crypto in term, actaulise crypto value
     crypto.profit_percent = crypto.current_price / crypto.buy_price * 100
 
 
+    ## peak reset
+    if crypto.current_price < crypto.buy_price : 
+        crypto.max_price = 0
+
     ## peak detection
-    if ((crypto.peak_target / 100 * crypto.current_price) < crypto.max_price) & (crypto.number_of_alert_authorized >= 1) & time_interval(crypto):
+    peak_limit = crypto.peak_target / 100 * crypto.current_price
+    if (peak_limit < crypto.max_price) & (crypto.number_of_alert_authorized >= 1) & time_interval(crypto):
+        # a peak is detected
         # time to sell alert
         subject = "Time to sell alert"
         body = f"{crypto.name} is {crypto.peak_target}% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-        send_email(subject, body)
+        
+        if get_variable_mode() == "real":
+            send_email(subject, body)
+        elif get_variable_mode() == "test":
+            set_variable_test_mail_send(True)
         crypto.number_of_alert_authorized -= 1
 
         # update last notification time
         crypto.last_notification_time = time.time()
-    
-    
-    
+
     
     
     

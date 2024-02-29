@@ -8,7 +8,7 @@ from cryptoprocess import *
 
 CRYPTOS = getCRYPTO()
 
-
+set_variable_mode("real")                  # real  / test  mode
 
 while True :
     for crypto in CRYPTOS:
