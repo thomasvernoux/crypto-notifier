@@ -65,6 +65,8 @@ def crypto_process(crypto):
     ## save price history in appropriate file
     save_to_file(crypto)
 
+
+
     
     
     

@@ -3,6 +3,7 @@ import cryptocompare
 import time
 from send_email_file import *
 from cryptoprocess import *
+from specials_alerts import *
 
 
 
@@ -23,7 +24,12 @@ while True :
     #send_email("crypto check", "test")
     #print("mail send")
 
-    time.sleep(60 * 5)
+
+    specials_alerts(CRYPTOS)
+
+
+
+    time.sleep(60 * 15)
 
 
 """
