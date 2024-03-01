@@ -3,6 +3,7 @@ import time
 from global_variables import *
 import cryptocompare
 from pycoingecko import CoinGeckoAPI
+import traceback
 
 
 
@@ -100,9 +101,30 @@ def time_interval(crypto):
     return False
 
 def get_crypto_price_cryptocompare(crypto):
+
+    # Ouvrez le fichier contenant le compteur
+    with open("api_counter/counter_cryptocompare.txt", "r+") as file:
+        count = int(file.read() or 0)  # Lisez le compteur actuel ou initialisez-le à zéro
+        count += 1  # Incrémentez le compteur
+        file.seek(0)  # Déplacez le curseur au début du fichier
+        file.write(str(count))  # Écrivez le nouveau compteur dans le fichier
+        file.truncate()  # Tronquez le fichier au cas où le nouveau compteur est plus court que l'ancien
+
+
     return cryptocompare.get_price(crypto.name_cryptocompare, 'USD')[crypto.name_cryptocompare]["USD"]
 
 def get_crypto_price_coingecko(crypto):
+    # compteur d'utilisation de l'api pygecko
+    # Ouvrez le fichier contenant le compteur
+    with open("api_counter/counter_coingecko.txt", "r+") as file:
+        count = int(file.read() or 0)  # Lisez le compteur actuel ou initialisez-le à zéro
+        count += 1  # Incrémentez le compteur
+        file.seek(0)  # Déplacez le curseur au début du fichier
+        file.write(str(count))  # Écrivez le nouveau compteur dans le fichier
+        file.truncate()  # Tronquez le fichier au cas où le nouveau compteur est plus court que l'ancien
+
+
+
     cg = CoinGeckoAPI()
     return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
@@ -110,12 +132,16 @@ def get_price(crypto):
     price = None
     try :
         price = get_crypto_price_coingecko(crypto)
-    except : 
+    except Exception : 
         print ("coingecko error")
+        traceback.print_exc()
+
+
     try : 
             price = get_crypto_price_cryptocompare(crypto)
-    except : 
+    except Exception: 
         print ("cryptocompare error")
+        traceback.print_exc()
     if price != None :
         return price
     else:
