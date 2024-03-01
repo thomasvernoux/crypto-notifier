@@ -4,13 +4,13 @@ name_coingecko : pangolin
 amount : 12.5060202
 buy_price : 0.46696
 max_price : 0
-current_price : 0.4243
-USDC_balance : 5.30630437086
+current_price : 0.42
+USDC_balance : 5.252528484
 number_of_alert_authorized : 10
 last_notification_time : 1709215885.6857548
 peak_target : 95.0
-current_price_cryptocompare : 0.423
-profit_percent : 90.86431385985952
+current_price_cryptocompare : 0.4191
+profit_percent : 89.9434641082748
 
 name : AUCTION
 name_cryptocompare : AUCTION
@@ -18,13 +18,13 @@ name_coingecko : auction
 amount : 0.20086
 buy_price : 29.77
 max_price : 0
-current_price : 28.5
-USDC_balance : 5.72451
+current_price : 28.59
+USDC_balance : 5.742587400000001
 number_of_alert_authorized : 8
 last_notification_time : 1709219999.7949066
 peak_target : 95.0
-current_price_cryptocompare : 28.6
-profit_percent : 95.73396036278132
+current_price_cryptocompare : 28.57
+profit_percent : 96.036278132348
 
 name : PRO
 name_cryptocompare : PRO
@@ -32,13 +32,13 @@ name_coingecko : propy
 amount : 8.37833974
 buy_price : 0.57
 max_price : 0
-current_price : 0.5343
-USDC_balance : 4.476546923082
+current_price : 0.5355
+USDC_balance : 4.48660093077
 number_of_alert_authorized : 10
 last_notification_time : 0.0
 peak_target : 95.0
-current_price_cryptocompare : 0.5344
-profit_percent : 93.73684210526316
+current_price_cryptocompare : 0.5358
+profit_percent : 93.94736842105263
 
 name : FOX
 name_cryptocompare : FOX
@@ -46,13 +46,13 @@ name_coingecko : shapeshift-fox-token
 amount : 32.95448789
 buy_price : 0.0901
 max_price : 0
-current_price : 0.0885
-USDC_balance : 2.9164721782650003
+current_price : 0.088
+USDC_balance : 2.89999493432
 number_of_alert_authorized : 8
 last_notification_time : 1709220003.105757
 peak_target : 95.0
-current_price_cryptocompare : 0.0881
-profit_percent : 98.22419533851276
+current_price_cryptocompare : 0.088
+profit_percent : 97.669256381798
 
 name : PRQ
 name_cryptocompare : PRQ
@@ -60,13 +60,13 @@ name_coingecko : parsiq
 amount : 15.00058857
 buy_price : 0.1514
 max_price : 0
-current_price : 0.1474
-USDC_balance : 2.211086755218
+current_price : 0.1479
+USDC_balance : 2.218587049503
 number_of_alert_authorized : 10
 last_notification_time : 1709218771.7471771
 peak_target : 95.0
-current_price_cryptocompare : 0.1475
-profit_percent : 97.35799207397622
+current_price_cryptocompare : 0.1483
+profit_percent : 97.68824306472919
 
 name : NCT
 name_cryptocompare : NCT
@@ -74,11 +74,11 @@ name_coingecko : polyswarm
 amount : 146.0
 buy_price : 0.02209
 max_price : 0
-current_price : 0.01968
-USDC_balance : 2.87328
+current_price : 0.01956
+USDC_balance : 2.85576
 number_of_alert_authorized : 9
 last_notification_time : 1709219466.7534683
 peak_target : 95.0
-current_price_cryptocompare : 0.01968
-profit_percent : 89.09008601177003
+current_price_cryptocompare : 0.01949
+profit_percent : 88.54685377999095
 

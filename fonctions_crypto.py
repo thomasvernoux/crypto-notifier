@@ -8,6 +8,10 @@ from pycoingecko import CoinGeckoAPI
 
 time_notif_interval = 10 * 60  # interval between 2 notofications : 10 min
 
+fichier = "my_cryptos.txt"
+fichier_userfriendly = "user_data_userfriendly.txt"
+
+
 class Crypto:
     def __init__(self):
         self.name = None                      # Crypto name
@@ -21,11 +25,6 @@ class Crypto:
         self.number_of_alert_authorized = 0   # Number of alerts authorized by this crypto
         self.last_notification_time = 0       # last notification time by this crypto
         self.peak_target = 0                  # % of max value. When reached, send a notification
-
-
-
-fichier = "user_data.txt"
-fichier_userfriendly = "user_data_userfriendly.txt"
 
 def getCRYPTO():
     with open(fichier, 'r') as f:
@@ -80,8 +79,6 @@ def writeCRYPTO(cryptos):
             f.write("\n")
     f.close()
             
-
-
 def writeCRYPTO_userfriendly(cryptos):
     with open(fichier_userfriendly, 'w') as f:
         for crypto in cryptos:
@@ -96,8 +93,6 @@ def writeCRYPTO_userfriendly(cryptos):
             f.write(f"last notif time   : {int(crypto.last_notification_time)}\n")
             f.write("\n")
     f.close()
-
-        
 
 def time_interval(crypto):
     if (time.time() > crypto.last_notification_time + time_notif_interval) or (crypto.last_notification_time == 0):
@@ -127,5 +122,6 @@ def get_price(crypto):
         while 1 : 
             print("error getting price")
             time.sleep (3)
+
 
     

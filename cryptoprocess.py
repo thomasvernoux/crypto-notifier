@@ -10,6 +10,7 @@ import time
 from send_email_file import *
 from global_variables import *
 from function_history import *
+from peak_detections_functions import *
 
 
 
@@ -48,21 +49,18 @@ def crypto_process(crypto):
 
 
     ## peak detection
-    peak_limit = crypto.peak_target * 100 * crypto.current_price
-    if (peak_limit < crypto.max_price) & (crypto.number_of_alert_authorized >= 1) & time_interval(crypto):
-        # a peak is detected
-        # time to sell alert
+    if peak_detection_O1(crypto):
+        # On envoi un mail
         subject = "Time to sell alert"
         body = f"{crypto.name} is {crypto.peak_target}% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
         
-        if get_variable_mode() == "real":
-            send_email(subject, body)
-        elif get_variable_mode() == "test":
-            set_variable_test_mail_send(True)
+        
+        send_email(subject, body)
         crypto.number_of_alert_authorized -= 1
-
+        
         # update last notification time
         crypto.last_notification_time = time.time()
+    
 
     ## save price history in appropriate file
     save_to_file(crypto)
