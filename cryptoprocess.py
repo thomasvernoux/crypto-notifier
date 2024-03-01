@@ -25,11 +25,12 @@ def crypto_process(crypto):
     
 
     # simple print
-    print(f"Nom : {crypto.name}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
+    print(f"Nom : {crypto.name_cryptocompare}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
     
     # Price actualisation
     if get_variable_mode() == "real":
-        crypto.current_price = cryptocompare.get_price(crypto.name, 'USD')[crypto.name]["USD"]
+        crypto.current_price_cryptocompare = get_price(crypto)
+        
     
     # Max price actualisation
     if crypto.current_price > crypto.max_price :

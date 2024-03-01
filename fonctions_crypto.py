@@ -1,6 +1,8 @@
 
 import time
 from global_variables import *
+import cryptocompare
+from pycoingecko import CoinGeckoAPI
 
 
 
@@ -9,6 +11,8 @@ time_notif_interval = 10 * 60  # interval between 2 notofications : 10 min
 class Crypto:
     def __init__(self):
         self.name = None                      # Crypto name
+        self.name_cryptocompare = None        # Crypto name on cryptocompare
+        self.name_coingecko = None          # Crypto name on coingeko
         self.amount = None                    # Amount of crypto
         self.buy_price = None                 # Price I bought this crypto
         self.max_price = None                 # Maximum price reached by this crypto
@@ -32,11 +36,15 @@ def getCRYPTO():
 
     for i in lignes:
         ligne = i.strip()
-        if ligne.startswith("name"):
+        if ligne.startswith("name "):
             if current_crypto:
                 cryptos.append(current_crypto)
             current_crypto = Crypto()
-            current_crypto.name = ligne.split(":")[1].strip()
+            current_crypto.name  = ligne.split(":")[1].strip()
+        elif ligne.startswith("name_cryptocompare"):
+            current_crypto.name_cryptocompare = ligne.split(":")[1].strip()
+        elif ligne.startswith("name_coingecko"):
+            current_crypto.name_coingecko = ligne.split(":")[1].strip()
         elif ligne.startswith("amount"):
             current_crypto.amount = float(ligne.split(":")[1].strip())
         elif ligne.startswith("buy_price"):
@@ -77,7 +85,7 @@ def writeCRYPTO(cryptos):
 def writeCRYPTO_userfriendly(cryptos):
     with open(fichier_userfriendly, 'w') as f:
         for crypto in cryptos:
-            f.write(f"crypto            : {crypto.name}\n")
+            f.write(f"crypto            : {crypto.name_cryptocompare}\n")
             f.write(f"ammount           : {crypto.amount}\n")
             f.write(f"buy price         : {crypto.buy_price}\n")
             f.write(f"maximum price     : {crypto.max_price}\n")
@@ -96,5 +104,28 @@ def time_interval(crypto):
         return True
     return False
 
+def get_crypto_price_cryptocompare(crypto):
+    return cryptocompare.get_price(crypto.name_cryptocompare, 'USD')[crypto.name_cryptocompare]["USD"]
 
+def get_crypto_price_coingecko(crypto):
+    cg = CoinGeckoAPI()
+    return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
+def get_price(crypto):
+    price = None
+    try :
+        price = get_crypto_price_coingecko(crypto)
+    except : 
+        print ("coingecko error")
+    try : 
+            price = get_crypto_price_cryptocompare(crypto)
+    except : 
+        print ("cryptocompare error")
+    if price != None :
+        return price
+    else:
+        while 1 : 
+            print("error getting price")
+            time.sleep (3)
+
+    

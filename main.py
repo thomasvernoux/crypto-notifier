@@ -23,4 +23,4 @@ while True :
     #send_email("crypto check", "test")
     #print("mail send")
 
-    time.sleep(10)
+    time.sleep(60)
