@@ -26,6 +26,11 @@ class Crypto:
         self.number_of_alert_authorized = 0   # Number of alerts authorized by this crypto
         self.last_notification_time = 0       # last notification time by this crypto
         self.peak_target = 0                  # % of max value. When reached, send a notification
+        self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
+
+    def decrase_number_of_alert_authorized(self):
+        self.number_of_alert_authorized -=1
+
 
 def getCRYPTO():
     with open(fichier, 'r') as f:
@@ -46,29 +51,30 @@ def getCRYPTO():
         elif ligne.startswith("name_coingecko"):
             current_crypto.name_coingecko = ligne.split(":")[1].strip()
         elif ligne.startswith("amount"):
-            current_crypto.amount = float(ligne.split(":")[1].strip())
+            current_crypto.amount = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("buy_price"):
-            current_crypto.buy_price = float(ligne.split(":")[1].strip())
+            current_crypto.buy_price = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("max_price"):
-            current_crypto.max_price = float(ligne.split(":")[1].strip())
+            current_crypto.max_price = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("current_price"):
-            current_crypto.current_price = float(ligne.split(":")[1].strip())
+            current_crypto.current_price = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("USDC_balance"):
-            current_crypto.USDC_balance = float(ligne.split(":")[1].strip())
+            current_crypto.USDC_balance = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("profit %"):
-            current_crypto.profit_percent = float(ligne.split(":")[1].strip())
+            current_crypto.profit_percent = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("number_of_alert_authorized"):
-            current_crypto.number_of_alert_authorized = int(ligne.split(":")[1].strip())
+            current_crypto.number_of_alert_authorized = int(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("last_notification_time"):
-            current_crypto.last_notification_time = float(ligne.split(":")[1].strip())
+            current_crypto.last_notification_time = float(ligne.replace(",", ".").split(":")[1].strip())
         elif ligne.startswith("peak_target"):
-            current_crypto.peak_target = float(ligne.split(":")[1].strip())
+            current_crypto.peak_target = float(ligne.replace(",", ".").split(":")[1].strip())
+        elif ligne.startswith("break_even_point"):
+            current_crypto.break_even_point = float(ligne.replace(",", ".").split(":")[1].strip())
     # Ajoutez la dernière crypto après la boucle
     if current_crypto:
         cryptos.append(current_crypto)
 
-    for i in cryptos :
-        print("i", i)
+    
 
     return cryptos
 
@@ -96,11 +102,18 @@ def writeCRYPTO_userfriendly(cryptos):
     f.close()
 
 def time_interval(crypto):
+    """
+    Check time intervall between two notification requests
+    retrn true or false if the notification can be done
+    """
     if (time.time() > crypto.last_notification_time + time_notif_interval) or (crypto.last_notification_time == 0):
         return True
     return False
 
 def get_crypto_price_cryptocompare(crypto):
+    """
+    Get price from cryptocompare API
+    """
 
     # Ouvrez le fichier contenant le compteur
     with open("api_counter/counter_cryptocompare.txt", "r+") as file:
@@ -114,6 +127,16 @@ def get_crypto_price_cryptocompare(crypto):
     return cryptocompare.get_price(crypto.name_cryptocompare, 'USD')[crypto.name_cryptocompare]["USD"]
 
 def get_crypto_price_coingecko(crypto):
+    """
+    Get price from coingecko api
+
+    Is CoinGecko API free?
+    CoinGecko API offers both free and paid plans. 
+    The Demo API plan is accessible to all CoinGecko users at zero cost, 
+    with a stable rate limit of 30 calls/min and a monthly cap of 10,000 calls.
+
+    = 13 calls per hours
+    """
     # compteur d'utilisation de l'api pygecko
     # Ouvrez le fichier contenant le compteur
     with open("api_counter/counter_coingecko.txt", "r+") as file:
@@ -129,6 +152,11 @@ def get_crypto_price_coingecko(crypto):
     return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
 def get_price(crypto):
+    """
+    Get price :
+    try to use coingecko to get the price, if it is not possible, try with cryptocompare
+    """
+
     price = None
     try :
         price = get_crypto_price_coingecko(crypto)
@@ -149,5 +177,25 @@ def get_price(crypto):
             print("error getting price")
             time.sleep (3)
 
+def cryptos_reset_max_price():
+    """
+    Reset the maximum value of all cryptos to current value
+    """
 
+    cryptos = getCRYPTO()
+    for c in cryptos : 
+        c.max_price = c.current_price
+
+    writeCRYPTO(cryptos)
     
+def cryptos_set_notifications_authorisations(value):
+    """
+    Reset the value of all cryptos notifications
+    """
+
+    cryptos = getCRYPTO()
+    for c in cryptos : 
+        c.number_of_alert_authorized = value
+
+    writeCRYPTO(cryptos)
+

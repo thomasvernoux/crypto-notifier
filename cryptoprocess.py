@@ -26,7 +26,7 @@ def crypto_process(crypto):
     
 
     # simple print
-    print(f"Nom : {crypto.name_cryptocompare}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
+    #print(f"Nom : {crypto.name_cryptocompare}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
     
     # Price actualisation
     if get_variable_mode() == "real":
@@ -50,20 +50,29 @@ def crypto_process(crypto):
 
     ## peak detection
     if peak_detection_O1(crypto):
-        # On envoi un mail
+      
+        """
+        Send an email
+        """
         subject = "Time to sell alert"
-        body = f"{crypto.name} is {crypto.peak_target}% maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
+        body = f"{crypto.name} is {crypto.peak_target}% of maximum value.\nMax value : {crypto.max_price}\nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
+        
+    
+        if get_variable_mode() == "real":
+            send_email(subject, body)
+        elif get_variable_mode() == "test":
+            set_variable_test_mail_send(True)
         
         
-        send_email(subject, body)
-        crypto.number_of_alert_authorized -= 1
         
         # update last notification time
         crypto.last_notification_time = time.time()
     
 
     ## save price history in appropriate file
-    save_to_file(crypto)
+    if get_variable_mode() == "real":
+        save_to_file(crypto)
+        
 
 
 

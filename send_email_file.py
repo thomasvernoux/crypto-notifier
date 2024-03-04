@@ -10,19 +10,23 @@ password = "jych cyvw ncyy fmmt"
 
 
 def send_email(subject, body):
+   """
+   Sent an email to thomas@vernoux.be
+   """
     
-   if get_variable_mode() == "real":
-      msg = MIMEText(body)
-      msg['Subject'] = subject
-      msg['From'] = sender
-      msg['To'] = ', '.join(recipients)
-      with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-         smtp_server.login(sender, password)
-         smtp_server.sendmail(sender, recipients, msg.as_string())
-      print("Message sent!")      
+   
+   msg = MIMEText(body)
+   msg['Subject'] = subject
+   msg['From'] = sender
+   msg['To'] = ', '.join(recipients)
+   with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+      smtp_server.login(sender, password)
+      smtp_server.sendmail(sender, recipients, msg.as_string())
+   print("Message sent!")  
+
+   
             
-   elif get_variable_mode() == "test":
-      set_variable_test_mail_send(True)
+   
       
 
 

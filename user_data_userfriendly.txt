@@ -1,60 +1,70 @@
-crypto            : PNG
-ammount           : 12.5060202
-buy price         : 0.46696
-maximum price     : 0
-current price     : 0.4194
-USDC_balance      : 5.24502487188
-profit %          : 89.81497344526298
-alert_ahthorized  : 10
-last notif time   : 1709215885
-
 crypto            : AUCTION
 ammount           : 0.20086
 buy price         : 29.77
 maximum price     : 0
-current price     : 28.68
-USDC_balance      : 5.7606648
-profit %          : 96.33859590191469
+current price     : 28.07
+USDC_balance      : 5.6381402000000005
+profit %          : 94.2895532415183
 alert_ahthorized  : 8
 last notif time   : 1709219999
 
-crypto            : PRO
-ammount           : 8.37833974
-buy price         : 0.57
+crypto            : DYP
+ammount           : 16.85194835
+buy price         : 0.29754
 maximum price     : 0
-current price     : 0.5381
-USDC_balance      : 4.508384614094
-profit %          : 94.40350877192984
+current price     : 0.0
+USDC_balance      : 0.0
+profit %          : 0.0
 alert_ahthorized  : 10
 last notif time   : 0
 
-crypto            : FOX
-ammount           : 32.95448789
-buy price         : 0.0901
+crypto            : SEAM
+ammount           : 0.8
+buy price         : 4.8387
 maximum price     : 0
-current price     : 0.0874
-USDC_balance      : 2.8802222415860004
-profit %          : 97.0033296337403
-alert_ahthorized  : 8
-last notif time   : 1709220003
-
-crypto            : PRQ
-ammount           : 15.00058857
-buy price         : 0.1514
-maximum price     : 0
-current price     : 0.1483
-USDC_balance      : 2.2245872849309998
-profit %          : 97.95244385733156
+current price     : 0.0
+USDC_balance      : 0.0
+profit %          : 0.0
 alert_ahthorized  : 10
-last notif time   : 1709218771
+last notif time   : 0
+
+crypto            : INV
+ammount           : 0.1051
+buy price         : 40.89
+maximum price     : 0
+current price     : 0.0
+USDC_balance      : 0.0
+profit %          : 0.0
+alert_ahthorized  : 10
+last notif time   : 0
 
 crypto            : NCT
-ammount           : 146.0
+ammount           : 182.41
 buy price         : 0.02209
 maximum price     : 0
-current price     : 0.01956
-USDC_balance      : 2.85576
-profit %          : 88.54685377999095
+current price     : 0.01958
+USDC_balance      : 3.5715878
+profit %          : 88.63739248528746
 alert_ahthorized  : 9
 last notif time   : 1709219466
+
+crypto            : MOBILE
+ammount           : 565.670699
+buy price         : 0.004016
+maximum price     : 0
+current price     : 0.0
+USDC_balance      : 0.0
+profit %          : 0.0
+alert_ahthorized  : 10
+last notif time   : 0
+
+crypto            : PNG
+ammount           : 0.50602
+buy price         : 0.46696
+maximum price     : 0
+current price     : 0.4468
+USDC_balance      : 0.22608973599999999
+profit %          : 95.6827137228028
+alert_ahthorized  : 10
+last notif time   : 1709215885
 

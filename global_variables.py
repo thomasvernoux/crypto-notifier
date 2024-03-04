@@ -15,3 +15,45 @@ def set_variable_test_mail_send(nouvelle_valeur):
 
 def get_variable_test_mail_send():
     return test_mail_send
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
