@@ -7,6 +7,7 @@ import time
 from send_email_file import *
 from cryptoprocess import *
 from global_variables import *
+from class_crypos import *
 
 set_variable_mode("test")
 
@@ -33,7 +34,7 @@ def test_peak_detection1():
     crypto1.break_even_point = 105              
 
 
-    crypto_process(crypto1)
+    crypto1.cryptoprocess()
 
 
 
@@ -63,7 +64,7 @@ def test_peak_detection2():
     crypto1.break_even_point = 105              
 
 
-    crypto_process(crypto1)
+    crypto1.cryptoprocess()
 
 
 
@@ -92,7 +93,7 @@ def test_peak_detection3():
     crypto1.break_even_point = 105              
 
 
-    crypto_process(crypto1)
+    crypto1.cryptoprocess()
 
 
 
@@ -121,8 +122,7 @@ def test_peak_detection4():
     crypto1.break_even_point = 105              
 
 
-    crypto_process(crypto1)
-
+    crypto1.cryptoprocess()
 
 
     if get_variable_test_mail_send():
@@ -150,7 +150,7 @@ def test_peak_detection5():
     crypto1.break_even_point = 105              
 
 
-    crypto_process(crypto1)
+    crypto1.cryptoprocess()
 
 
 
