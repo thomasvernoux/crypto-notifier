@@ -27,6 +27,10 @@ def get_crypto_price_cryptocompare(crypto):
     Get price from cryptocompare API
     """
 
+    if crypto.name_cryptocompare == None : 
+        print ("no name cryptocompare for : ", crypto.name)
+        return -1
+
     # Ouvrez le fichier contenant le compteur
     with open("api_counter/counter_cryptocompare.txt", "r+") as file:
         count = int(file.read() or 0)  # Lisez le compteur actuel ou initialisez-le à zéro
@@ -49,6 +53,11 @@ def get_crypto_price_coingecko(crypto):
 
     = 13 calls per hours
     """
+
+    if crypto.name_coingecko == None : 
+        print ("no name coingecko for : ", crypto.name)
+        return -1
+
     # compteur d'utilisation de l'api pygecko
     # Ouvrez le fichier contenant le compteur
     with open("api_counter/counter_coingecko.txt", "r+") as file:
@@ -68,6 +77,12 @@ def get_price(crypto):
     Get price :
     try to use coingecko to get the price, if it is not possible, try with cryptocompare
     """
+
+
+    if crypto.USDC_balance < 1 :
+        print ("USDC_balance under 1 dollard, skip get price for : ", crypto.name)
+        return 0
+    
 
     price = None
     try :

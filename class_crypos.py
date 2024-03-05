@@ -18,14 +18,14 @@ fichier_userfriendly = "user_data_userfriendly.txt"
 
 class Crypto:
     def __init__(self):
-        self.name = None                      # Crypto name
+        self.name = None                      # Crypto name on coinbase
         self.name_cryptocompare = None        # Crypto name on cryptocompare
-        self.name_coingecko = None          # Crypto name on coingeko
-        self.amount = None                    # Amount of crypto
-        self.buy_price = None                 # Price I bought this crypto
-        self.max_price = None                 # Maximum price reached by this crypto
-        self.current_price = None             # Last update price of the crypto
-        self.USDC_balance = None              # USDC equivalance of the crypto
+        self.name_coingecko = None            # Crypto name on coingeko
+        self.amount = 0                       # Amount of crypto
+        self.buy_price = 0                    # Price I bought this crypto
+        self.max_price = 0                    # Maximum price reached by this crypto
+        self.current_price = 0                # Last update price of the crypto
+        self.USDC_balance = 0                 # USDC equivalance of the crypto
         self.number_of_alert_authorized = 0   # Number of alerts authorized by this crypto
         self.last_notification_time = 0       # last notification time by this crypto
         self.peak_target = 0                  # % of max value. When reached, send a notification
@@ -48,17 +48,24 @@ class Crypto:
         
         # Price actualisation
         if get_variable_mode() == "real":
-            self.current_price_cryptocompare = get_price(self)
-            
+            self.current_price = get_price(self)
         
+
+        if self.max_price == None : 
+            self.max_price = self.current_price
+        
+        if self.current_price == None : 
+            return
         # Max price actualisation
         if self.current_price > self.max_price :
             self.max_price = self.current_price
         
         # USDC balance actualisation
         self.USDC_balance = self.amount * self.current_price
-        self.profit_percent = self.current_price / self.buy_price * 100
-
+        try : 
+            self.profit_percent = self.current_price / self.buy_price * 100
+        except : 
+            None
 
         ## peak reset
         if self.current_price < self.buy_price : 
@@ -181,6 +188,19 @@ class CRYPTOS:
             crypto.peak_target = crypto_data.get("peak_target")
             crypto.break_even_point = crypto_data.get("break_even_point")
             
+            if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
+                crypto.buy_price = -1
+
+            if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
+                crypto.current_price = -1
+
+            if not (isinstance(crypto.max_price, float) or crypto.max_price == 0):
+                crypto.max_price = -1
+            
+                
+
+
+
             cryptos_list.append(crypto)
         
 
@@ -197,6 +217,7 @@ class CRYPTOS:
         return
     
     def writeCRYPTO_json(self):
+        a = self.cryptos_list
         with open("cryptos.json", 'w') as f:
             json.dump([crypto.__dict__ for crypto in self.cryptos_list], f, indent=4)
 
@@ -239,18 +260,42 @@ class CRYPTOS:
         self.writeCRYPTO_json()
 
     def actualise_crypto_account(self):
+        """
+        refresh crypto account in json file
+        """
         data_api = get_accounts_from_api()["data"]
         #print(data)
         dic_price_api = {}
         for data_C in data_api : 
-            dic_price_api[data_C["balance"]["currency"]] = data_C["balance"]["amount"]
+            dic_price_api[data_C["balance"]["currency"]] = float(data_C["balance"]["amount"])
 
         #print (dic_price_api)
-        
+        list_of_my_cryptos = []
         for i in range(len(self.cryptos_list)) :
+            list_of_my_cryptos.append(self.cryptos_list[i].name)
             self.cryptos_list[i].amount = dic_price_api[self.cryptos_list[i].name]
 
+        for k in dic_price_api :
+            if k in list_of_my_cryptos :
+                # la crypto de l'api est bien dans mon repertoire json
+                continue
+            else : 
+                # On cree la crypto qui manque
+                for i in self.cryptos_list :
+                    print("crypto list _ name : ", i.name)
+                #a = self.cryptos_list[:]
+                self.cryptos_list.append(Crypto())
+                #a = self.cryptos_list[:]
+                print(k)
+                self.cryptos_list[-1].name = k
+                self.cryptos_list[-1].amount = dic_price_api[k]
+                
+
+
+
         self.writeCRYPTO_json()
+
+
 
 
     

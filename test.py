@@ -5,7 +5,6 @@ from fonctions_crypto import *
 import cryptocompare
 import time
 from send_email_file import *
-from cryptoprocess import *
 from global_variables import *
 from class_crypos import *
 
