@@ -3,3 +3,4 @@ __pycache__/struct.cpython-310.pyc
 *.pyc
 cours/
 user_data.txt
+coinbase_cloud_api_key.json
