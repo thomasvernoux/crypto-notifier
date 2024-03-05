@@ -13,11 +13,6 @@ time_notif_interval = 10 * 60  # interval between 2 notofications : 10 min
 
 
 
-
-    
-
-
-
 def time_interval(crypto):
     """
     Check time intervall between two notification requests

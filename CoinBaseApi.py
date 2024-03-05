@@ -18,14 +18,16 @@ def load_var_from_json(filename, variable):
 api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
 api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
 
+def get_accounts_from_api():
+
+    client = Client(api_key, api_secret)
+    user = client.get_current_user()
+    #print(user)
+    p = client.get_buy_price(currency_pair = 'BTC-USD')
+    #print(p)
 
 
-client = Client(api_key, api_secret)
-user = client.get_current_user()
-#print(user)
-p = client.get_buy_price(currency_pair = 'BTC-USD')
-#print(p)
+    accounts = client.get_accounts()
+    return accounts
 
 
-accounts = client.get_accounts()
-print(accounts)

@@ -3,7 +3,7 @@ import cryptocompare
 import time
 
 from send_email_file import *
-from cryptoprocess import *
+
 from specials_alerts import *
 from class_crypos import * 
 

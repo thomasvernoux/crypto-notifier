@@ -8,6 +8,7 @@ from send_email_file import *
 from global_variables import *
 from function_history import *
 from peak_detections_functions import *
+from CoinBaseApi import *
 
 
 fichier = "my_cryptos.txt"
@@ -102,24 +103,6 @@ class Crypto:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class CRYPTOS:
     def __init__(self):
         self.cryptos_list = []
@@ -181,8 +164,6 @@ class CRYPTOS:
             # Charger le contenu JSON sous forme de liste d'objets Python
             cryptos_data = json.load(f)
 
-        for i in cryptos_data : 
-            print(i)
 
         cryptos_list = []
         for crypto_data in cryptos_data:
@@ -256,6 +237,21 @@ class CRYPTOS:
             c.number_of_alert_authorized = value
 
         self.writeCRYPTO_json()
+
+    def actualise_crypto_account(self):
+        data_api = get_accounts_from_api()["data"]
+        #print(data)
+        dic_price_api = {}
+        for data_C in data_api : 
+            dic_price_api[data_C["balance"]["currency"]] = data_C["balance"]["amount"]
+
+        #print (dic_price_api)
+        
+        for i in range(len(self.cryptos_list)) :
+            self.cryptos_list[i].amount = dic_price_api[self.cryptos_list[i].name]
+
+        self.writeCRYPTO_json()
+
 
     
 
