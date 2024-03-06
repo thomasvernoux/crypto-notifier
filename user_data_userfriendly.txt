@@ -1,5 +1,5 @@
 crypto            : AUCTION
-ammount           : 0.00083549
+ammount           : 0.00059257
 buy price         : 29.77
 maximum price     : 0
 current price     : 0
@@ -219,32 +219,38 @@ alert_ahthorized  : 10
 last notif time   : 0
 
 crypto            : None
-ammount           : 0.0
+ammount           : 0
 buy price         : -1
 maximum price     : 0
 current price     : 0
-USDC_balance      : 0.0
+USDC_balance      : 0
 profit %          : -0.0
 alert_ahthorized  : 10
 last notif time   : 0
 
 crypto            : None
-ammount           : 3.851096
+ammount           : 0
 buy price         : -1
 maximum price     : 0
 current price     : 0
-USDC_balance      : 0.0
+USDC_balance      : 0
 profit %          : -0.0
 alert_ahthorized  : 10
 last notif time   : 0
 
 crypto            : None
-ammount           : 0.0
+ammount           : 0
 buy price         : -1
 maximum price     : 0
 current price     : 0
-USDC_balance      : 0.0
+USDC_balance      : 0
 profit %          : -0.0
 alert_ahthorized  : 10
 last notif time   : 0
 
+crypto            : None
+ammount           : 0.00016267
+buy price         : 0
+maximum price     : 0
+current price     : 0
+USDC_balance      : 0.0

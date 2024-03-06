@@ -32,7 +32,7 @@ Main loop
 while True :
 
     print("Start loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
-    write_log("Start loop")
+    write_log("info", "Start loop")
 
     for crypto in CRYPTOS_object.cryptos_list:
         # Process each crypto
@@ -40,14 +40,18 @@ while True :
         
     # Save data into files
     CRYPTOS_object.writeCRYPTO_json()
-    CRYPTOS_object.writeCRYPTO_userfriendly()
+
+    try : 
+        CRYPTOS_object.writeCRYPTO_userfriendly()
+    except Exception as e:
+        minor_error(f"Cannot write in crypto userfriendly: {str(e)}")
 
     # specials alerts
     #specials_alerts(CRYPTOS)
 
 
     print("End loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
-    write_log("End loop")
+    write_log("info", "End loop")
     
     # sleep (seconds)
     time.sleep(60 * 15)

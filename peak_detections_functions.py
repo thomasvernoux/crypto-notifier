@@ -19,7 +19,7 @@ def peak_detection_O1(crypto):
     if crypto.current_price > crypto.buy_price * crypto.break_even_point / 100 :                             # La crypto à pris 5 %
         if (crypto.current_price < peak_limit):                                     # on est sur la phase descendante du pic
             if (crypto.number_of_alert_authorized >= 1) & (time_interval(crypto)):  # on evite de trop notifier
-                write_log("Peak detected : " )   # TODO finish
+                write_log("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
                 return True
     
     return False

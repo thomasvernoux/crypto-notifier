@@ -71,7 +71,7 @@ def write_log(file, error_message):
 
     # Open the error log file in append mode and write the error message
     with open(filename_dic[file], "a") as error_file:
-        error_file.write(datetime.now().strftime("%Y%m%d_%H%M%S") + " : " + error_message + "\n")
+        error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
 
 def critical_error(error_message):
@@ -117,17 +117,12 @@ def minor_error(error_message):
 """
 Usage example
 
-# Initialize the error module by creating a new error log file
-init_error_module()
+minor_error("test 02")
+write_log("test", "hello")
+critical_error("test 01")
 
-# Example usage: Adding error messages to the error log file
-write_log("Critical Error: Division by zero.")  # Add a new error
-write_log("Minor Error: Invalid value detected.")  # Add another error
 
 """
 
 
-minor_error("test 02")
-write_log("test", "hello")
-critical_error("test 01")
 

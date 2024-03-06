@@ -16,7 +16,6 @@ fichier = "my_cryptos.txt"                                  # TODO : Delete ?
 fichier_userfriendly = "user_data_userfriendly.txt"
 
 
-
 class Crypto:
     def __init__(self):
         self.name = None                      # Crypto name on coinbase
@@ -106,6 +105,18 @@ class Crypto:
         
         
         return self
+
+    def get_crypto_info_str(self):
+        """
+        Return crypto info str printable
+        """
+
+        ret_value = ""
+
+        for key, value in vars(self).items():
+            ret_value += str(key) + " " + str(value) + "\n"
+
+        return ret_value
 
 
 
@@ -273,8 +284,19 @@ class CRYPTOS:
         #print (dic_price_api)
         list_of_my_cryptos = []
         for i in range(len(self.cryptos_list)) :
-            list_of_my_cryptos.append(self.cryptos_list[i].name)
-            self.cryptos_list[i].amount = dic_price_api[self.cryptos_list[i].name]
+            crypto_name = self.cryptos_list[i].name
+            
+            # Error check
+            if not (crypto_name in dic_price_api):
+                minor_error("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
+                self.cryptos_list[i].amount = 0
+                continue
+
+            try :
+                list_of_my_cryptos.append(crypto_name)
+                self.cryptos_list[i].amount = dic_price_api[crypto_name]
+            except : 
+                minor_error("ammount refresh error : \n" + self.cryptos_list[i].get_crypto_info_str())
 
         for k in dic_price_api :
             if k in list_of_my_cryptos :
