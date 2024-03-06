@@ -4,6 +4,7 @@ from global_variables import *
 import cryptocompare
 from pycoingecko import CoinGeckoAPI
 import traceback
+from log import *
 
 
 
@@ -83,6 +84,7 @@ def get_price(crypto):
         print ("USDC_balance under 1 dollard, skip get price for : ", crypto.name)
         return 0
     
+    
 
     price = None
     try :
@@ -97,12 +99,16 @@ def get_price(crypto):
     except Exception: 
         print ("cryptocompare error")
         traceback.print_exc()
+
+
+
     if price != None :
+        print ("Crypto activ : ", crypto.name)
+        write_log("crypto getprice", )
         return price
     else:
-        while 1 : 
-            print("error getting price")
-            time.sleep (3)
+        minor_error("cannot get price for crypto : \n" + crypto.get_crypto_info_str())
+
 
 
     

@@ -63,7 +63,7 @@ def write_log(file, error_message):
     """
     Adds an error message to the error log file.
     """
-    global error_file_path
+    
     global filename_dic
     
     if not (file in filename_dic) : 
@@ -72,7 +72,18 @@ def write_log(file, error_message):
     # Open the error log file in append mode and write the error message
     with open(filename_dic[file], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
+    
+    """
+    Write everithing in a full log file
+    """
+    full_log_name = "full_log"
+    full_log_path = log_base_path + "/" + full_log_name
+    
+    if not (full_log_name in filename_dic) : 
+        init_error_module(full_log_name)
 
+    with open(full_log_name, "a") as error_file:
+        error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
 def critical_error(error_message):
     """

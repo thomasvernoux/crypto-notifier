@@ -2,6 +2,7 @@
 
 from coinbase.wallet.client import Client
 import json
+from global_variables import *
 
 
 def load_var_from_json(filename, variable):
@@ -30,4 +31,25 @@ def get_accounts_from_api():
     accounts = client.get_accounts()
     return accounts
 
+def get_sell_price(crypto):
+    
+    # TODO
+
+    # client.get_sell_price(currency_pair = 'BTC-USD')
+
+    return None
+
+
+def update_account_id_dico():
+    client = Client(api_key, api_secret)
+    accounts = client.get_accounts()
+    
+    global dico_account_id
+    dico_account_id = {}
+    for i in accounts["data"]:
+        key = i.currency.code
+        value = i.currency.asset_id
+        dico_account_id[key] = value
+
+    set_variable_dico_account_id(dico_account_id)
 

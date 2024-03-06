@@ -49,7 +49,9 @@ while True :
     # specials alerts
     #specials_alerts(CRYPTOS)
 
-
+    """
+    End of the loop
+    """
     print("End loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
     write_log("info", "End loop")
     

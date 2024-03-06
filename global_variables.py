@@ -16,6 +16,13 @@ def set_variable_test_mail_send(nouvelle_valeur):
 def get_variable_test_mail_send():
     return test_mail_send
 
+# dico account Id : vdictionary that associate crypto name to account id
+def set_variable_dico_account_id(nouvelle_valeur):
+    global dico_account_id
+    dico_account_id = nouvelle_valeur
+
+def get_variable_dico_account_id():
+    return dico_account_id
 
 
 
