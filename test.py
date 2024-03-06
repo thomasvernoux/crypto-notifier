@@ -7,6 +7,7 @@ import time
 from send_email_file import *
 from global_variables import *
 from class_crypos import *
+from log import *
 
 set_variable_mode("test")
 
@@ -156,8 +157,6 @@ def test_peak_detection5():
     if get_variable_test_mail_send():
         all_test_passed = False
         print("test_peak_detection 5 failed")
-
-
 
 
 test_peak_detection1()    # Simple peak detection test

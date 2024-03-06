@@ -9,9 +9,10 @@ from global_variables import *
 from function_history import *
 from peak_detections_functions import *
 from CoinBaseApi import *
+from log import *
 
 
-fichier = "my_cryptos.txt"
+fichier = "my_cryptos.txt"                                  # TODO : Delete ?
 fichier_userfriendly = "user_data_userfriendly.txt"
 
 

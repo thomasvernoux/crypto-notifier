@@ -5,9 +5,9 @@ import time
 from send_email_file import *
 
 from specials_alerts import *
-from class_crypos import * 
+from class_crypos import *
 
-
+from log import *
 
 
 # set global variable MODE to real (the test mode can be use for test purpose)
@@ -32,6 +32,7 @@ Main loop
 while True :
 
     print("Start loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
+    write_log("Start loop")
 
     for crypto in CRYPTOS_object.cryptos_list:
         # Process each crypto
@@ -46,6 +47,7 @@ while True :
 
 
     print("End loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
+    write_log("End loop")
     
     # sleep (seconds)
     time.sleep(60 * 15)
