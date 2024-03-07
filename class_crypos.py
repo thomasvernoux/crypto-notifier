@@ -30,6 +30,8 @@ class Crypto:
         self.last_notification_time = 0       # last notification time by this crypto
         self.peak_target = 0                  # % of max value. When reached, send a notification
         self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
+        self.profit_percent = 0               # Profitability
+
 
     def decrase_number_of_alert_authorized(self):
         self.number_of_alert_authorized -=1
@@ -50,12 +52,18 @@ class Crypto:
         if get_variable_mode() == "real":
             self.current_price = get_price(self)
         
-
         if self.max_price == None : 
             self.max_price = self.current_price
-        
+
         if self.current_price == None : 
+            minor_error("function cryptoprocess : self.current_price == None")
             return
+        
+        # Detect missing informations on cryptos
+        if (self.USDC_balance >= 1):
+            if (self.current_price == 0 or self.current_price == None) : 
+                critical_error(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
+
         # Max price actualisation
         if self.current_price > self.max_price :
             self.max_price = self.current_price
@@ -68,13 +76,18 @@ class Crypto:
             None
 
         ## peak reset
-        if self.current_price < self.buy_price : 
-            self.max_price = 0
+        ##if self.current_price < self.buy_price : 
+        ##    self.max_price = 0
 
 
 
+        ## save price history in appropriate file
+        if get_variable_mode() == "real":
+            save_to_file(self)
+
+        
         ## peak detection
-        if peak_detection_O1(self):
+        if peak_detection_O1(self) and (self.USDC_balance > 1):
         
             """
             Send an email
@@ -85,25 +98,24 @@ class Crypto:
         
             if get_variable_mode() == "real":
                 send_email(subject, body)
+                
+                # Sell crypto
+                self.sell_for_USDC()
+
+
             elif get_variable_mode() == "test":
                 set_variable_test_mail_send(True)
             
             
             
+
             # update last notification time
             self.last_notification_time = time.time()
         
 
-        ## save price history in appropriate file
-        if get_variable_mode() == "real":
-            save_to_file(self)
+        
             
 
-
-
-        
-        
-        
         return self
 
     def get_crypto_info_str(self):
@@ -118,7 +130,8 @@ class Crypto:
 
         return ret_value
 
-
+    def sell_for_USDC(self):
+        sell_crypto_for_USDC(self.name)
 
 
 
@@ -275,48 +288,57 @@ class CRYPTOS:
         """
         refresh crypto account in json file
         """
+        
         data_api = get_accounts_from_api()["data"]
         #print(data)
-        dic_price_api = {}
+        dic_amount_api = {}
         for data_C in data_api : 
-            dic_price_api[data_C["balance"]["currency"]] = float(data_C["balance"]["amount"])
+            amount_str = data_C["balance"]["amount"]
+            amount = float(amount_str)
+            if amount > 0:
+                dic_amount_api[data_C["balance"]["currency"]] = float(data_C["balance"]["amount"])
+            else : 
+                write_log("info", f"crypto amount equal 0 : {data_C['balance']['currency']}")
 
         #print (dic_price_api)
         list_of_my_cryptos = []
+        for i in self.cryptos_list:
+            list_of_my_cryptos.append(i.name)
+        
+
+        # Error Check
         for i in range(len(self.cryptos_list)) :
             crypto_name = self.cryptos_list[i].name
             
-            # Error check
-            if not (crypto_name in dic_price_api):
+            if not (crypto_name in dic_amount_api):
                 minor_error("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
                 self.cryptos_list[i].amount = 0
                 continue
 
-            try :
-                list_of_my_cryptos.append(crypto_name)
-                self.cryptos_list[i].amount = dic_price_api[crypto_name]
-            except : 
-                minor_error("ammount refresh error : \n" + self.cryptos_list[i].get_crypto_info_str())
 
-        for k in dic_price_api :
+
+        for k in dic_amount_api :
+            # Check if the crypto is in my json file
             if k in list_of_my_cryptos :
                 # la crypto de l'api est bien dans mon repertoire json
-                continue
+
+                # find the correct crypto in the list
+                for i in range(len(self.cryptos_list)):
+                    if self.cryptos_list[i].name == k:
+                        # It is this crypto
+                        self.cryptos_list[i].amount = dic_amount_api[self.cryptos_list[i].name]
+                    else : continue
+
+            # the Crypto from API is not in my json file (local)
             else : 
-                # On cree la crypto qui manque
-                for i in self.cryptos_list :
-                    print("crypto list _ name : ", i.name)
-                #a = self.cryptos_list[:]
                 self.cryptos_list.append(Crypto())
-                #a = self.cryptos_list[:]
-                print(k)
                 self.cryptos_list[-1].name = k
-                self.cryptos_list[-1].amount = dic_price_api[k]
-                
+                self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
 
 
-
+        
         self.writeCRYPTO_json()
+        return
 
 
 

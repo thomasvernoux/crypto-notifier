@@ -9,6 +9,7 @@ from class_crypos import *
 
 from log import *
 
+loop_intervall_seconds = 60*3
 
 # set global variable MODE to real (the test mode can be use for test purpose)
 set_variable_mode("real")                  # real  / test
@@ -18,7 +19,7 @@ CRYPTOS_object = CRYPTOS()
 CRYPTOS_object.getCRYPTO_json()
 
 # reset maximums prices for peak detection
-CRYPTOS_object.cryptos_reset_max_price()
+#CRYPTOS_object.cryptos_reset_max_price()
 
 # set the number of notification authorized for a crypto
 CRYPTOS_object.cryptos_set_notifications_authorisations(10)
@@ -56,7 +57,7 @@ while True :
     write_log("info", "End loop")
     
     # sleep (seconds)
-    time.sleep(60 * 15)
+    time.sleep(loop_intervall_seconds)
 
 
 

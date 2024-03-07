@@ -15,6 +15,9 @@ def peak_detection_O1(crypto):
     Detect when the crypto price is under a certain % of the max value
     """
 
+    print("peak detection for : ", crypto.name)
+    write_log("peak detection", f"peak detection for :  {crypto.name}")
+
     peak_limit = crypto.peak_target / 100 * crypto.max_price
     if crypto.current_price > crypto.buy_price * crypto.break_even_point / 100 :                             # La crypto à pris 5 %
         if (crypto.current_price < peak_limit):                                     # on est sur la phase descendante du pic

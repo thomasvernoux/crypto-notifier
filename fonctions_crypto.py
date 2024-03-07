@@ -29,7 +29,8 @@ def get_crypto_price_cryptocompare(crypto):
     """
 
     if crypto.name_cryptocompare == None : 
-        print ("no name cryptocompare for : ", crypto.name)
+        #print ("no name cryptocompare for : ", crypto.name)
+        write_log("get_price_status", f"no name cryptocompare for : {crypto.name}\n")
         return -1
 
     # Ouvrez le fichier contenant le compteur
@@ -56,7 +57,8 @@ def get_crypto_price_coingecko(crypto):
     """
 
     if crypto.name_coingecko == None : 
-        print ("no name coingecko for : ", crypto.name)
+        #print ("no name coingecko for : ", crypto.name)
+        write_log("get_price_status", f"no name coingecko for : {crypto.name}\n")
         return -1
 
     # compteur d'utilisation de l'api pygecko
@@ -80,10 +82,21 @@ def get_price(crypto):
     """
 
 
-    if crypto.USDC_balance < 1 :
+    if (crypto.USDC_balance < 1) or (crypto.USDC_balance == 0) :
         print ("USDC_balance under 1 dollard, skip get price for : ", crypto.name)
+        write_log("get_price_status", f"USDC_balance under 1 dollard, skip get price for : {crypto.name}")
         return 0
     
+    if crypto.amount == 0 :
+        print ("amount = 0, skip crypto : ", crypto.name)
+        return 0
+    
+    if (crypto.USDC_balance == 0):
+        print ("update USDC_balance : ", crypto.name)
+        write_log("get_price_status", f"update USDC_balance, balance actually at 0 : {crypto.name}\n")
+    else : 
+        print ("USDC_balance OVER 1 dollard, crypto active : ", crypto.name)
+        write_log("get_price_status", f"USDC_balance OVER 1 dollard, crypto active : {crypto.name}\n")
     
 
     price = None
@@ -102,9 +115,9 @@ def get_price(crypto):
 
 
 
-    if price != None :
-        print ("Crypto activ : ", crypto.name)
-        write_log("crypto getprice", )
+    if (price != None) &  (price != -1) :
+        print ("Crypto getprice : ", crypto.name)
+        write_log("crypto getprice", f"getprice : {crypto.name} , {crypto.current_price}\n")
         return price
     else:
         minor_error("cannot get price for crypto : \n" + crypto.get_crypto_info_str())

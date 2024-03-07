@@ -36,6 +36,9 @@ else:
 
 
 
-order = client.market_order_sell(client_order_id = "ordre001", product_id = "DYP-USDC", base_size = "14")
+sell_quantity = matching_account["available_balance"]["value"]
+
+
+#order = client.market_order_sell(client_order_id = "ordre001", product_id = "DYP-USDC", base_size = "14")
 
 
