@@ -24,6 +24,13 @@ def peak_detection_O1(crypto):
             if (crypto.number_of_alert_authorized >= 1) & (time_interval(crypto)):  # on evite de trop notifier
                 write_log("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
                 return True
+        
+    
+    
+    if crypto.current_price < peak_limit * 0.99 : 
+        # sell missed
+        print(f"peak missed : {crypto.name}")
+        write_log("peak detection", f"peak missed : {crypto.name}")
     
     return False
                 

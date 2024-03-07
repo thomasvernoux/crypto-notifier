@@ -4,3 +4,5 @@ il y a un soucis :
 pour avoir getprice, il faut que le solde en USDC soit supérieur à 1 dollard, 
 mais, si le prix baisse beaucoup, il se peut que le solde en usdc passe en dessous et la 
 crypto est abandonnée
+
+Ok, done

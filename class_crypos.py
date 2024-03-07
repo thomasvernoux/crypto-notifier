@@ -50,7 +50,7 @@ class Crypto:
         
         # Price actualisation
         if get_variable_mode() == "real":
-            self.current_price = get_price(self)
+                self.current_price = get_price(self)
         
         if self.max_price == None : 
             self.max_price = self.current_price
@@ -67,7 +67,8 @@ class Crypto:
         # Max price actualisation
         if self.current_price > self.max_price :
             self.max_price = self.current_price
-        
+
+
         # USDC balance actualisation
         self.USDC_balance = self.amount * self.current_price
         try : 
@@ -87,30 +88,31 @@ class Crypto:
 
         
         ## peak detection
-        if peak_detection_O1(self) and (self.USDC_balance > 1):
-        
-            """
-            Send an email
-            """
-            subject = "Time to sell alert"
-            body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
+        if self.USDC_balance > 1 :
+            if peak_detection_O1(self):
             
-        
-            if get_variable_mode() == "real":
-                send_email(subject, body)
+                """
+                Send an email
+                """
+                subject = "Time to sell alert"
+                body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
                 
-                # Sell crypto
-                self.sell_for_USDC()
+            
+                if get_variable_mode() == "real":
+                    send_email(subject, body)
+                    
+                    # Sell crypto
+                    self.sell_for_USDC()
 
 
-            elif get_variable_mode() == "test":
-                set_variable_test_mail_send(True)
-            
-            
-            
+                elif get_variable_mode() == "test":
+                    set_variable_test_mail_send(True)
+                
+                
+                
 
-            # update last notification time
-            self.last_notification_time = time.time()
+                # update last notification time
+                self.last_notification_time = time.time()
         
 
         
@@ -133,7 +135,11 @@ class Crypto:
     def sell_for_USDC(self):
         sell_crypto_for_USDC(self.name)
 
-
+    def refresh_USDC_balance(self): 
+        self.current_price = get_price(self)
+        # USDC balance actualisation
+        self.USDC_balance = self.amount * self.current_price
+    
 
 class CRYPTOS:
     def __init__(self):
@@ -284,17 +290,33 @@ class CRYPTOS:
 
         self.writeCRYPTO_json()
 
+    def refresh_all_USDC_balance(self):
+        for c in self.cryptos_list:
+            
+            c.refresh_USDC_balance()
+        self.writeCRYPTO_json()
+
     def actualise_crypto_account(self):
         """
         refresh crypto account in json file
         """
-        
+
         data_api = get_accounts_from_api()["data"]
         #print(data)
+        
+        # """
+        # Print variables in data_api
+        # """
+        # print("Print variables in data_api")
+        # for v in data_api : 
+        #     print(v["balance"]["currency"])
+
         dic_amount_api = {}
         for data_C in data_api : 
             amount_str = data_C["balance"]["amount"]
             amount = float(amount_str)
+
+
             if amount > 0:
                 dic_amount_api[data_C["balance"]["currency"]] = float(data_C["balance"]["amount"])
             else : 
@@ -312,11 +334,12 @@ class CRYPTOS:
             
             if not (crypto_name in dic_amount_api):
                 minor_error("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
-                self.cryptos_list[i].amount = 0
+                #self.cryptos_list[i].amount = 0
                 continue
 
-
-
+        
+                           
+        
         for k in dic_amount_api :
             # Check if the crypto is in my json file
             if k in list_of_my_cryptos :
@@ -336,11 +359,30 @@ class CRYPTOS:
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
 
 
-        
         self.writeCRYPTO_json()
         return
 
+    def set_crypto_peak_target(self, peak_target):
+        """
+        set variable
+        """
+        
+        cryptos = self.getCRYPTO_json()
+        for c in cryptos : 
+            c.peak_target = peak_target
 
+        self.writeCRYPTO_json()
+
+    def set_crypto_break_even_point(self, break_even_point):
+        """
+        set variable
+        """
+        
+        cryptos = self.getCRYPTO_json()
+        for c in cryptos : 
+            c.break_even_point = break_even_point
+
+        self.writeCRYPTO_json()
 
 
     

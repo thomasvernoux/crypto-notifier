@@ -7359,3 +7359,2977 @@ profit_percent 0
 2024/03/07 11:21:37 : USDC_balance under 1 dollard, skip get price for : SHIB
 2024/03/07 11:21:37 : peak detection for :  SHIB
 2024/03/07 11:21:37 : End loop
+2024/03/07 11:24:37 : Start loop
+2024/03/07 11:24:37 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:24:38 : getprice : AUCTION , 26.48
+
+2024/03/07 11:24:38 : peak detection for :  AUCTION
+2024/03/07 11:24:38 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:24:38 : peak detection for :  DYP
+2024/03/07 11:24:38 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:24:38 : peak detection for :  SEAM
+2024/03/07 11:24:38 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:24:38 : peak detection for :  NCT
+2024/03/07 11:24:38 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:24:39 : getprice : MOBILE , 0.003889
+
+2024/03/07 11:24:39 : peak detection for :  MOBILE
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:24:39 : peak detection for :  PNG
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:24:39 : peak detection for :  PRO
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:24:39 : peak detection for :  CLV
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:24:39 : peak detection for :  UMA
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:24:39 : peak detection for :  DOGE
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:24:39 : peak detection for :  PRQ
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:24:39 : peak detection for :  FOX
+2024/03/07 11:24:39 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:24:39 : peak detection for :  BLZ
+2024/03/07 11:24:39 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:24:40 : getprice : SWFTC , 0.005778
+
+2024/03/07 11:24:40 : peak detection for :  SWFTC
+2024/03/07 11:24:40 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:24:40 : peak detection for :  ABT
+2024/03/07 11:24:40 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:24:40 : peak detection for :  ASM
+2024/03/07 11:24:40 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:24:40 : peak detection for :  SPA
+2024/03/07 11:24:40 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:24:40 : peak detection for :  MTL
+2024/03/07 11:24:40 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:24:40 : peak detection for :  SHIB
+2024/03/07 11:24:40 : End loop
+2024/03/07 11:27:40 : Start loop
+2024/03/07 11:27:40 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:27:42 : getprice : AUCTION , 26.53
+
+2024/03/07 11:27:42 : peak detection for :  AUCTION
+2024/03/07 11:27:42 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:27:42 : peak detection for :  DYP
+2024/03/07 11:27:42 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:27:42 : peak detection for :  SEAM
+2024/03/07 11:27:42 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:27:42 : peak detection for :  NCT
+2024/03/07 11:27:42 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:27:42 : getprice : MOBILE , 0.003938
+
+2024/03/07 11:27:43 : peak detection for :  MOBILE
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:27:43 : peak detection for :  PNG
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:27:43 : peak detection for :  PRO
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:27:43 : peak detection for :  CLV
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:27:43 : peak detection for :  UMA
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:27:43 : peak detection for :  DOGE
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:27:43 : peak detection for :  PRQ
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:27:43 : peak detection for :  FOX
+2024/03/07 11:27:43 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:27:43 : peak detection for :  BLZ
+2024/03/07 11:27:43 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:27:44 : getprice : SWFTC , 0.005784
+
+2024/03/07 11:27:44 : peak detection for :  SWFTC
+2024/03/07 11:27:44 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:27:44 : peak detection for :  ABT
+2024/03/07 11:27:44 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:27:44 : peak detection for :  ASM
+2024/03/07 11:27:44 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:27:44 : peak detection for :  SPA
+2024/03/07 11:27:44 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:27:44 : peak detection for :  MTL
+2024/03/07 11:27:44 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:27:44 : peak detection for :  SHIB
+2024/03/07 11:27:44 : End loop
+2024/03/07 11:30:44 : Start loop
+2024/03/07 11:30:44 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:30:45 : getprice : AUCTION , 26.53
+
+2024/03/07 11:30:45 : peak detection for :  AUCTION
+2024/03/07 11:30:45 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:30:45 : peak detection for :  DYP
+2024/03/07 11:30:45 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:30:45 : peak detection for :  SEAM
+2024/03/07 11:30:45 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:30:45 : peak detection for :  NCT
+2024/03/07 11:30:45 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:30:46 : getprice : MOBILE , 0.003925
+
+2024/03/07 11:30:46 : peak detection for :  MOBILE
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:30:46 : peak detection for :  PNG
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:30:46 : peak detection for :  PRO
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:30:46 : peak detection for :  CLV
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:30:46 : peak detection for :  UMA
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:30:46 : peak detection for :  DOGE
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:30:46 : peak detection for :  PRQ
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:30:46 : peak detection for :  FOX
+2024/03/07 11:30:46 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:30:46 : peak detection for :  BLZ
+2024/03/07 11:30:46 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:30:47 : getprice : SWFTC , 0.005771
+
+2024/03/07 11:30:47 : peak detection for :  SWFTC
+2024/03/07 11:30:47 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:30:47 : peak detection for :  ABT
+2024/03/07 11:30:47 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:30:47 : peak detection for :  ASM
+2024/03/07 11:30:47 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:30:47 : peak detection for :  SPA
+2024/03/07 11:30:47 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:30:47 : peak detection for :  MTL
+2024/03/07 11:30:47 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:30:47 : peak detection for :  SHIB
+2024/03/07 11:30:47 : End loop
+2024/03/07 11:33:47 : Start loop
+2024/03/07 11:33:47 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:33:48 : getprice : AUCTION , 26.49
+
+2024/03/07 11:33:48 : peak detection for :  AUCTION
+2024/03/07 11:33:48 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:33:48 : peak detection for :  DYP
+2024/03/07 11:33:48 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:33:48 : peak detection for :  SEAM
+2024/03/07 11:33:48 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:33:48 : peak detection for :  NCT
+2024/03/07 11:33:48 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:33:49 : getprice : MOBILE , 0.003925
+
+2024/03/07 11:33:49 : peak detection for :  MOBILE
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:33:49 : peak detection for :  PNG
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:33:49 : peak detection for :  PRO
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:33:49 : peak detection for :  CLV
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:33:49 : peak detection for :  UMA
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:33:49 : peak detection for :  DOGE
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:33:49 : peak detection for :  PRQ
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:33:49 : peak detection for :  FOX
+2024/03/07 11:33:49 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:33:49 : peak detection for :  BLZ
+2024/03/07 11:33:49 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:33:50 : getprice : SWFTC , 0.005773
+
+2024/03/07 11:33:50 : peak detection for :  SWFTC
+2024/03/07 11:33:50 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:33:50 : peak detection for :  ABT
+2024/03/07 11:33:50 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:33:50 : peak detection for :  ASM
+2024/03/07 11:33:50 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:33:50 : peak detection for :  SPA
+2024/03/07 11:33:50 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:33:50 : peak detection for :  MTL
+2024/03/07 11:33:50 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:33:50 : peak detection for :  SHIB
+2024/03/07 11:33:50 : End loop
+2024/03/07 11:36:50 : Start loop
+2024/03/07 11:36:50 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:36:50 : getprice : AUCTION , 26.36
+
+2024/03/07 11:36:50 : peak detection for :  AUCTION
+2024/03/07 11:36:50 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:36:50 : peak detection for :  DYP
+2024/03/07 11:36:50 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:36:50 : peak detection for :  SEAM
+2024/03/07 11:36:50 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:36:50 : peak detection for :  NCT
+2024/03/07 11:36:50 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:36:51 : getprice : MOBILE , 0.003923
+
+2024/03/07 11:36:51 : peak detection for :  MOBILE
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:36:51 : peak detection for :  PNG
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:36:51 : peak detection for :  PRO
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:36:51 : peak detection for :  CLV
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:36:51 : peak detection for :  UMA
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:36:51 : peak detection for :  DOGE
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:36:51 : peak detection for :  PRQ
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:36:51 : peak detection for :  FOX
+2024/03/07 11:36:51 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:36:51 : peak detection for :  BLZ
+2024/03/07 11:36:51 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:36:52 : getprice : SWFTC , 0.00578
+
+2024/03/07 11:36:52 : peak detection for :  SWFTC
+2024/03/07 11:36:52 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:36:52 : peak detection for :  ABT
+2024/03/07 11:36:52 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:36:52 : peak detection for :  ASM
+2024/03/07 11:36:52 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:36:52 : peak detection for :  SPA
+2024/03/07 11:36:52 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:36:52 : peak detection for :  MTL
+2024/03/07 11:36:52 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:36:52 : peak detection for :  SHIB
+2024/03/07 11:36:52 : End loop
+2024/03/07 11:39:52 : Start loop
+2024/03/07 11:39:52 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:39:53 : getprice : AUCTION , 26.27
+
+2024/03/07 11:39:53 : peak detection for :  AUCTION
+2024/03/07 11:39:53 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:39:53 : peak detection for :  DYP
+2024/03/07 11:39:53 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:39:53 : peak detection for :  SEAM
+2024/03/07 11:39:53 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:39:53 : peak detection for :  NCT
+2024/03/07 11:39:53 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:39:54 : getprice : MOBILE , 0.003891
+
+2024/03/07 11:39:54 : peak detection for :  MOBILE
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:39:54 : peak detection for :  PNG
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:39:54 : peak detection for :  PRO
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:39:54 : peak detection for :  CLV
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:39:54 : peak detection for :  UMA
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:39:54 : peak detection for :  DOGE
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:39:54 : peak detection for :  PRQ
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:39:54 : peak detection for :  FOX
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:39:54 : peak detection for :  BLZ
+2024/03/07 11:39:54 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:39:54 : getprice : SWFTC , 0.005767
+
+2024/03/07 11:39:54 : peak detection for :  SWFTC
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:39:54 : peak detection for :  ABT
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:39:54 : peak detection for :  ASM
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:39:54 : peak detection for :  SPA
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:39:54 : peak detection for :  MTL
+2024/03/07 11:39:54 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:39:54 : peak detection for :  SHIB
+2024/03/07 11:39:54 : End loop
+2024/03/07 11:42:54 : Start loop
+2024/03/07 11:42:54 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:43:34 : Minor error: cannot get price for crypto : 
+name AUCTION
+name_cryptocompare AUCTION
+name_coingecko auction
+amount 0.36859257
+buy_price 29.77
+max_price 26.55
+current_price 26.24
+USDC_balance 9.6718690368
+number_of_alert_authorized 10
+last_notification_time 1709219999.7949066
+peak_target 95.0
+break_even_point 105.0
+profit_percent 88.14242526032918
+
+2024/03/07 11:43:34 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:43:34 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:43:34 : peak detection for :  DYP
+2024/03/07 11:43:34 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:43:34 : peak detection for :  SEAM
+2024/03/07 11:43:34 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:43:34 : peak detection for :  NCT
+2024/03/07 11:43:34 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:44:01 : Minor error: cannot get price for crypto : 
+name MOBILE
+name_cryptocompare MOBILE
+name_coingecko helium-mobile
+amount 565.670698
+buy_price 0.004016
+max_price 0.003938
+current_price 0.003846
+USDC_balance 2.175569504508
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 95.76693227091636
+
+2024/03/07 11:44:01 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:44:01 : peak detection for :  PNG
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:44:01 : peak detection for :  PRO
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:44:01 : peak detection for :  CLV
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:44:01 : peak detection for :  UMA
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:44:01 : peak detection for :  DOGE
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:44:01 : peak detection for :  PRQ
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:44:01 : peak detection for :  FOX
+2024/03/07 11:44:01 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:44:01 : peak detection for :  BLZ
+2024/03/07 11:44:01 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:44:16 : Minor error: cannot get price for crypto : 
+name SWFTC
+name_cryptocompare SWFTC
+name_coingecko swftcoin
+amount 344.74199509
+buy_price 0.5722
+max_price 0.005784
+current_price 0.005736
+USDC_balance 1.9774400838362398
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 1.002446696959105
+
+2024/03/07 11:44:16 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:44:16 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:44:16 : peak detection for :  ABT
+2024/03/07 11:44:16 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:44:16 : peak detection for :  ASM
+2024/03/07 11:44:16 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:44:16 : peak detection for :  SPA
+2024/03/07 11:44:16 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:44:16 : peak detection for :  MTL
+2024/03/07 11:44:16 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:44:16 : peak detection for :  SHIB
+2024/03/07 11:44:16 : End loop
+2024/03/07 11:47:48 : crypto amount equal 0 : HOPR
+2024/03/07 11:47:48 : crypto amount equal 0 : INV
+2024/03/07 11:47:48 : crypto amount equal 0 : SNX
+2024/03/07 11:47:48 : crypto amount equal 0 : COTI
+2024/03/07 11:47:48 : crypto amount equal 0 : LTC
+2024/03/07 11:47:48 : crypto amount equal 0 : MASK
+2024/03/07 11:47:48 : crypto amount equal 0 : BICO
+2024/03/07 11:47:48 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:47:48 : Start loop
+2024/03/07 11:47:48 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:47:49 : getprice : AUCTION , -1
+
+2024/03/07 11:47:49 : peak detection for :  AUCTION
+2024/03/07 11:47:49 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:47:49 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:47:49 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:47:49 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:47:50 : getprice : MOBILE , -1
+
+2024/03/07 11:47:50 : peak detection for :  MOBILE
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:47:50 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:47:50 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:47:51 : getprice : SWFTC , -1
+
+2024/03/07 11:47:51 : peak detection for :  SWFTC
+2024/03/07 11:47:51 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:47:51 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:47:51 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:47:51 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:47:51 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:47:51 : End loop
+2024/03/07 11:48:44 : crypto amount equal 0 : HOPR
+2024/03/07 11:48:44 : crypto amount equal 0 : INV
+2024/03/07 11:48:44 : crypto amount equal 0 : SNX
+2024/03/07 11:48:44 : crypto amount equal 0 : COTI
+2024/03/07 11:48:44 : crypto amount equal 0 : LTC
+2024/03/07 11:48:44 : crypto amount equal 0 : MASK
+2024/03/07 11:48:44 : crypto amount equal 0 : BICO
+2024/03/07 11:48:44 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:48:44 : Start loop
+2024/03/07 11:48:44 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:48:45 : getprice : AUCTION , 26.39
+
+2024/03/07 11:48:45 : peak detection for :  AUCTION
+2024/03/07 11:48:45 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:48:45 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:48:45 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:48:45 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:48:46 : getprice : MOBILE , 0.00387
+
+2024/03/07 11:48:46 : peak detection for :  MOBILE
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:48:46 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:48:46 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:48:48 : getprice : SWFTC , 0.005743
+
+2024/03/07 11:48:48 : peak detection for :  SWFTC
+2024/03/07 11:48:48 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:48:48 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:48:48 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:48:48 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:48:48 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:48:48 : End loop
+2024/03/07 11:49:06 : crypto amount equal 0 : HOPR
+2024/03/07 11:49:06 : crypto amount equal 0 : INV
+2024/03/07 11:49:06 : crypto amount equal 0 : SNX
+2024/03/07 11:49:06 : crypto amount equal 0 : COTI
+2024/03/07 11:49:06 : crypto amount equal 0 : LTC
+2024/03/07 11:49:06 : crypto amount equal 0 : MASK
+2024/03/07 11:49:06 : crypto amount equal 0 : BICO
+2024/03/07 11:49:06 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:49:06 : Start loop
+2024/03/07 11:49:06 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:49:06 : getprice : AUCTION , 26.41
+
+2024/03/07 11:49:06 : peak detection for :  AUCTION
+2024/03/07 11:49:06 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:49:06 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:49:06 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:49:06 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:49:07 : getprice : MOBILE , 0.00387
+
+2024/03/07 11:49:07 : peak detection for :  MOBILE
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : DOGE
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : PRQ
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : FOX
+2024/03/07 11:49:07 : USDC_balance under 1 dollard, skip get price for : BLZ
+2024/03/07 11:49:07 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:49:08 : getprice : SWFTC , 0.005735
+
+2024/03/07 11:49:08 : peak detection for :  SWFTC
+2024/03/07 11:49:08 : USDC_balance under 1 dollard, skip get price for : ABT
+2024/03/07 11:49:08 : USDC_balance under 1 dollard, skip get price for : ASM
+2024/03/07 11:49:08 : USDC_balance under 1 dollard, skip get price for : SPA
+2024/03/07 11:49:08 : USDC_balance under 1 dollard, skip get price for : MTL
+2024/03/07 11:49:08 : USDC_balance under 1 dollard, skip get price for : SHIB
+2024/03/07 11:49:08 : End loop
+2024/03/07 11:50:11 : crypto amount equal 0 : HOPR
+2024/03/07 11:50:11 : crypto amount equal 0 : INV
+2024/03/07 11:50:11 : crypto amount equal 0 : SNX
+2024/03/07 11:50:11 : crypto amount equal 0 : COTI
+2024/03/07 11:50:11 : crypto amount equal 0 : LTC
+2024/03/07 11:50:11 : crypto amount equal 0 : MASK
+2024/03/07 11:50:11 : crypto amount equal 0 : BICO
+2024/03/07 11:50:11 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:50:11 : Start loop
+2024/03/07 11:50:25 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:50:26 : getprice : AUCTION , 26.38
+
+2024/03/07 11:50:30 : peak detection for :  AUCTION
+2024/03/07 11:50:33 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:50:38 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:50:44 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:50:46 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:50:47 : getprice : MOBILE , 0.003878
+
+2024/03/07 11:50:47 : peak detection for :  MOBILE
+2024/03/07 11:50:50 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:50:53 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:50:55 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:51:11 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:52:25 : crypto amount equal 0 : HOPR
+2024/03/07 11:52:25 : crypto amount equal 0 : INV
+2024/03/07 11:52:25 : crypto amount equal 0 : SNX
+2024/03/07 11:52:25 : crypto amount equal 0 : COTI
+2024/03/07 11:52:25 : crypto amount equal 0 : LTC
+2024/03/07 11:52:25 : crypto amount equal 0 : MASK
+2024/03/07 11:52:25 : crypto amount equal 0 : BICO
+2024/03/07 11:52:25 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:52:25 : Start loop
+2024/03/07 11:52:46 : crypto amount equal 0 : HOPR
+2024/03/07 11:52:46 : crypto amount equal 0 : INV
+2024/03/07 11:52:46 : crypto amount equal 0 : SNX
+2024/03/07 11:52:46 : crypto amount equal 0 : COTI
+2024/03/07 11:52:46 : crypto amount equal 0 : LTC
+2024/03/07 11:52:46 : crypto amount equal 0 : MASK
+2024/03/07 11:52:46 : crypto amount equal 0 : BICO
+2024/03/07 11:52:46 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:52:46 : Start loop
+2024/03/07 11:52:49 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:52:53 : getprice : AUCTION , 26.38
+
+2024/03/07 11:52:53 : peak detection for :  AUCTION
+2024/03/07 11:52:54 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:52:55 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:52:56 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:52:57 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:52:58 : getprice : MOBILE , 0.003878
+
+2024/03/07 11:52:58 : peak detection for :  MOBILE
+2024/03/07 11:52:58 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:52:59 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:53:00 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:53:06 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:53:19 : crypto amount equal 0 : HOPR
+2024/03/07 11:53:19 : crypto amount equal 0 : INV
+2024/03/07 11:53:19 : crypto amount equal 0 : SNX
+2024/03/07 11:53:19 : crypto amount equal 0 : COTI
+2024/03/07 11:53:19 : crypto amount equal 0 : LTC
+2024/03/07 11:53:19 : crypto amount equal 0 : MASK
+2024/03/07 11:53:19 : crypto amount equal 0 : BICO
+2024/03/07 11:53:19 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:53:19 : Start loop
+2024/03/07 11:53:22 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:53:25 : getprice : AUCTION , 26.38
+
+2024/03/07 11:53:25 : peak detection for :  AUCTION
+2024/03/07 11:53:26 : USDC_balance under 1 dollard, skip get price for : DYP
+2024/03/07 11:53:27 : USDC_balance under 1 dollard, skip get price for : SEAM
+2024/03/07 11:53:27 : USDC_balance under 1 dollard, skip get price for : NCT
+2024/03/07 11:53:28 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:53:31 : getprice : MOBILE , 0.003878
+
+2024/03/07 11:53:31 : peak detection for :  MOBILE
+2024/03/07 11:53:33 : USDC_balance under 1 dollard, skip get price for : PNG
+2024/03/07 11:53:34 : USDC_balance under 1 dollard, skip get price for : PRO
+2024/03/07 11:53:35 : USDC_balance under 1 dollard, skip get price for : CLV
+2024/03/07 11:53:48 : USDC_balance under 1 dollard, skip get price for : UMA
+2024/03/07 11:54:58 : crypto amount equal 0 : HOPR
+2024/03/07 11:54:58 : crypto amount equal 0 : INV
+2024/03/07 11:54:58 : crypto amount equal 0 : SNX
+2024/03/07 11:54:58 : crypto amount equal 0 : COTI
+2024/03/07 11:54:58 : crypto amount equal 0 : LTC
+2024/03/07 11:54:58 : crypto amount equal 0 : MASK
+2024/03/07 11:54:58 : crypto amount equal 0 : BICO
+2024/03/07 11:54:58 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:54:58 : Start loop
+2024/03/07 11:54:58 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:55:00 : getprice : AUCTION , 26.38
+
+2024/03/07 11:55:00 : peak detection for :  AUCTION
+2024/03/07 11:55:00 : update USDC_balance, balance actually at 0 : DYP
+
+2024/03/07 11:55:00 : getprice : DYP , 0
+
+2024/03/07 11:55:00 : update USDC_balance, balance actually at 0 : SEAM
+
+2024/03/07 11:55:02 : getprice : SEAM , 0
+
+2024/03/07 11:55:02 : update USDC_balance, balance actually at 0 : NCT
+
+2024/03/07 11:55:03 : getprice : NCT , 0
+
+2024/03/07 11:55:03 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:55:04 : getprice : MOBILE , 0.003878
+
+2024/03/07 11:55:04 : peak detection for :  MOBILE
+2024/03/07 11:55:04 : update USDC_balance, balance actually at 0 : PNG
+
+2024/03/07 11:55:05 : getprice : PNG , 0
+
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : CLV
+
+2024/03/07 11:55:05 : no name coingecko for : CLV
+
+2024/03/07 11:55:05 : no name cryptocompare for : CLV
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : UMA
+
+2024/03/07 11:55:05 : no name coingecko for : UMA
+
+2024/03/07 11:55:05 : no name cryptocompare for : UMA
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name UMA
+name_cryptocompare None
+name_coingecko None
+amount 0.80053734
+buy_price 3.98
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : DOGE
+
+2024/03/07 11:55:05 : no name coingecko for : DOGE
+
+2024/03/07 11:55:05 : no name cryptocompare for : DOGE
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : PRQ
+
+2024/03/07 11:55:05 : no name coingecko for : PRQ
+
+2024/03/07 11:55:05 : no name cryptocompare for : PRQ
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name PRQ
+name_cryptocompare None
+name_coingecko None
+amount 0.00058856
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : FOX
+
+2024/03/07 11:55:05 : no name coingecko for : FOX
+
+2024/03/07 11:55:05 : no name cryptocompare for : FOX
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name FOX
+name_cryptocompare None
+name_coingecko None
+amount 0.05482969
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : update USDC_balance, balance actually at 0 : BLZ
+
+2024/03/07 11:55:05 : no name coingecko for : BLZ
+
+2024/03/07 11:55:05 : no name cryptocompare for : BLZ
+
+2024/03/07 11:55:05 : Minor error: cannot get price for crypto : 
+name BLZ
+name_cryptocompare None
+name_coingecko None
+amount 0.01607781
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:55:05 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:55:05 : USDC_balance OVER 1 dollard, crypto active : SWFTC
+
+2024/03/07 11:56:06 : getprice : SWFTC , 0.005714
+
+2024/03/07 11:56:06 : peak detection for :  SWFTC
+2024/03/07 11:56:06 : update USDC_balance, balance actually at 0 : ABT
+
+2024/03/07 11:56:06 : no name coingecko for : ABT
+
+2024/03/07 11:56:06 : no name cryptocompare for : ABT
+
+2024/03/07 11:56:06 : Minor error: cannot get price for crypto : 
+name ABT
+name_cryptocompare None
+name_coingecko None
+amount 0.05552621
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:56:06 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:56:06 : update USDC_balance, balance actually at 0 : ASM
+
+2024/03/07 11:56:06 : no name coingecko for : ASM
+
+2024/03/07 11:56:06 : no name cryptocompare for : ASM
+
+2024/03/07 11:56:06 : Minor error: cannot get price for crypto : 
+name ASM
+name_cryptocompare None
+name_coingecko None
+amount 0.32172572
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:56:06 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:56:06 : update USDC_balance, balance actually at 0 : SPA
+
+2024/03/07 11:56:06 : no name coingecko for : SPA
+
+2024/03/07 11:56:06 : no name cryptocompare for : SPA
+
+2024/03/07 11:56:06 : Minor error: cannot get price for crypto : 
+name SPA
+name_cryptocompare None
+name_coingecko None
+amount 100.00565003
+buy_price 0.017699
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:56:06 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:56:06 : update USDC_balance, balance actually at 0 : MTL
+
+2024/03/07 11:56:06 : no name coingecko for : MTL
+
+2024/03/07 11:56:06 : no name cryptocompare for : MTL
+
+2024/03/07 11:56:06 : Minor error: cannot get price for crypto : 
+name MTL
+name_cryptocompare None
+name_coingecko None
+amount 0.80115726
+buy_price 2.683
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:56:06 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:56:06 : update USDC_balance, balance actually at 0 : SHIB
+
+2024/03/07 11:56:06 : no name coingecko for : SHIB
+
+2024/03/07 11:56:06 : no name cryptocompare for : SHIB
+
+2024/03/07 11:56:06 : Minor error: cannot get price for crypto : 
+name SHIB
+name_cryptocompare None
+name_coingecko None
+amount 129916.98595146
+buy_price 3.132e-05
+max_price 0
+current_price 0
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:56:06 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:56:06 : End loop
+2024/03/07 11:56:29 : crypto amount equal 0 : HOPR
+2024/03/07 11:56:29 : crypto amount equal 0 : INV
+2024/03/07 11:56:29 : crypto amount equal 0 : SNX
+2024/03/07 11:56:29 : crypto amount equal 0 : COTI
+2024/03/07 11:56:29 : crypto amount equal 0 : LTC
+2024/03/07 11:56:29 : crypto amount equal 0 : MASK
+2024/03/07 11:56:29 : crypto amount equal 0 : BICO
+2024/03/07 11:56:29 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:56:29 : Start loop
+2024/03/07 11:56:33 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:56:35 : getprice : AUCTION , 26.37
+
+2024/03/07 11:56:35 : peak detection for :  AUCTION
+2024/03/07 11:57:10 : crypto amount equal 0 : HOPR
+2024/03/07 11:57:10 : crypto amount equal 0 : INV
+2024/03/07 11:57:10 : crypto amount equal 0 : SNX
+2024/03/07 11:57:10 : crypto amount equal 0 : COTI
+2024/03/07 11:57:10 : crypto amount equal 0 : LTC
+2024/03/07 11:57:10 : crypto amount equal 0 : MASK
+2024/03/07 11:57:10 : crypto amount equal 0 : BICO
+2024/03/07 11:57:10 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 11:57:10 : Start loop
+2024/03/07 11:57:13 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 11:57:14 : getprice : AUCTION , 26.37
+
+2024/03/07 11:57:14 : peak detection for :  AUCTION
+2024/03/07 11:57:14 : USDC_balance OVER 1 dollard, crypto active : DYP
+
+2024/03/07 11:57:14 : getprice : DYP , 0.04093
+
+2024/03/07 11:57:14 : USDC_balance OVER 1 dollard, crypto active : SEAM
+
+2024/03/07 11:57:15 : getprice : SEAM , 4.671
+
+2024/03/07 11:57:15 : USDC_balance OVER 1 dollard, crypto active : NCT
+
+2024/03/07 11:57:16 : getprice : NCT , 0.0435
+
+2024/03/07 11:57:16 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 11:57:16 : getprice : MOBILE , 0.003878
+
+2024/03/07 11:57:16 : peak detection for :  MOBILE
+2024/03/07 11:57:16 : USDC_balance OVER 1 dollard, crypto active : PNG
+
+2024/03/07 11:58:17 : getprice : PNG , 0.4091
+
+2024/03/07 11:58:17 : update USDC_balance, balance actually at 0 : CLV
+
+2024/03/07 11:58:17 : no name coingecko for : CLV
+
+2024/03/07 11:58:17 : no name cryptocompare for : CLV
+
+2024/03/07 11:58:17 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 11:58:17 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 11:59:40 : update USDC_balance, balance actually at 0 : UMA
+
+2024/03/07 11:59:40 : no name coingecko for : UMA
+
+2024/03/07 11:59:40 : no name cryptocompare for : UMA
+
+2024/03/07 11:59:40 : Minor error: cannot get price for crypto : 
+name UMA
+name_cryptocompare None
+name_coingecko None
+amount 0.80053734
+buy_price 3.98
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:00:05 : crypto amount equal 0 : HOPR
+2024/03/07 12:00:05 : crypto amount equal 0 : INV
+2024/03/07 12:00:05 : crypto amount equal 0 : SNX
+2024/03/07 12:00:05 : crypto amount equal 0 : COTI
+2024/03/07 12:00:05 : crypto amount equal 0 : LTC
+2024/03/07 12:00:05 : crypto amount equal 0 : MASK
+2024/03/07 12:00:05 : crypto amount equal 0 : BICO
+2024/03/07 12:00:05 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:00:05 : Start loop
+2024/03/07 12:00:05 : USDC_balance OVER 1 dollard, crypto active : AUCTION
+
+2024/03/07 12:00:06 : getprice : AUCTION , 26.37
+
+2024/03/07 12:00:06 : peak detection for :  AUCTION
+2024/03/07 12:00:06 : USDC_balance OVER 1 dollard, crypto active : DYP
+
+2024/03/07 12:00:07 : getprice : DYP , 0.04093
+
+2024/03/07 12:00:07 : USDC_balance OVER 1 dollard, crypto active : SEAM
+
+2024/03/07 12:00:08 : getprice : SEAM , 4.671
+
+2024/03/07 12:00:08 : USDC_balance OVER 1 dollard, crypto active : NCT
+
+2024/03/07 12:00:09 : getprice : NCT , 0.0435
+
+2024/03/07 12:00:09 : USDC_balance OVER 1 dollard, crypto active : MOBILE
+
+2024/03/07 12:00:10 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:00:10 : peak detection for :  MOBILE
+2024/03/07 12:00:10 : USDC_balance OVER 1 dollard, crypto active : PNG
+
+2024/03/07 12:01:11 : getprice : PNG , 0.4091
+
+2024/03/07 12:01:11 : update USDC_balance, balance actually at 0 : CLV
+
+2024/03/07 12:01:11 : no name coingecko for : CLV
+
+2024/03/07 12:01:11 : no name cryptocompare for : CLV
+
+2024/03/07 12:01:11 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:01:11 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 12:02:45 : update USDC_balance, balance actually at 0 : UMA
+
+2024/03/07 12:03:16 : no name coingecko for : UMA
+
+2024/03/07 12:03:29 : no name cryptocompare for : UMA
+
+2024/03/07 12:03:34 : crypto amount equal 0 : HOPR
+2024/03/07 12:03:34 : crypto amount equal 0 : INV
+2024/03/07 12:03:34 : crypto amount equal 0 : SNX
+2024/03/07 12:03:34 : crypto amount equal 0 : COTI
+2024/03/07 12:03:34 : crypto amount equal 0 : LTC
+2024/03/07 12:03:34 : crypto amount equal 0 : MASK
+2024/03/07 12:03:34 : crypto amount equal 0 : BICO
+2024/03/07 12:03:34 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:03:34 : Start loop
+2024/03/07 12:03:35 : getprice : AUCTION , 26.37
+
+2024/03/07 12:03:35 : peak detection for :  AUCTION
+2024/03/07 12:03:37 : getprice : DYP , 0.04093
+
+2024/03/07 12:03:37 : getprice : SEAM , 4.671
+
+2024/03/07 12:03:38 : getprice : NCT , 0.0435
+
+2024/03/07 12:03:39 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:03:39 : peak detection for :  MOBILE
+2024/03/07 12:04:40 : getprice : PNG , 0.4091
+
+2024/03/07 12:04:40 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 12:04:40 : no name coingecko for : CLV
+
+2024/03/07 12:04:40 : no name cryptocompare for : CLV
+
+2024/03/07 12:04:40 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:04:40 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 12:04:59 : no name coingecko for : UMA
+
+2024/03/07 12:05:05 : no name cryptocompare for : UMA
+
+2024/03/07 12:08:32 : crypto amount equal 0 : HOPR
+2024/03/07 12:08:32 : crypto amount equal 0 : INV
+2024/03/07 12:08:32 : crypto amount equal 0 : SNX
+2024/03/07 12:08:32 : crypto amount equal 0 : COTI
+2024/03/07 12:08:32 : crypto amount equal 0 : LTC
+2024/03/07 12:08:32 : crypto amount equal 0 : MASK
+2024/03/07 12:08:32 : crypto amount equal 0 : BICO
+2024/03/07 12:08:32 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:08:32 : Start loop
+2024/03/07 12:08:33 : getprice : AUCTION , 26.37
+
+2024/03/07 12:08:33 : peak detection for :  AUCTION
+2024/03/07 12:08:34 : getprice : DYP , 0.04093
+
+2024/03/07 12:08:35 : getprice : SEAM , 4.671
+
+2024/03/07 12:08:35 : getprice : NCT , 0.0435
+
+2024/03/07 12:08:36 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:08:36 : peak detection for :  MOBILE
+2024/03/07 12:09:37 : getprice : PNG , 0.4091
+
+2024/03/07 12:09:37 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 12:09:37 : no name coingecko for : CLV
+
+2024/03/07 12:09:37 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:09:37 : no name cryptocompare for : CLV
+
+2024/03/07 12:09:37 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:09:37 : CRITICAL error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko None
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:14:19 : crypto amount equal 0 : HOPR
+2024/03/07 12:14:19 : crypto amount equal 0 : INV
+2024/03/07 12:14:19 : crypto amount equal 0 : SNX
+2024/03/07 12:14:19 : crypto amount equal 0 : COTI
+2024/03/07 12:14:19 : crypto amount equal 0 : LTC
+2024/03/07 12:14:19 : crypto amount equal 0 : MASK
+2024/03/07 12:14:19 : crypto amount equal 0 : BICO
+2024/03/07 12:14:19 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:14:19 : Start loop
+2024/03/07 12:14:20 : getprice : AUCTION , 26.37
+
+2024/03/07 12:14:20 : peak detection for :  AUCTION
+2024/03/07 12:14:21 : getprice : DYP , 0.04093
+
+2024/03/07 12:14:21 : getprice : SEAM , 4.671
+
+2024/03/07 12:14:22 : getprice : NCT , 0.0435
+
+2024/03/07 12:14:23 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:14:23 : peak detection for :  MOBILE
+2024/03/07 12:15:24 : getprice : PNG , 0.4091
+
+2024/03/07 12:15:24 : Minor error: function cryptoprocess : self.current_price == None
+2024/03/07 12:15:24 : no name cryptocompare for : CLV
+
+2024/03/07 12:15:24 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko clover-finance
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:15:24 : CRITICAL error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko clover-finance
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0.0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 12:16:13 : crypto amount equal 0 : HOPR
+2024/03/07 12:16:13 : crypto amount equal 0 : INV
+2024/03/07 12:16:13 : crypto amount equal 0 : SNX
+2024/03/07 12:16:13 : crypto amount equal 0 : COTI
+2024/03/07 12:16:13 : crypto amount equal 0 : LTC
+2024/03/07 12:16:13 : crypto amount equal 0 : MASK
+2024/03/07 12:16:13 : crypto amount equal 0 : BICO
+2024/03/07 12:16:13 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:16:13 : Start loop
+2024/03/07 12:16:14 : getprice : DYP , 0.04093
+
+2024/03/07 12:16:14 : getprice : SEAM , 4.671
+
+2024/03/07 12:16:15 : getprice : NCT , 0.0435
+
+2024/03/07 12:16:16 : getprice : PNG , 0.4091
+
+2024/03/07 12:16:16 : End loop
+2024/03/07 12:19:28 : crypto amount equal 0 : HOPR
+2024/03/07 12:19:28 : crypto amount equal 0 : INV
+2024/03/07 12:19:28 : crypto amount equal 0 : SNX
+2024/03/07 12:19:28 : crypto amount equal 0 : COTI
+2024/03/07 12:19:28 : crypto amount equal 0 : LTC
+2024/03/07 12:19:28 : crypto amount equal 0 : MASK
+2024/03/07 12:19:28 : crypto amount equal 0 : BICO
+2024/03/07 12:19:28 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:19:28 : Start loop
+2024/03/07 12:19:28 : End loop
+2024/03/07 12:19:50 : crypto amount equal 0 : HOPR
+2024/03/07 12:19:50 : crypto amount equal 0 : INV
+2024/03/07 12:19:50 : crypto amount equal 0 : SNX
+2024/03/07 12:19:50 : crypto amount equal 0 : COTI
+2024/03/07 12:19:50 : crypto amount equal 0 : LTC
+2024/03/07 12:19:50 : crypto amount equal 0 : MASK
+2024/03/07 12:19:50 : crypto amount equal 0 : BICO
+2024/03/07 12:19:50 : Minor error: crypto_name is not in dic_price_api : 
+name PRO
+name_cryptocompare PRO
+name_coingecko pangolin
+amount 0
+buy_price 0.568
+max_price 0.5406
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0.0
+peak_target 95.0
+break_even_point 105.0
+profit_percent 0
+
+2024/03/07 12:19:50 : Start loop
+2024/03/07 12:22:33 : crypto amount equal 0 : HOPR
+2024/03/07 12:22:33 : crypto amount equal 0 : INV
+2024/03/07 12:22:33 : crypto amount equal 0 : SNX
+2024/03/07 12:22:33 : crypto amount equal 0 : COTI
+2024/03/07 12:22:33 : crypto amount equal 0 : LTC
+2024/03/07 12:22:33 : crypto amount equal 0 : MASK
+2024/03/07 12:22:33 : crypto amount equal 0 : BICO
+2024/03/07 12:28:47 : getprice : AUCTION , 26.37
+
+2024/03/07 12:28:54 : getprice : DYP , 0.03933
+
+2024/03/07 12:28:55 : getprice : SEAM , 4.621
+
+2024/03/07 12:28:56 : getprice : NCT , 0.0384
+
+2024/03/07 12:28:56 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:29:57 : getprice : PNG , 0.4092
+
+2024/03/07 12:33:41 : getprice : AUCTION , 26.37
+
+2024/03/07 12:33:42 : getprice : DYP , 0.03933
+
+2024/03/07 12:33:43 : getprice : SEAM , 4.621
+
+2024/03/07 12:33:43 : getprice : NCT , 0.0384
+
+2024/03/07 12:33:44 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:34:45 : getprice : AUCTION , 26.37
+
+2024/03/07 12:34:45 : getprice : DYP , 0.03933
+
+2024/03/07 12:34:46 : getprice : SEAM , 4.621
+
+2024/03/07 12:34:47 : getprice : NCT , 0.0384
+
+2024/03/07 12:34:47 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:35:48 : getprice : AUCTION , 26.37
+
+2024/03/07 12:35:49 : getprice : DYP , 0.03933
+
+2024/03/07 12:35:49 : getprice : SEAM , 4.621
+
+2024/03/07 12:35:51 : getprice : NCT , 0.0384
+
+2024/03/07 12:35:51 : getprice : MOBILE , 0.003878
+
+2024/03/07 12:36:52 : getprice : PNG , 0.4092
+
+2024/03/07 13:01:19 : getprice : AUCTION , 26.37
+
+2024/03/07 13:01:21 : getprice : DYP , 0.03933
+
+2024/03/07 13:01:22 : getprice : SEAM , 4.621
+
+2024/03/07 13:01:23 : getprice : NCT , 0.0384
+
+2024/03/07 13:01:23 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:02:24 : getprice : PNG , 0.4092
+
+2024/03/07 13:03:32 : getprice : AUCTION , 26.37
+
+2024/03/07 13:03:39 : getprice : DYP , 0.03933
+
+2024/03/07 13:03:40 : getprice : SEAM , 4.621
+
+2024/03/07 13:03:41 : getprice : NCT , 0.0384
+
+2024/03/07 13:03:42 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:04:43 : getprice : PNG , 0.4092
+
+2024/03/07 13:06:29 : getprice : AUCTION , 26.37
+
+2024/03/07 13:06:30 : getprice : DYP , 0.03933
+
+2024/03/07 13:06:31 : getprice : SEAM , 4.621
+
+2024/03/07 13:06:31 : getprice : NCT , 0.0384
+
+2024/03/07 13:06:32 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:07:34 : getprice : PNG , 0.4092
+
+2024/03/07 13:08:08 : getprice : AUCTION , 26.37
+
+2024/03/07 13:08:09 : getprice : DYP , 0.03933
+
+2024/03/07 13:08:11 : getprice : SEAM , 4.621
+
+2024/03/07 13:08:11 : getprice : NCT , 0.0384
+
+2024/03/07 13:08:12 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:09:13 : getprice : PNG , 0.4092
+
+2024/03/07 13:09:20 : getprice : PRO , 0
+
+2024/03/07 13:09:26 : no name cryptocompare for : CLV
+
+2024/03/07 13:09:26 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko clover-finance
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:10:52 : getprice : AUCTION , 26.37
+
+2024/03/07 13:10:53 : getprice : DYP , 0.03933
+
+2024/03/07 13:10:53 : getprice : SEAM , 4.621
+
+2024/03/07 13:10:54 : getprice : NCT , 0.0384
+
+2024/03/07 13:10:55 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:11:56 : getprice : PNG , 0.4092
+
+2024/03/07 13:15:39 : getprice : AUCTION , 26.37
+
+2024/03/07 13:15:40 : getprice : DYP , 0.03933
+
+2024/03/07 13:15:41 : getprice : SEAM , 4.621
+
+2024/03/07 13:15:42 : getprice : NCT , 0.0384
+
+2024/03/07 13:15:43 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:16:44 : no name cryptocompare for : CLV
+
+2024/03/07 13:16:44 : Minor error: cannot get price for crypto : 
+name CLV
+name_cryptocompare None
+name_coingecko clover-finance
+amount 0.00016267
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:18:36 : getprice : AUCTION , 26.37
+
+2024/03/07 13:18:37 : getprice : DYP , 0.03933
+
+2024/03/07 13:18:37 : getprice : SEAM , 4.621
+
+2024/03/07 13:18:38 : getprice : NCT , 0.0384
+
+2024/03/07 13:18:39 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:20:17 : getprice : AUCTION , 26.37
+
+2024/03/07 13:20:17 : getprice : DYP , 0.03933
+
+2024/03/07 13:20:18 : getprice : SEAM , 4.621
+
+2024/03/07 13:20:18 : getprice : NCT , 0.0384
+
+2024/03/07 13:20:18 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:21:22 : getprice : CLV , -1
+
+2024/03/07 13:21:23 : getprice : UMA , -1
+
+2024/03/07 13:21:23 : no name coingecko for : DOGE
+
+2024/03/07 13:21:23 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:26:01 : getprice : AUCTION , 26.37
+
+2024/03/07 13:26:01 : getprice : DYP , 0.03933
+
+2024/03/07 13:26:02 : getprice : SEAM , 4.621
+
+2024/03/07 13:26:02 : getprice : NCT , 0.0384
+
+2024/03/07 13:26:02 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:27:51 : getprice : CLV , -1
+
+2024/03/07 13:28:12 : getprice : UMA , -1
+
+2024/03/07 13:28:12 : no name coingecko for : DOGE
+
+2024/03/07 13:28:12 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:28:12 : CRITICAL error: crypto price is not float : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:28:46 : getprice : AUCTION , 26.37
+
+2024/03/07 13:28:47 : getprice : DYP , 0.03933
+
+2024/03/07 13:28:48 : getprice : SEAM , 4.621
+
+2024/03/07 13:28:50 : getprice : NCT , 0.0384
+
+2024/03/07 13:30:19 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:30:49 : getprice : CLV , -1
+
+2024/03/07 13:30:50 : getprice : UMA , -1
+
+2024/03/07 13:30:52 : no name coingecko for : DOGE
+
+2024/03/07 13:30:52 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:30:52 : CRITICAL error: crypto price is not float : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:32:14 : getprice : AUCTION , 26.37
+
+2024/03/07 13:32:15 : getprice : DYP , 0.03933
+
+2024/03/07 13:32:15 : getprice : SEAM , 4.621
+
+2024/03/07 13:32:16 : getprice : NCT , 0.0384
+
+2024/03/07 13:32:16 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:33:17 : getprice : CLV , -1
+
+2024/03/07 13:33:17 : getprice : UMA , -1
+
+2024/03/07 13:33:57 : no name coingecko for : DOGE
+
+2024/03/07 13:33:57 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:35:12 : getprice : AUCTION , 26.37
+
+2024/03/07 13:35:12 : getprice : DYP , 0.03933
+
+2024/03/07 13:35:12 : getprice : SEAM , 4.621
+
+2024/03/07 13:35:13 : getprice : NCT , 0.0384
+
+2024/03/07 13:35:13 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:36:13 : getprice : CLV , -1
+
+2024/03/07 13:36:14 : getprice : UMA , -1
+
+2024/03/07 13:37:07 : no name coingecko for : DOGE
+
+2024/03/07 13:37:07 : Minor error: cannot get price for crypto : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:37:07 : CRITICAL error: crypto price is not float : 
+name DOGE
+name_cryptocompare None
+name_coingecko None
+amount 0.00383715
+buy_price 0
+max_price 0
+current_price -1
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 13:43:10 : getprice : AUCTION , 26.37
+
+2024/03/07 13:43:11 : getprice : DYP , 0.03933
+
+2024/03/07 13:43:11 : getprice : SEAM , 4.621
+
+2024/03/07 13:43:12 : getprice : NCT , 0.0384
+
+2024/03/07 13:43:12 : getprice : MOBILE , 0.003878
+
+2024/03/07 13:44:13 : getprice : CLV , -1
+
+2024/03/07 13:44:13 : getprice : UMA , -1
+
+2024/03/07 13:44:13 : getprice : DOGE , -1
+
+2024/03/07 13:44:14 : getprice : PRQ , -1
+
+2024/03/07 13:45:14 : getprice : FOX , -1
+
+2024/03/07 13:45:15 : getprice : BLZ , -1
+
+2024/03/07 13:45:15 : getprice : SWFTC , 0.005724
+
+2024/03/07 13:45:15 : getprice : ABT , -1
+
+2024/03/07 13:45:16 : getprice : ASM , -1
+
+2024/03/07 13:46:17 : getprice : SPA , -1
+
+2024/03/07 13:46:18 : getprice : MTL , -1
+
+2024/03/07 13:46:18 : getprice : SHIB , -1
+
+2024/03/07 13:46:19 : crypto amount equal 0 : HOPR
+2024/03/07 13:46:19 : crypto amount equal 0 : INV
+2024/03/07 13:46:19 : crypto amount equal 0 : SNX
+2024/03/07 13:46:19 : crypto amount equal 0 : COTI
+2024/03/07 13:46:19 : crypto amount equal 0 : LTC
+2024/03/07 13:46:19 : crypto amount equal 0 : MASK
+2024/03/07 13:46:19 : crypto amount equal 0 : BICO
+2024/03/07 13:46:19 : Start loop
+2024/03/07 13:46:20 : getprice : AUCTION , 26.83
+
+2024/03/07 13:46:20 : peak detection for :  AUCTION
+2024/03/07 13:46:20 : getprice : MOBILE , 0.00384176
+
+2024/03/07 13:46:20 : peak detection for :  MOBILE
+2024/03/07 13:47:21 : getprice : UMA , 4.0
+
+2024/03/07 13:47:21 : peak detection for :  UMA
+2024/03/07 13:47:22 : getprice : SWFTC , 0.00585537
+
+2024/03/07 13:47:22 : peak detection for :  SWFTC
+2024/03/07 13:47:22 : getprice : SPA , 0.0174977
+
+2024/03/07 13:47:22 : peak detection for :  SPA
+2024/03/07 13:47:22 : getprice : MTL , 2.69
+
+2024/03/07 13:47:22 : peak detection for :  MTL
+2024/03/07 13:47:23 : getprice : SHIB , 3.187e-05
+
+2024/03/07 13:47:23 : peak detection for :  SHIB
+2024/03/07 13:47:23 : End loop
+2024/03/07 13:53:23 : Start loop
+2024/03/07 13:53:23 : getprice : AUCTION , 26.83
+
+2024/03/07 13:53:23 : peak detection for :  AUCTION
+2024/03/07 13:53:24 : getprice : MOBILE , 0.00384176
+
+2024/03/07 13:53:24 : peak detection for :  MOBILE
+2024/03/07 13:53:24 : getprice : UMA , 4.0
+
+2024/03/07 13:53:24 : peak detection for :  UMA
+2024/03/07 13:53:25 : getprice : SWFTC , 0.00585537
+
+2024/03/07 13:53:25 : peak detection for :  SWFTC
+2024/03/07 13:53:25 : getprice : SPA , 0.0174977
+
+2024/03/07 13:53:25 : peak detection for :  SPA
+2024/03/07 13:53:26 : getprice : MTL , 2.69
+
+2024/03/07 13:53:26 : peak detection for :  MTL
+2024/03/07 13:53:26 : getprice : SHIB , 3.187e-05
+
+2024/03/07 13:53:26 : peak detection for :  SHIB
+2024/03/07 13:53:26 : End loop
+2024/03/07 13:59:26 : Start loop
+2024/03/07 13:59:27 : getprice : AUCTION , 26.56
+
+2024/03/07 13:59:27 : peak detection for :  AUCTION
+2024/03/07 13:59:27 : getprice : MOBILE , 0.00385478
+
+2024/03/07 13:59:27 : peak detection for :  MOBILE
+2024/03/07 13:59:28 : getprice : UMA , 3.98
+
+2024/03/07 13:59:28 : peak detection for :  UMA
+2024/03/07 13:59:28 : getprice : SWFTC , 0.00619728
+
+2024/03/07 13:59:28 : peak detection for :  SWFTC
+2024/03/07 13:59:29 : getprice : SPA , 0.01725895
+
+2024/03/07 13:59:29 : peak detection for :  SPA
+2024/03/07 13:59:29 : getprice : MTL , 2.68
+
+2024/03/07 13:59:29 : peak detection for :  MTL
+2024/03/07 13:59:30 : getprice : SHIB , 3.146e-05
+
+2024/03/07 13:59:30 : peak detection for :  SHIB
+2024/03/07 13:59:30 : End loop
+2024/03/07 14:01:55 : getprice : AUCTION , 26.54
+
+2024/03/07 14:01:56 : getprice : DYP , 0.04032533
+
+2024/03/07 14:01:57 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:01:58 : getprice : NCT , 0.04503155
+
+2024/03/07 14:01:58 : getprice : MOBILE , 0.00385478
+
+2024/03/07 14:01:59 : getprice : CLV , 0.073315
+
+2024/03/07 14:01:59 : getprice : UMA , 3.98
+
+2024/03/07 14:02:00 : getprice : DOGE , 0.15292
+
+2024/03/07 14:02:00 : getprice : PRQ , 0.14718
+
+2024/03/07 14:03:01 : getprice : AUCTION , 26.54
+
+2024/03/07 14:03:02 : getprice : DYP , 0.04032533
+
+2024/03/07 14:03:02 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:03:02 : getprice : NCT , 0.04503155
+
+2024/03/07 14:03:58 : getprice : AUCTION , 26.54
+
+2024/03/07 14:03:58 : getprice : DYP , 0.04032533
+
+2024/03/07 14:04:03 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:04:04 : getprice : NCT , 0.04503155
+
+2024/03/07 14:04:04 : getprice : MOBILE , 0.00385478
+
+2024/03/07 14:04:04 : getprice : CLV , 0.073315
+
+2024/03/07 14:04:05 : getprice : UMA , 3.98
+
+2024/03/07 14:05:05 : getprice : DOGE , 0.15292
+
+2024/03/07 14:05:06 : getprice : PRQ , 0.14718
+
+2024/03/07 14:05:06 : getprice : FOX , 0.081063
+
+2024/03/07 14:05:06 : getprice : BLZ , 0.339316
+
+2024/03/07 14:05:07 : getprice : SWFTC , 0.0061525
+
+2024/03/07 14:06:07 : getprice : ABT , 1.69
+
+2024/03/07 14:06:08 : getprice : ASM , 0.323903
+
+2024/03/07 14:06:09 : getprice : SPA , 0.01706393
+
+2024/03/07 14:06:10 : getprice : MTL , 2.68
+
+2024/03/07 14:07:10 : getprice : SHIB , 3.144e-05
+
+2024/03/07 14:07:10 : no name coingecko for : PNG
+
+2024/03/07 14:07:10 : Minor error: cannot get price for crypto : 
+name PNG
+name_cryptocompare None
+name_coingecko None
+amount 0.5060202
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 14:07:10 : CRITICAL error: crypto price is not float : 
+name PNG
+name_cryptocompare None
+name_coingecko None
+amount 0.5060202
+buy_price 0
+max_price 0
+current_price 0
+USDC_balance 0
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0
+break_even_point 0
+profit_percent 0
+
+2024/03/07 14:13:29 : getprice : AUCTION , 26.54
+
+2024/03/07 14:13:29 : getprice : DYP , 0.04032533
+
+2024/03/07 14:13:30 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:13:31 : getprice : NCT , 0.04503155
+
+2024/03/07 14:13:31 : getprice : MOBILE , 0.00385478
+
+2024/03/07 14:13:32 : getprice : CLV , 0.073315
+
+2024/03/07 14:13:33 : getprice : UMA , 3.98
+
+2024/03/07 14:13:34 : getprice : DOGE , 0.15292
+
+2024/03/07 14:13:36 : getprice : PRQ , 0.14718
+
+2024/03/07 14:13:36 : getprice : FOX , 0.081063
+
+2024/03/07 14:14:37 : getprice : BLZ , 0.339316
+
+2024/03/07 14:14:38 : getprice : SWFTC , 0.0061525
+
+2024/03/07 14:14:39 : getprice : ABT , 1.69
+
+2024/03/07 14:14:39 : getprice : ASM , 0.323903
+
+2024/03/07 14:14:40 : getprice : SPA , 0.01706393
+
+2024/03/07 14:14:41 : getprice : MTL , 2.68
+
+2024/03/07 14:14:41 : getprice : SHIB , 3.144e-05
+
+2024/03/07 14:15:42 : getprice : PNG , 0
+
+2024/03/07 14:15:43 : crypto amount equal 0 : HOPR
+2024/03/07 14:15:43 : crypto amount equal 0 : INV
+2024/03/07 14:15:43 : crypto amount equal 0 : SNX
+2024/03/07 14:15:43 : crypto amount equal 0 : COTI
+2024/03/07 14:15:43 : crypto amount equal 0 : LTC
+2024/03/07 14:15:43 : crypto amount equal 0 : MASK
+2024/03/07 14:15:43 : crypto amount equal 0 : BICO
+2024/03/07 14:15:43 : Start loop
+2024/03/07 14:15:45 : getprice : AUCTION , 26.47
+
+2024/03/07 14:15:45 : peak detection for :  AUCTION
+2024/03/07 14:15:45 : Peak detected : name AUCTION
+name_cryptocompare AUCTION
+name_coingecko auction
+amount 0.36859257
+buy_price 29.77
+max_price 26.83
+current_price 26.47
+USDC_balance 9.7566453279
+number_of_alert_authorized 10
+last_notification_time 1709219999.7949066
+peak_target 103
+break_even_point 0.99
+profit_percent 88.91501511588848
+
+2024/03/07 14:18:41 : getprice : AUCTION , 26.47
+
+2024/03/07 14:18:42 : getprice : DYP , 0.04054283
+
+2024/03/07 14:18:42 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:18:42 : getprice : NCT , 0.04602638
+
+2024/03/07 14:18:43 : getprice : MOBILE , 0.00386369
+
+2024/03/07 14:18:43 : getprice : CLV , 0.073062
+
+2024/03/07 14:18:44 : getprice : UMA , 3.97
+
+2024/03/07 14:18:45 : getprice : DOGE , 0.149908
+
+2024/03/07 14:19:40 : crypto amount equal 0 : HOPR
+2024/03/07 14:19:40 : crypto amount equal 0 : INV
+2024/03/07 14:19:40 : crypto amount equal 0 : SNX
+2024/03/07 14:19:40 : crypto amount equal 0 : COTI
+2024/03/07 14:19:40 : crypto amount equal 0 : LTC
+2024/03/07 14:19:40 : crypto amount equal 0 : MASK
+2024/03/07 14:19:40 : crypto amount equal 0 : BICO
+2024/03/07 14:19:40 : Start loop
+2024/03/07 14:19:45 : getprice : AUCTION , 26.47
+
+2024/03/07 14:19:45 : peak detection for :  AUCTION
+2024/03/07 14:19:45 : Peak detected : name AUCTION
+name_cryptocompare AUCTION
+name_coingecko auction
+amount 0.36859257
+buy_price 29.77
+max_price 26.83
+current_price 26.42
+USDC_balance 9.738215699400001
+number_of_alert_authorized 10
+last_notification_time 1709219999.7949066
+peak_target 103
+break_even_point 0.99
+profit_percent 88.74706079946255
+
+2024/03/07 14:20:38 : crypto amount equal 0 : HOPR
+2024/03/07 14:20:38 : crypto amount equal 0 : INV
+2024/03/07 14:20:38 : crypto amount equal 0 : SNX
+2024/03/07 14:20:38 : crypto amount equal 0 : COTI
+2024/03/07 14:20:38 : crypto amount equal 0 : LTC
+2024/03/07 14:20:38 : crypto amount equal 0 : MASK
+2024/03/07 14:20:38 : crypto amount equal 0 : BICO
+2024/03/07 14:20:39 : Start loop
+2024/03/07 14:20:39 : getprice : AUCTION , 26.47
+
+2024/03/07 14:20:39 : peak detection for :  AUCTION
+2024/03/07 14:20:39 : getprice : MOBILE , 0.00386369
+
+2024/03/07 14:20:39 : peak detection for :  MOBILE
+2024/03/07 14:20:40 : getprice : UMA , 3.97
+
+2024/03/07 14:20:40 : peak detection for :  UMA
+2024/03/07 14:20:40 : getprice : SWFTC , 0.00602651
+
+2024/03/07 14:20:41 : getprice : SPA , 0.01760605
+
+2024/03/07 14:20:41 : peak detection for :  SPA
+2024/03/07 14:20:42 : getprice : MTL , 2.67
+
+2024/03/07 14:20:42 : peak detection for :  MTL
+2024/03/07 14:20:42 : getprice : SHIB , 3.102e-05
+
+2024/03/07 14:20:42 : peak detection for :  SHIB
+2024/03/07 14:20:42 : End loop
+2024/03/07 14:26:42 : Start loop
+2024/03/07 14:26:43 : getprice : AUCTION , 26.47
+
+2024/03/07 14:26:43 : peak detection for :  AUCTION
+2024/03/07 14:26:43 : getprice : MOBILE , 0.00387475
+
+2024/03/07 14:26:43 : peak detection for :  MOBILE
+2024/03/07 14:26:43 : getprice : UMA , 3.94
+
+2024/03/07 14:26:43 : peak detection for :  UMA
+2024/03/07 14:26:44 : getprice : SPA , 0.01752757
+
+2024/03/07 14:26:44 : peak detection for :  SPA
+2024/03/07 14:26:45 : getprice : MTL , 2.66
+
+2024/03/07 14:26:45 : peak detection for :  MTL
+2024/03/07 14:26:45 : getprice : SHIB , 3.105e-05
+
+2024/03/07 14:26:45 : peak detection for :  SHIB
+2024/03/07 14:26:45 : End loop
+2024/03/07 14:27:34 : getprice : AUCTION , 26.44
+
+2024/03/07 14:27:35 : getprice : DYP , 0.04054283
+
+2024/03/07 14:27:36 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:27:36 : getprice : NCT , 0.04602638
+
+2024/03/07 14:27:36 : getprice : MOBILE , 0.00387772
+
+2024/03/07 14:27:37 : getprice : CLV , 0.073062
+
+2024/03/07 14:27:37 : getprice : UMA , 3.95
+
+2024/03/07 14:28:38 : getprice : DOGE , 0.149908
+
+2024/03/07 14:28:38 : getprice : PRQ , 0.1477
+
+2024/03/07 14:28:39 : getprice : FOX , 0.0804
+
+2024/03/07 14:28:39 : getprice : BLZ , 0.339526
+
+2024/03/07 14:28:40 : getprice : SWFTC , 0.00597973
+
+2024/03/07 14:28:40 : getprice : ABT , 1.68
+
+2024/03/07 14:29:41 : getprice : ASM , 0.316199
+
+2024/03/07 14:29:42 : getprice : SPA , 0.01742938
+
+2024/03/07 14:29:42 : getprice : MTL , 2.67
+
+2024/03/07 14:29:42 : getprice : SHIB , 3.077e-05
+
+2024/03/07 14:30:43 : getprice : PNG , 0.393559
+
+2024/03/07 14:30:45 : crypto amount equal 0 : HOPR
+2024/03/07 14:30:45 : crypto amount equal 0 : INV
+2024/03/07 14:30:45 : crypto amount equal 0 : SNX
+2024/03/07 14:30:45 : crypto amount equal 0 : COTI
+2024/03/07 14:30:45 : crypto amount equal 0 : LTC
+2024/03/07 14:30:45 : crypto amount equal 0 : MASK
+2024/03/07 14:30:45 : crypto amount equal 0 : BICO
+2024/03/07 14:30:45 : Start loop
+2024/03/07 14:30:45 : getprice : AUCTION , 26.44
+
+2024/03/07 14:30:45 : peak detection for :  AUCTION
+2024/03/07 14:30:45 : getprice : MOBILE , 0.00387772
+
+2024/03/07 14:30:45 : peak detection for :  MOBILE
+2024/03/07 14:30:46 : getprice : UMA , 3.95
+
+2024/03/07 14:30:46 : peak detection for :  UMA
+2024/03/07 14:30:46 : getprice : SPA , 0.01742938
+
+2024/03/07 14:30:46 : peak detection for :  SPA
+2024/03/07 14:30:46 : getprice : MTL , 2.67
+
+2024/03/07 14:30:46 : peak detection for :  MTL
+2024/03/07 14:30:47 : getprice : SHIB , 3.071e-05
+
+2024/03/07 14:30:47 : peak detection for :  SHIB
+2024/03/07 14:30:47 : End loop
+2024/03/07 14:35:29 : getprice : AUCTION , 26.44
+
+2024/03/07 14:35:30 : getprice : DYP , 0.04058181
+
+2024/03/07 14:35:30 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:35:30 : getprice : NCT , 0.04587145
+
+2024/03/07 14:35:31 : getprice : MOBILE , 0.00388251
+
+2024/03/07 14:35:31 : getprice : CLV , 0.072974
+
+2024/03/07 14:35:32 : getprice : UMA , 3.95
+
+2024/03/07 14:35:33 : getprice : DOGE , 0.149114
+
+2024/03/07 14:35:33 : getprice : PRQ , 0.148356
+
+2024/03/07 14:36:34 : getprice : FOX , 0.081
+
+2024/03/07 14:36:34 : getprice : BLZ , 0.339562
+
+2024/03/07 14:36:35 : getprice : SWFTC , 0.00619071
+
+2024/03/07 14:36:36 : getprice : ABT , 1.68
+
+2024/03/07 14:37:36 : getprice : ASM , 0.318217
+
+2024/03/07 14:37:37 : getprice : SPA , 0.01742938
+
+2024/03/07 14:37:37 : getprice : MTL , 2.67
+
+2024/03/07 14:37:38 : getprice : SHIB , 3.071e-05
+
+2024/03/07 14:37:38 : getprice : PNG , 0.394356
+
+2024/03/07 14:37:40 : crypto amount equal 0 : HOPR
+2024/03/07 14:37:40 : crypto amount equal 0 : INV
+2024/03/07 14:37:40 : crypto amount equal 0 : SNX
+2024/03/07 14:37:40 : crypto amount equal 0 : COTI
+2024/03/07 14:37:40 : crypto amount equal 0 : LTC
+2024/03/07 14:37:40 : crypto amount equal 0 : MASK
+2024/03/07 14:37:40 : crypto amount equal 0 : BICO
+2024/03/07 14:37:40 : Start loop
+2024/03/07 14:37:40 : getprice : AUCTION , 26.53
+
+2024/03/07 14:37:40 : peak detection for :  AUCTION
+2024/03/07 14:37:40 : getprice : MOBILE , 0.00388251
+
+2024/03/07 14:37:40 : peak detection for :  MOBILE
+2024/03/07 14:38:41 : getprice : UMA , 3.977
+
+2024/03/07 14:38:41 : peak detection for :  UMA
+2024/03/07 14:38:41 : getprice : SPA , 0.01701153
+
+2024/03/07 14:38:41 : peak detection for :  SPA
+2024/03/07 14:38:42 : getprice : MTL , 2.68
+
+2024/03/07 14:38:42 : peak detection for :  MTL
+2024/03/07 14:38:42 : getprice : SHIB , 3.071e-05
+
+2024/03/07 14:38:42 : peak detection for :  SHIB
+2024/03/07 14:38:42 : End loop
+2024/03/07 14:41:55 : getprice : AUCTION , 26.53
+
+2024/03/07 14:41:56 : getprice : DYP , 0.0405075
+
+2024/03/07 14:41:57 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:41:57 : getprice : NCT , 0.04455989
+
+2024/03/07 14:41:58 : getprice : MOBILE , 0.00388597
+
+2024/03/07 14:41:58 : getprice : CLV , 0.073023
+
+2024/03/07 14:41:59 : getprice : UMA , 3.97
+
+2024/03/07 14:41:59 : getprice : DOGE , 0.149776
+
+2024/03/07 14:42:00 : getprice : PRQ , 0.1471
+
+2024/03/07 14:42:00 : getprice : FOX , 0.081299
+
+2024/03/07 14:43:01 : getprice : BLZ , 0.340468
+
+2024/03/07 14:43:02 : getprice : SWFTC , 0.00667719
+
+2024/03/07 14:43:02 : getprice : ABT , 1.69
+
+2024/03/07 14:43:03 : getprice : ASM , 0.318899
+
+2024/03/07 14:44:03 : getprice : SPA , 0.01701153
+
+2024/03/07 14:44:04 : getprice : MTL , 2.68
+
+2024/03/07 14:44:04 : getprice : SHIB , 3.071e-05
+
+2024/03/07 14:44:05 : getprice : PNG , 0.395538
+
+2024/03/07 14:44:06 : crypto amount equal 0 : HOPR
+2024/03/07 14:44:06 : crypto amount equal 0 : INV
+2024/03/07 14:44:06 : crypto amount equal 0 : SNX
+2024/03/07 14:44:06 : crypto amount equal 0 : COTI
+2024/03/07 14:44:06 : crypto amount equal 0 : LTC
+2024/03/07 14:44:06 : crypto amount equal 0 : MASK
+2024/03/07 14:44:06 : crypto amount equal 0 : BICO
+2024/03/07 14:48:17 : getprice : AUCTION , 26.5
+
+2024/03/07 14:48:18 : getprice : DYP , 0.04039939
+
+2024/03/07 14:48:19 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:48:19 : getprice : NCT , 0.04559978
+
+2024/03/07 14:48:19 : getprice : MOBILE , 0.0038882
+
+2024/03/07 14:48:20 : getprice : CLV , 0.072883
+
+2024/03/07 14:48:21 : getprice : UMA , 3.97
+
+2024/03/07 14:48:22 : getprice : DOGE , 0.14978
+
+2024/03/07 14:48:22 : getprice : PRQ , 0.147174
+
+2024/03/07 14:49:23 : getprice : FOX , 0.081015
+
+2024/03/07 14:49:23 : getprice : BLZ , 0.339989
+
+2024/03/07 14:49:24 : getprice : SWFTC , 0.00652482
+
+2024/03/07 14:49:24 : getprice : ABT , 1.67
+
+2024/03/07 14:50:25 : getprice : ASM , 0.31464
+
+2024/03/07 14:50:25 : getprice : SPA , 0.01700232
+
+2024/03/07 14:50:25 : getprice : MTL , 2.69
+
+2024/03/07 14:50:26 : getprice : SHIB , 3.085e-05
+
+2024/03/07 14:50:27 : getprice : PNG , 0.395708
+
+2024/03/07 14:50:28 : crypto amount equal 0 : HOPR
+2024/03/07 14:50:28 : crypto amount equal 0 : INV
+2024/03/07 14:50:28 : crypto amount equal 0 : SNX
+2024/03/07 14:50:28 : crypto amount equal 0 : COTI
+2024/03/07 14:50:28 : crypto amount equal 0 : LTC
+2024/03/07 14:50:28 : crypto amount equal 0 : MASK
+2024/03/07 14:50:28 : crypto amount equal 0 : BICO
+2024/03/07 14:53:49 : Start loop
+2024/03/07 14:53:50 : getprice : AUCTION , 26.53
+
+2024/03/07 14:53:50 : peak detection for :  AUCTION
+2024/03/07 14:53:50 : getprice : MOBILE , 0.00388706
+
+2024/03/07 14:53:50 : peak detection for :  MOBILE
+2024/03/07 14:53:50 : getprice : UMA , 4.002
+
+2024/03/07 14:53:50 : peak detection for :  UMA
+2024/03/07 14:53:51 : getprice : SPA , 0.01686284
+
+2024/03/07 14:53:51 : peak detection for :  SPA
+2024/03/07 14:53:51 : getprice : MTL , 2.7
+
+2024/03/07 14:53:51 : peak detection for :  MTL
+2024/03/07 14:54:51 : getprice : SHIB , 3.074e-05
+
+2024/03/07 14:54:51 : peak detection for :  SHIB
+2024/03/07 14:54:51 : End loop
+2024/03/07 14:55:34 : getprice : AUCTION , 26.6
+
+2024/03/07 14:55:34 : getprice : DYP , 0.0401151
+
+2024/03/07 14:55:35 : getprice : SEAM , 6.06e-05
+
+2024/03/07 14:55:36 : getprice : NCT , 0.04586422
+
+2024/03/07 14:55:36 : getprice : MOBILE , 0.00390341
+
+2024/03/07 14:56:37 : getprice : CLV , 0.072941
+
+2024/03/07 14:56:38 : getprice : UMA , 4.0
+
+2024/03/07 14:56:39 : getprice : DOGE , 0.149494
+
+2024/03/07 14:56:39 : getprice : PRQ , 0.1462
+
+2024/03/07 14:57:40 : getprice : FOX , 0.081402
+
+2024/03/07 14:57:40 : getprice : BLZ , 0.340153
+
+2024/03/07 14:57:41 : getprice : SWFTC , 0.00665154
+
+2024/03/07 14:57:41 : getprice : ABT , 1.68
+
+2024/03/07 14:57:42 : getprice : ASM , 0.318929
+
+2024/03/07 14:58:42 : getprice : SPA , 0.01686284
+
+2024/03/07 14:58:43 : getprice : MTL , 2.7
+
+2024/03/07 14:58:43 : getprice : SHIB , 3.195e-05
+
+2024/03/07 14:58:44 : getprice : PNG , 0.396001
+
+2024/03/07 15:00:30 : getprice : AUCTION , 26.6
+
+2024/03/07 15:00:30 : getprice : DYP , 0.04004171
+
+2024/03/07 15:00:30 : getprice : SEAM , 6.06e-05
+
+2024/03/07 15:00:31 : getprice : NCT , 0.04438347
+
+2024/03/07 15:00:31 : getprice : MOBILE , 0.00390341
+
+2024/03/07 15:00:31 : getprice : CLV , 0.073002
+
+2024/03/07 15:00:32 : getprice : UMA , 4.0
+
+2024/03/07 15:00:32 : getprice : DOGE , 0.150664
+
+2024/03/07 15:01:33 : getprice : PRQ , 0.1468
+
+2024/03/07 15:01:34 : getprice : FOX , 0.081392
+
+2024/03/07 15:01:34 : getprice : BLZ , 0.341112
+
+2024/03/07 15:01:34 : getprice : SWFTC , 0.00655159
+
+2024/03/07 15:01:35 : getprice : ABT , 1.66
+
+2024/03/07 15:02:36 : getprice : ASM , 0.322154
+
+2024/03/07 15:02:36 : getprice : SPA , 0.01675157
+
+2024/03/07 15:02:36 : getprice : MTL , 2.7
+
+2024/03/07 15:02:36 : getprice : SHIB , 3.195e-05
+
+2024/03/07 15:03:37 : getprice : PNG , 0.397477
+
+2024/03/07 15:09:08 : getprice : AUCTION , 26.76
+
+2024/03/07 15:09:08 : getprice : DYP , 0.04004171
+
+2024/03/07 15:09:09 : getprice : SEAM , 6.06e-05
+
+2024/03/07 15:09:09 : getprice : NCT , 0.04438347
+
+2024/03/07 15:09:10 : getprice : MOBILE , 0.00390341
+
+2024/03/07 15:09:10 : getprice : CLV , 0.073002
+
+2024/03/07 15:09:36 : crypto amount equal 0 : HOPR
+2024/03/07 15:09:36 : crypto amount equal 0 : INV
+2024/03/07 15:09:36 : crypto amount equal 0 : SNX
+2024/03/07 15:09:36 : crypto amount equal 0 : COTI
+2024/03/07 15:09:36 : crypto amount equal 0 : LTC
+2024/03/07 15:09:36 : crypto amount equal 0 : MASK
+2024/03/07 15:09:36 : crypto amount equal 0 : BICO
+2024/03/07 15:09:36 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:09:36 : Start loop
+2024/03/07 15:10:11 : getprice : AUCTION , 26.76
+
+2024/03/07 15:10:11 : peak detection for :  AUCTION
+2024/03/07 15:10:12 : getprice : MOBILE , 0.00390341
+
+2024/03/07 15:10:12 : peak detection for :  MOBILE
+2024/03/07 15:10:12 : getprice : UMA , 4.02
+
+2024/03/07 15:10:12 : peak detection for :  UMA
+2024/03/07 15:10:13 : getprice : SPA , 0.01675157
+
+2024/03/07 15:10:13 : peak detection for :  SPA
+2024/03/07 15:11:13 : getprice : MTL , 2.7
+
+2024/03/07 15:11:13 : peak detection for :  MTL
+2024/03/07 15:11:14 : getprice : SHIB , 3.088e-05
+
+2024/03/07 15:11:14 : peak detection for :  SHIB
+2024/03/07 15:11:14 : End loop
+2024/03/07 15:15:07 : crypto amount equal 0 : HOPR
+2024/03/07 15:15:07 : crypto amount equal 0 : INV
+2024/03/07 15:15:07 : crypto amount equal 0 : SNX
+2024/03/07 15:15:07 : crypto amount equal 0 : COTI
+2024/03/07 15:15:07 : crypto amount equal 0 : LTC
+2024/03/07 15:15:07 : crypto amount equal 0 : MASK
+2024/03/07 15:15:07 : crypto amount equal 0 : BICO
+2024/03/07 15:15:07 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 0
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:15:07 : Start loop
+2024/03/07 15:15:08 : getprice : AUCTION , 26.83
+
+2024/03/07 15:15:08 : peak detection for :  AUCTION
+2024/03/07 15:15:08 : getprice : MOBILE , 0.00390199
+
+2024/03/07 15:15:08 : peak detection for :  MOBILE
+2024/03/07 15:15:08 : getprice : UMA , 4.04
+
+2024/03/07 15:15:08 : peak detection for :  UMA
+2024/03/07 15:15:09 : getprice : SPA , 0.01643143
+
+2024/03/07 15:15:09 : peak detection for :  SPA
+2024/03/07 15:15:09 : getprice : MTL , 2.7
+
+2024/03/07 15:15:09 : peak detection for :  MTL
+2024/03/07 15:15:10 : getprice : SHIB , 3.116e-05
+
+2024/03/07 15:15:10 : peak detection for :  SHIB
+2024/03/07 15:15:10 : End loop
+2024/03/07 15:16:21 : crypto amount equal 0 : HOPR
+2024/03/07 15:16:21 : crypto amount equal 0 : INV
+2024/03/07 15:16:21 : crypto amount equal 0 : SNX
+2024/03/07 15:16:21 : crypto amount equal 0 : COTI
+2024/03/07 15:16:21 : crypto amount equal 0 : LTC
+2024/03/07 15:16:21 : crypto amount equal 0 : MASK
+2024/03/07 15:16:21 : crypto amount equal 0 : BICO
+2024/03/07 15:16:21 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 0
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:16:21 : Start loop
+2024/03/07 15:16:22 : getprice : AUCTION , 26.81
+
+2024/03/07 15:16:22 : peak detection for :  AUCTION
+2024/03/07 15:16:22 : getprice : MOBILE , 0.00390601
+
+2024/03/07 15:16:22 : peak detection for :  MOBILE
+2024/03/07 15:16:22 : getprice : UMA , 4.05
+
+2024/03/07 15:16:22 : peak detection for :  UMA
+2024/03/07 15:16:22 : getprice : SPA , 0.01643143
+
+2024/03/07 15:16:22 : peak detection for :  SPA
+2024/03/07 15:16:23 : getprice : MTL , 2.7
+
+2024/03/07 15:16:23 : peak detection for :  MTL
+2024/03/07 15:16:23 : getprice : SHIB , 3.123e-05
+
+2024/03/07 15:16:23 : peak detection for :  SHIB
+2024/03/07 15:16:23 : End loop
+2024/03/07 15:17:14 : crypto amount equal 0 : HOPR
+2024/03/07 15:17:14 : crypto amount equal 0 : INV
+2024/03/07 15:17:14 : crypto amount equal 0 : SNX
+2024/03/07 15:17:14 : crypto amount equal 0 : COTI
+2024/03/07 15:17:14 : crypto amount equal 0 : LTC
+2024/03/07 15:17:14 : crypto amount equal 0 : MASK
+2024/03/07 15:17:14 : crypto amount equal 0 : BICO
+2024/03/07 15:17:14 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 0
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:17:14 : Start loop
+2024/03/07 15:17:14 : getprice : AUCTION , 26.81
+
+2024/03/07 15:17:14 : peak detection for :  AUCTION
+2024/03/07 15:17:15 : getprice : MOBILE , 0.00390601
+
+2024/03/07 15:17:15 : peak detection for :  MOBILE
+2024/03/07 15:17:15 : getprice : UMA , 4.05
+
+2024/03/07 15:17:15 : peak detection for :  UMA
+2024/03/07 15:18:16 : getprice : SPA , 0.01643143
+
+2024/03/07 15:18:16 : peak detection for :  SPA
+2024/03/07 15:18:16 : getprice : MTL , 2.7
+
+2024/03/07 15:18:16 : peak detection for :  MTL
+2024/03/07 15:18:16 : getprice : SHIB , 3.122e-05
+
+2024/03/07 15:18:16 : peak detection for :  SHIB
+2024/03/07 15:19:00 : crypto amount equal 0 : HOPR
+2024/03/07 15:19:00 : crypto amount equal 0 : INV
+2024/03/07 15:19:00 : crypto amount equal 0 : SNX
+2024/03/07 15:19:00 : crypto amount equal 0 : COTI
+2024/03/07 15:19:00 : crypto amount equal 0 : LTC
+2024/03/07 15:19:00 : crypto amount equal 0 : MASK
+2024/03/07 15:19:00 : crypto amount equal 0 : BICO
+2024/03/07 15:19:00 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:19:00 : Start loop
+2024/03/07 15:19:00 : getprice : AUCTION , 26.81
+
+2024/03/07 15:19:00 : peak detection for :  AUCTION
+2024/03/07 15:19:00 : getprice : MOBILE , 0.00390601
+
+2024/03/07 15:19:00 : peak detection for :  MOBILE
+2024/03/07 15:19:01 : getprice : UMA , 4.05
+
+2024/03/07 15:19:01 : peak detection for :  UMA
+2024/03/07 15:19:01 : getprice : SPA , 0.01643143
+
+2024/03/07 15:19:01 : peak detection for :  SPA
+2024/03/07 15:19:01 : getprice : MTL , 2.7
+
+2024/03/07 15:19:01 : peak detection for :  MTL
+2024/03/07 15:19:02 : getprice : SHIB , 3.122e-05
+
+2024/03/07 15:19:02 : peak detection for :  SHIB
+2024/03/07 15:20:57 : crypto amount equal 0 : HOPR
+2024/03/07 15:20:57 : crypto amount equal 0 : INV
+2024/03/07 15:20:57 : crypto amount equal 0 : SNX
+2024/03/07 15:20:57 : crypto amount equal 0 : COTI
+2024/03/07 15:20:57 : crypto amount equal 0 : LTC
+2024/03/07 15:20:57 : crypto amount equal 0 : MASK
+2024/03/07 15:20:57 : crypto amount equal 0 : BICO
+2024/03/07 15:20:57 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:20:57 : Start loop
+2024/03/07 15:20:57 : getprice : AUCTION , 26.81
+
+2024/03/07 15:20:57 : peak detection for :  AUCTION
+2024/03/07 15:20:57 : getprice : MOBILE , 0.00390601
+
+2024/03/07 15:20:57 : peak detection for :  MOBILE
+2024/03/07 15:20:58 : getprice : UMA , 4.05
+
+2024/03/07 15:20:58 : peak detection for :  UMA
+2024/03/07 15:20:58 : getprice : SPA , 0.01643143
+
+2024/03/07 15:20:58 : peak detection for :  SPA
+2024/03/07 15:20:59 : getprice : MTL , 2.7
+
+2024/03/07 15:20:59 : peak detection for :  MTL
+2024/03/07 15:20:59 : getprice : SHIB , 3.122e-05
+
+2024/03/07 15:20:59 : peak detection for :  SHIB
+2024/03/07 15:23:50 : crypto amount equal 0 : HOPR
+2024/03/07 15:23:50 : crypto amount equal 0 : INV
+2024/03/07 15:23:50 : crypto amount equal 0 : SNX
+2024/03/07 15:23:50 : crypto amount equal 0 : COTI
+2024/03/07 15:23:50 : crypto amount equal 0 : LTC
+2024/03/07 15:23:50 : crypto amount equal 0 : MASK
+2024/03/07 15:23:50 : crypto amount equal 0 : BICO
+2024/03/07 15:23:50 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:26:22 : crypto amount equal 0 : HOPR
+2024/03/07 15:26:22 : crypto amount equal 0 : INV
+2024/03/07 15:26:22 : crypto amount equal 0 : SNX
+2024/03/07 15:26:22 : crypto amount equal 0 : COTI
+2024/03/07 15:26:22 : crypto amount equal 0 : LTC
+2024/03/07 15:26:22 : crypto amount equal 0 : MASK
+2024/03/07 15:26:22 : crypto amount equal 0 : BICO
+2024/03/07 15:26:22 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:55:19 : crypto amount equal 0 : HOPR
+2024/03/07 15:55:19 : crypto amount equal 0 : INV
+2024/03/07 15:55:19 : crypto amount equal 0 : SNX
+2024/03/07 15:55:19 : crypto amount equal 0 : COTI
+2024/03/07 15:55:19 : crypto amount equal 0 : LTC
+2024/03/07 15:55:19 : crypto amount equal 0 : MASK
+2024/03/07 15:55:19 : crypto amount equal 0 : BICO
+2024/03/07 15:55:19 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 15:58:30 : crypto amount equal 0 : HOPR
+2024/03/07 15:58:30 : crypto amount equal 0 : INV
+2024/03/07 15:58:30 : crypto amount equal 0 : SNX
+2024/03/07 15:58:30 : crypto amount equal 0 : COTI
+2024/03/07 15:58:30 : crypto amount equal 0 : LTC
+2024/03/07 15:58:30 : crypto amount equal 0 : MASK
+2024/03/07 15:58:30 : crypto amount equal 0 : BICO
+2024/03/07 15:58:30 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 16:00:00 : crypto amount equal 0 : HOPR
+2024/03/07 16:00:00 : crypto amount equal 0 : INV
+2024/03/07 16:00:00 : crypto amount equal 0 : SNX
+2024/03/07 16:00:00 : crypto amount equal 0 : COTI
+2024/03/07 16:00:00 : crypto amount equal 0 : LTC
+2024/03/07 16:00:00 : crypto amount equal 0 : MASK
+2024/03/07 16:00:00 : crypto amount equal 0 : BICO
+2024/03/07 16:00:17 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 16:02:07 : crypto amount equal 0 : HOPR
+2024/03/07 16:02:07 : crypto amount equal 0 : INV
+2024/03/07 16:02:07 : crypto amount equal 0 : SNX
+2024/03/07 16:02:07 : crypto amount equal 0 : COTI
+2024/03/07 16:02:07 : crypto amount equal 0 : LTC
+2024/03/07 16:02:07 : crypto amount equal 0 : MASK
+2024/03/07 16:02:07 : crypto amount equal 0 : BICO
+2024/03/07 16:03:14 : crypto amount equal 0 : HOPR
+2024/03/07 16:03:14 : crypto amount equal 0 : INV
+2024/03/07 16:03:14 : crypto amount equal 0 : SNX
+2024/03/07 16:03:14 : crypto amount equal 0 : COTI
+2024/03/07 16:03:14 : crypto amount equal 0 : LTC
+2024/03/07 16:03:14 : crypto amount equal 0 : MASK
+2024/03/07 16:03:14 : crypto amount equal 0 : BICO
+2024/03/07 16:03:14 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 0
+current_price 0
+USDC_balance 10
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 16:03:15 : Start loop
+2024/03/07 16:03:15 : getprice : AUCTION , 26.81
+
+2024/03/07 16:03:15 : peak detection for :  AUCTION
+2024/03/07 16:03:16 : getprice : MOBILE , 0.00390601
+
+2024/03/07 16:03:16 : peak detection for :  MOBILE
+2024/03/07 16:03:16 : getprice : UMA , 4.05
+
+2024/03/07 16:03:16 : peak detection for :  UMA
+2024/03/07 16:03:17 : getprice : SPA , 0.01643143
+
+2024/03/07 16:03:17 : peak detection for :  SPA
+2024/03/07 16:03:17 : getprice : MTL , 2.7
+
+2024/03/07 16:03:17 : peak detection for :  MTL
+2024/03/07 16:03:18 : getprice : SHIB , 3.122e-05
+
+2024/03/07 16:03:18 : peak detection for :  SHIB
+2024/03/07 16:03:18 : getprice : AVT , 0
+
+2024/03/07 16:03:18 : peak detection for :  AVT
+2024/03/07 16:03:18 : End loop
+2024/03/07 16:08:17 : crypto amount equal 0 : HOPR
+2024/03/07 16:08:17 : crypto amount equal 0 : INV
+2024/03/07 16:08:17 : crypto amount equal 0 : SNX
+2024/03/07 16:08:17 : crypto amount equal 0 : COTI
+2024/03/07 16:08:17 : crypto amount equal 0 : LTC
+2024/03/07 16:08:17 : crypto amount equal 0 : MASK
+2024/03/07 16:08:17 : crypto amount equal 0 : BICO
+2024/03/07 16:08:17 : Minor error: crypto_name is not in dic_price_api : 
+name AVT
+name_cryptocompare AVT
+name_coingecko aventus
+amount 1.123
+buy_price 2.23
+max_price 2.25
+current_price 2.25
+USDC_balance 2.52675
+number_of_alert_authorized 10
+last_notification_time 0
+peak_target 0.99
+break_even_point 103
+profit_percent 0
+
+2024/03/07 16:08:17 : Start loop
+2024/03/07 16:08:18 : getprice : AUCTION , 26.59
+
+2024/03/07 16:08:18 : peak detection for :  AUCTION
+2024/03/07 16:08:18 : getprice : MOBILE , 0.00389971
+
+2024/03/07 16:08:18 : peak detection for :  MOBILE
+2024/03/07 16:08:19 : getprice : UMA , 4.04
+
+2024/03/07 16:08:19 : peak detection for :  UMA
+2024/03/07 16:08:19 : getprice : SPA , 0.01628627
+
+2024/03/07 16:08:19 : peak detection for :  SPA
+2024/03/07 16:08:20 : getprice : MTL , 2.68
+
+2024/03/07 16:08:20 : peak detection for :  MTL
+2024/03/07 16:08:20 : getprice : SHIB , 3.186e-05
+
+2024/03/07 16:08:20 : peak detection for :  SHIB
+2024/03/07 16:09:21 : getprice : AVT , 2.25
+
+2024/03/07 16:09:21 : peak detection for :  AVT
+2024/03/07 16:09:21 : End loop

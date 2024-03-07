@@ -2,13 +2,10 @@
 __pycache__/struct.cpython-310.pyc
 *.pyc
 cours/
-user_data.txt
 api_keys/*
-sandbox003.py
-sandbox004.py
 log/*
-user_data_userfriendly.txt
 api_counter/counter_coingecko.txt
 api_counter/counter_cryptocompare.txt
 full_log
 user_data_userfriendly.txt
+cryptos.json
