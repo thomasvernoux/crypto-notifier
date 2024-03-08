@@ -99,12 +99,15 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 
     product_id = f"{crypto_symbol}-USDC"
-    available_sell_quantity = matching_account["available_balance"]["value"]
+    available_sell_quantity = matching_account["available_balance"]["value"][:-1]
     
     
-    binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
+    #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
-    
+    print(order)
+
+    return True
+
 def get_sell_price_coinabse_api(crypto):
     if crypto.coinbaseId == None :
         minor_error(f"crypto : {crypto.name} has no coinbaseId")

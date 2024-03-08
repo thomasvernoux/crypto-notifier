@@ -14,3 +14,6 @@ Il faut tout revoir de ce cote la
 
 
 Aussi, quand j'appelle l'api coinbase pour avoir mes accounts, j'ai pas la crypto AVT ...
+
+
+todo : understand eth2 exception

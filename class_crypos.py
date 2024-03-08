@@ -7,6 +7,7 @@ import time
 from send_email_file import *
 from global_variables import *
 from function_history import *
+from simples_functions import *
 from peak_detections_functions import *
 from CoinBaseApi import *
 from log import *
@@ -97,12 +98,19 @@ class Crypto:
                 subject = "Time to sell alert"
                 body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
                 
+                # simple notification on laptop
+                sound_notification()
             
                 if get_variable_mode() == "real":
                     send_email(subject, body)
                     
                     # Sell crypto
-                    self.sell_for_USDC()
+                    try :
+                        self.sell_for_USDC()
+                    except : 
+                        tb_info = traceback.format_exc()
+                        print(f"Error while trying to sell crypto : {self.name}")
+                        minor_error(f"Error while trying to sell crypto : {self.name}. Traceback : {tb_info}")
 
 
                 elif get_variable_mode() == "test":
@@ -360,6 +368,7 @@ class CRYPTOS:
                     else : continue
 
             # the Crypto from API is not in my json file (local)
+            # Add the crypto
             else : 
                 if k == "ETH2":
                     # special exception to debug
@@ -368,6 +377,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
+                self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
 
 
         self.writeCRYPTO_json()
