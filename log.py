@@ -6,6 +6,7 @@ Date : 06/03/2023
 """
 
 
+import traceback
 from datetime import datetime
 import os
 
@@ -65,6 +66,14 @@ def write_log(file, error_message):
     """
     
     global filename_dic
+
+    try : 
+        error_message = str(error_message)
+    except Exception as e:
+        print("Error while converting error message in str")
+        tb = traceback.format_exc()
+        print(tb)
+
     
     if not (file in filename_dic) : 
         init_error_module(file)

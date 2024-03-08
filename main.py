@@ -9,7 +9,7 @@ from class_crypos import *
 
 from log import *
 
-loop_intervall_seconds = 60*6
+loop_intervall_seconds = 60*5
 
 # set global variable MODE to real (the test mode can be use for test purpose)
 set_variable_mode("real")                  # real  / test
@@ -25,13 +25,13 @@ CRYPTOS_object.getCRYPTO_json()
 CRYPTOS_object.cryptos_set_notifications_authorisations(10)
 
 # set USDC blance to 0
-#CRYPTOS_object.refresh_all_USDC_balance()
+#CRYPTOS_object.initialise_all_USDC_balance()
 
 # Refresh the amount of crypto from coinbase API
 CRYPTOS_object.actualise_crypto_account()
 
 # Set detection variables
-CRYPTOS_object.set_crypto_peak_target(0.99)
+CRYPTOS_object.set_crypto_peak_target(99)
 CRYPTOS_object.set_crypto_break_even_point(103)
 
 
@@ -46,7 +46,7 @@ while True :
 
     for crypto in CRYPTOS_object.cryptos_list:
 
-        
+
         if (crypto.amount == 0) :
             continue 
         # Process each crypto

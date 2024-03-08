@@ -6,3 +6,11 @@ mais, si le prix baisse beaucoup, il se peut que le solde en usdc passe en desso
 crypto est abandonnée
 
 Ok, done
+
+
+Quand on recupere les accounts, 
+il y a une difference non prise en compte entre ["currency"]["code"]  et ["balance"]["currency"]
+Il faut tout revoir de ce cote la
+
+
+Aussi, quand j'appelle l'api coinbase pour avoir mes accounts, j'ai pas la crypto AVT ...

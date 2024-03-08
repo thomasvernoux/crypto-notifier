@@ -5,6 +5,7 @@ import cryptocompare
 from pycoingecko import CoinGeckoAPI
 import traceback
 from log import *
+from CoinBaseApi import *
 
 
 
@@ -87,18 +88,23 @@ def get_price(crypto):
 
 
     price = None
-    try :
-        price = get_crypto_price_coingecko(crypto)
-    except Exception : 
-        print ("coingecko error")
-        traceback.print_exc()
-
-
-        try : 
-                price = get_crypto_price_cryptocompare(crypto)
-        except Exception: 
-            print ("cryptocompare error")
+    
+    try : 
+        price = get_sell_price_coinabse_api(crypto)
+    except :
+        minor_error(f"cannot get price from coinbase api, crypto : {crypto.name}")
+        try :
+            price = get_crypto_price_coingecko(crypto)
+        except Exception : 
+            print ("coingecko error")
             traceback.print_exc()
+
+
+            try : 
+                    price = get_crypto_price_cryptocompare(crypto)
+            except Exception: 
+                print ("cryptocompare error")
+                traceback.print_exc()
 
 
 

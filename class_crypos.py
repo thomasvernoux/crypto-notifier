@@ -31,7 +31,7 @@ class Crypto:
         self.peak_target = 0                  # % of max value. When reached, send a notification
         self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
         self.profit_percent = 0               # Profitability
-
+        self.coinbaseId = None
 
     def decrase_number_of_alert_authorized(self):
         self.number_of_alert_authorized -=1
@@ -70,7 +70,7 @@ class Crypto:
 
 
         # USDC balance actualisation
-        self.USDC_balance = self.amount * self.current_price
+        self.USDC_balance = round(self.amount * self.current_price, 2)
         try : 
             self.profit_percent = self.current_price / self.buy_price * 100
         except : 
@@ -135,7 +135,7 @@ class Crypto:
     def sell_for_USDC(self):
         sell_crypto_for_USDC(self.name)
 
-    def refresh_USDC_balance(self): 
+    def initialise_USDC_balance(self): 
         self.current_price = get_price(self)
         # USDC balance actualisation
         self.USDC_balance = self.amount * self.current_price
@@ -207,6 +207,7 @@ class CRYPTOS:
         for crypto_data in cryptos_data:
             crypto = Crypto()
             crypto.name = crypto_data.get("name")
+            crypto.coinbaseId = crypto_data.get("coinbaseId")
             crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
             crypto.name_coingecko = crypto_data.get("name_coingecko")
             crypto.amount = crypto_data.get("amount")
@@ -219,6 +220,7 @@ class CRYPTOS:
             crypto.peak_target = crypto_data.get("peak_target")
             crypto.break_even_point = crypto_data.get("break_even_point")
             
+
             if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
                 crypto.buy_price = -1
 
@@ -290,10 +292,10 @@ class CRYPTOS:
 
         self.writeCRYPTO_json()
 
-    def refresh_all_USDC_balance(self):
+    def initialise_all_USDC_balance(self):
         for c in self.cryptos_list:
             
-            c.refresh_USDC_balance()
+            c.initialise_USDC_balance()
         self.writeCRYPTO_json()
 
     def actualise_crypto_account(self):
@@ -301,7 +303,7 @@ class CRYPTOS:
         refresh crypto account in json file
         """
 
-        data_api = get_accounts_from_api()["data"]
+        data_api = get_accounts_from_api()
         #print(data)
         
         # """
@@ -313,14 +315,16 @@ class CRYPTOS:
 
         dic_amount_api = {}
         for data_C in data_api : 
-            amount_str = data_C["balance"]["amount"]
+            
+            
+            amount_str = data_C["available_balance"]["value"]
             amount = float(amount_str)
 
 
             if amount > 0:
-                dic_amount_api[data_C["balance"]["currency"]] = float(data_C["balance"]["amount"])
+                dic_amount_api[data_C["currency"]] = amount
             else : 
-                write_log("info", f"crypto amount equal 0 : {data_C['balance']['currency']}")
+                write_log("info", f"crypto amount equal 0 : {amount}")
 
         #print (dic_price_api)
         list_of_my_cryptos = []
@@ -336,9 +340,7 @@ class CRYPTOS:
                 minor_error("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
                 #self.cryptos_list[i].amount = 0
                 continue
-
-        
-                           
+               
         
         for k in dic_amount_api :
             # Check if the crypto is in my json file
@@ -357,6 +359,7 @@ class CRYPTOS:
                 self.cryptos_list.append(Crypto())
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
+                self.cryptos_list[-1].coinbaseId = k
 
 
         self.writeCRYPTO_json()

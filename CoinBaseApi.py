@@ -1,5 +1,6 @@
 
 from coinbase.rest import RESTClient
+from coinbase.rest.products import get_product
 
 # Old api
 from coinbase.wallet.client import Client
@@ -8,9 +9,11 @@ import json
 from global_variables import *
 
 from simples_functions import *
+from log import *
 
-
-
+"""
+API rate limit : https://docs.cloud.coinbase.com/advanced-trade-api/docs/rest-api-rate-limits
+"""
 
 def load_var_from_json(filename, variable):
     """
@@ -25,7 +28,7 @@ def load_var_from_json(filename, variable):
 api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
 api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
 
-def get_accounts_from_api():
+def get_accounts_from_api_OLD():
 
     client = Client(api_key, api_secret)
     user = client.get_current_user()
@@ -35,15 +38,26 @@ def get_accounts_from_api():
 
 
     accounts = client.get_accounts()
+
+    for i in accounts["data"] : 
+        write_log("coinbase api call history", f"{i}\n\n\n\n")
+        
+    write_log("coinbase api call history", f"\n")
+
     return accounts
 
-def get_sell_price(crypto):
+def get_accounts_from_api():
+
+    client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
+    accounts = client.get_accounts()["accounts"]
     
-    # TODO
 
-    # client.get_sell_price(currency_pair = 'BTC-USD')
+    for i in accounts : 
+        write_log("coinbase api call history", f"{i}\n\n\n\n")
+        
+    write_log("coinbase api call history", f"\n")
 
-    return None
+    return accounts
 
 def update_account_id_dico():
     client = Client(api_key, api_secret)
@@ -90,6 +104,21 @@ def sell_crypto_for_USDC(crypto_symbol):
     
     binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
+    
+def get_sell_price_coinabse_api(crypto):
+    if crypto.coinbaseId == None :
+        minor_error(f"crypto : {crypto.name} has no coinbaseId")
+        print(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")
+        raise ValueError(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")
+        
+
+    client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
+    product_id = f"{crypto.coinbaseId}-USDC"
+    crypto_price = float(client.get_product(product_id)["price"])
+
+
+    return crypto_price
+
     
 
 
