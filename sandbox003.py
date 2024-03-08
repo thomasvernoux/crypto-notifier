@@ -23,14 +23,8 @@ print(pcryp)
 
 #pcoinbase = getprice_coinabse_api(c)
 
-product_id = 'BTC-USD'  # Remplacez 'BTC-USD' par l'identifiant du produit de votre crypto-monnaie
+product_id = 'ETH-USDC'  # Remplacez 'BTC-USD' par l'identifiant du produit de votre crypto-monnaie
 client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
-crypto_account = client.get_accounts()
+crypto_price = client.get_product(product_id)
 
-for i in crypto_account["accounts"]:
-    print(i)
-    print()
-
-
-
-
+print(crypto_price)

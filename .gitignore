@@ -6,6 +6,6 @@ api_keys/*
 log/*
 api_counter/counter_coingecko.txt
 api_counter/counter_cryptocompare.txt
-full_log
 user_data_userfriendly.txt
 cryptos.json
+full_log.txt

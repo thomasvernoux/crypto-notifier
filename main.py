@@ -9,7 +9,7 @@ from class_crypos import *
 
 from log import *
 
-loop_intervall_seconds = 60*5
+loop_intervall_seconds = 30
 
 # set global variable MODE to real (the test mode can be use for test purpose)
 set_variable_mode("real")                  # real  / test

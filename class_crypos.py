@@ -316,6 +316,11 @@ class CRYPTOS:
         dic_amount_api = {}
         for data_C in data_api : 
             
+            if data_C["currency"] == "USDC":
+                continue
+            if data_C["currency"] == "EUR":
+                continue
+            
             
             amount_str = data_C["available_balance"]["value"]
             amount = float(amount_str)
@@ -356,6 +361,9 @@ class CRYPTOS:
 
             # the Crypto from API is not in my json file (local)
             else : 
+                if k == "ETH2":
+                    # special exception to debug
+                    continue
                 self.cryptos_list.append(Crypto())
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
