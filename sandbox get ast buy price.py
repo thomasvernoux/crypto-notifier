@@ -2,56 +2,29 @@
 
 
 
+from coinbase.rest import RESTClient
+from class_crypos import *
 
 
 
 
-import winsound
-import time
+product = "DOGE"
+product_id = "DOGE-USDC"
+client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
+orders = client.list_orders()
+
+crypto = Crypto()
+crypto.coinbaseId = "AUCTION"
 
 
 
-
-
-
-
-def binary_confirmation(message):
-    """
-    Print a message and enter yes to continue
-    """
-
-    print(message)
-    response = str(input())
-
-    if response == "yes":
-        return 
-    else : 
-        print("negative answer")
-        binary_confirmation(message)
-
-
-
-def sound_notification():
-
-
-    for i in range(10):
-        # winsound.Beep(1000, 2000)
-        time.sleep(2)
-
-def get_last_buy_price(orders,crypto):
+def get_lat_buy_price(orders,crypto):
     """
     Return last buy price for a crypto
     inputs : 
     orders : list of all orders
     crypto : crypto class object
     """
-
-
-    """
-    Debug
-    """
-    if crypto.name == "VARA":
-        a = 3
 
     orders = orders["orders"]
     fitting_orders = []
@@ -72,7 +45,7 @@ def get_last_buy_price(orders,crypto):
         return []
     
     elif len(fitting_orders) == 1:
-        return float(fitting_orders[0]["average_filled_price"])
+        return fitting_orders[0]["average_filled_price"]
 
     elif len(fitting_orders) > 1:
         # find the last order
@@ -82,6 +55,10 @@ def get_last_buy_price(orders,crypto):
                 the_last_oder = i
         price = float(the_last_oder["average_filled_price"])
         return price
+    
+
+price = get_lat_buy_price(orders,crypto)
+print(orders)
 
 
 

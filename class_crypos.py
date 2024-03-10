@@ -61,7 +61,7 @@ class Crypto:
             return
         
         # Detect missing informations on cryptos
-        if (self.USDC_balance >= 1):
+        if (self.USDC_balance >= 0.5):
             if (self.current_price == 0 or self.current_price == None) : 
                 critical_error(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
 
@@ -89,7 +89,7 @@ class Crypto:
 
         
         ## peak detection
-        if self.USDC_balance > 1 :
+        if self.USDC_balance > 0.5 :
             if peak_detection_O1(self):
             
                 """
@@ -377,8 +377,8 @@ class CRYPTOS:
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
-                self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
-
+                #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
+                
 
         self.writeCRYPTO_json()
         return
@@ -405,7 +405,16 @@ class CRYPTOS:
 
         self.writeCRYPTO_json()
 
+    def set_buy_prices(self):
+        
+        client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
+        orders = client.list_orders()
 
+        for c in self.cryptos_list :
+            price = get_last_buy_price(orders, c)
+            c.buy_price = price
+        
+        self.writeCRYPTO_json()
     
 
 
