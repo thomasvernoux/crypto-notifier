@@ -20,7 +20,3 @@ order = client.preview_market_order_buy(product_id = product_id, quote_size = am
 order = client.market_order_buy(client_order_id = "ordre001", product_id = product_id, quote_size = amount)
 #order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = amount)
 print(order)
-
-
-order = client.previewmarket_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = amount)
-
