@@ -9,7 +9,7 @@ from global_variables import *
 from functions_crypto_history import *
 from functions_basics import *
 from functions_peak_detection import *
-from CoinBaseApi import *
+from functions_CoinBaseApi import *
 from functions_log import *
 
 

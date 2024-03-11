@@ -5,7 +5,7 @@ import cryptocompare
 from pycoingecko import CoinGeckoAPI
 import traceback
 from functions_log import *
-from CoinBaseApi import *
+from functions_CoinBaseApi import *
 
 
 
