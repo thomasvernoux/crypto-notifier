@@ -94,19 +94,29 @@ def sell_crypto_for_USDC(crypto_symbol):
         print("Compte correspondant au symbole {} trouvé:".format(crypto_symbol))
         print(matching_account)
     else:
-        print("Aucun compte correspondant au symbole {} trouvé.".format(crypto_symbol))
+        message = "Aucun compte correspondant au symbole {} trouvé.".format(crypto_symbol)
+        print(message)
+        critical_error(message)
 
 
 
     product_id = f"{crypto_symbol}-USDC"
     available_sell_quantity = matching_account["available_balance"]["value"][:-1]
+    available_sell_quantity = truncate_number(available_sell_quantity, significant_digits=3)
     
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
-    order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
-    print(order)
+    if get_variable_mode() == "real":
+        order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
+        print(order)
+        write_log("sell order history", str(order))
 
-    return True
+    elif get_variable_mode() == "test":
+        order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
+        print(order)
+        
+        
+    return order
 
 def get_sell_price_coinabse_api(crypto):
     if crypto.coinbaseId == None :

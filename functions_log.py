@@ -10,7 +10,10 @@ import traceback
 import os
 
 from datetime import datetime
-from functions_basics import *
+
+import glob
+import heapq
+from global_variables import *
 
 
 # Variable to store the path of the error log file
@@ -42,14 +45,16 @@ def check_and_create_directory(directory_path):
         #print(f"Le répertoire '{directory_path}' existe déjà.")
         return True
 
-def init_error_module(file):
+def init_error_module(file, persistant = False):
     """
     Initializes a new error log file with the current date and time.
+    persistant = True to keep data foreever
     """
     global error_file_path
     global filename_dic
 
-    keep_recent_files(f"{log_base_path}/{file}")
+    if not(persistant):
+        keep_recent_files(f"{log_base_path}/{file}")
 
     # Generate a timestamp for the error log file name
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -65,7 +70,7 @@ def init_error_module(file):
         error_file.write(f"=== Errors ({timestamp}) ===\n")
     return
 
-def write_log(file, error_message):
+def write_log(file, error_message, persistant = False):
     """
     Adds an error message to the error log file.
     """
@@ -81,7 +86,7 @@ def write_log(file, error_message):
 
     
     if not (file in filename_dic) : 
-        init_error_module(file)
+        init_error_module(file, persistant = persistant)
 
     # Open the error log file in append mode and write the error message
     with open(filename_dic[file], "a") as error_file:
@@ -137,7 +142,51 @@ def minor_error(error_message):
     # Return control back to the caller
     return
 
+def keep_recent_files(path):
+    """
+    This function takes a path as input and deletes all files except the three most recent ones in the given directory.
 
+    Parameters:
+    - path: The path to the directory where files need to be processed and deleted.
+
+    Behavior:
+    - If the specified path is not a directory, a message indicating the same is printed, and the function returns.
+    - If there are three or fewer files in the directory, a message indicating that no files will be deleted is printed, and the function returns.
+    - Otherwise, the function retrieves the list of files in the directory along with their modification timestamps.
+    - It then selects the three most recent files based on their timestamps.
+    - All files in the directory that are not among the three most recent ones are deleted.
+    - During the deletion process, a message indicating the deletion of each file is printed.
+
+    Note: This function permanently deletes files from the directory, so use it with caution.
+
+    """
+
+    # Vérifier si le chemin d'accès est un répertoire
+    if not os.path.isdir(path):
+        print("Le chemin spécifié n'est pas un répertoire.")
+        return
+    
+    # Obtenir la liste de tous les fichiers dans le répertoire
+    files = glob.glob(os.path.join(path, "*"))
+    
+    # Si le nombre de fichiers est inférieur ou égal à 3, aucun fichier ne doit être supprimé
+    if len(files) <= 3:
+        print("Il y a 3 fichiers ou moins dans le répertoire. Aucun fichier ne sera supprimé.")
+        return
+    
+    # Créer une liste des fichiers avec leur date de modification
+    files_with_timestamp = [(file, os.path.getmtime(file)) for file in files]
+    
+    # Obtenir les trois fichiers les plus récents
+    recent_files = heapq.nlargest(3, files_with_timestamp, key=lambda x: x[1])
+    
+    # Supprimer tous les fichiers qui ne sont pas dans les trois plus récents
+    for file, _ in files_with_timestamp:
+        if (file, _) not in recent_files:
+            os.remove(file)
+            print(f"Suppression du fichier {file}")
+
+    return 
 
 """
 Usage example

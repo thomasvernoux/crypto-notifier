@@ -9,10 +9,12 @@
 import winsound
 import time
 
-import os
-import glob
-import heapq
-from datetime import datetime
+
+from global_variables import *
+
+from functions_log import *
+
+from decimal import Decimal
 
 
 
@@ -33,14 +35,12 @@ def binary_confirmation(message):
         print("negative answer")
         binary_confirmation(message)
 
-
-
 def sound_notification():
 
-
-    for i in range(10):
-        winsound.Beep(1000, 2000)
-        time.sleep(2)
+    if get_variable_sound_activated():
+        for i in range(3):
+            winsound.Beep(1000, 2000)
+            time.sleep(2)
 
 def get_last_buy_price(orders,crypto):
     """
@@ -87,48 +87,37 @@ def get_last_buy_price(orders,crypto):
         price = float(the_last_oder["average_filled_price"])
         return price
 
+def truncate_number(number_str, significant_digits=4):
 
-def keep_recent_files(path):
-    """
-    This function takes a path as input and deletes all files except the three most recent ones in the given directory.
 
-    Parameters:
-    - path: The path to the directory where files need to be processed and deleted.
-
-    Behavior:
-    - If the specified path is not a directory, a message indicating the same is printed, and the function returns.
-    - If there are three or fewer files in the directory, a message indicating that no files will be deleted is printed, and the function returns.
-    - Otherwise, the function retrieves the list of files in the directory along with their modification timestamps.
-    - It then selects the three most recent files based on their timestamps.
-    - All files in the directory that are not among the three most recent ones are deleted.
-    - During the deletion process, a message indicating the deletion of each file is printed.
-
-    Note: This function permanently deletes files from the directory, so use it with caution.
-
-    """
-    # Vérifier si le chemin d'accès est un répertoire
-    if not os.path.isdir(path):
-        print("Le chemin spécifié n'est pas un répertoire.")
-        return
+    # Convertir la chaîne de caractères en un nombre décimal
+    number = Decimal(number_str)
     
-    # Obtenir la liste de tous les fichiers dans le répertoire
-    files = glob.glob(os.path.join(path, "*"))
+    # Tronquer le nombre au nombre de chiffres significatifs spécifié
+    number = number.normalize()
     
-    # Si le nombre de fichiers est inférieur ou égal à 3, aucun fichier ne doit être supprimé
-    if len(files) <= 3:
-        print("Il y a 3 fichiers ou moins dans le répertoire. Aucun fichier ne sera supprimé.")
-        return
+    digits_after_decimal = 6
+    formatted_number = "{:.{}e}".format(number, digits_after_decimal)
+    formatted_number = formatted_number.replace("+", "")
+
+    [number1, exponent] = formatted_number.split("e")
+    number = number1[:significant_digits+1]
+
+    ret_value = f"{number}e{exponent}"
+    return ret_value
     
-    # Créer une liste des fichiers avec leur date de modification
-    files_with_timestamp = [(file, os.path.getmtime(file)) for file in files]
     
-    # Obtenir les trois fichiers les plus récents
-    recent_files = heapq.nlargest(3, files_with_timestamp, key=lambda x: x[1])
+
+def test_truncate_number():
+    input_values = ["1", "2.123456789876", "0.999991567", "0.00000000005679988"]
+    expected_output = ["1.000e0", "2.123e0", "0.999e-1", "5.679e-11"]
+    significant_digits = 4
+
+    output = [truncate_number(str(value), significant_digits) for value in input_values]
     
-    # Supprimer tous les fichiers qui ne sont pas dans les trois plus récents
-    for file, _ in files_with_timestamp:
-        if (file, _) not in recent_files:
-            os.remove(file)
-            print(f"Suppression du fichier {file}")
+    if expected_output == output:
+        return True
+        
 
 
+test_truncate_number()

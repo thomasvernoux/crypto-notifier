@@ -24,6 +24,16 @@ def set_variable_dico_account_id(nouvelle_valeur):
 def get_variable_dico_account_id():
     return dico_account_id
 
+# sound activated
+def set_variable_sound_activated(nouvelle_valeur):
+    global sound_activated
+    sound_activated = nouvelle_valeur
+
+def get_variable_sound_activated():
+    return sound_activated
+
+
+
 
 
 

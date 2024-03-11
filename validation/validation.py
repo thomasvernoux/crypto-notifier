@@ -1,15 +1,19 @@
 
 
+import sys
+sys.path.append('./')
+
 
 from functions_crypto import *
 import cryptocompare
 import time
 from functions_email import *
 from global_variables import *
-from class_crypos import *
+from class_cryptos import *
 from functions_log import *
 
 set_variable_mode("test")
+set_variable_sound_activated(False)
 
 all_test_passed = True
 
@@ -157,6 +161,7 @@ def test_peak_detection5():
     if get_variable_test_mail_send():
         all_test_passed = False
         print("test_peak_detection 5 failed")
+
 
 
 test_peak_detection1()    # Simple peak detection test

@@ -107,7 +107,7 @@ class Crypto:
                     # Sell crypto
                     try :
                         self.sell_for_USDC()
-                    except : 
+                    except Exception as e : 
                         tb_info = traceback.format_exc()
                         print(f"Error while trying to sell crypto : {self.name}")
                         minor_error(f"Error while trying to sell crypto : {self.name}. Traceback : {tb_info}")

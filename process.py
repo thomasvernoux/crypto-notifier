@@ -4,7 +4,7 @@ import time
 from functions_email import *
 
 from functions_specials_alerts import *
-from class_crypos import *
+from class_cryptos import *
 
 from functions_log import *
 
@@ -21,6 +21,7 @@ def process():
 
     # set global variable MODE to real (the test mode can be use for test purpose)
     set_variable_mode("real")                  # real  / test
+    set_variable_sound_activated(True)
 
     # Set up CRYPTOS object
     CRYPTOS_object = CRYPTOS()
