@@ -7,7 +7,7 @@ import cryptocompare
 import time
 from functions_email import *
 from cryptoprocess import *
-from specials_alerts import *
+from functions_specials_alerts import *
 
 
 

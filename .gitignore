@@ -1,12 +1,8 @@
-
-__pycache__/struct.cpython-310.pyc
-*.pyc
+__pycache__/
+api_counter/
+api_keys/
 cours/
-api_keys/*
-log/*
-api_counter/counter_coingecko.txt
-api_counter/counter_cryptocompare.txt
-user_data_userfriendly.txt
-cryptos.json
-full_log.txt
-CRYPTO json/*
+CRYPTO json/
+log/
+sandbox/
+old/

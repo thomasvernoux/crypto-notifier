@@ -3,7 +3,7 @@ import time
 
 from functions_email import *
 
-from specials_alerts import *
+from functions_specials_alerts import *
 from class_crypos import *
 
 from functions_log import *
