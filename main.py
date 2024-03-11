@@ -66,8 +66,6 @@ while True :
     # Save data into files
     CRYPTOS_object.writeCRYPTO_json()
 
-    crypto.save_crypto_to_a_json_file()
-
     try : 
         CRYPTOS_object.writeCRYPTO_userfriendly()
     except Exception as e:

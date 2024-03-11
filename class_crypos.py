@@ -221,7 +221,7 @@ class CRYPTOS:
     
     def writeCRYPTO_json(self):
         for c in self.cryptos_list :
-            self.write_variable_to_json_file()
+            c.write_variables_to_json_file()
 
     def writeCRYPTO_userfriendly(self):
         cryptos = self.cryptos_list
