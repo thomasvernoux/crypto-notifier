@@ -70,7 +70,7 @@ def init_error_module(file, persistant = False):
         error_file.write(f"=== Errors ({timestamp}) ===\n")
     return
 
-def write_log(file, error_message, persistant = False):
+def log_write(file, error_message, persistant = False):
     """
     Adds an error message to the error log file.
     """
@@ -104,7 +104,7 @@ def write_log(file, error_message, persistant = False):
     with open(filename_dic["full_log"], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
-def critical_error(error_message):
+def log_error_critic(error_message):
     """
     Logs a critical error message and terminates the program.
 
@@ -115,7 +115,7 @@ def critical_error(error_message):
     prints a notification about the critical error, and terminates the program.
     """
     # Log the critical error message
-    write_log("errors", "CRITICAL error: " + error_message)
+    log_write("errors", "CRITICAL error: " + error_message)
 
     # Print a notification about the critical error
     print("Critical error detected. Please check the error log file for more details.")
@@ -123,7 +123,7 @@ def critical_error(error_message):
     # Terminate the program
     exit()
 
-def minor_error(error_message):
+def log_error_minor(error_message):
     """
     Logs a minor error message.
 
@@ -134,7 +134,7 @@ def minor_error(error_message):
     and prints a notification about the minor error.
     """
     # Log the minor error message
-    write_log("errors", "Minor error: " + error_message)
+    log_write("errors", "Minor error: " + error_message)
 
     # Print a notification about the minor error
     print("Minor error detected. Please check the error log file for more details.")
@@ -191,9 +191,9 @@ def keep_recent_files(path):
 """
 Usage example
 
-minor_error("test 02")
-write_log("test", "hello")
-critical_error("test 01")
+log_error_minor("test 02")
+log_write("test", "hello")
+log_error_critic("test 01")
 
 
 """

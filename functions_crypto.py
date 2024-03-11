@@ -31,8 +31,8 @@ def get_crypto_price_cryptocompare(crypto):
 
     if crypto.name_cryptocompare == None : 
         #print ("no name cryptocompare for : ", crypto.name)
-        write_log("get_price_status", f"no name cryptocompare for : {crypto.name}\n")
-        minor_error("cannot get price for crypto : \n" + crypto.get_crypto_info_str())
+        log_write("get_price_status", f"no name cryptocompare for : {crypto.name}\n")
+        log_error_minor("cannot get price for crypto : \n" + crypto.get_crypto_info_str())
         print("name cryptocompare not defined")
         return None
 
@@ -61,8 +61,8 @@ def get_crypto_price_coingecko(crypto):
 
     if crypto.name_coingecko == None : 
         #print ("no name coingecko for : ", crypto.name)
-        write_log("get_price_status", f"no name coingecko for : {crypto.name}\n")
-        minor_error("cannot get price for crypto : \n" + crypto.get_crypto_info_str())
+        log_write("get_price_status", f"no name coingecko for : {crypto.name}\n")
+        log_error_minor("cannot get price for crypto : \n" + crypto.get_crypto_info_str())
         print("name coingecko not defined")
         return None
 
@@ -92,7 +92,7 @@ def get_price(crypto):
     try : 
         price = get_sell_price_coinabse_api(crypto)
     except :
-        minor_error(f"cannot get price from coinbase api, crypto : {crypto.name}")
+        log_error_minor(f"cannot get price from coinbase api, crypto : {crypto.name}")
         try :
             price = get_crypto_price_coingecko(crypto)
         except Exception : 
@@ -110,10 +110,10 @@ def get_price(crypto):
 
     if isinstance(price, float):
         #print ("Crypto getprice : ", crypto.name)
-        write_log("crypto getprice", f"getprice : {crypto.name} , {crypto.current_price}\n")
+        log_write("crypto getprice", f"getprice : {crypto.name} , {crypto.current_price}\n")
         return price
     else:
-        critical_error("crypto price is not float : \n" + crypto.get_crypto_info_str() + str(price))
+        log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + str(price))
 
 
 

@@ -61,7 +61,7 @@ def process():
         CRYPTOS_object.getCRYPTO_json()
         
         print("Start loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
-        write_log("info", "Start loop")
+        log_write("info", "Start loop")
 
         for crypto in CRYPTOS_object.cryptos_list:
 
@@ -78,7 +78,7 @@ def process():
         try : 
             CRYPTOS_object.writeCRYPTO_userfriendly()
         except Exception as e:
-            minor_error(f"Cannot write in crypto userfriendly: {str(e)}")
+            log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
 
         # specials alerts
         #specials_alerts(CRYPTOS)
@@ -87,7 +87,7 @@ def process():
         End of the loop
         """
         print("End loop : ", time.strftime("%a %b %d %Y - %H:%M:%S"))
-        write_log("info", "End loop")
+        log_write("info", "End loop")
         
         # sleep (seconds)
         time.sleep(loop_intervall_seconds)

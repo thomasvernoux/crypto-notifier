@@ -40,9 +40,9 @@ def get_accounts_from_api_OLD():
     accounts = client.get_accounts()
 
     for i in accounts["data"] : 
-        write_log("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n\n\n\n")
         
-    write_log("coinbase api call history", f"\n")
+    log_write("coinbase api call history", f"\n")
 
     return accounts
 
@@ -53,9 +53,9 @@ def get_accounts_from_api():
     
 
     for i in accounts : 
-        write_log("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n\n\n\n")
         
-    write_log("coinbase api call history", f"\n")
+    log_write("coinbase api call history", f"\n")
 
     return accounts
 
@@ -96,7 +96,7 @@ def sell_crypto_for_USDC(crypto_symbol):
     else:
         message = "Aucun compte correspondant au symbole {} trouvé.".format(crypto_symbol)
         print(message)
-        critical_error(message)
+        log_error_critic(message)
 
 
 
@@ -109,7 +109,7 @@ def sell_crypto_for_USDC(crypto_symbol):
     if get_variable_mode() == "real":
         order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
         print(order)
-        write_log("sell order history", str(order))
+        log_write("sell order history", str(order))
 
     elif get_variable_mode() == "test":
         order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
@@ -120,7 +120,7 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 def get_sell_price_coinabse_api(crypto):
     if crypto.coinbaseId == None :
-        minor_error(f"crypto : {crypto.name} has no coinbaseId")
+        log_error_minor(f"crypto : {crypto.name} has no coinbaseId")
         print(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")
         raise ValueError(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")
         

@@ -57,13 +57,13 @@ class Crypto:
             self.max_price = self.current_price
 
         if self.current_price == None : 
-            minor_error("function cryptoprocess : self.current_price == None")
+            log_error_minor("function cryptoprocess : self.current_price == None")
             return
         
         # Detect missing informations on cryptos
         if (self.USDC_balance >= 0.5):
             if (self.current_price == 0 or self.current_price == None) : 
-                critical_error(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
+                log_error_critic(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
 
         # Max price actualisation
         if self.current_price > self.max_price :
@@ -110,7 +110,7 @@ class Crypto:
                     except Exception as e : 
                         tb_info = traceback.format_exc()
                         print(f"Error while trying to sell crypto : {self.name}")
-                        minor_error(f"Error while trying to sell crypto : {self.name}. Traceback : {tb_info}")
+                        log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {tb_info}")
 
 
                 elif get_variable_mode() == "test":
@@ -298,7 +298,7 @@ class CRYPTOS:
             if amount > 0:
                 dic_amount_api[data_C["currency"]] = amount
             else : 
-                write_log("info", f"crypto amount equal 0 : {amount}")
+                log_write("info", f"crypto amount equal 0 : {amount}")
 
         #print (dic_price_api)
         list_of_my_cryptos = []
@@ -311,7 +311,7 @@ class CRYPTOS:
             crypto_name = self.cryptos_list[i].name
             
             if not (crypto_name in dic_amount_api):
-                minor_error("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
+                log_error_minor("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
                 #self.cryptos_list[i].amount = 0
                 continue
                

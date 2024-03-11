@@ -1,0 +1,340 @@
+crypto            : ABT
+ammount           : 0.0555262174542441
+buy price         : 1.6908
+maximum price     : 1.6
+current price     : 1.6835
+USDC_balance      : 0.09347838708421995
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.007419
+buy price         : -1
+maximum price     : 0.7116
+current price     : 0.7302
+USDC_balance      : 0.0054173538
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.195484599750502
+buy price         : 0.3488
+maximum price     : 0.3503
+current price     : 0.4084
+USDC_balance      : 0.07983591053810501
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 1.5001518734758428
+buy price         : 2.1122
+maximum price     : 2.1217
+current price     : 2.0563
+USDC_balance      : 3.08
+profit %          : 97.35347031531104
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : ASM
+ammount           : 0.3217257262146963
+buy price         : 0.04297
+maximum price     : 0.03777
+current price     : 0.0504
+USDC_balance      : 0.016214976601220694
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 13.006617244639036
+buy price         : 0.199
+maximum price     : 0.1992
+current price     : 0.1835
+USDC_balance      : 2.39
+profit %          : 92.2110552763819
+alert_ahthorized  : 2
+last notif time   : 1710088432
+
+crypto            : AUCTION
+ammount           : 0.3685925764073206
+buy price         : 26.62999999999999
+maximum price     : 27.39
+current price     : 26.65
+USDC_balance      : 9.82
+profit %          : 100.07510326699216
+alert_ahthorized  : 2
+last notif time   : 1709219999
+
+crypto            : None
+ammount           : 0.00073779
+buy price         : -1
+maximum price     : 41.93
+current price     : 46.39
+USDC_balance      : 0.0342260781
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : AVT
+ammount           : 0.0032961861208542
+buy price         : 2.23
+maximum price     : 2.81
+current price     : 6.31
+USDC_balance      : 0.02079893442259
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1709925035
+
+crypto            : BLZ
+ammount           : 0.0160778168222944
+buy price         : 0.3461
+maximum price     : 0.334
+current price     : 0.3801
+USDC_balance      : 0.006111178174154102
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : CLV
+ammount           : 0.0001626799848127
+buy price         : 0.0678
+maximum price     : 0.0712
+current price     : 0.0859
+USDC_balance      : 1.397421069541093e-05
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : DOGE
+ammount           : 0.00383715
+buy price         : -1
+maximum price     : 0.16306
+current price     : 0.17224
+USDC_balance      : 0.0006609107160000001
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : DYP
+ammount           : 0.2519483527300097
+buy price         : 0.28349
+maximum price     : 0.29667
+current price     : 0.37864
+USDC_balance      : 0.09539772427769087
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 6.5016678e-09
+buy price         : -1
+maximum price     : 3876.16
+current price     : 4024.88
+USDC_balance      : 2.6168432694864003e-05
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.3000678003551278
+buy price         : 11.112999999999998
+maximum price     : 11.264
+current price     : 11.176
+USDC_balance      : 3.35
+profit %          : 100.56690362638354
+alert_ahthorized  : 2
+last notif time   : 1710088410
+
+crypto            : FOX
+ammount           : 0.0548296971237222
+buy price         : 0.0869
+maximum price     : 0.0882
+current price     : 0.1235
+USDC_balance      : 0.006771467594779692
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 4.16794e-11
+buy price         : -1
+maximum price     : 0.33614
+current price     : 0.4385
+USDC_balance      : 1.82764169e-11
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.0299841881294239
+buy price         : 0.1866
+maximum price     : 0.195
+current price     : 0.19
+USDC_balance      : 0.005696995744590541
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.0868347453302031
+buy price         : 0.2522
+maximum price     : 0.2508
+current price     : 0.2749
+USDC_balance      : 0.023870871491272833
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.1700973310182424
+buy price         : 22.409999999999997
+maximum price     : 22.47
+current price     : 20.79
+USDC_balance      : 3.54
+profit %          : 92.77108433734941
+alert_ahthorized  : 2
+last notif time   : 1710088476
+
+crypto            : None
+ammount           : 14.000020757452004
+buy price         : 0.31481
+maximum price     : 0.29996
+current price     : 0.28998
+USDC_balance      : 4.06
+profit %          : 92.11270290016202
+alert_ahthorized  : 2
+last notif time   : 1710088454
+
+crypto            : MOBILE
+ammount           : 0.6706988690500785
+buy price         : 0.003824
+maximum price     : 0.004138
+current price     : 0.004194
+USDC_balance      : 0.002812911056796029
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : MTL
+ammount           : 1.0011970311805598
+buy price         : 2.49
+maximum price     : 2.931
+current price     : 2.36
+USDC_balance      : 2.36
+profit %          : 94.77911646586344
+alert_ahthorized  : 2
+last notif time   : 1709969093
+
+crypto            : NCT
+ammount           : 0.4190110326372374
+buy price         : 0.02169
+maximum price     : 0.03376
+current price     : 0.03469
+USDC_balance      : 0.014535492722185765
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1709219466
+
+crypto            : None
+ammount           : 0.002928595944187
+buy price         : -1
+maximum price     : 5.353
+current price     : 7.027
+USDC_balance      : 0.020579243699802047
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : PNG
+ammount           : 0.5060202012786228
+buy price         : 0.46339
+maximum price     : 0.38848
+current price     : 0.42
+USDC_balance      : 0.21252848453702156
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : None
+ammount           : 0.009009102710919
+buy price         : 0.568
+maximum price     : 0.5626
+current price     : 0.7091
+USDC_balance      : 0.0063883547323126625
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : PRQ
+ammount           : 0.0005885661221341
+buy price         : 0.1514
+maximum price     : 0.1665
+current price     : 0.1725
+USDC_balance      : 0.00010152765606813225
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : SEAM
+ammount           : 0.0315394021364243
+buy price         : 4.4905
+maximum price     : 4.4711
+current price     : 4.774
+USDC_balance      : 0.1505691057992896
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+
+crypto            : SHIB
+ammount           : 0.9859514687100894
+buy price         : 3.132e-05
+maximum price     : 3.424e-05
+current price     : 3.312e-05
+USDC_balance      : 3.265471264367816e-05
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1709897468
+
+crypto            : SPA
+ammount           : 0.0056500367252387
+buy price         : 0.017699
+maximum price     : 0.020631
+current price     : 0.017588
+USDC_balance      : 9.937284592349825e-05
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1710005190
+
+crypto            : SWFTC
+ammount           : 0.8400878158640245
+buy price         : 0.005268
+maximum price     : 0.006811
+current price     : 0.006289
+USDC_balance      : 0.00528331227396885
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1710010954
+
+crypto            : UMA
+ammount           : 0.0005373401661774
+buy price         : 3.98
+maximum price     : 4.102
+current price     : 4.614
+USDC_balance      : 0.002479287526742524
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 1709897607
+
+crypto            : None
+ammount           : 0.102253979602939
+buy price         : 0.08918
+maximum price     : 0.09134
+current price     : 0.09104
+USDC_balance      : 0.009309202303051566
+profit %          : 0
+alert_ahthorized  : 2
+last notif time   : 0
+

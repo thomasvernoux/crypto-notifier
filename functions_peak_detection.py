@@ -20,23 +20,23 @@ def peak_detection_O1(crypto):
 
     # Simple check
     if crypto.buy_price == None :
-        critical_error(f"buy price is missing for : {crypto.name}")
+        log_error_critic(f"buy price is missing for : {crypto.name}")
 
     ## percentage of accomplishment for break_even_point 
     pafbep = round(((crypto.current_price - crypto.buy_price) / (break_even_value - crypto.buy_price)) * 100, 1)
     print(f"{crypto.name}  percentage of accomplishment for break_even_point : ", pafbep, "%   -  ", "crypto value/max : ", round(crypto.current_price/crypto.max_price * 100, 2))
-    write_log(f"peak detection", f"{crypto.name} - percentage of accomplishment for break_even_point : {pafbep} %\n")
+    log_write(f"peak detection", f"{crypto.name} - percentage of accomplishment for break_even_point : {pafbep} %\n")
 
     if crypto.current_price < break_even_value : 
         # cryptocurrency is not profitable
         return False
 
     if crypto.current_price > break_even_value :                             
-        write_log("peak detection", f"      crypto.current_price > break_even_value : {crypto.name}" )
+        log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name}" )
         if (crypto.current_price < peak_limit_value):                                     # on est sur la phase descendante du pic
-            write_log("peak detection", f"  crypto.current_price < peak_limit : {crypto.name}, peak limit : {peak_limit_value}" )
+            log_write("peak detection", f"  crypto.current_price < peak_limit : {crypto.name}, peak limit : {peak_limit_value}" )
             if (crypto.number_of_alert_authorized >= 1) & (time_interval(crypto)):  # on evite de trop notifier
-                write_log("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
+                log_write("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
                 return True
         
     
@@ -44,7 +44,7 @@ def peak_detection_O1(crypto):
     if crypto.current_price < peak_limit_value * 0.99 : 
         # sell missed
         print(f"peak missed : {crypto.name}")
-        write_log("peak detection", f"peak missed : {crypto.name}")
+        log_write("peak detection", f"peak missed : {crypto.name}")
 
     
     
