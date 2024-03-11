@@ -2,7 +2,7 @@
 Log module V1.0
 A simple module to manage errors
 Author : Thomas Vernoux
-Date : 06/03/2023
+Date : March 6, 2024
 """
 
 

@@ -4,14 +4,17 @@ Crypto - Class to manage a crypto
 CRYOTOS - Class tu manage all the cryptos
 
 Author : Thomas Vernoux
-Date : 2024/03
+Date : March 3, 2024
 """
 
-import json
-import cryptocompare
+"""
+Imports
+"""
+
+import json                                  # lib for variables storage management in json files
 import time
 
-from global_variables import *
+from global_variables import *               
 
 from functions_crypto import *
 from functions_email import *
@@ -26,8 +29,12 @@ fichier_userfriendly = "user_data_userfriendly.txt"
 
 
 class Crypto:
+    """
+    This class is used to manage a crypto account.
+    """
     def __init__(self):
         self.name = None                      # Crypto name on coinbase
+        self.coinbaseId = None                # Id for coinbase API
         self.name_cryptocompare = None        # Crypto name on cryptocompare
         self.name_coingecko = None            # Crypto name on coingeko
         self.amount = 0                       # Amount of crypto
@@ -40,30 +47,28 @@ class Crypto:
         self.peak_target = 0                  # % of max value. When reached, send a notification
         self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
         self.profit_percent = 0               # Profitability
-        self.coinbaseId = None                # Id for coinbase API
+        
 
     def decrase_number_of_alert_authorized(self):
-        self.number_of_alert_authorized -=1
-        self.write_variables_to_json_file()
+        """
+        This function is used to decrase by 1 the number of alerts authorized. 
+        No parameters required
+        """
+        self.number_of_alert_authorized -=1    # decrase parameter 
+        self.write_variables_to_json_file()    # Write the parameter on json file
 
     def cryptoprocess(self):
         """
-        The cryptoprocess functoin process a crypto once.
-        The function do the following actions : 
-        Print the crypto in term, actaulise crypto value
-        Notify by email if necessary 
+        The cryptoprocess function process a crypto once.
         """
-        
 
-        # simple print
-        #print(f"Nom : {crypto.name_cryptocompare}, Amount : {crypto.amount}, Prix d'achat : {crypto.buy_price}, Prix maximum : {crypto.max_price}, Current price : {crypto.current_price}")
-        
+        ###########################################################################################
         # Price actualisation
+        ###########################################################################################
+
         if get_variable_mode() == "real":
-                self.current_price = get_price(self)
+            self.current_price = get_price(self)
         
-        if self.max_price == None : 
-            self.max_price = self.current_price
 
         if self.current_price == None : 
             log_error_minor("function cryptoprocess : self.current_price == None")
@@ -74,66 +79,62 @@ class Crypto:
             if (self.current_price == 0 or self.current_price == None) : 
                 log_error_critic(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
 
+        ###########################################################################################
         # Max price actualisation
+        ###########################################################################################
+        if self.max_price == None : 
+            self.max_price = self.current_price
         if self.current_price > self.max_price :
             self.max_price = self.current_price
 
 
+        ###########################################################################################
         # USDC balance actualisation
+        ###########################################################################################
         self.USDC_balance = round(self.amount * self.current_price, 2)
         try : 
             self.profit_percent = self.current_price / self.buy_price * 100
         except : 
             None
 
-        ## peak reset
-        ##if self.current_price < self.buy_price : 
-        ##    self.max_price = 0
 
-
-
-        ## save price history in appropriate file
+        ###########################################################################################
+        # Save price history
+        ###########################################################################################
         if get_variable_mode() == "real":
             save_to_file(self)
 
         
-        ## peak detection
-        if self.USDC_balance > 0.5 :
-            if peak_detection_O1(self):
+        ###########################################################################################
+        # Peak detection
+        ###########################################################################################
+        if peak_detection_O1(self):
+            ###########################################################################################
+            # Peak Detected ::: Send an email + laptop notification + sell crypto + update last notification time
+            ###########################################################################################
             
-                """
-                Send an email
-                """
-                subject = "Time to sell alert"
-                body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
-                
-                # simple notification on laptop
-                sound_notification()
+            if get_variable_mode() == "test":
+                # if test mode, set the mail flag to True
+                set_variable_test_mail_send(True)
+                return True
             
-                if get_variable_mode() == "real":
-                    send_email(subject, body)
-                    
-                    # Sell crypto
-                    try :
-                        self.sell_for_USDC()
-                    except Exception as e : 
-                        tb_info = traceback.format_exc()
-                        print(f"Error while trying to sell crypto : {self.name}")
-                        log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {tb_info}")
-
-
-                elif get_variable_mode() == "test":
-                    set_variable_test_mail_send(True)
-                
-                
-                
-
-                # update last notification time
-                self.last_notification_time = time.time()
-        
-
-        
+            # Send an email
+            subject = "Time to sell alert"
+            body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
+            send_email(subject, body)
             
+            # simple notification on laptop
+            sound_notification()
+            
+            # Sell crypto
+            try :
+                self.sell_for_USDC()
+            except Exception as e : 
+                print(f"Error while trying to sell crypto : {self.name}")
+                log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {e}")
+
+            # update last notification time
+            self.last_notification_time = time.time()
 
         return self
 
@@ -150,29 +151,42 @@ class Crypto:
         return ret_value
 
     def sell_for_USDC(self):
+        """
+        Sell the maximum amount of this crypto for USDC
+        """
         sell_crypto_for_USDC(self.name)
 
     def initialise_USDC_balance(self): 
-        self.current_price = get_price(self)
-        # USDC balance actualisation
-        self.USDC_balance = self.amount * self.current_price
+        """
+        setup the USDC balance for this crypto 
+        """
+
+        self.current_price = get_price(self)                  # Get price
+        self.USDC_balance = self.amount * self.current_price  # USDC balance actualisation
+
+        return True
     
     def write_variables_to_json_file(self):
         """
         Save all crypto classs variables in a json file. Location : CRYPTO json/{self.name}/{self.name}.json
         """
-        folder_path = f"CRYPTO json/{self.name}"
-        path =  f"CRYPTO json/{self.name}/{self.name}.json"
+        folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
+        path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
+        if not os.path.exists(folder_path):                    # Detect if the path exist
+            os.makedirs(folder_path)                           # Create the folder if the path does not exist
         
-        with open(path, 'w') as f:
-            json.dump(self.__dict__, f, indent=4)
+        with open(path, 'w') as f:                             # Open json file
+            json.dump(self.__dict__, f, indent=4)              # dump all variables
 
     def get_variables_from_json_file(self):
-        folder_path = f"CRYPTO json/{self.name}"
-        path =  f"CRYPTO json/{self.name}/{self.name}.json"
+        """
+        This function get all crypto variables from json file
+        Actually not use in the code ? 
+        """
+
+        folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
+        path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
         with open("cryptos.json", "r") as f:
             # Charger le contenu JSON sous forme de liste d'objets Python

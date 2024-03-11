@@ -1,11 +1,14 @@
 """
 Main programm to launch the crypto-notifier process
+Author : Thomas Vernoux
+Date : March 3, 2024
 """
 
 
 from process import *
 from functions_log import *
 from functions_email import *
+
 
 
 

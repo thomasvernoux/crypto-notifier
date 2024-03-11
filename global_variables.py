@@ -1,4 +1,9 @@
 
+"""
+This file contain global variables getters and setters
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
 
 # mode
 def set_variable_mode(nouvelle_valeur):

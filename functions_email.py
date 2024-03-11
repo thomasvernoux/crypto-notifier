@@ -1,7 +1,8 @@
 """
 functions : 
 send_email(subject, body)
-
+Author : Thomas Vernoux
+Date : March 3, 2024
 """
 import smtplib
 from email.mime.text import MIMEText

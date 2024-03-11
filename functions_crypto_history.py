@@ -1,4 +1,11 @@
 
+"""
+Functions linked to the crypto history feature
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
+
+
 import time
 
 def save_to_file(crypto):

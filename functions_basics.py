@@ -1,5 +1,8 @@
-
-
+"""
+Basics functions helpfull for the code
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
 
 
 

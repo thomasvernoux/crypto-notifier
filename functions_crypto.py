@@ -1,3 +1,9 @@
+"""
+Smples functions linked to crypto
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
+
 
 import time
 from global_variables import *
@@ -83,7 +89,7 @@ def get_crypto_price_coingecko(crypto):
 def get_price(crypto):
     """
     Get price :
-    try to use coingecko to get the price, if it is not possible, try with cryptocompare
+    try to use coinbase API , then coingecko to get the price, if it is not possible, try with cryptocompare
     """
 
 

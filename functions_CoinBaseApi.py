@@ -1,3 +1,9 @@
+"""
+Functions linked to the Coinbase API
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
+
 
 from coinbase.rest import RESTClient
 from coinbase.rest.products import get_product
@@ -110,6 +116,7 @@ def sell_crypto_for_USDC(crypto_symbol):
         order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
         print(order)
         log_write("sell order history", str(order), persistant=True)
+
 
     elif get_variable_mode() == "test":
         order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)

@@ -1,4 +1,8 @@
-
+"""
+This file contain the peak detection functions
+Author : Thomas Vernoux
+Date : March 3, 2024
+"""
 
 from functions_crypto import *
 import cryptocompare
