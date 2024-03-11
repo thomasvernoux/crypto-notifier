@@ -1,11 +1,20 @@
+"""
+This file contain The 2 classes :
+Crypto - Class to manage a crypto
+CRYOTOS - Class tu manage all the cryptos
 
+Author : Thomas Vernoux
+Date : 2024/03
+"""
 
 import json
-from functions_crypto import *
 import cryptocompare
 import time
-from functions_email import *
+
 from global_variables import *
+
+from functions_crypto import *
+from functions_email import *
 from functions_crypto_history import *
 from functions_basics import *
 from functions_peak_detection import *
@@ -13,7 +22,6 @@ from functions_CoinBaseApi import *
 from functions_log import *
 
 
-fichier = "my_cryptos.txt"                                  # TODO : Delete ?
 fichier_userfriendly = "user_data_userfriendly.txt"
 
 
@@ -32,10 +40,11 @@ class Crypto:
         self.peak_target = 0                  # % of max value. When reached, send a notification
         self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
         self.profit_percent = 0               # Profitability
-        self.coinbaseId = None
+        self.coinbaseId = None                # Id for coinbase API
 
     def decrase_number_of_alert_authorized(self):
         self.number_of_alert_authorized -=1
+        self.write_variables_to_json_file()
 
     def cryptoprocess(self):
         """
@@ -168,9 +177,6 @@ class Crypto:
         with open("cryptos.json", "r") as f:
             # Charger le contenu JSON sous forme de liste d'objets Python
             cryptos_data = json.load(f)
-
-
-
 
 class CRYPTOS:
     def __init__(self):
@@ -339,7 +345,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
-                
+                set_variable_extern_change_detected(True)
 
         self.writeCRYPTO_json()
         return

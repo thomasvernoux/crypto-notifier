@@ -1,5 +1,5 @@
 """
-Main programm to launch thr process
+Main programm to launch the crypto-notifier process
 """
 
 
@@ -15,5 +15,5 @@ if __name__ == "__main__":
         process()
     except Exception as e:
         send_email("Fatal ERROR", f"Crypto-process crash \n{e}")
-        log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
+        log_error_critic(f"Crypto-process crash \n{e}")
         

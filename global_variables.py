@@ -32,6 +32,18 @@ def set_variable_sound_activated(nouvelle_valeur):
 def get_variable_sound_activated():
     return sound_activated
 
+# Extern crypto change detected
+"""
+This variable is a flag when an extern change has been made with crypto
+"""
+
+def set_variable_extern_change_detected(nouvelle_valeur):
+    global extern_change_detected
+    extern_change_detected = nouvelle_valeur
+
+def get_variable_extern_change_detected():
+    return extern_change_detected
+
 
 
 
