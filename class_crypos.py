@@ -1,16 +1,16 @@
 
 
 import json
-from fonctions_crypto import *
+from functions_crypto import *
 import cryptocompare
 import time
-from send_email_file import *
+from functions_email import *
 from global_variables import *
-from function_history import *
-from simples_functions import *
-from peak_detections_functions import *
-from CoinBaseApi import *
-from log import *
+from functions_crypto_history import *
+from functions_basics import *
+from functions_peak_detection import *
+from functions_CoinBaseApi import *
+from functions_log import *
 
 
 fichier = "my_cryptos.txt"                                  # TODO : Delete ?

@@ -1,3 +1,8 @@
+"""
+functions : 
+send_email(subject, body)
+
+"""
 import smtplib
 from email.mime.text import MIMEText
 from global_variables import *
@@ -13,8 +18,7 @@ def send_email(subject, body):
    """
    Sent an email to thomas@vernoux.be
    """
-    
-   
+
    msg = MIMEText(body)
    msg['Subject'] = subject
    msg['From'] = sender
@@ -22,6 +26,7 @@ def send_email(subject, body):
    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
       smtp_server.login(sender, password)
       smtp_server.sendmail(sender, recipients, msg.as_string())
+      
    print("Message sent!")  
 
    

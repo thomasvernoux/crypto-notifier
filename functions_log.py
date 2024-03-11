@@ -7,8 +7,11 @@ Date : 06/03/2023
 
 
 import traceback
-from datetime import datetime
 import os
+
+from datetime import datetime
+from functions_basics import *
+
 
 # Variable to store the path of the error log file
 log_base_path = "log"
@@ -45,6 +48,8 @@ def init_error_module(file):
     """
     global error_file_path
     global filename_dic
+
+    keep_recent_files(f"{log_base_path}/{file}")
 
     # Generate a timestamp for the error log file name
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

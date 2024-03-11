@@ -1,14 +1,14 @@
 
-from fonctions_crypto import *
+from functions_crypto import *
 import cryptocompare
 import time
 
-from send_email_file import *
+from functions_email import *
 
 from specials_alerts import *
 from class_crypos import *
 
-from log import *
+from functions_log import *
 
 
 

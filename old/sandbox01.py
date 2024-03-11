@@ -1,8 +1,8 @@
-from fonctions_crypto import *
+from functions_crypto import *
 import cryptocompare
 import time
 
-from send_email_file import *
+from functions_email import *
 from cryptoprocess import *
 from specials_alerts import *
 

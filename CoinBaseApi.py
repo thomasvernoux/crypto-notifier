@@ -8,8 +8,8 @@ from coinbase.wallet.client import Client
 import json
 from global_variables import *
 
-from simples_functions import *
-from log import *
+from functions_basics import *
+from functions_log import *
 
 """
 API rate limit : https://docs.cloud.coinbase.com/advanced-trade-api/docs/rest-api-rate-limits

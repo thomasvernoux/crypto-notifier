@@ -1,11 +1,11 @@
 
-from fonctions_crypto import *
+from functions_crypto import *
 import cryptocompare
 import time
-from send_email_file import *
+from functions_email import *
 from global_variables import *
-from function_history import *
-from peak_detections_functions import *
+from functions_crypto_history import *
+from functions_peak_detection import *
 
 def specials_alerts(CRYPTOS) :
     """

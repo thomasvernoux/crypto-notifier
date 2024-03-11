@@ -2,9 +2,9 @@
 Debug SHIB current price coingecko not correct
 """
 
-from fonctions_crypto import *
+from functions_crypto import *
 from class_crypos import *
-from CoinBaseApi import *
+from functions_CoinBaseApi import *
 
 from coinbase.rest.products import get_product
 

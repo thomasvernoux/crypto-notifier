@@ -1,12 +1,12 @@
 
 
-from fonctions_crypto import *
+from functions_crypto import *
 import cryptocompare
 import time
-from send_email_file import *
+from functions_email import *
 from global_variables import *
-from function_history import *
-from log import *
+from functions_crypto_history import *
+from functions_log import *
 
 
 def peak_detection_O1(crypto):
