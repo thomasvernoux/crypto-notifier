@@ -21,6 +21,6 @@ order = client.market_order_buy(client_order_id = "ordre001", product_id = produ
 #order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = amount)
 print(order)
 
-amount = 
+
 order = client.previewmarket_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = amount)
 

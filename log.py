@@ -91,7 +91,7 @@ def write_log(file, error_message):
     if not (full_log_name in filename_dic) : 
         init_error_module(full_log_name)
 
-    with open(full_log_name, "a") as error_file:
+    with open(filename_dic["full_log"], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
 def critical_error(error_message):
