@@ -148,119 +148,80 @@ class Crypto:
         # USDC balance actualisation
         self.USDC_balance = self.amount * self.current_price
     
-
-class CRYPTOS:
-    def __init__(self):
-        self.cryptos_list = []
-
-    def getCRYPTO_old(self):
-        with open(fichier, 'r') as f:
-            lignes = f.readlines()
+    def write_variables_to_json_file(self):
+        """
+        Save all crypto classs variables in a json file. Location : CRYPTO json/{self.name}/{self.name}.json
+        """
+        folder_path = f"CRYPTO json/{self.name}"
+        path =  f"CRYPTO json/{self.name}/{self.name}.json"
         
-        cryptos = []
-        current_crypto = None
-
-        for i in lignes:
-            ligne = i.strip()
-            if ligne.startswith("name "):
-                if current_crypto:
-                    cryptos.append(current_crypto)
-                current_crypto = Crypto()
-                current_crypto.name  = ligne.split(":")[1].strip()
-            elif ligne.startswith("name_cryptocompare"):
-                current_crypto.name_cryptocompare = ligne.split(":")[1].strip()
-            elif ligne.startswith("name_coingecko"):
-                current_crypto.name_coingecko = ligne.split(":")[1].strip()
-            elif ligne.startswith("amount"):
-                current_crypto.amount = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("buy_price"):
-                current_crypto.buy_price = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("max_price"):
-                current_crypto.max_price = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("current_price"):
-                current_crypto.current_price = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("USDC_balance"):
-                current_crypto.USDC_balance = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("profit %"):
-                current_crypto.profit_percent = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("number_of_alert_authorized"):
-                current_crypto.number_of_alert_authorized = int(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("last_notification_time"):
-                current_crypto.last_notification_time = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("peak_target"):
-                current_crypto.peak_target = float(ligne.replace(",", ".").split(":")[1].strip())
-            elif ligne.startswith("break_even_point"):
-                current_crypto.break_even_point = float(ligne.replace(",", ".").split(":")[1].strip())
-        # Ajoutez la dernière crypto après la boucle
-        if current_crypto:
-            cryptos.append(current_crypto)
-
-    
-        self.cryptos_list = cryptos[:]
-        return cryptos
-
-    def getCRYPTO_json(self):
-
-        cryptos_data = []
-
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
         
+        with open(path, 'w') as f:
+            json.dump(self.__dict__, f, indent=4)
 
-        # Ouvrir le fichier JSON en mode lecture
+    def get_variables_from_json_file(self):
+        folder_path = f"CRYPTO json/{self.name}"
+        path =  f"CRYPTO json/{self.name}/{self.name}.json"
+        
         with open("cryptos.json", "r") as f:
             # Charger le contenu JSON sous forme de liste d'objets Python
             cryptos_data = json.load(f)
 
 
-        cryptos_list = []
-        for crypto_data in cryptos_data:
-            crypto = Crypto()
-            crypto.name = crypto_data.get("name")
-            crypto.coinbaseId = crypto_data.get("coinbaseId")
-            crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
-            crypto.name_coingecko = crypto_data.get("name_coingecko")
-            crypto.amount = crypto_data.get("amount")
-            crypto.buy_price = crypto_data.get("buy_price")
-            crypto.max_price = crypto_data.get("max_price")
-            crypto.current_price = crypto_data.get("current_price")
-            crypto.USDC_balance = crypto_data.get("USDC_balance")
-            crypto.number_of_alert_authorized = crypto_data.get("number_of_alert_authorized")
-            crypto.last_notification_time = crypto_data.get("last_notification_time")
-            crypto.peak_target = crypto_data.get("peak_target")
-            crypto.break_even_point = crypto_data.get("break_even_point")
-            
-
-            if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
-                crypto.buy_price = -1
-
-            if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
-                crypto.current_price = -1
-
-            if not (isinstance(crypto.max_price, float) or crypto.max_price == 0):
-                crypto.max_price = -1
-            
-                
 
 
+class CRYPTOS:
+    def __init__(self):
+        self.cryptos_list = []
 
-            cryptos_list.append(crypto)
+    def getCRYPTO_json(self):
+
         
+        self.cryptos_list = []
 
-            self.cryptos_list = cryptos_list[:]
-        return cryptos_list
+        folder_path = "CRYPTO json"
+        crypto_list = os.listdir(folder_path)
+        for crypto_name in crypto_list :
+            crypto_path = f"{folder_path}/{crypto_name}/{crypto_name}.json"
+            
+            with open(crypto_path, "r") as f:
+                # Charger le contenu JSON sous forme de liste d'objets Python
+                crypto_data = json.load(f)
 
-    def writeCRYPTO_old(cryptos):
-        with open(fichier, 'w') as f:
-            for crypto in cryptos:
-                for key, value in crypto.__dict__.items():
-                    f.write(f"{key} : {value}\n")
-                f.write("\n")
-        f.close()
-        return
+        
+                crypto = Crypto()
+                crypto.name = crypto_data.get("name")
+                crypto.coinbaseId = crypto_data.get("coinbaseId")
+                crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
+                crypto.name_coingecko = crypto_data.get("name_coingecko")
+                crypto.amount = crypto_data.get("amount")
+                crypto.buy_price = crypto_data.get("buy_price")
+                crypto.max_price = crypto_data.get("max_price")
+                crypto.current_price = crypto_data.get("current_price")
+                crypto.USDC_balance = crypto_data.get("USDC_balance")
+                crypto.number_of_alert_authorized = crypto_data.get("number_of_alert_authorized")
+                crypto.last_notification_time = crypto_data.get("last_notification_time")
+                crypto.peak_target = crypto_data.get("peak_target")
+                crypto.break_even_point = crypto_data.get("break_even_point")
+
+                if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
+                    crypto.buy_price = -1
+
+                if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
+                    crypto.current_price = -1
+
+                if not (isinstance(crypto.max_price, float) or crypto.max_price == 0):
+                    crypto.max_price = -1
+            
+
+            self.cryptos_list.append(crypto)
+        return self.cryptos_list[:]
     
     def writeCRYPTO_json(self):
-        a = self.cryptos_list
-        with open("cryptos.json", 'w') as f:
-            json.dump([crypto.__dict__ for crypto in self.cryptos_list], f, indent=4)
+        for c in self.cryptos_list :
+            self.write_variable_to_json_file()
 
     def writeCRYPTO_userfriendly(self):
         cryptos = self.cryptos_list

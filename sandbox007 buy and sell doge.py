@@ -1,8 +1,4 @@
 
-
-
-
-
 """
 Je n'arrive pas a passer l'ordre d'achat  ...
 """

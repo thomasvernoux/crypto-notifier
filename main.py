@@ -9,7 +9,7 @@ from class_crypos import *
 
 from log import *
 
-loop_intervall_seconds = 60 * 15
+loop_intervall_seconds = 60 * 5
 
 # set global variable MODE to real (the test mode can be use for test purpose)
 set_variable_mode("real")                  # real  / test
@@ -65,6 +65,8 @@ while True :
         
     # Save data into files
     CRYPTOS_object.writeCRYPTO_json()
+
+    crypto.save_crypto_to_a_json_file()
 
     try : 
         CRYPTOS_object.writeCRYPTO_userfriendly()
