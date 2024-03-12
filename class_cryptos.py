@@ -154,7 +154,8 @@ class Crypto:
         """
         Sell the maximum amount of this crypto for USDC
         """
-        sell_crypto_for_USDC(self.name)
+        sell_crypto_for_USDC(self.name)                          # Sell Crypto
+        set_variable_extern_change_detected(True)                # Change hasbeen detected in crypto accounts
 
     def initialise_USDC_balance(self): 
         """

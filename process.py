@@ -33,7 +33,7 @@ def process():
 
     # MODE to real (the test mode can be use for test purpose)
     set_variable_mode("real")                  # real  / test
-    set_variable_sound_activated(True)         # Global variable for sound. Used when a crypto is sell
+    set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
     set_variable_extern_change_detected(False)
 
     """

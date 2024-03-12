@@ -119,7 +119,7 @@ def get_price(crypto):
         log_write("crypto getprice", f"getprice : {crypto.name} , {crypto.current_price}\n")
         return price
     else:
-        log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + str(price))
+        log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + "Price after the ':' : " + str(price))
 
 
 
