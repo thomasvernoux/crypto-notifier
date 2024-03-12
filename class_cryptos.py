@@ -129,7 +129,8 @@ class Crypto:
             
             # Sell crypto
             try :
-                self.sell_for_USDC()
+                order = self.sell_for_USDC()
+                send_email("Sell order done", str(order))
             except Exception as e : 
                 print(f"Error while trying to sell crypto : {self.name}")
                 log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {e}")
