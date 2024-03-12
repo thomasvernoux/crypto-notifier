@@ -54,12 +54,6 @@ def get_last_buy_price(orders,crypto):
     """
 
 
-    """
-    Debug
-    """
-    if crypto.name == "VARA":
-        a = 3
-
     orders = orders["orders"]
     fitting_orders = []
     for i in orders : 
@@ -108,8 +102,6 @@ def truncate_number(number_str, significant_digits=4):
 
     ret_value = f"{number}e{exponent}"
     return ret_value
-    
-    
 
 def test_truncate_number():
     input_values = ["1", "2.123456789876", "0.999991567", "0.00000000005679988"]

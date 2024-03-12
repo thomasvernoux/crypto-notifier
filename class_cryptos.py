@@ -18,11 +18,11 @@ from global_variables import *
 
 from functions_crypto import *
 from functions_email import *
-from functions_crypto_history import *
 from functions_basics import *
 from functions_peak_detection import *
 from functions_CoinBaseApi import *
 from functions_log import *
+import functions_SQLite
 
 
 fichier_userfriendly = "user_data_userfriendly.txt"
@@ -102,7 +102,8 @@ class Crypto:
         # Save price history
         ###########################################################################################
         if get_variable_mode() == "real":
-            save_to_file(self)
+            functions_SQLite.add_value(crypto_name = self.name, data_tuple = (time.time(),self.current_price))
+
 
         
         ###########################################################################################

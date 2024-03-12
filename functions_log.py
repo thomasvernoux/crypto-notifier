@@ -70,7 +70,7 @@ def init_error_module(file, persistant = False):
         error_file.write(f"=== Errors ({timestamp}) ===\n")
     return
 
-def log_write(file, error_message, persistant = False):
+def log_write(file = "full_log", error_message = None, persistant = False):
     """
     Adds an error message to the error log file.
     """

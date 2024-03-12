@@ -11,7 +11,6 @@ import cryptocompare
 import time
 from functions_email import *
 from global_variables import *
-from functions_crypto_history import *
 from functions_peak_detection import *
 
 def specials_alerts(CRYPTOS) :
