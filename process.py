@@ -35,7 +35,7 @@ def process():
     set_variable_mode("real")                  # real  / test
     set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
     set_variable_extern_change_detected(False)
-
+    set_variable_recursiv_call_number(0)
     """
     CRYPTOS OBJECT
     """
@@ -109,6 +109,12 @@ def process():
 
         
         for crypto in CRYPTOS_object.cryptos_list:
+
+            """
+            DEBUG
+            """
+            if crypto.name == "ARB":
+                a = 3
 
 
             if (crypto.amount == 0) :

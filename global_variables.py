@@ -49,6 +49,18 @@ def set_variable_extern_change_detected(nouvelle_valeur):
 def get_variable_extern_change_detected():
     return extern_change_detected
 
+# Number of recursiv call
+"""
+This variable is a flag when an extern change has been made with crypto
+"""
+
+def set_variable_recursiv_call_number(nouvelle_valeur):
+    global recursiv_call_number
+    recursiv_call_number = nouvelle_valeur
+
+def get_variable_recursiv_call_number():
+    return recursiv_call_number
+
 
 
 

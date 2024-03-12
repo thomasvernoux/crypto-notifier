@@ -125,7 +125,8 @@ def sell_crypto_for_USDC(crypto_symbol):
         
     return order
 
-def get_sell_price_coinabse_api(crypto):
+def get_sell_price_coinabse_api(crypto, iteration_number = 0):
+    
     if crypto.coinbaseId == None :
         log_error_minor(f"crypto : {crypto.name} has no coinbaseId")
         print(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")
@@ -136,6 +137,12 @@ def get_sell_price_coinabse_api(crypto):
     product_id = f"{crypto.coinbaseId}-USDC"
     crypto_price = float(client.get_product(product_id)["price"])
 
+    if crypto_price == None : 
+        if get_variable_recursiv_call_number() > 5 :
+            log_error_critic("cannot get crypto price with coinbase api. 5 recursiv call were done, and the price is still None")
+        else : 
+            set_variable_recursiv_call_number(get_variable_recursiv_call_number() + 1)
+            crypto_price = get_sell_price_coinabse_api(crypto)
 
     return crypto_price
 
