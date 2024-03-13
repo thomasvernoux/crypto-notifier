@@ -128,6 +128,10 @@ def sell_crypto_for_USDC(crypto_symbol):
         log_write("sell order history", "order : " + str(order), persistant=True)
         log_write("sell order history", "preview order : " + str(order), persistant=True)
 
+        log_write("debug_order", f"parameters - product id : {product_id}, available_sell_quantity : {available_sell_quantity}")
+        log_write("debug_order", "preview order : " + str(order))
+        log_write("debug_order", "order : " + str(order))
+
 
     elif get_variable_mode() == "test":
         order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
