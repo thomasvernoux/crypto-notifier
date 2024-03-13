@@ -34,13 +34,21 @@ def peak_detection_O1(crypto):
         # cryptocurrency is not profitable
         return False
 
+    """
+    DEBUG
+    """
+
+    if crypto.name == "RENDER":
+        a = 3
+
     if crypto.current_price > break_even_value :                             
         log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name}" )
         if (crypto.current_price < peak_limit_value):                                     # on est sur la phase descendante du pic
             log_write("peak detection", f"  crypto.current_price < peak_limit : {crypto.name}, peak limit : {peak_limit_value}" )
-            if (crypto.number_of_alert_authorized >= 1) & (time_interval(crypto)):  # on evite de trop notifier
-                log_write("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
-                return True
+            
+            log_write("peak detection", "Peak detected : " + crypto.get_crypto_info_str() )
+            return True
+            
         
     
     

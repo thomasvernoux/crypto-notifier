@@ -131,6 +131,13 @@ class Crypto:
             try :
                 order = self.sell_for_USDC()
                 send_email("Sell order done", str(order))
+                self.max_price = 0
+                self.buy_price = 0
+                self.amount = 0
+                self.USDC_balance = 0
+                set_variable_extern_change_detected(True)
+                self.write_variables_to_json_file()
+
             except Exception as e : 
                 print(f"Error while trying to sell crypto : {self.name}")
                 log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {e}")
@@ -157,6 +164,10 @@ class Crypto:
         Sell the maximum amount of this crypto for USDC
         """
         order = sell_crypto_for_USDC(self.name)                          # Sell Crypto
+        
+        
+        
+        
         set_variable_extern_change_detected(True)                # Change hasbeen detected in crypto accounts
         return(order)
 

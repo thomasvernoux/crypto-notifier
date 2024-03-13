@@ -108,8 +108,16 @@ def sell_crypto_for_USDC(crypto_symbol):
 
     product_id = f"{crypto_symbol}-USDC"
     available_sell_quantity = matching_account["available_balance"]["value"][:-1]
-    available_sell_quantity = truncate_number(available_sell_quantity, significant_digits=3)
+    if available_sell_quantity == '':
+        log_error_minor("available_sell_quantity == ''")
+        print("available_sell_quantity == '', error rised")
+        set_variable_extern_change_detected(True)
+        return False
     
+    try : 
+        available_sell_quantity = truncate_number(available_sell_quantity, significant_digits=3)
+    except Exception as e :
+        log_error_minor(e)
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     if get_variable_mode() == "real":
