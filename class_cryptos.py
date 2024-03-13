@@ -259,20 +259,23 @@ class CRYPTOS:
             c.write_variables_to_json_file()
 
     def writeCRYPTO_userfriendly(self):
-        cryptos = self.cryptos_list
-        with open(fichier_userfriendly, 'w') as f:
-            for crypto in cryptos:
-                f.write(f"crypto            : {crypto.name_cryptocompare}\n")
-                f.write(f"ammount           : {crypto.amount}\n")
-                f.write(f"buy price         : {crypto.buy_price}\n")
-                f.write(f"maximum price     : {crypto.max_price}\n")
-                f.write(f"current price     : {crypto.current_price}\n")
-                f.write(f"USDC_balance      : {crypto.USDC_balance}\n")
-                f.write(f"profit %          : {crypto.profit_percent}\n")
-                f.write(f"alert_ahthorized  : {crypto.number_of_alert_authorized}\n")
-                f.write(f"last notif time   : {int(crypto.last_notification_time)}\n")
-                f.write("\n")
-        f.close()
+        try : 
+            cryptos = self.cryptos_list
+            with open(fichier_userfriendly, 'w') as f:
+                for crypto in cryptos:
+                    f.write(f"crypto            : {crypto.name_cryptocompare}\n")
+                    f.write(f"ammount           : {crypto.amount}\n")
+                    f.write(f"buy price         : {crypto.buy_price}\n")
+                    f.write(f"maximum price     : {crypto.max_price}\n")
+                    f.write(f"current price     : {crypto.current_price}\n")
+                    f.write(f"USDC_balance      : {crypto.USDC_balance}\n")
+                    f.write(f"profit %          : {crypto.profit_percent}\n")
+                    f.write(f"alert_ahthorized  : {crypto.number_of_alert_authorized}\n")
+                    f.write(f"last notif time   : {int(crypto.last_notification_time)}\n")
+                    f.write("\n")
+            f.close()
+        except Exception as e:
+            log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
 
     def cryptos_reset_max_price(self):
         """
@@ -354,9 +357,9 @@ class CRYPTOS:
                 continue
                
         
-        for k in dic_amount_api :
-            # Check if the crypto is in my json file
-            if k in list_of_my_cryptos :
+        for k in dic_amount_api :        # Check if the crypto is in my json file
+            
+            if k in list_of_my_cryptos : 
                 # la crypto de l'api est bien dans mon repertoire json
 
                 # find the correct crypto in the list
@@ -378,6 +381,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].coinbaseId = k
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 set_variable_extern_change_detected(True)
+                log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
 
         self.writeCRYPTO_json()
         return

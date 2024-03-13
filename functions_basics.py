@@ -112,7 +112,30 @@ def test_truncate_number():
     
     if expected_output == output:
         return True
-        
+
+def calculate_sell_quantity(product_info, sell_quantity_str):
+    sell_quantity = float(sell_quantity_str)
+    
+    # Récupérer les informations pertinentes du produit
+    base_increment = float(product_info['base_increment'])
+    quote_increment = float(product_info['quote_increment'])
+    base_min_size = float(product_info['base_min_size'])
+    
+    # Calculer le montant de base à vendre en prenant en compte la taille minimale
+    if sell_quantity < base_min_size : 
+        print("cannot sell : quantity too low")
+    
+    conform_sell_quantuty = 0
+
+    while conform_sell_quantuty + base_increment < sell_quantity:
+        conform_sell_quantuty += base_increment
+    
+    conform_sell_quantuty = str(conform_sell_quantuty)
+    if len(conform_sell_quantuty) > 3:
+        conform_sell_quantuty = truncate_number(conform_sell_quantuty, significant_digits=3)
+
+    
+    return conform_sell_quantuty    
 
 
 test_truncate_number()

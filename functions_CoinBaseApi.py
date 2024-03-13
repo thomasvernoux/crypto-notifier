@@ -107,7 +107,7 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 
     product_id = f"{crypto_symbol}-USDC"
-    available_sell_quantity = matching_account["available_balance"]["value"][:-1]
+    available_sell_quantity = matching_account["available_balance"]["value"]
     if available_sell_quantity == '':
         log_error_minor("available_sell_quantity == ''")
         print("available_sell_quantity == '', error rised")
@@ -115,7 +115,9 @@ def sell_crypto_for_USDC(crypto_symbol):
         return False
     
     try : 
-        available_sell_quantity = truncate_number(available_sell_quantity, significant_digits=3)
+        product = client.get_product(product_id)
+        available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
+    
     except Exception as e :
         log_error_minor(e)
     

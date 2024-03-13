@@ -128,10 +128,9 @@ def process():
         # Save data into files
         CRYPTOS_object.writeCRYPTO_json()
 
-        try : 
-            CRYPTOS_object.writeCRYPTO_userfriendly()
-        except Exception as e:
-            log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
+        
+        CRYPTOS_object.writeCRYPTO_userfriendly()
+        
 
         # specials alerts
         #specials_alerts(CRYPTOS)
