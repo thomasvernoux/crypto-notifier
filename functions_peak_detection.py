@@ -42,7 +42,7 @@ def peak_detection_O1(crypto):
         a = 3
 
     if crypto.current_price > break_even_value :                             
-        log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name}" )
+        log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name} peak limit value : {peak_limit_value}, break even value : {break_even_value}" )
         if (crypto.current_price < peak_limit_value):                                     # on est sur la phase descendante du pic
             log_write("peak detection", f"  crypto.current_price < peak_limit : {crypto.name}, peak limit : {peak_limit_value}" )
             

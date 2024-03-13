@@ -114,22 +114,44 @@ def test_truncate_number():
         return True
 
 def calculate_sell_quantity(product_info, sell_quantity_str):
+    """
+    This function calculates the quantity that can be sold based on the provided product information and the desired sell quantity.
+
+    Parameters:
+        product_info (dict): A dictionary containing information about the product, including base increment, quote increment, and minimum base size.
+        sell_quantity_str (str): The desired sell quantity as a string.
+
+    Returns:
+        str: The conforming sell quantity that can be sent to the API for sale.
+
+    Description:
+        The function first converts the sell quantity to a float and retrieves relevant product information such as base increment, quote increment, and minimum base size.
+        It then checks if the requested sell quantity is less than the minimum base size and prints a message if it is.
+        Next, it calculates the conforming sell quantity by incrementing by the base increment until it reaches or exceeds the sell quantity.
+        The conforming sell quantity is converted back to a string, and if it has more than 3 significant digits, it is truncated using the truncate_number function (implementation not provided).
+        Finally, the conforming sell quantity is returned.
+    """
+    
+    # Convert to float
     sell_quantity = float(sell_quantity_str)
     
-    # Récupérer les informations pertinentes du produit
+    # copy informations
     base_increment = float(product_info['base_increment'])
     quote_increment = float(product_info['quote_increment'])
     base_min_size = float(product_info['base_min_size'])
     
-    # Calculer le montant de base à vendre en prenant en compte la taille minimale
-    if sell_quantity < base_min_size : 
-        print("cannot sell : quantity too low")
+    
     
     conform_sell_quantuty = 0
 
     while conform_sell_quantuty + base_increment < sell_quantity:
         conform_sell_quantuty += base_increment
     
+    # check is the amount is enough
+    if conform_sell_quantuty < base_min_size : 
+        print("cannot sell : quantity too low")
+        log_error_minor("cannot sell : quantity too low")
+
     conform_sell_quantuty = str(conform_sell_quantuty)
     if len(conform_sell_quantuty) > 3:
         conform_sell_quantuty = truncate_number(conform_sell_quantuty, significant_digits=3)

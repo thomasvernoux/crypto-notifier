@@ -114,7 +114,8 @@ def sell_crypto_for_USDC(crypto_symbol):
         set_variable_extern_change_detected(True)
         return False
     
-    try : 
+    try :  
+        # Get the specifiities of the product (increment)
         product = client.get_product(product_id)
         available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
     
