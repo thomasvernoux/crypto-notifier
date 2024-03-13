@@ -297,6 +297,9 @@ class CRYPTOS:
         self.writeCRYPTO_json()
 
     def initialise_all_USDC_balance(self):
+        """
+        Set the right value of USDC balance, updating cryoto price
+        """
         for c in self.cryptos_list:
             
             c.initialise_USDC_balance()

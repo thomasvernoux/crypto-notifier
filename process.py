@@ -55,7 +55,7 @@ def process():
     # Refresh buy prices
     CRYPTOS_object.set_buy_prices()
 
-    # set USDC blance to 0
+    # update USDC blance
     CRYPTOS_object.initialise_all_USDC_balance()
 
     # Set detection variables
@@ -96,7 +96,7 @@ def process():
             # Refresh buy prices
             CRYPTOS_object.set_buy_prices()
 
-            # set USDC blance to 0
+            # update USDC Balance
             CRYPTOS_object.initialise_all_USDC_balance()
 
             # Set detection variables

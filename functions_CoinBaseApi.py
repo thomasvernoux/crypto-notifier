@@ -121,9 +121,12 @@ def sell_crypto_for_USDC(crypto_symbol):
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     if get_variable_mode() == "real":
+        preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
         order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
-        print(order)
-        log_write("sell order history", str(order), persistant=True)
+        print("order : ", order)
+        print("preview order : " , preview_order)
+        log_write("sell order history", "order : " + str(order), persistant=True)
+        log_write("sell order history", "preview order : " + str(order), persistant=True)
 
 
     elif get_variable_mode() == "test":
