@@ -123,13 +123,25 @@ def sell_crypto_for_USDC(crypto_symbol):
         log_error_minor(e)
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
+    preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
+    if preview_order["errs"] != []:
+        print("errors detected in preview order")
+        log_write("sell order history",
+                   f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
+                   persistant= True)
+    
     if get_variable_mode() == "real":
-        preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
+        log_write("sell order history",
+                   f"""market order sell send. Parameters :
+                   client_order_id : {str(preview_order["errs"])}
+                   product_id : {product_id}
+                   base size : {available_sell_quantity}\n""", 
+                   persistant= True)
         order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
         print("order : ", order)
         print("preview order : " , preview_order)
-        log_write("sell order history", "order : " + str(order), persistant=True)
-        log_write("sell order history", "preview order : " + str(order), persistant=True)
+        log_write("sell order history", "order_variable recieved from coinbase api :\n" + str(order), persistant=True)
+        
 
         log_write("debug_order", f"parameters - product id : {product_id}, available_sell_quantity : {available_sell_quantity}")
         log_write("debug_order", "preview order : " + str(order))
@@ -137,8 +149,7 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 
     elif get_variable_mode() == "test":
-        order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
-        print(order)
+        None
         
         
     return order

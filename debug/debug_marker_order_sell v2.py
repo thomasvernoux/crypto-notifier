@@ -1,5 +1,5 @@
 """
-L'achat a étét fait
+Debug market order sell
 """
 
 """
@@ -43,9 +43,7 @@ product = client.get_product(product_id)
 print(product)
 
 
-preview_order = client.preview_market_order(product_id = product_id, quote_size = USDC_sty, side = "BUY")
-quote_size = preview_order["quote_size"]
-print(preview_order)
-client_order_id = str(time.time()).replace(".", "")
-order_b = client.market_order(client_order_id = f"client_order_id", product_id = product_id, quote_size = USDC_sty, side = "BUY")
-print(order_b)
+crypto.sell_for_USDC()
+
+
+
