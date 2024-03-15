@@ -35,7 +35,7 @@ def process():
     VARIABLES
     """
 
-    loop_intervall_seconds = 60                 # Second intervall between two loops
+    loop_intervall_seconds = 30                 # Second intervall between two loops
 
     # MODE to real (the test mode can be use for test purpose)
     set_variable_mode("real")                   # real  / test
