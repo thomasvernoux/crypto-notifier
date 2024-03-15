@@ -137,7 +137,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    product_id : {product_id}
                    base size : {available_sell_quantity}\n""", 
                    persistant= True)
-        order = client.market_order_sell(client_order_id = "ordre001", product_id = product_id, base_size = available_sell_quantity)
+        order = client.market_order_sell(client_order_id = "OrderByPython" + str(time.time()), product_id = product_id, base_size = available_sell_quantity)
         print("order : ", order)
         print("preview order : " , preview_order)
         log_write("sell order history", "order_variable recieved from coinbase api :\n" + str(order), persistant=True)

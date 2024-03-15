@@ -1,5 +1,6 @@
 """
 Debug market order sell
+work fine
 """
 
 """
@@ -27,9 +28,7 @@ set_variable_mode("real")
 crypto = Crypto()
 crypto.name = "SEAM"
 
-"""
-Buy some crypto
-"""
+
 
 product_id = f"{crypto.name}-USDC"
 USDC_sty = "2.000"
