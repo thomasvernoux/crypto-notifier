@@ -12,6 +12,8 @@ from functions_specials_alerts import *
 from functions_log import *
 from class_cryptos import *
 
+import inspect
+
 
 
 
@@ -19,6 +21,10 @@ def process():
     """
     Process the crypto-notifier program
     """
+
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+
+    
 
     """
     ###
@@ -36,6 +42,10 @@ def process():
     set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
     set_variable_extern_change_detected(False)
     set_variable_recursiv_call_number(0)
+    set_variable_trace_activated(True)
+
+
+    
     """
     CRYPTOS OBJECT
     """

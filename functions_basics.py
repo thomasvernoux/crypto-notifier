@@ -18,7 +18,7 @@ from global_variables import *
 from functions_log import *
 
 from decimal import Decimal
-
+import inspect
 
 
 
@@ -28,7 +28,7 @@ def binary_confirmation(message):
     """
     Print a message and enter yes to continue
     """
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     print(message)
     response = str(input())
 
@@ -40,6 +40,7 @@ def binary_confirmation(message):
 
 def sound_notification():
 
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if get_variable_sound_activated():
         for i in range(3):
             winsound.Beep(1000, 2000)
@@ -53,7 +54,7 @@ def get_last_buy_price(orders,crypto):
     crypto : crypto class object
     """
 
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name) + f" {crypto.name}")
     orders = orders["orders"]
     fitting_orders = []
     for i in orders : 
@@ -86,7 +87,7 @@ def get_last_buy_price(orders,crypto):
 
 def truncate_number(number_str, significant_digits=4):
 
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Convertir la chaîne de caractères en un nombre décimal
     number = Decimal(number_str)
     
@@ -104,6 +105,7 @@ def truncate_number(number_str, significant_digits=4):
     return ret_value
 
 def test_truncate_number():
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     input_values = ["1", "2.123456789876", "0.999991567", "0.00000000005679988"]
     expected_output = ["1.000e0", "2.123e0", "9.999e-1", "5.679e-11"]
     significant_digits = 4
@@ -133,7 +135,7 @@ def calculate_sell_quantity(product_info, sell_quantity_str):
         The conforming sell quantity is converted back to a string, and if it has more than 3 significant digits, it is truncated using the truncate_number function (implementation not provided).
         Finally, the conforming sell quantity is returned.
     """
-    
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Convert to float
     sell_quantity = float(sell_quantity_str)
     
@@ -178,7 +180,7 @@ def tests_calculate_sell_quantity():
     If the calculated sell quantity matches the expected output, it returns True,
     otherwise, it logs an error and returns False.
     """
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Sample product information
     product = {
         'product_id': 'SEAM-USDC',

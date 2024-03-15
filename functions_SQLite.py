@@ -32,6 +32,9 @@ import sqlite3
 import os
 import functions_log
 import functions_log
+import inspect
+from functions_log import *
+
 
 def check_database_exist(db_file="SQL_database/crypto.db"):
     """
@@ -48,6 +51,7 @@ def check_database_exist(db_file="SQL_database/crypto.db"):
     No return value.
     """
 
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Extract the directory from the database file path
     db_dir = os.path.dirname(db_file)
 
@@ -84,6 +88,7 @@ def add_value(crypto_name, data_tuple, db_file="SQL_database/crypto.db"):
     Returns:
     None
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Check if the database exists, create it if necessary
     check_database_exist(db_file)
 
@@ -123,6 +128,7 @@ def get_print_database_table(crypto_name, db_file="SQL_database/crypto.db", Prin
     Returns:
     list: A list containing the retrieved data.
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Check if the database exists, create it if necessary
     check_database_exist(db_file)
 
@@ -145,6 +151,7 @@ def get_print_database_table(crypto_name, db_file="SQL_database/crypto.db", Prin
 
 def get_crypto_price_history_pyplotable(crypto_name, db_file="SQL_database/crypto.db"):
     
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     check_database_exist(db_file)
 
     ret_value = [[], []]

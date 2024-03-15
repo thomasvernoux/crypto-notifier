@@ -6,11 +6,13 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import matplotlib.dates as mdates
 
+import inspect
 
+from functions_log import *
 
 def plot_crypto(crypto_name=None):
 
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Retrieve data
     x, y = functions_SQLite.get_crypto_price_history_pyplotable(crypto_name, db_file="SQL_database/crypto.db")
 

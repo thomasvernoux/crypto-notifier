@@ -15,6 +15,8 @@ import glob
 import heapq
 from global_variables import *
 
+from global_variables import *
+
 
 # Variable to store the path of the error log file
 log_base_path = "log"
@@ -187,6 +189,23 @@ def keep_recent_files(path):
             print(f"Suppression du fichier {file}")
 
     return 
+
+def log_trace(message):
+    file = "trace.txt"
+    if get_variable_trace_activated() == False :
+        return
+    
+    global filename_dic
+    if not (file in filename_dic) : 
+        init_error_module(file, persistant = True)
+    
+    with open(filename_dic[file], "a") as error_file:
+        error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + message + "\n")
+
+    return
+
+
+
 
 """
 Usage example

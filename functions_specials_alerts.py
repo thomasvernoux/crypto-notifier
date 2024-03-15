@@ -13,10 +13,15 @@ from functions_email import *
 from global_variables import *
 from functions_peak_detection import *
 
+import inspect
+
 def specials_alerts(CRYPTOS) :
     """
     Specials alerts for some cryptos at a certain value
     """
+
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+    
     for crypto in CRYPTOS : 
         if (crypto.name == "AUCTION") & (crypto.buy_price < crypto.current_price) : 
             

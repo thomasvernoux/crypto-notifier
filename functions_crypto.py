@@ -27,6 +27,7 @@ def time_interval(crypto):
     Check time intervall between two notification requests
     retrn true or false if the notification can be done
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if (time.time() > crypto.last_notification_time + time_notif_interval) or (crypto.last_notification_time == 0):
         return True
     return False
@@ -36,6 +37,7 @@ def get_crypto_price_cryptocompare(crypto):
     Get price from cryptocompare API
     """
 
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if crypto.name_cryptocompare == None : 
         #print ("no name cryptocompare for : ", crypto.name)
         log_write("get_price_status", f"no name cryptocompare for : {crypto.name}\n")
@@ -66,6 +68,7 @@ def get_crypto_price_coingecko(crypto):
     = 13 calls per hours
     """
 
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if crypto.name_coingecko == None : 
         #print ("no name coingecko for : ", crypto.name)
         log_write("get_price_status", f"no name coingecko for : {crypto.name}\n")
@@ -93,7 +96,7 @@ def get_price(crypto):
     try to use coinbase API , then coingecko to get the price, if it is not possible, try with cryptocompare
     """
 
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     price = None
     
     try : 

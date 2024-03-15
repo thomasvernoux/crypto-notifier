@@ -17,6 +17,8 @@ from global_variables import *
 from functions_basics import *
 from functions_log import *
 
+import inspect
+
 """
 API rate limit : https://docs.cloud.coinbase.com/advanced-trade-api/docs/rest-api-rate-limits
 """
@@ -27,15 +29,17 @@ def load_var_from_json(filename, variable):
     @filename : path to json
     @variable : name of the variable to find in the json
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     with open(filename, 'r') as file:
         keys = json.load(file)
     return keys[variable]
+
 
 api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
 api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
 
 def get_accounts_from_api_OLD():
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
     user = client.get_current_user()
     #print(user)
@@ -53,7 +57,7 @@ def get_accounts_from_api_OLD():
     return accounts
 
 def get_accounts_from_api():
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
     accounts = client.get_accounts()["accounts"]
     
@@ -66,6 +70,7 @@ def get_accounts_from_api():
     return accounts
 
 def update_account_id_dico():
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
     accounts = client.get_accounts()
     
@@ -82,7 +87,7 @@ def sell_crypto_for_USDC(crypto_symbol):
     """
     Request API for selling the maximum of the parameter crypto
     """
-
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Initialiser le client REST avec votre clé d'API Coinbase
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
 
@@ -156,6 +161,7 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 def get_sell_price_coinabse_api(crypto, iteration_number = 0):
     
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if crypto.coinbaseId == None :
         log_error_minor(f"crypto : {crypto.name} has no coinbaseId")
         print(f"La crypto-monnaie {crypto.name} n'a pas de coinbaseId.")

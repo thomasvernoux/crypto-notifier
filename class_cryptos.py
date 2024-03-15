@@ -33,6 +33,7 @@ class Crypto:
     This class is used to manage a crypto account.
     """
     def __init__(self):
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.name = None                      # Crypto name on coinbase
         self.coinbaseId = None                # Id for coinbase API
         self.name_cryptocompare = None        # Crypto name on cryptocompare
@@ -54,6 +55,7 @@ class Crypto:
         This function is used to decrase by 1 the number of alerts authorized. 
         No parameters required
         """
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.number_of_alert_authorized -=1    # decrase parameter 
         self.write_variables_to_json_file()    # Write the parameter on json file
 
@@ -61,7 +63,7 @@ class Crypto:
         """
         The cryptoprocess function process a crypto once.
         """
-
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         ###########################################################################################
         # Price actualisation
         ###########################################################################################
@@ -152,6 +154,8 @@ class Crypto:
         Return crypto info str printable
         """
 
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
+
         ret_value = ""
 
         for key, value in vars(self).items():
@@ -163,6 +167,8 @@ class Crypto:
         """
         Sell the maximum amount of this crypto for USDC
         """
+        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
         order = sell_crypto_for_USDC(self.name)                          # Sell Crypto
         
         
@@ -176,6 +182,7 @@ class Crypto:
         setup the USDC balance for this crypto 
         """
 
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
         self.current_price = get_price(self)                  # Get price
         self.USDC_balance = self.amount * self.current_price  # USDC balance actualisation
 
@@ -185,6 +192,8 @@ class Crypto:
         """
         Save all crypto classs variables in a json file. Location : CRYPTO json/{self.name}/{self.name}.json
         """
+        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
         folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
         path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
@@ -200,6 +209,7 @@ class Crypto:
         Actually not use in the code ? 
         """
 
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
         folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
         path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
@@ -209,11 +219,12 @@ class Crypto:
 
 class CRYPTOS:
     def __init__(self):
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.cryptos_list = []
 
     def getCRYPTO_json(self):
 
-        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.cryptos_list = []
 
         folder_path = "CRYPTO json"
@@ -255,10 +266,12 @@ class CRYPTOS:
         return self.cryptos_list[:]
     
     def writeCRYPTO_json(self):
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         for c in self.cryptos_list :
             c.write_variables_to_json_file()
 
     def writeCRYPTO_userfriendly(self):
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         try : 
             cryptos = self.cryptos_list
             with open(fichier_userfriendly, 'w') as f:
@@ -281,7 +294,7 @@ class CRYPTOS:
         """
         Reset the maximum value of all cryptos to current value
         """
-
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         cryptos = self.getCRYPTO_json()
         for c in cryptos : 
             c.max_price = c.current_price
@@ -293,6 +306,7 @@ class CRYPTOS:
         Reset the value of all cryptos notifications
         """
 
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         cryptos = self.getCRYPTO_json()
         for c in cryptos : 
             c.number_of_alert_authorized = value
@@ -303,6 +317,7 @@ class CRYPTOS:
         """
         Set the right value of USDC balance, updating cryoto price
         """
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         for c in self.cryptos_list:
             
             c.initialise_USDC_balance()
@@ -312,7 +327,7 @@ class CRYPTOS:
         """
         refresh crypto account in json file
         """
-
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         data_api = get_accounts_from_api()
         #print(data)
         
@@ -390,7 +405,7 @@ class CRYPTOS:
         """
         set variable
         """
-        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         cryptos = self.getCRYPTO_json()
         for c in cryptos : 
             c.peak_target = peak_target
@@ -401,7 +416,7 @@ class CRYPTOS:
         """
         set variable
         """
-        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         cryptos = self.getCRYPTO_json()
         for c in cryptos : 
             c.break_even_point = break_even_point
@@ -409,7 +424,7 @@ class CRYPTOS:
         self.writeCRYPTO_json()
 
     def set_buy_prices(self):
-        
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
         orders = client.list_orders()
 

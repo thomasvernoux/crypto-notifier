@@ -61,6 +61,22 @@ def set_variable_recursiv_call_number(nouvelle_valeur):
 def get_variable_recursiv_call_number():
     return recursiv_call_number
 
+"""
+Activate program trace
+"""
+
+def set_variable_trace_activated(nouvelle_valeur):
+    global trace_activated
+    trace_activated = nouvelle_valeur
+
+def get_variable_trace_activated():
+    return trace_activated
+
+"""
+Variables init
+"""
+set_variable_trace_activated(False)
+
 
 
 
