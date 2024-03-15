@@ -223,7 +223,9 @@ class CRYPTOS:
         self.cryptos_list = []
 
     def getCRYPTO_json(self):
-
+        """
+        Get all cryptos info from json
+        """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.cryptos_list = []
 
@@ -266,11 +268,17 @@ class CRYPTOS:
         return self.cryptos_list[:]
     
     def writeCRYPTO_json(self):
+        """
+        Write all cryptos info to json
+        """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         for c in self.cryptos_list :
             c.write_variables_to_json_file()
 
     def writeCRYPTO_userfriendly(self):
+        """
+        Write crypto info in txt file
+        """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         try : 
             cryptos = self.cryptos_list
