@@ -73,9 +73,47 @@ def get_variable_trace_activated():
     return trace_activated
 
 """
+time between loop for update account process
+"""
+
+def set_variable_time_loop_update_account_process(nouvelle_valeur):
+    global time_loop_update_account_process
+    time_loop_update_account_process = nouvelle_valeur
+
+def get_variable_time_loop_update_account_process():
+    return time_loop_update_account_process
+
+
+
+"""
+time between loop for update crypto price process (ALL)
+"""
+
+def set_variable_time_loop_update_price_all_process(nouvelle_valeur):
+    global time_loop_update_price_all_process
+    time_loop_update_price_all_process = nouvelle_valeur
+
+def get_variable_time_loop_update_price_all_process():
+    return time_loop_update_price_all_process
+
+"""
+time between loop for update crypto price process
+"""
+
+def set_variable_time_loop_update_price_process(nouvelle_valeur):
+    global time_loop_update_price_process
+    time_loop_update_price_process = nouvelle_valeur
+
+def get_variable_time_loop_update_price_process():
+    return time_loop_update_price_all_process
+
+
+"""
 Variables init
 """
 set_variable_trace_activated(False)
+set_variable_time_loop_update_account_process(60*5)
+set_variable_time_loop_update_price_all_process(60*5)
 
 
 

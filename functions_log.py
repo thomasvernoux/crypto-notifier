@@ -191,7 +191,7 @@ def keep_recent_files(path):
     return 
 
 def log_trace(message):
-    file = "trace.txt"
+    file = "trace txt"
     if get_variable_trace_activated() == False :
         return
     

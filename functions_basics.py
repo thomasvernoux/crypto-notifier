@@ -238,6 +238,17 @@ def tests_calculate_sell_quantity():
 
     return False 
 
+def setup_global_variables():
+    """
+    Setup global variables
+    """
+    
+    set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
+    set_variable_extern_change_detected(False)
+    set_variable_recursiv_call_number(0)
+    set_variable_trace_activated(True)
+
+    return 
 
 test_truncate_number()
 tests_calculate_sell_quantity()

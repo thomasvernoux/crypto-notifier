@@ -13,6 +13,8 @@ import traceback
 from functions_log import *
 from functions_CoinBaseApi import *
 
+from class_cryptos import *
+
 
 
 
@@ -126,8 +128,61 @@ def get_price(crypto):
     else:
         log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + "Price after the ':' : " + str(price))
 
+def refresh_crypto_data():
+    """
+    If change detected, refresh crypto data
+    """
 
+    # Set the flag back to False
+    set_variable_extern_change_detected(False)
 
-    
+    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object.getCRYPTO_json()
+
+    # Refresh the amount of crypto from coinbase API
+    CRYPTOS_object.actualise_crypto_account()
+
+    # Refresh buy prices
+    CRYPTOS_object.set_buy_prices()
+
+    # update USDC Balance
+    CRYPTOS_object.initialise_all_USDC_balance()
+
+    # Set detection variables
+    CRYPTOS_object.set_crypto_peak_target(99)
+    CRYPTOS_object.set_crypto_break_even_point(103)
+
+    # Save data
+    CRYPTOS_object.writeCRYPTO_json()
+
+def setup_crypto():
+    """
+    Setup crypto parameters
+    """
+
+    # Set up CRYPTOS object
+    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object.getCRYPTO_json()
+
+    # reset maximums prices for peak detection
+    #CRYPTOS_object.cryptos_reset_max_price()
+
+    # set the number of notification authorized for a crypto
+    CRYPTOS_object.cryptos_set_notifications_authorisations(20)
+
+    # Refresh buy prices
+    CRYPTOS_object.set_buy_prices()
+
+    # update USDC blance
+    CRYPTOS_object.initialise_all_USDC_balance()
+
+    # Set detection variables
+    CRYPTOS_object.set_crypto_peak_target(99)
+    CRYPTOS_object.set_crypto_break_even_point(103)
+
+    # Save data
+    CRYPTOS_object.writeCRYPTO_json()
+
+    return 
 
 
