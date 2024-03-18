@@ -24,6 +24,8 @@ set_variable_running_mode_test_mode_activated(False)
 
 set_variable_program_on(True)
 
+set_variable_trace_activated(True)
+
 
 
 

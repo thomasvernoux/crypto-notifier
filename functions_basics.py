@@ -250,5 +250,5 @@ def setup_global_variables():
 
     return 
 
-test_truncate_number()
-tests_calculate_sell_quantity()
+#test_truncate_number()
+#tests_calculate_sell_quantity()

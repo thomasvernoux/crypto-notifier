@@ -217,14 +217,21 @@ class CRYPTOS:
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.cryptos_list = []
 
+
         folder_path = "CRYPTO json"
+        if not(os.path.exists(folder_path)):
+            return []
         crypto_list = os.listdir(folder_path)
         for crypto_name in crypto_list :
             crypto_path = f"{folder_path}/{crypto_name}/{crypto_name}.json"
             
             with open(crypto_path, "r") as f:
                 # Charger le contenu JSON sous forme de liste d'objets Python
-                crypto_data = json.load(f)
+                try :
+                    crypto_data = json.load(f)
+                except Exception as e:
+                    print(e)
+                    log_error_critic(e)
 
         
                 crypto = Crypto()
@@ -390,11 +397,13 @@ class CRYPTOS:
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
+                self.cryptos_list[-1].break_even_point = 103
+                self.cryptos_list[-1].peak_target = 99
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 set_variable_extern_change_detected(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
-
-        self.writeCRYPTO_json()
+                self.writeCRYPTO_json()
+        
         return
 
     def set_crypto_peak_target(self, peak_target):

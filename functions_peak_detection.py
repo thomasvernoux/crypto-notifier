@@ -20,6 +20,19 @@ def peak_detection_O1(crypto):
     Detect when the crypto price is under a certain % of the max value
     """
 
+    """
+    DEBUG
+    """
+    if crypto.name == "RBN":
+        a = 3
+
+    if crypto.peak_target == 0:
+        log_error_critic(f"crypto.peak_target == 0 : {crypto.name}")
+        return False
+    if crypto.beak_even_point == 0:
+        log_error_critic(f"crypto.beak_even_point == 0 : {crypto.name}")
+        return False
+
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     peak_limit_value = crypto.peak_target / 100 * crypto.max_price
     break_even_value = crypto.buy_price * crypto.break_even_point / 100
