@@ -50,7 +50,7 @@ def get_accounts_from_api_OLD():
     accounts = client.get_accounts()
 
     for i in accounts["data"] : 
-        log_write("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n")
         
     log_write("coinbase api call history", f"\n")
 
@@ -63,7 +63,7 @@ def get_accounts_from_api():
     
 
     for i in accounts : 
-        log_write("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n")
         
     log_write("coinbase api call history", f"\n")
 
@@ -135,7 +135,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
                    persistant= True)
     
-    if get_variable_mode() == "real":
+    if get_variable_run_mode().coinbase_api_sell_activated:
         log_write("sell order history",
                    f"""market order sell send. Parameters :
                    client_order_id : {str(preview_order["errs"])}

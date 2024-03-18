@@ -21,14 +21,25 @@ def ProcessUpdatePrice_ALL():
     """
 
     try:
-        while True:
+        while get_variable_program_on():
             print("ProcessUpdatePrice_ALL loop")
             
             CRYPTOS_object = CRYPTOS()
             CRYPTOS_object.getCRYPTO_json()
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
-                CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+                if get_variable_run_mode().coinbase_api_getprice_activated:
+                    CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+
+                """
+                Update USDC Balance
+                """
+                CRYPTOS_object.cryptos_list[i].update_USDC_balance()
+
+                """
+                Update max price
+                """
+                CRYPTOS_object.cryptos_list[i].update_max_price()
 
             CRYPTOS_object.writeCRYPTO_json()
 
@@ -44,7 +55,7 @@ def ProcessUpdatePrice():
     """
 
     try:
-        while True:
+        while get_variable_program_on():
             print("ProcessUpdatePrice loop")
             
             CRYPTOS_object = CRYPTOS()
@@ -52,7 +63,18 @@ def ProcessUpdatePrice():
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
                 if CRYPTOS_object.cryptos_list[i].USDC_balance > 0.5:
-                    CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+                    if get_variable_run_mode().coinbase_api_getprice_activated :
+                        CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+
+                    """
+                    Update USDC Balance
+                    """
+                    CRYPTOS_object.cryptos_list[i].update_USDC_balance()
+
+                    """
+                    Update max price
+                    """
+                    CRYPTOS_object.cryptos_list[i].update_max_price()
 
             CRYPTOS_object.writeCRYPTO_json()
 
@@ -60,7 +82,8 @@ def ProcessUpdatePrice():
 
 
     except KeyboardInterrupt:
-        print("Keyboard interruption detected. End of ProcessUpdatePrice")
+        set_variable_program_on(False)
+        print("End of ProcessUpdatePrice")
 
 
 

@@ -122,6 +122,9 @@ def log_error_critic(error_message):
     # Print a notification about the critical error
     print("Critical error detected. Please check the error log file for more details.")
 
+    # Turn off all process
+    set_variable_program_on(False)
+
     # Terminate the program
     exit()
 

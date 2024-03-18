@@ -28,7 +28,7 @@ def peak_detection_O1(crypto):
     if crypto.buy_price == None :
         log_error_critic(f"buy price is missing for : {crypto.name}")
 
-    ## percentage of accomplishment for break_even_point 
+    ## percentage of accomplishment for break_even_point
     pafbep = round(((crypto.current_price - crypto.buy_price) / (break_even_value - crypto.buy_price)) * 100, 1)
     print(f"{crypto.name}  percentage of accomplishment for break_even_point : ", pafbep, "%   -  ", "crypto value/max : ", round(crypto.current_price/crypto.max_price * 100, 2))
     log_write(f"peak detection", f"{crypto.name} - percentage of accomplishment for break_even_point : {pafbep} %\n")
@@ -37,12 +37,6 @@ def peak_detection_O1(crypto):
         # cryptocurrency is not profitable
         return False
 
-    """
-    DEBUG
-    """
-
-    if crypto.name == "RENDER":
-        a = 3
 
     if crypto.current_price > break_even_value :                             
         log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name} peak limit value : {peak_limit_value}, break even value : {break_even_value}" )

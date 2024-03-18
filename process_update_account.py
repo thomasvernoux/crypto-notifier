@@ -3,6 +3,9 @@
 Process function updating account
 Author : Thomas Vernoux
 Date : 2024/03/15
+
+Update account
+Update last buy price
 """
 
 import time
@@ -20,20 +23,24 @@ def ProcessUpdateAccount():
 
     try:
         
-        while True:
+        while get_variable_program_on():
 
             print("ProcessUpdateAccount")
             
             CRYPTOS_object = CRYPTOS()
             CRYPTOS_object.getCRYPTO_json()
             CRYPTOS_object.actualise_crypto_account()
+
+            CRYPTOS_object.set_buy_prices()
+
             CRYPTOS_object.writeCRYPTO_json()
 
             time.sleep(get_variable_time_loop_update_account_process())
 
 
     except KeyboardInterrupt:
-        print("Keyboard interruption detected. End of ProcessUpdateAccount")
+        set_variable_program_on(False)
+        print("End of ProcessUpdateAccount")
 
     
 

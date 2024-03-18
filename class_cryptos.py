@@ -84,22 +84,10 @@ class Crypto:
         ###########################################################################################
         # Max price actualisation
         ###########################################################################################
-        if self.max_price == None : 
-            self.max_price = self.current_price
-        if self.current_price > self.max_price :
-            self.max_price = self.current_price
 
 
-        ###########################################################################################
-        # USDC balance actualisation
-        ###########################################################################################
-        self.USDC_balance = round(self.amount * self.current_price, 2)
-        try : 
-            self.profit_percent = self.current_price / self.buy_price * 100
-        except : 
-            None
 
-
+        
         ###########################################################################################
         # Save price history
         ###########################################################################################
@@ -116,10 +104,7 @@ class Crypto:
             # Peak Detected ::: Send an email + laptop notification + sell crypto + update last notification time
             ###########################################################################################
             
-            if get_variable_mode() == "test":
-                # if test mode, set the mail flag to True
-                set_variable_test_mail_send(True)
-                return True
+            
             
             # Send an email
             subject = "Time to sell alert"
@@ -129,20 +114,6 @@ class Crypto:
             # simple notification on laptop
             sound_notification()
             
-            # Sell crypto
-            try :
-                order = self.sell_for_USDC()
-                send_email("Sell order done", str(order))
-                self.max_price = 0
-                self.buy_price = 0
-                self.amount = 0
-                self.USDC_balance = 0
-                set_variable_extern_change_detected(True)
-                self.write_variables_to_json_file()
-
-            except Exception as e : 
-                print(f"Error while trying to sell crypto : {self.name}")
-                log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {e}")
 
             # update last notification time
             self.last_notification_time = time.time()
@@ -216,6 +187,23 @@ class Crypto:
         with open("cryptos.json", "r") as f:
             # Charger le contenu JSON sous forme de liste d'objets Python
             cryptos_data = json.load(f)
+
+    def update_USDC_balance(self):
+        """
+        Update USDC bamlance using crypto price and crypto amount
+        """
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
+        self.USDC_balance = round(self.amount * self.current_price, 2)
+        return 
+
+    def update_max_price(self):
+        if self.max_price == None : 
+            self.max_price = self.current_price
+        if self.current_price > self.max_price :
+            self.max_price = self.current_price
+
+        self.write_variables_to_json_file()
+
 
 class CRYPTOS:
     def __init__(self):
@@ -375,8 +363,8 @@ class CRYPTOS:
             crypto_name = self.cryptos_list[i].name
             
             if not (crypto_name in dic_amount_api):
-                log_error_minor("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
-                #self.cryptos_list[i].amount = 0
+                log_write("info", "crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
+                self.cryptos_list[i].amount = 0
                 continue
                
         
