@@ -125,7 +125,8 @@ def sell_crypto_for_USDC(crypto_symbol):
         available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
     
     except Exception as e :
-        log_error_minor(e)
+        tb = traceback.format_exc()
+        log_error_minor(tb)
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
@@ -135,7 +136,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
                    persistant= True)
     
-    if get_variable_run_mode().coinbase_api_sell_activated:
+    if get_variable_coinbase_api_sell_activated():
         log_write("sell order history",
                    f"""market order sell send. Parameters :
                    client_order_id : {str(preview_order["errs"])}
