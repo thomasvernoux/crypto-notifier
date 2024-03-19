@@ -32,10 +32,10 @@ def process():
     loop_intervall_seconds = 60                 # Second intervall between two loops
 
     # MODE to real (the test mode can be use for test purpose)
-    set_variable_mode("real")                   # real  / test
-    set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
-    set_variable_extern_change_detected(False)
-    set_variable_recursiv_call_number(0)
+    Variable("mode").set("real")                   # real  / test
+    Variable("sound_activated").set(False)         # Global variable for sound. Used when a crypto is sell
+    Variable("extern_change_detected").set(False)
+    Variable("recursiv_call_number").set(0)
     """
     CRYPTOS OBJECT
     """
@@ -85,10 +85,10 @@ def process():
         Detect extern changes
         """
         
-        if get_variable_extern_change_detected():
+        if Variable("extern_cnahge_detected").get():
             
             # Set the flag back to False
-            set_variable_extern_change_detected(False)
+            Variable("extern_cnahge_detected").set(False)
 
             # Refresh the amount of crypto from coinbase API
             CRYPTOS_object.actualise_crypto_account()

@@ -15,18 +15,21 @@ from process_peak_detection import *
 from process_ctrlC_detector import *
 
 
-set_variable_time_loop_update_account_process(10)
-set_variable_time_loop_update_price_process(3)
-set_variable_time_loop_update_price_all_process(6)
-set_variable_time_loop_PeakDetection_process(3)
 
-set_variable_coinbase_api_sell_activated(False)
-set_variable_coinbase_api_getprice_activated(True)
-set_variable_test_mode_activated(False)
 
-set_variable_program_on(True)
+Variable("time_loop_update_account_process").set(10)
+Variable("time_loop_update_price_process").set(3)
+Variable("time_loop_update_price_all_process").set(6)
+Variable("time_loop_PeakDetection_process").set(3)
 
-set_variable_trace_activated(True)
+Variable("coinbase_api_sell_activated").set(False)
+Variable("coinbase_api_getprice_activated").set(True)
+Variable("test_mode_activated").set(False)
+
+Variable("program_on").set(True)
+
+Variable("trace_activated").set(True)
+
 
 
 
@@ -37,12 +40,15 @@ if __name__ == "__main__":
         
         try :
 
-            result1 = pool.apply_async(ProcessUpdatePrice)
-            result2 = pool.apply_async(ProcessUpdatePrice_ALL)
-            result3 = pool.apply_async(ProcessUpdateAccount)
-            result4 = pool.apply_async(ProcessPeakDetection)
             result5 = pool.apply_async(processCTRLcDetector)
+            result3 = pool.apply_async(ProcessUpdateAccount)
+            time.sleep(5)
+            result2 = pool.apply_async(ProcessUpdatePrice_ALL)
+            time.sleep(5)
 
+            result1 = pool.apply_async(ProcessUpdatePrice)
+            result4 = pool.apply_async(ProcessPeakDetection)
+            
 
             print("All process launched")
 
@@ -57,7 +63,7 @@ if __name__ == "__main__":
         except Exception as e:
             tb = traceback.format_exc()
             pool.terminate()
-            set_variable_program_on(False)
+            Variable("program_on").set(False)
             print(f"Error occurred: {str(tb)}")
             log_error_critic(tb)
 

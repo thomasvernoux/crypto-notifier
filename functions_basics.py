@@ -41,7 +41,7 @@ def binary_confirmation(message):
 def sound_notification():
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    if get_variable_sound_activated():
+    if Variable("sound_activated").get():
         for i in range(3):
             winsound.Beep(1000, 2000)
             time.sleep(2)
@@ -243,10 +243,10 @@ def setup_global_variables():
     Setup global variables
     """
     
-    set_variable_sound_activated(False)         # Global variable for sound. Used when a crypto is sell
-    set_variable_extern_change_detected(False)
-    set_variable_recursiv_call_number(0)
-    set_variable_trace_activated(True)
+    Variable("sound_activated").set(False)         # Global variable for sound. Used when a crypto is sell
+    Variable("extern_change_detected").set(False)
+    Variable("recursiv_call_number").set(0)
+    Variable("trace_activated").set(True)
 
     return 
 

@@ -39,7 +39,7 @@ def process():
     loop_intervall_seconds = 30                 # Second intervall between two loops
 
     # MODE to real (the test mode can be use for test purpose)
-    set_variable_mode("real")                   # real  / test
+    Variable("mode").set("real")                   # real  / test
 
     setup_global_variables()
 
@@ -71,7 +71,7 @@ def process():
         Detect extern changes
         """
         
-        if get_variable_extern_change_detected():
+        if Variable("extern_change_detected").get():
             refresh_crypto_data()
             
         for crypto in CRYPTOS_object.cryptos_list:

@@ -20,15 +20,17 @@ def ProcessUpdatePrice_ALL():
     Update all prices
     """
 
+    log_write("working process", "ProcessUpdatePrice_ALL")
+
     try:
-        while get_variable_program_on():
+        while Variable("program_on").get():
             print("ProcessUpdatePrice_ALL loop")
             
             CRYPTOS_object = CRYPTOS()
             CRYPTOS_object.getCRYPTO_json()
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
-                if get_variable_coinbase_api_getprice_activated() :
+                if Variable("coinbase_api_getprice_activated()").get() :
                     CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                 """
@@ -41,9 +43,14 @@ def ProcessUpdatePrice_ALL():
                 """
                 CRYPTOS_object.cryptos_list[i].update_max_price()
 
+                """
+                Store to SQLite database
+                """
+                functions_SQLite.add_value(crypto_name = CRYPTOS_object.cryptos_list[i].name, data_tuple = (time.time(),CRYPTOS_object.cryptos_list[i].current_price))
+
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(get_variable_time_loop_update_price_all_process())
+            time.sleep(Variable("time_loop_update_price_all_processtime_loop_PeakDetection_process").get())
 
 
     except KeyboardInterrupt:
@@ -52,10 +59,14 @@ def ProcessUpdatePrice_ALL():
 def ProcessUpdatePrice():
     """
     Update crypto price is > 0.5 USDC
+    Update max price
+    Write price to SQL database
     """
 
+    log_write("working process", "ProcessUpdatePrice")
+
     try:
-        while get_variable_program_on():
+        while Variable("program_on").get():
             print("ProcessUpdatePrice loop")
             
             CRYPTOS_object = CRYPTOS()
@@ -63,7 +74,7 @@ def ProcessUpdatePrice():
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
                 if CRYPTOS_object.cryptos_list[i].USDC_balance > 0.5:
-                    if get_variable_coinbase_api_getprice_activated() :
+                    if Variable("coinbase_api_getprice_activated").get() :
                         CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                     """
@@ -76,13 +87,18 @@ def ProcessUpdatePrice():
                     """
                     CRYPTOS_object.cryptos_list[i].update_max_price()
 
+                    """
+                    Store to SQLite database
+                    """
+                    functions_SQLite.add_value(crypto_name = CRYPTOS_object.cryptos_list[i].name, data_tuple = (time.time(),CRYPTOS_object.cryptos_list[i].current_price))
+
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(get_variable_time_loop_update_price_process())
+            time.sleep(Variable("time_loop_update_price_process").get())
 
 
     except KeyboardInterrupt:
-        set_variable_program_on(False)
+        Variable("program_on").set(False)
         print("End of ProcessUpdatePrice")
 
 

@@ -21,15 +21,17 @@ import inspect
 
 def ProcessUpdateAccount():
 
+    log_write("working process", "ProcessUpdateAccount")
+
     try:
         
         
-        while get_variable_program_on():
+        while Variable("program_on"):
 
             """
             DEBUG
             """
-            Continue = get_variable_program_on()
+            Continue = Variable("program_on")
 
             print("ProcessUpdateAccount")
             
@@ -41,11 +43,11 @@ def ProcessUpdateAccount():
 
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(get_variable_time_loop_update_account_process())
+            time.sleep(Variable("time_loop_update_account_process"))
 
 
     except KeyboardInterrupt:
-        set_variable_program_on(False)
+        Variable("program_on").set(False)
         print("End of ProcessUpdateAccount")
 
     

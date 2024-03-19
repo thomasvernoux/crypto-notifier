@@ -26,8 +26,10 @@ def ProcessPeakDetection():
     Peak detection process
     """
 
+    log_write("working process", "ProcessPeakDetection")
+
     try:
-        while get_variable_program_on():
+        while Variable("program_on").get():
             print("ProcessPeakDetection loop")
             
             CRYPTOS_object = CRYPTOS()
@@ -56,7 +58,7 @@ def ProcessPeakDetection():
                     peak_detection = peak_detection_O1(CRYPTOS_object.cryptos_list[i])
                 except Exception as e:
                     print("Error with peak detection")
-                    set_variable_program_on(False)
+                    Variable("program_on").set(False)
                     tb = traceback.format_exc()
                     print(tb)
                     log_error_critic(tb)
@@ -64,12 +66,12 @@ def ProcessPeakDetection():
                 if peak_detection :
                     # peak detected, the crypto has to be sold
 
-                    if get_variable_test_mode_activated() :
+                    if Variable("test_mode_activated").get() :
                         # if test mode, set the mail flag to True
-                        set_variable_test_mail_send(True)
+                        Variable("test_mail_send").set(True)
                         return True
                     
-                    elif get_variable_coinbase_api_sell_activated():
+                    elif Variable("coinbase_api_sell_activated").get():
                         # Sell crypto
                         try :
                             order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
@@ -78,7 +80,7 @@ def ProcessPeakDetection():
                             CRYPTOS_object.cryptos_list[i].buy_price = 0
                             CRYPTOS_object.cryptos_list[i].amount = 0
                             CRYPTOS_object.cryptos_list[i].USDC_balance = 0
-                            set_variable_extern_change_detected(True)
+                            Variable("extern_change_detected").set(True)
                             CRYPTOS_object.cryptos_list[i].write_variables_to_json_file()
 
                         except Exception as e : 
@@ -88,10 +90,10 @@ def ProcessPeakDetection():
 
 
 
-            time.sleep(get_variable_time_loop_PeakDetection_process())
+            time.sleep(Variable("time_loop_PeakDetection_process").get())
 
 
     except KeyboardInterrupt:
-        set_variable_program_on(False)
+        Variable("program_on").set(False)
         print("End of ProcessPeakDetection")
 

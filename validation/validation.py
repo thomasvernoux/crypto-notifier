@@ -12,8 +12,8 @@ from global_variables import *
 from class_cryptos import *
 from functions_log import *
 
-set_variable_mode("test")
-set_variable_sound_activated(False)
+Variable("mode").set("test")
+Variable("sound_activated").set(False)
 
 all_test_passed = True
 
@@ -23,7 +23,7 @@ def test_peak_detection1():
     """
 
     global all_test_passed
-    set_variable_test_mail_send(False)
+    Variable("test_mail_send").set(False)
 
     crypto1 = Crypto()
     crypto1.name = "Test01"
@@ -42,7 +42,7 @@ def test_peak_detection1():
 
 
 
-    if not( get_variable_test_mail_send()):
+    if not(Variable("test_mail_send").get()):
         all_test_passed = False
         print("test_peak_detection1 failed")
 
@@ -53,7 +53,7 @@ def test_peak_detection2():
     """
 
     global all_test_passed
-    set_variable_test_mail_send(False)
+    Variable("test_mail_send").set(False)
 
     crypto1 = Crypto()
     crypto1.name = "Test01"
@@ -72,7 +72,7 @@ def test_peak_detection2():
 
 
 
-    if get_variable_test_mail_send():
+    if Variable("test_mail_send").get():
         all_test_passed = False
         print("test_peak_detection 2 failed")
 
@@ -82,7 +82,7 @@ def test_peak_detection3():
     """
 
     global all_test_passed
-    set_variable_test_mail_send(False)
+    Variable("test_mail_send").set(False)
 
     crypto1 = Crypto()
     crypto1.name = "Test01"
@@ -101,7 +101,7 @@ def test_peak_detection3():
 
 
 
-    if get_variable_test_mail_send():
+    if Variable("test_mail_send").get():
         all_test_passed = False
         print("test_peak_detection 3 failed")
 
@@ -111,7 +111,7 @@ def test_peak_detection4():
     """
 
     global all_test_passed
-    set_variable_test_mail_send(False)
+    Variable("test_mail_send").set(False)
 
     crypto1 = Crypto()
     crypto1.name = "Test01"
@@ -129,7 +129,7 @@ def test_peak_detection4():
     crypto1.cryptoprocess()
 
 
-    if get_variable_test_mail_send():
+    if Variable("test_mail_send").get():
         all_test_passed = False
         print("test_peak_detection 4 failed")
 
@@ -139,7 +139,7 @@ def test_peak_detection5():
     """
 
     global all_test_passed
-    set_variable_test_mail_send(False)
+    Variable("test_mail_send").set(False)
 
     crypto1 = Crypto()
     crypto1.name = "Test01"
@@ -158,7 +158,7 @@ def test_peak_detection5():
 
 
 
-    if get_variable_test_mail_send():
+    if Variable("test_mail_send").get():
         all_test_passed = False
         print("test_peak_detection 5 failed")
 

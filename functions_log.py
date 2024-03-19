@@ -21,7 +21,11 @@ from global_variables import *
 # Variable to store the path of the error log file
 log_base_path = "log"
 
-filename_dic = {}
+variable_name_filename_dic = "filename_dic"    # name of the variable for filename_dic
+
+# init filename_dic. It is the global variable dict that contain file name for log files
+Variable(variable_name_filename_dic).set({})
+
 
 def check_and_create_directory(directory_path):
     """
@@ -53,7 +57,6 @@ def init_error_module(file, persistant = False):
     persistant = True to keep data foreever
     """
     global error_file_path
-    global filename_dic
 
     if not(persistant):
         keep_recent_files(f"{log_base_path}/{file}")
@@ -63,7 +66,9 @@ def init_error_module(file, persistant = False):
 
     # Create the file path for the error log file
     file_path = f"{log_base_path}/{file}/{timestamp}.txt"
-    filename_dic[file] = file_path
+    Variable("filename_dic").add(file, file_path)
+    
+
 
     check_and_create_directory(log_base_path)
     check_and_create_directory(f"{log_base_path}/{file}")
@@ -77,7 +82,6 @@ def log_write(file = "full_log", error_message = None, persistant = False):
     Adds an error message to the error log file.
     """
     
-    global filename_dic
 
     try : 
         error_message = str(error_message)
@@ -87,11 +91,11 @@ def log_write(file = "full_log", error_message = None, persistant = False):
         print(tb)
 
     
-    if not (file in filename_dic) : 
+    if not (file in Variable(variable_name_filename_dic).get()) : 
         init_error_module(file, persistant = persistant)
 
     # Open the error log file in append mode and write the error message
-    with open(filename_dic[file], "a") as error_file:
+    with open(Variable(variable_name_filename_dic).get()[file], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
     
     """
@@ -100,10 +104,10 @@ def log_write(file = "full_log", error_message = None, persistant = False):
     full_log_name = "full_log"
     full_log_path = log_base_path + "/" + full_log_name
     
-    if not (full_log_name in filename_dic) : 
+    if not (full_log_name in Variable(variable_name_filename_dic).get()) : 
         init_error_module(full_log_name)
 
-    with open(filename_dic["full_log"], "a") as error_file:
+    with open(Variable(variable_name_filename_dic).get()["full_log"], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
 def log_error_critic(error_message : str):
@@ -117,7 +121,7 @@ def log_error_critic(error_message : str):
     prints a notification about the critical error, and terminates the program.
     """
 
-    set_variable_program_on(False)
+    Variable("program_on").set(False)
 
     # Log the critical error message
     log_write("errors", "CRITICAL error: " + error_message)
@@ -126,7 +130,7 @@ def log_error_critic(error_message : str):
     print("Critical error detected. Please check the error log file for more details.")
 
     # Turn off all process
-    set_variable_program_on(False)
+    Variable("program_on").set(False)
 
 
 def log_error_minor(error_message):
@@ -199,15 +203,14 @@ def log_trace(message):
     """
     DEBUG
     """
-    debug = get_variable_trace_activated()
-    if get_variable_trace_activated() == False :
+    debug = Variable("trace_activated").get()
+    if Variable("trace_activated").get() == False :
         return
     
-    global filename_dic
-    if not (file in filename_dic) : 
+    if not (file in Variable(variable_name_filename_dic).get()) : 
         init_error_module(file, persistant = False)
     
-    with open(filename_dic[file], "a") as error_file:
+    with open(Variable(variable_name_filename_dic).get()[file], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + message + "\n")
 
     return

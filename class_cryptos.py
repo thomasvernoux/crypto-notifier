@@ -68,7 +68,7 @@ class Crypto:
         # Price actualisation
         ###########################################################################################
 
-        if get_variable_mode() == "real":
+        if Variable("mode").get() == "real":
             self.current_price = get_price(self)
         
 
@@ -91,7 +91,7 @@ class Crypto:
         ###########################################################################################
         # Save price history
         ###########################################################################################
-        if get_variable_mode() == "real":
+        if Variable("mode").get() == "real":
             functions_SQLite.add_value(crypto_name = self.name, data_tuple = (time.time(),self.current_price))
 
 
@@ -145,7 +145,7 @@ class Crypto:
         
         
         
-        set_variable_extern_change_detected(True)                # Change hasbeen detected in crypto accounts
+        Variable("extern_change_detected").set(True)                # Change hasbeen detected in crypto accounts
         return(order)
 
     def initialise_USDC_balance(self): 
@@ -403,7 +403,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].break_even_point = 103
                 self.cryptos_list[-1].peak_target = 99
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
-                set_variable_extern_change_detected(True)
+                Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
                 self.writeCRYPTO_json()
         

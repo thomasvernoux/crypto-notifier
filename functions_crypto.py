@@ -134,7 +134,7 @@ def refresh_crypto_data():
     """
 
     # Set the flag back to False
-    set_variable_extern_change_detected(False)
+    Variable("extern_change_detected").set(False)
 
     CRYPTOS_object = CRYPTOS()
     CRYPTOS_object.getCRYPTO_json()

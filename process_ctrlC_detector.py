@@ -7,16 +7,19 @@ import sys
 import time
 
 from global_variables import *
+from functions_log import *
 
 def signal_handler(sig, frame):
     print('Signal SIGINT capturé (Ctrl+C)')
     
-    set_variable_program_on(False)
+    Variable("program_on").set(False)
     sys.exit(0)
 
 
 
 def processCTRLcDetector():
+
+    log_write("working process", "processCTRLcDetector")
 
     # Associer le gestionnaire de signal à SIGINT (Ctrl+C)
     signal.signal(signal.SIGINT, signal_handler)

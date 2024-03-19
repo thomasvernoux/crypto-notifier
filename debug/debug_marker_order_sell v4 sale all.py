@@ -22,7 +22,7 @@ from functions_basics import *
 
 
 
-set_variable_mode("real")
+Variable("mode").set("real")
 crypto = Crypto()
 
 # work fine
