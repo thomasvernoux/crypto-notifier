@@ -20,17 +20,18 @@ def ProcessUpdatePrice_ALL():
     Update all prices
     """
 
-    log_write("working process", "ProcessUpdatePrice_ALL")
+    
 
     try:
         while Variable("program_on").get():
             print("ProcessUpdatePrice_ALL loop")
+            log_write("working process", "ProcessUpdatePrice_ALL")
             
             CRYPTOS_object = CRYPTOS()
             CRYPTOS_object.getCRYPTO_json()
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
-                if Variable("coinbase_api_getprice_activated()").get() :
+                if Variable("coinbase_api_getprice_activated").get() :
                     CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                 """
@@ -50,7 +51,7 @@ def ProcessUpdatePrice_ALL():
 
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(Variable("time_loop_update_price_all_processtime_loop_PeakDetection_process").get())
+            time.sleep(Variable("time_loop_update_price_all_process").get())
 
 
     except KeyboardInterrupt:

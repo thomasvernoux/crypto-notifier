@@ -19,7 +19,7 @@ def signal_handler(sig, frame):
 
 def processCTRLcDetector():
 
-    log_write("working process", "processCTRLcDetector")
+    
 
     # Associer le gestionnaire de signal à SIGINT (Ctrl+C)
     signal.signal(signal.SIGINT, signal_handler)
@@ -29,5 +29,6 @@ def processCTRLcDetector():
 
 
     while True:
+        log_write("working process", "processCTRLcDetector")
         time.sleep(1)
         pass

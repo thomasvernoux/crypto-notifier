@@ -7,6 +7,9 @@ Date : March 3, 2024
 
 import json
 import os
+import shutil
+import time
+import traceback
 
 variables_directory = "global_variables"
 
@@ -36,13 +39,32 @@ class Variable:
         """
         Get the variable
         """
+
+        """
+        DEBUG
+        """
+        if self.name == "filename_dic":
+            a = 3
+
+
         filename = os.path.join(self.variables_directory, self.name + ".json")
         try:
             # Charger la valeur à partir du fichier JSON
-            with open(filename, 'r') as f:
-                return json.load(f)
-        except (FileNotFoundError, json.decoder.JSONDecodeError):
-            print(f"Erreur lors de la récupération de la variable JSON : {self.name}")
+            try : 
+                with open(filename, 'r') as f:
+                    return json.load(f)
+     
+            except : 
+                rec_number = Variable("recursiv_call_number").get()
+                if rec_number < 10 :
+                    Variable("recursiv_call_number").set(rec_number + 1)
+                    return self.get()
+                else : 
+                    None
+        except Exception as e:
+            tb = traceback.format_exc()
+            message = f"Erreur lors de la récupération de la variable JSON : {self.name},\ntraceback :\n{tb}"
+            print(message)
             return None
         
     def add(self, key, value):
@@ -53,14 +75,25 @@ class Variable:
         dict[key] = value
         self.set(dict)
 
-"""
-Variables init
-"""
+def remove_global_variables():
+    shutil.rmtree(variables_directory)
+    while os.path.exists(variables_directory):
+        time.sleep(0.1)  # Attendre 1 seconde
+        print("En attente de suppression du répertoire...")
+    
+    print("Suppression du répertoire terminée.")
+    return
 
-Variable("trace_activated").set(False)
-Variable("time_loop_update_account_process").set(60*5)
-Variable("time_loop_update_price_all_process").set(60*5)
 
+def global_variables_init():
+    """
+    Variables init
+    """
+
+    Variable("filename_dic").set({})
+    Variable("trace_activated").set(False)
+    Variable("time_loop_update_account_process").set(60*5)
+    Variable("time_loop_update_price_all_process").set(60*5)
 
 
 

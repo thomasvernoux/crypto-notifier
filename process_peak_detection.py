@@ -26,11 +26,12 @@ def ProcessPeakDetection():
     Peak detection process
     """
 
-    log_write("working process", "ProcessPeakDetection")
+    
 
     try:
         while Variable("program_on").get():
             print("ProcessPeakDetection loop")
+            log_write("working process", "ProcessPeakDetection")
             
             CRYPTOS_object = CRYPTOS()
             CRYPTOS_object.getCRYPTO_json()

@@ -207,7 +207,10 @@ def log_trace(message):
     if Variable("trace_activated").get() == False :
         return
     
-    if not (file in Variable(variable_name_filename_dic).get()) : 
+    dict_variable_name_filename_dic = Variable(variable_name_filename_dic).get()
+    if dict_variable_name_filename_dic == None :
+        init_error_module(file, persistant = False)
+    if not (file in dict_variable_name_filename_dic) : 
         init_error_module(file, persistant = False)
     
     with open(Variable(variable_name_filename_dic).get()[file], "a") as error_file:

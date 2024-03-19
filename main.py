@@ -17,24 +17,30 @@ from process_ctrlC_detector import *
 
 
 
-Variable("time_loop_update_account_process").set(10)
-Variable("time_loop_update_price_process").set(3)
-Variable("time_loop_update_price_all_process").set(6)
-Variable("time_loop_PeakDetection_process").set(3)
-
-Variable("coinbase_api_sell_activated").set(False)
-Variable("coinbase_api_getprice_activated").set(True)
-Variable("test_mode_activated").set(False)
-
-Variable("program_on").set(True)
-
-Variable("trace_activated").set(True)
-
 
 
 
 
 if __name__ == "__main__":
+
+
+    remove_global_variables()
+    global_variables_init()
+
+    Variable("time_loop_update_account_process").set(10)
+    Variable("time_loop_update_price_process").set(3)
+    Variable("time_loop_update_price_all_process").set(6)
+    Variable("time_loop_PeakDetection_process").set(3)
+
+    Variable("coinbase_api_sell_activated").set(False)
+    Variable("coinbase_api_getprice_activated").set(True)
+    Variable("test_mode_activated").set(False)
+
+    Variable("program_on").set(True)
+
+    Variable("trace_activated").set(True)
+
+    Variable("recursiv_call_number").set(0)
     
     with Pool() as pool:
         
