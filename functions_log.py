@@ -106,7 +106,7 @@ def log_write(file = "full_log", error_message = None, persistant = False):
     with open(filename_dic["full_log"], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
 
-def log_error_critic(error_message : str):
+def log_error_critic(error_message):
     """
     Logs a critical error message and terminates the program.
 
@@ -118,7 +118,7 @@ def log_error_critic(error_message : str):
     """
 
     set_variable_program_on(False)
-
+    
     # Log the critical error message
     log_write("errors", "CRITICAL error: " + error_message)
 
@@ -196,16 +196,12 @@ def keep_recent_files(path):
 
 def log_trace(message):
     file = "trace txt"
-    """
-    DEBUG
-    """
-    debug = get_variable_trace_activated()
     if get_variable_trace_activated() == False :
         return
     
     global filename_dic
     if not (file in filename_dic) : 
-        init_error_module(file, persistant = False)
+        init_error_module(file, persistant = True)
     
     with open(filename_dic[file], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + message + "\n")

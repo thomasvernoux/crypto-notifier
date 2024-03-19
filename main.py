@@ -4,8 +4,6 @@ Author : Thomas Vernoux
 Date : March 3, 2024
 """
 
-import traceback
-
 from multiprocessing import Pool
 
 
@@ -20,9 +18,9 @@ set_variable_time_loop_update_price_process(3)
 set_variable_time_loop_update_price_all_process(6)
 set_variable_time_loop_PeakDetection_process(3)
 
-set_variable_coinbase_api_sell_activated(False)
-set_variable_coinbase_api_getprice_activated(True)
-set_variable_test_mode_activated(False)
+set_variable_running_mode_coinbase_api_sell_activated(False)
+set_variable_running_mode_coinbase_api_getprice_activated(True)
+set_variable_running_mode_test_mode_activated(False)
 
 set_variable_program_on(True)
 
@@ -55,11 +53,10 @@ if __name__ == "__main__":
             print("All processes completed successfully")
             
         except Exception as e:
-            tb = traceback.format_exc()
             pool.terminate()
             set_variable_program_on(False)
-            print(f"Error occurred: {str(tb)}")
-            log_error_critic(tb)
+            print(f"Error occurred: {e}")
+            log_error_critic(e)
 
 
         

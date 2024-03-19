@@ -50,7 +50,7 @@ def ProcessPeakDetection():
                 """
                 end of Error check 
                 """
-
+                
                 peak_detection = False
                 try : 
                     peak_detection = peak_detection_O1(CRYPTOS_object.cryptos_list[i])
@@ -59,17 +59,17 @@ def ProcessPeakDetection():
                     set_variable_program_on(False)
                     tb = traceback.format_exc()
                     print(tb)
-                    log_error_critic(tb)
+                    log_error_critic(e)
 
                 if peak_detection :
                     # peak detected, the crypto has to be sold
 
-                    if get_variable_test_mode_activated() :
+                    if get_variable_run_mode().test_mode_activated :
                         # if test mode, set the mail flag to True
                         set_variable_test_mail_send(True)
                         return True
                     
-                    elif get_variable_coinbase_api_sell_activated():
+                    elif get_variable_run_mode().coinbase_api_sell_activated:
                         # Sell crypto
                         try :
                             order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
@@ -82,9 +82,8 @@ def ProcessPeakDetection():
                             CRYPTOS_object.cryptos_list[i].write_variables_to_json_file()
 
                         except Exception as e : 
-                            tb = traceback.format_exc()
                             print(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}")
-                            log_error_minor(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}. Traceback : {tb}")
+                            log_error_minor(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}. Traceback : {e}")
 
 
 

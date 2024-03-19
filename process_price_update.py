@@ -28,7 +28,7 @@ def ProcessUpdatePrice_ALL():
             CRYPTOS_object.getCRYPTO_json()
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
-                if get_variable_coinbase_api_getprice_activated() :
+                if get_variable_run_mode().coinbase_api_getprice_activated:
                     CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                 """
@@ -63,7 +63,7 @@ def ProcessUpdatePrice():
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
                 if CRYPTOS_object.cryptos_list[i].USDC_balance > 0.5:
-                    if get_variable_coinbase_api_getprice_activated() :
+                    if get_variable_run_mode().coinbase_api_getprice_activated :
                         CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                     """
