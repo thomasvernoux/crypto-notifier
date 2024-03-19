@@ -17,6 +17,7 @@ if __name__ == "__main__":
     try : 
         process()
     except Exception as e:
-        send_email("Fatal ERROR", f"Crypto-process crash \n{e}")
-        log_error_critic(f"Crypto-process crash \n{e}")
+        tb = traceback.format_exc()
+        send_email("Fatal ERROR", f"Crypto-process crash \n{tb}")
+        log_error_critic(f"Crypto-process crash \n{tb}")
         

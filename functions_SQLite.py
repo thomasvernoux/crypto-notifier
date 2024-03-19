@@ -100,10 +100,10 @@ def add_value(crypto_name, data_tuple, db_file="SQL_database/crypto.db"):
     cur = con.cursor()
 
     # Create the table if it doesn't exist
-    cur.execute(f"CREATE TABLE IF NOT EXISTS {crypto_name} (time TEXT, value_USDC REAL)")
+    cur.execute(f'CREATE TABLE IF NOT EXISTS "{crypto_name}" (time TEXT, value_USDC REAL)')
 
     # Insert the data into the table
-    cur.execute(f"INSERT INTO {crypto_name} VALUES (?, ?)", (time, value))
+    cur.execute(f'INSERT INTO "{crypto_name}" VALUES (?, ?)', (time, value))
 
     # Commit the transaction and close the connection
     con.commit()
