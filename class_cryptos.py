@@ -230,8 +230,10 @@ class CRYPTOS:
                 try :
                     crypto_data = json.load(f)
                 except Exception as e:
-                    print(e)
-                    log_error_critic(e)
+                    tb = traceback.format_exc()
+                    error_message = f"error in getcrypto_json : {crypto_name}  \n{tb}"
+                    print(error_message)
+                    log_error_critic(error_message)
 
         
                 crypto = Crypto()
@@ -291,7 +293,8 @@ class CRYPTOS:
                     f.write("\n")
             f.close()
         except Exception as e:
-            log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
+            tb = traceback.format_exc()
+            log_error_minor(f"Cannot write in crypto userfriendly: {str(tb)}")
 
     def cryptos_reset_max_price(self):
         """
