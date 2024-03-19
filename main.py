@@ -33,21 +33,30 @@ if __name__ == "__main__":
     
     with Pool() as pool:
         
+        try :
 
-        result1 = pool.apply_async(ProcessUpdatePrice)
-        result2 = pool.apply_async(ProcessUpdatePrice_ALL)
-        result3 = pool.apply_async(ProcessUpdateAccount)
-        result4 = pool.apply_async(ProcessPeakDetection)
-        result5 = pool.apply_async(processCTRLcDetector)
+            result1 = pool.apply_async(ProcessUpdatePrice)
+            result2 = pool.apply_async(ProcessUpdatePrice_ALL)
+            result3 = pool.apply_async(ProcessUpdateAccount)
+            result4 = pool.apply_async(ProcessPeakDetection)
+            result5 = pool.apply_async(processCTRLcDetector)
 
 
-        print("All process launched")
+            print("All process launched")
 
-        result1.get()
-        result2.get()
-        result3.get()
-        result4.get()
-        result5.get()
+            result1.get()
+            result2.get()
+            result3.get()
+            result4.get()
+            result5.get()
+
+            print("All processes completed successfully")
+            
+        except Exception as e:
+            pool.terminate()
+            set_variable_program_on(False)
+            print(f"Error occurred: {e}")
+            log_error_critic(e)
 
 
         

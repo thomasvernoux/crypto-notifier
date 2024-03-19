@@ -45,18 +45,12 @@ def ProcessPeakDetection():
                 """
                 Error check
                 """
-                if CRYPTOS_object.cryptos_list[i].buy_price == -1 :
+                if not(crypto_check_peak_detection(CRYPTOS_object.cryptos_list[i])):
                     continue
-                if CRYPTOS_object.cryptos_list[i].buy_price == 0 :
-                    continue
-                if CRYPTOS_object.cryptos_list[i].max_price == 0 :
-                    continue
-
-
-
                 """
                 end of Error check 
                 """
+                
                 peak_detection = False
                 try : 
                     peak_detection = peak_detection_O1(CRYPTOS_object.cryptos_list[i])
@@ -65,6 +59,7 @@ def ProcessPeakDetection():
                     set_variable_program_on(False)
                     tb = traceback.format_exc()
                     print(tb)
+                    log_error_critic(e)
 
                 if peak_detection :
                     # peak detected, the crypto has to be sold

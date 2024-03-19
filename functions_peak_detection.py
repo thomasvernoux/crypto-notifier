@@ -11,7 +11,49 @@ from functions_email import *
 from global_variables import *
 from functions_log import *
 
+from class_cryptos import *
+
 import inspect
+
+
+
+def crypto_check_peak_detection(crypto):
+    """
+    Check crypto variable to prevent errors while peak detection
+    """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+
+    # Variables that cannot be null for peak detection
+    no_null_variable = [crypto.name, 
+                        crypto.amount, 
+                        crypto.buy_price,
+                        crypto.break_even_point,
+                        crypto.current_price,
+                        crypto.coinbaseId,
+                        crypto.max_price,
+                        crypto.peak_target
+                        ]
+
+    # Values that are considered as null
+    null_values = [0, -1, None]
+
+    for paramater in no_null_variable :
+        if paramater in null_values:
+            print(f"critical error detected in crypto_check_peak_detection : {crypto.get_crypto_info_str}")
+            log_error_critic(f"critical error detected in crypto_check_peak_detection : {crypto.get_crypto_info_str}")
+            return False
+
+    return True
+
+    
+
+
+
+
+
+
+
+
 
 
 def peak_detection_O1(crypto):
@@ -29,8 +71,8 @@ def peak_detection_O1(crypto):
     if crypto.peak_target == 0:
         log_error_critic(f"crypto.peak_target == 0 : {crypto.name}")
         return False
-    if crypto.beak_even_point == 0:
-        log_error_critic(f"crypto.beak_even_point == 0 : {crypto.name}")
+    if crypto.break_even_point == 0:
+        log_error_critic(f"crypto.break_even_point == 0 : {crypto.name}")
         return False
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))

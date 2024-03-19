@@ -116,6 +116,9 @@ def log_error_critic(error_message):
     This function logs the given error message as a critical error in the error log file,
     prints a notification about the critical error, and terminates the program.
     """
+
+    set_variable_program_on(False)
+    
     # Log the critical error message
     log_write("errors", "CRITICAL error: " + error_message)
 
@@ -125,8 +128,6 @@ def log_error_critic(error_message):
     # Turn off all process
     set_variable_program_on(False)
 
-    # Terminate the program
-    exit()
 
 def log_error_minor(error_message):
     """

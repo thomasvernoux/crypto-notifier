@@ -23,7 +23,13 @@ def ProcessUpdateAccount():
 
     try:
         
+        
         while get_variable_program_on():
+
+            """
+            DEBUG
+            """
+            Continue = get_variable_program_on()
 
             print("ProcessUpdateAccount")
             
