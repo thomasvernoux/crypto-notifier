@@ -11,7 +11,12 @@ import shutil
 import time
 import traceback
 
+from global_variables_lock_manager import *
+
+
+
 variables_directory = "global_variables"
+
 
 class Variable:
     def __init__(self, name : str):
@@ -20,6 +25,7 @@ class Variable:
         """
         self.name = name
         self.variables_directory = "global_variables"
+
 
     def set(self, value):
         """
@@ -32,35 +38,34 @@ class Variable:
         filename = os.path.join(self.variables_directory, self.name + ".json")
 
         # Écrire la valeur dans le fichier JSON
-        with open(filename, 'w') as f:
-            json.dump(value, f)
+        global_lock = global_lock_get()
+        with global_lock :
+            with open(filename, 'w') as f:
+                json.dump(value, f)
 
     def get(self):
         """
         Get the variable
         """
 
-        """
-        DEBUG
-        """
-        if self.name == "filename_dic":
-            a = 3
+
 
 
         filename = os.path.join(self.variables_directory, self.name + ".json")
         try:
-            # Charger la valeur à partir du fichier JSON
-            try : 
+
+            """
+            DEBUG
+            """
+            if self.name == "filename_dic":
+                a = 3
+            
+            global_lock = global_lock_get()
+            with global_lock :
                 with open(filename, 'r') as f:
-                    return json.load(f)
+                    load = json.load(f)
+            return load
      
-            except : 
-                rec_number = Variable("recursiv_call_number").get()
-                if rec_number < 10 :
-                    Variable("recursiv_call_number").set(rec_number + 1)
-                    return self.get()
-                else : 
-                    None
         except Exception as e:
             tb = traceback.format_exc()
             message = f"Erreur lors de la récupération de la variable JSON : {self.name},\ntraceback :\n{tb}"
@@ -72,11 +77,15 @@ class Variable:
         For dictionnary only
         """
         dict = self.get()
+        if dict == None :
+            print(f"critical error with variable.add")
         dict[key] = value
         self.set(dict)
 
-def remove_global_variables():
-    shutil.rmtree(variables_directory)
+def remove_global_variables(global_lock):
+    with global_lock :
+        shutil.rmtree(variables_directory)
+    
     while os.path.exists(variables_directory):
         time.sleep(0.1)  # Attendre 1 seconde
         print("En attente de suppression du répertoire...")
@@ -85,7 +94,7 @@ def remove_global_variables():
     return
 
 
-def global_variables_init():
+def global_variables_init(global_lock):
     """
     Variables init
     """

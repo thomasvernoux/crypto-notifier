@@ -16,15 +16,18 @@ from functions_specials_alerts import *
 from functions_log import *
 from class_cryptos import *
 from functions_basics import *
+from global_variables_lock_manager import *
 
 import inspect
 
 
 
-def ProcessPeakDetection():
+def ProcessPeakDetection(global_lock):
     """
     Peak detection process
     """
+
+    global_lock_set(global_lock)
 
     
 

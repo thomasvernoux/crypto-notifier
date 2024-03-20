@@ -30,15 +30,18 @@ def load_var_from_json(filename, variable):
     @variable : name of the variable to find in the json
     """
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    with open(filename, 'r') as file:
-        keys = json.load(file)
+    global_lock = global_lock_get()
+    with global_lock :
+        with open(filename, 'r') as file:
+            keys = json.load(file)
     return keys[variable]
 
 
-api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
-api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
+
 
 def get_accounts_from_api_OLD():
+    api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
+    api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
     user = client.get_current_user()
@@ -70,6 +73,8 @@ def get_accounts_from_api():
     return accounts
 
 def update_account_id_dico():
+    api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
+    api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
     accounts = client.get_accounts()

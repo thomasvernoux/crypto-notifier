@@ -171,8 +171,11 @@ class Crypto:
         if not os.path.exists(folder_path):                    # Detect if the path exist
             os.makedirs(folder_path)                           # Create the folder if the path does not exist
         
-        with open(path, 'w') as f:                             # Open json file
-            json.dump(self.__dict__, f, indent=4)              # dump all variables
+
+        global_lock = global_lock_get()
+        with global_lock :
+            with open(path, 'w') as f:                             # Open json file
+                json.dump(self.__dict__, f, indent=4)              # dump all variables
 
     def get_variables_from_json_file(self):
         """
@@ -184,9 +187,12 @@ class Crypto:
         folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
         path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
-        with open("cryptos.json", "r") as f:
-            # Charger le contenu JSON sous forme de liste d'objets Python
-            cryptos_data = json.load(f)
+
+        global_lock = global_lock_get()
+        with global_lock :
+            with open("cryptos.json", "r") as f:
+                # Charger le contenu JSON sous forme de liste d'objets Python
+                cryptos_data = json.load(f)
 
     def update_USDC_balance(self):
         """
@@ -228,7 +234,9 @@ class CRYPTOS:
             with open(crypto_path, "r") as f:
                 # Charger le contenu JSON sous forme de liste d'objets Python
                 try :
-                    crypto_data = json.load(f)
+                    global_lock = global_lock_get()
+                    with global_lock :
+                        crypto_data = json.load(f)
                 except Exception as e:
                     tb = traceback.format_exc()
                     error_message = f"error in getcrypto_json : {crypto_name}  \n{tb}"

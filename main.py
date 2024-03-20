@@ -6,7 +6,7 @@ Date : March 3, 2024
 
 import traceback
 
-from multiprocessing import Pool
+from multiprocessing import Pool, Manager
 
 
 from process_price_update import *
@@ -23,9 +23,14 @@ from process_ctrlC_detector import *
 
 if __name__ == "__main__":
 
+    # Créer un Manager pour obtenir un verrou partagé
+    manager = Manager()
+    global_lock = manager.Lock()
+    global_lock_set(global_lock)
 
-    remove_global_variables()
-    global_variables_init()
+
+    remove_global_variables(global_lock)
+    global_variables_init(global_lock)
 
     Variable("time_loop_update_account_process").set(10)
     Variable("time_loop_update_price_process").set(3)
@@ -46,17 +51,17 @@ if __name__ == "__main__":
         
         try :
 
-            result5 = pool.apply_async(processCTRLcDetector)
-            result3 = pool.apply_async(ProcessUpdateAccount)
+            result5 = pool.apply_async(processCTRLcDetector, args=(global_lock,))
+            result3 = pool.apply_async(ProcessUpdateAccount, args=(global_lock,))
             time.sleep(5)
-            result2 = pool.apply_async(ProcessUpdatePrice_ALL)
+            result2 = pool.apply_async(ProcessUpdatePrice_ALL, args=(global_lock,))
             time.sleep(5)
 
-            result1 = pool.apply_async(ProcessUpdatePrice)
-            result4 = pool.apply_async(ProcessPeakDetection)
+            result1 = pool.apply_async(ProcessUpdatePrice, args=(global_lock,))
+            result4 = pool.apply_async(ProcessPeakDetection, args=(global_lock,))
             
 
-            print("All process launched")
+            # print("All process launched")
 
             result1.get()
             result2.get()

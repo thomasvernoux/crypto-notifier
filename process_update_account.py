@@ -16,17 +16,21 @@ from functions_specials_alerts import *
 from functions_log import *
 from class_cryptos import *
 
+from global_variables_lock_manager import *
+
 import inspect
 
 
-def ProcessUpdateAccount():
+def ProcessUpdateAccount(global_lock):
+
+    global_lock_set(global_lock)
 
     
 
     try:
         
         
-        while Variable("program_on"):
+        while Variable("program_on").get():
 
             log_write("working process", "ProcessUpdateAccount")
 

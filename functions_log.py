@@ -16,15 +16,13 @@ import heapq
 from global_variables import *
 
 from global_variables import *
-
+from global_variables_lock_manager import *
 
 # Variable to store the path of the error log file
 log_base_path = "log"
 
 variable_name_filename_dic = "filename_dic"    # name of the variable for filename_dic
 
-# init filename_dic. It is the global variable dict that contain file name for log files
-Variable(variable_name_filename_dic).set({})
 
 
 def check_and_create_directory(directory_path):
@@ -41,7 +39,9 @@ def check_and_create_directory(directory_path):
     if not os.path.exists(directory_path):
         try:
             # Crée le répertoire s'il n'existe pas
-            os.makedirs(directory_path)
+            global_lock = global_lock_get()
+            with global_lock :
+                os.makedirs(directory_path)
             #print(f"Le répertoire '{directory_path}' a été créé avec succès.")
             return True
         except OSError as e:
@@ -59,6 +59,7 @@ def init_error_module(file, persistant = False):
     global error_file_path
 
     if not(persistant):
+        
         keep_recent_files(f"{log_base_path}/{file}")
 
     # Generate a timestamp for the error log file name
@@ -69,32 +70,32 @@ def init_error_module(file, persistant = False):
     Variable("filename_dic").add(file, file_path)
     
 
-
+    
     check_and_create_directory(log_base_path)
     check_and_create_directory(f"{log_base_path}/{file}")
     # Create the error log file and write an initial header
-    with open(file_path, "w") as error_file:
-        error_file.write(f"=== Errors ({timestamp}) ===\n")
+    global_lock = global_lock_get()
+    with global_lock :
+        with open(file_path, "w") as error_file:
+            error_file.write(f"=== Errors ({timestamp}) ===\n")
     return
 
-def log_write(file = "full_log", error_message = None, persistant = False):
+def log_write(file = "full_log", error_message : str = None, persistant = False):
     """
     Adds an error message to the error log file.
     """
     
 
-    try : 
-        error_message = str(error_message)
-    except Exception as e:
-        print("Error while converting error message in str")
-        tb = traceback.format_exc()
-        print(tb)
+
 
     
     if not (file in Variable(variable_name_filename_dic).get()) : 
         init_error_module(file, persistant = persistant)
 
     # Open the error log file in append mode and write the error message
+    """
+    TODO il faudrait ajouter un lock ici, mais ca fais un lock dans un lock ...
+    """
     with open(Variable(variable_name_filename_dic).get()[file], "a") as error_file:
         error_file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + " : " + error_message + "\n")
     
@@ -123,15 +124,16 @@ def log_error_critic(error_message : str):
 
     Variable("program_on").set(False)
 
+    tb = traceback.format_exc()
+
     # Log the critical error message
     log_write("errors", "CRITICAL error: " + error_message)
 
     # Print a notification about the critical error
-    print("Critical error detected. Please check the error log file for more details.")
+    print(f"Critical error detected. Please check the error log file for more details.\n\n{tb}\n\n{error_message}")
 
     # Turn off all process
     Variable("program_on").set(False)
-
 
 def log_error_minor(error_message):
     """
@@ -193,7 +195,9 @@ def keep_recent_files(path):
     # Supprimer tous les fichiers qui ne sont pas dans les trois plus récents
     for file, _ in files_with_timestamp:
         if (file, _) not in recent_files:
-            os.remove(file)
+            global_lock = global_lock_get()
+            with global_lock :
+                os.remove(file)
             print(f"Suppression du fichier {file}")
 
     return 

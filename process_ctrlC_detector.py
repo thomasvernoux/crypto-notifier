@@ -9,6 +9,8 @@ import time
 from global_variables import *
 from functions_log import *
 
+from global_variables_lock_manager import *
+
 def signal_handler(sig, frame):
     print('Signal SIGINT capturé (Ctrl+C)')
     
@@ -17,7 +19,9 @@ def signal_handler(sig, frame):
 
 
 
-def processCTRLcDetector():
+def processCTRLcDetector(global_lock):
+
+    global_lock_set(global_lock)
 
     
 

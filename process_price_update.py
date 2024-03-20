@@ -10,15 +10,18 @@ from functions_specials_alerts import *
 from functions_log import *
 from class_cryptos import *
 from functions_basics import *
+from global_variables_lock_manager import *
 
 import inspect
 
 
 
-def ProcessUpdatePrice_ALL():
+def ProcessUpdatePrice_ALL(global_lock):
     """
     Update all prices
     """
+
+    global_lock_set(global_lock)
 
     
 
@@ -54,15 +57,18 @@ def ProcessUpdatePrice_ALL():
             time.sleep(Variable("time_loop_update_price_all_process").get())
 
 
-    except KeyboardInterrupt:
-        print("Keyboard interruption detected. End of ProcessUpdatePrice_ALL")
+    except Exception as e:
+        tb = traceback.format_exc()
+        log_error_critic(tb)
 
-def ProcessUpdatePrice():
+def ProcessUpdatePrice(global_lock):
     """
     Update crypto price is > 0.5 USDC
     Update max price
     Write price to SQL database
     """
+
+    global_lock_set(global_lock)
 
     log_write("working process", "ProcessUpdatePrice")
 
