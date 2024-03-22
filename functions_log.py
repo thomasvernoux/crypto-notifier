@@ -192,7 +192,7 @@ def keep_recent_files(path):
 
 def log_trace(message):
     file = "trace.txt"
-    if get_variable_trace_activated() == False :
+    if Variable("trace_activated").get() == False :
         return
     
     global filename_dic

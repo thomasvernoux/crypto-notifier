@@ -41,7 +41,7 @@ def binary_confirmation(message):
 def sound_notification():
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    if get_variable_sound_activated():
+    if Variable("sound_activated").get():
         for i in range(3):
             winsound.Beep(1000, 2000)
             time.sleep(2)

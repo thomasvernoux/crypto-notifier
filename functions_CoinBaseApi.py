@@ -81,7 +81,7 @@ def update_account_id_dico():
         value = i.currency.asset_id
         dico_account_id[key] = value
 
-    set_variable_dico_account_id(dico_account_id)
+    Variable("dico_account_id").set(dico_account_id)
 
 def sell_crypto_for_USDC(crypto_symbol):
     """
@@ -116,7 +116,7 @@ def sell_crypto_for_USDC(crypto_symbol):
     if available_sell_quantity == '':
         log_error_minor("available_sell_quantity == ''")
         print("available_sell_quantity == '', error rised")
-        set_variable_extern_change_detected(True)
+        Variable("extern_change_detected").set(True)
         return False
     
     try :  
@@ -135,7 +135,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
                    persistant= True)
     
-    if get_variable_mode() == "real":
+    if Variable("mode").get() == "real":
         log_write("sell order history",
                    f"""market order sell send. Parameters :
                    client_order_id : {str(preview_order["errs"])}
@@ -153,7 +153,7 @@ def sell_crypto_for_USDC(crypto_symbol):
         log_write("debug_order", "order : " + str(order))
 
 
-    elif get_variable_mode() == "test":
+    elif Variable("mode").get() == "test":
         None
         
         
@@ -173,10 +173,11 @@ def get_sell_price_coinabse_api(crypto, iteration_number = 0):
     crypto_price = float(client.get_product(product_id)["price"])
 
     if crypto_price == None : 
-        if get_variable_recursiv_call_number() > 5 :
+        if Variable("recursiv_call_number").get() > 5 :
             log_error_critic("cannot get crypto price with coinbase api. 5 recursiv call were done, and the price is still None")
         else : 
-            set_variable_recursiv_call_number(get_variable_recursiv_call_number() + 1)
+            rec_cal_numb = Variable("recursiv_call_number").get() + 1
+            Variable("recursiv_call_number").set(rec_cal_numb)
             crypto_price = get_sell_price_coinabse_api(crypto)
 
     return crypto_price

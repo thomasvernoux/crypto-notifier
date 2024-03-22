@@ -5,77 +5,106 @@ Author : Thomas Vernoux
 Date : March 3, 2024
 """
 
-# mode
-def set_variable_mode(nouvelle_valeur):
-    global mode
-    mode = nouvelle_valeur
+
+
+import json
+import os
+import shutil
+import time
+import traceback
+
+variables_directory = "global_variables"
+
+class Variable:
+    def __init__(self, name : str):
+        """
+        Simple class to set and get variable through json file
+        """
+        self.name = name
+        self.variables_directory = "global_variables"
+
+    def set(self, value):
+        """
+        Set the variable
+        """
+        # Vérifier si le répertoire pour les variables existe, sinon le créer
+        if not os.path.exists(self.variables_directory):
+            os.makedirs(self.variables_directory)
+
+        filename = os.path.join(self.variables_directory, self.name + ".json")
+
+        # Écrire la valeur dans le fichier JSON
+        with open(filename, 'w') as f:
+            json.dump(value, f)
+
+    def get(self):
+        """
+        Get the variable
+        """
+
+        """
+        DEBUG
+        """
+        if self.name == "filename_dic":
+            a = 3
+
+
+        filename = os.path.join(self.variables_directory, self.name + ".json")
+        try:
+            # Charger la valeur à partir du fichier JSON
+            try : 
+                with open(filename, 'r') as f:
+                    return json.load(f)
+     
+            except : 
+                rec_number = Variable("recursiv_call_number").get()
+                if rec_number < 10 :
+                    Variable("recursiv_call_number").set(rec_number + 1)
+                    return self.get()
+                else : 
+                    None
+        except Exception as e:
+            tb = traceback.format_exc()
+            message = f"Erreur lors de la récupération de la variable JSON : {self.name},\ntraceback :\n{tb}"
+            print(message)
+            return None
+        
+    def add(self, key, value):
+        """
+        For dictionnary only
+        """
+        dict = self.get()
+        dict[key] = value
+        self.set(dict)
+
+def remove_global_variables():
+    shutil.rmtree(variables_directory)
+    while os.path.exists(variables_directory):
+        time.sleep(0.1)  # Attendre 1 seconde
+        print("En attente de suppression du répertoire...")
     
-def get_variable_mode():
-    return mode
+    print("Suppression du répertoire terminée.")
+    return
 
-# test_mail_send  -  For test mode : return True if a mail should have been sent in real mode
-def set_variable_test_mail_send(nouvelle_valeur):
-    global test_mail_send
-    test_mail_send = nouvelle_valeur
 
-def get_variable_test_mail_send():
-    return test_mail_send
+def global_variables_init():
+    """
+    Variables init
+    """
 
-# dico account Id : vdictionary that associate crypto name to account id
-def set_variable_dico_account_id(nouvelle_valeur):
-    global dico_account_id
-    dico_account_id = nouvelle_valeur
+    Variable("filename_dic").set({})
+    Variable("trace_activated").set(True)
+    Variable("time_loop_update_account_process").set(60*5)
+    Variable("time_loop_update_price_all_process").set(60*5)
 
-def get_variable_dico_account_id():
-    return dico_account_id
 
-# sound activated
-def set_variable_sound_activated(nouvelle_valeur):
-    global sound_activated
-    sound_activated = nouvelle_valeur
+    Variable("sound_activated").set(False)
+    Variable("extern_change_detected").set(False)
+    Variable("recursiv_call_number").set(0)
 
-def get_variable_sound_activated():
-    return sound_activated
+    return 
 
-# Extern crypto change detected
-"""
-This variable is a flag when an extern change has been made with crypto
-"""
 
-def set_variable_extern_change_detected(nouvelle_valeur):
-    global extern_change_detected
-    extern_change_detected = nouvelle_valeur
-
-def get_variable_extern_change_detected():
-    return extern_change_detected
-
-# Number of recursiv call
-"""
-This variable is a flag when an extern change has been made with crypto
-"""
-
-def set_variable_recursiv_call_number(nouvelle_valeur):
-    global recursiv_call_number
-    recursiv_call_number = nouvelle_valeur
-
-def get_variable_recursiv_call_number():
-    return recursiv_call_number
-
-"""
-Activate program trace
-"""
-
-def set_variable_trace_activated(nouvelle_valeur):
-    global trace_activated
-    trace_activated = nouvelle_valeur
-
-def get_variable_trace_activated():
-    return trace_activated
-
-"""
-Variables init
-"""
-set_variable_trace_activated(False)
 
 
 

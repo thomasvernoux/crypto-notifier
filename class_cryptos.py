@@ -68,7 +68,7 @@ class Crypto:
         # Price actualisation
         ###########################################################################################
 
-        if get_variable_mode() == "real":
+        if Variable("mode").get() == "real":
             self.current_price = get_price(self)
         
 
@@ -103,7 +103,7 @@ class Crypto:
         ###########################################################################################
         # Save price history
         ###########################################################################################
-        if get_variable_mode() == "real":
+        if Variable("mode").get() == "real":
             functions_SQLite.add_value(crypto_name = self.name, data_tuple = (time.time(),self.current_price))
 
 
@@ -116,9 +116,9 @@ class Crypto:
             # Peak Detected ::: Send an email + laptop notification + sell crypto + update last notification time
             ###########################################################################################
             
-            if get_variable_mode() == "test":
+            if Variable("mode").get() == "test":
                 # if test mode, set the mail flag to True
-                set_variable_test_mail_send(True)
+                Variable("test_mail_send").set(True)
                 return True
             
             # Send an email
@@ -137,7 +137,7 @@ class Crypto:
                 self.buy_price = 0
                 self.amount = 0
                 self.USDC_balance = 0
-                set_variable_extern_change_detected(True)
+                Variable("extern_change_detected").set(True)
                 self.write_variables_to_json_file()
 
             except Exception as e : 
@@ -174,7 +174,7 @@ class Crypto:
         
         
         
-        set_variable_extern_change_detected(True)                # Change hasbeen detected in crypto accounts
+        Variable("extern_change_detected").set(True)                # Change hasbeen detected in crypto accounts
         return(order)
 
     def initialise_USDC_balance(self): 
@@ -403,7 +403,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
-                set_variable_extern_change_detected(True)
+                Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
 
         self.writeCRYPTO_json()

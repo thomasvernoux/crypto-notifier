@@ -20,7 +20,7 @@ CRYPTOS_object = CRYPTOS()
 CRYPTOS_object.getCRYPTO_json()
 
 
-set_variable_mode("test")
+Variable("mode").set("test")
 
 for c in CRYPTOS_object.cryptos_list:
     

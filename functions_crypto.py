@@ -103,18 +103,21 @@ def get_price(crypto):
         price = get_sell_price_coinabse_api(crypto)
     except :
         log_error_minor(f"cannot get price from coinbase api, crypto : {crypto.name}")
-        try :
-            price = get_crypto_price_coingecko(crypto)
-        except Exception : 
-            print ("coingecko error")
-            traceback.print_exc()
 
-
-            try : 
-                    price = get_crypto_price_cryptocompare(crypto)
-            except Exception: 
-                print ("cryptocompare error")
+        if crypto.name_coingecko != None :
+            try :
+                price = get_crypto_price_coingecko(crypto)
+            except Exception : 
+                print ("coingecko error")
                 traceback.print_exc()
+
+
+                if crypto.name_cryptocompare != None :
+                    try : 
+                            price = get_crypto_price_cryptocompare(crypto)
+                    except Exception: 
+                        print ("cryptocompare error")
+                        traceback.print_exc()
 
 
 
