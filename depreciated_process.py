@@ -19,7 +19,7 @@ import inspect
 
 
 
-def process():
+def depreciated_process():
     """
     Process the crypto-notifier program
     """

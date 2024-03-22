@@ -6,13 +6,13 @@ Date : March 3, 2024
 
 import traceback
 
-from multiprocessing import Pool
 
+
+from class_process import *
 
 from process_price_update import *
 from process_update_account import *
 from process_peak_detection import *
-from process_ctrlC_detector import *
 
 
 
@@ -41,37 +41,32 @@ if __name__ == "__main__":
     Variable("trace_activated").set(True)
 
     Variable("recursiv_call_number").set(0)
+
+    Variable("mode").set("test")
+
+
+    """
+    Processes creation
+    """
+
+    ProcessUpdateAccount     = PROCESS(ProcessUpdateAccount, loop_time_min = 10)
+    ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 10)
     
-    with Pool() as pool:
-        
-        try :
+    ProcessUpdatePrice       = PROCESS(ProcessUpdatePrice, loop_time_min = 3)
+    ProcessPeakDetection     = PROCESS(ProcessPeakDetection, loop_time_min = 3)
 
-            result5 = pool.apply_async(processCTRLcDetector)
-            result3 = pool.apply_async(ProcessUpdateAccount)
-            time.sleep(5)
-            result2 = pool.apply_async(ProcessUpdatePrice_ALL)
-            time.sleep(5)
 
-            result1 = pool.apply_async(ProcessUpdatePrice)
-            result4 = pool.apply_async(ProcessPeakDetection)
-            
 
-            print("All process launched")
+    while True :
+        ProcessUpdateAccount.loop()
+        ProcessUpdatePrice_ALL.loop()
+        ProcessUpdatePrice.loop()
+        ProcessPeakDetection.loop()
 
-            result1.get()
-            result2.get()
-            result3.get()
-            result4.get()
-            result5.get()
 
-            print("All processes completed successfully")
-            
-        except Exception as e:
-            tb = traceback.format_exc()
-            pool.terminate()
-            Variable("program_on").set(False)
-            print(f"Error occurred: {str(tb)}")
-            log_error_critic(tb)
+
+
+
 
 
         

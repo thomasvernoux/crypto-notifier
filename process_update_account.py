@@ -26,7 +26,7 @@ def ProcessUpdateAccount():
     try:
         
         
-        while Variable("program_on"):
+        if Variable("program_on"):
 
             log_write("working process", "ProcessUpdateAccount")
 

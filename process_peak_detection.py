@@ -29,7 +29,7 @@ def ProcessPeakDetection():
     
 
     try:
-        while Variable("program_on").get():
+        if Variable("program_on").get():
             print("ProcessPeakDetection loop")
             log_write("working process", "ProcessPeakDetection")
             

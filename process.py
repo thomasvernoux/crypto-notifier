@@ -15,7 +15,7 @@ from class_cryptos import *
 
 
 
-def process():
+def depreciated_process():
     """
     Process the crypto-notifier program
     """

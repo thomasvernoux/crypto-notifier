@@ -23,7 +23,7 @@ def ProcessUpdatePrice_ALL():
     
 
     try:
-        while Variable("program_on").get():
+        if Variable("program_on").get():
             print("ProcessUpdatePrice_ALL loop")
             log_write("working process", "ProcessUpdatePrice_ALL")
             
@@ -67,7 +67,7 @@ def ProcessUpdatePrice():
     log_write("working process", "ProcessUpdatePrice")
 
     try:
-        while Variable("program_on").get():
+        if Variable("program_on").get():
             print("ProcessUpdatePrice loop")
             
             CRYPTOS_object = CRYPTOS()
