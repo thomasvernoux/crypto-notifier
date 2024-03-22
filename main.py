@@ -53,7 +53,7 @@ if __name__ == "__main__":
     ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 10)
     
     ProcessUpdatePrice       = PROCESS(ProcessUpdatePrice, loop_time_min = 3)
-    ProcessPeakDetection     = PROCESS(ProcessPeakDetection, loop_time_min = 3)
+    ProcessPeakDetection     = PROCESS(ProcessPeakDetection)
 
 
 

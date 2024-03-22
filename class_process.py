@@ -13,7 +13,7 @@ import time
 class PROCESS:
     def __init__(self, process_function : Callable, loop_time_min = 0):
         self.process_function = process_function
-        self.loop_time_min = None
+        self.loop_time_min = loop_time_min
         self.loop_time_max = None
         self.loop_time_measured = None
 
