@@ -26,12 +26,12 @@ class PROCESS:
     def trig(self):
         
         Time = time.time()
-        if self.last_loop_date == None : 
-            self.last_loop_date = Time
+        if self.last_loop_date == None :
+            self.last_loop_date = Time 
             return True
         
-
         if self.last_loop_date + self.loop_time_min < Time :
+            self.last_loop_date = Time
             return True
         
         return False

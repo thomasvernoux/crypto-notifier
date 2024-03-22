@@ -49,10 +49,10 @@ if __name__ == "__main__":
     Processes creation
     """
 
-    ProcessUpdateAccount     = PROCESS(ProcessUpdateAccount, loop_time_min = 10)
-    ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 10)
+    ProcessUpdateAccount     = PROCESS(ProcessUpdateAccount, loop_time_min = 60)
+    ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 60)
     
-    ProcessUpdatePrice       = PROCESS(ProcessUpdatePrice, loop_time_min = 3)
+    ProcessUpdatePrice       = PROCESS(ProcessUpdatePrice, loop_time_min = 30)
     ProcessPeakDetection     = PROCESS(ProcessPeakDetection)
 
 
