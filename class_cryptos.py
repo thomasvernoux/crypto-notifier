@@ -59,7 +59,7 @@ class Crypto:
         self.number_of_alert_authorized -=1    # decrase parameter 
         self.write_variables_to_json_file()    # Write the parameter on json file
 
-    def cryptoprocess(self):
+    def cryptoprocess_depreciated(self):
         """
         The cryptoprocess function process a crypto once.
         """

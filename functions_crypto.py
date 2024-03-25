@@ -92,32 +92,30 @@ def get_crypto_price_coingecko(crypto):
     cg = CoinGeckoAPI()
     return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
-def get_price(crypto):
+def get_price(crypto : Crypto, NumberOfReccursion : int = 3):
     """
     Get price :
     try to use coinbase API , then coingecko to get the price, if it is not possible, try with cryptocompare
+    Reccursiv function
     """
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+
+    if NumberOfReccursion < 1 :
+        error_message = "Critical error : get_price, functions_crypto : NumberOfReccursion < 1"
+        print(error_message)
+        log_error_critic(error_message)
+    
     price = None
     
     try : 
         price = get_sell_price_coinabse_api(crypto)
     except :
-        log_error_minor(f"cannot get price from coinbase api, crypto : {crypto.name}")
-        try :
-            price = get_crypto_price_coingecko(crypto)
-        except Exception : 
-            print ("coingecko error")
-            traceback.print_exc()
-
-
-            try : 
-                    price = get_crypto_price_cryptocompare(crypto)
-            except Exception: 
-                print ("cryptocompare error")
-                traceback.print_exc()
-
+        message = f"cannot get price from coinbase api, crypto : {crypto}\nTry again, reccursivity : {NumberOfReccursion}"
+        log_error_minor(message)
+        print(message)
+        get_price(crypto, NumberOfReccursion -1)
+        
 
 
     if isinstance(price, float):
@@ -126,7 +124,12 @@ def get_price(crypto):
 
         return price
     else:
-        log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + "Price after the ':' : " + str(price))
+        message = f"cannot get price from coinbase api, crypto : {crypto}\nTry again, reccursivity : {NumberOfReccursion}"
+        log_error_minor(message)
+        print(message)
+        get_price(crypto, NumberOfReccursion -1)
+
+    return None
 
 def refresh_crypto_data():
     """

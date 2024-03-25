@@ -67,12 +67,12 @@ def ProcessPeakDetection():
                 if peak_detection :
                     # peak detected, the crypto has to be sold
 
-                    if Variable("test_mode_activated").get() :
+                    if Variable("mode").get() == "test":
                         # if test mode, set the mail flag to True
                         Variable("test_mail_send").set(True)
                         return True
                     
-                    elif Variable("coinbase_api_sell_activated").get():
+                    elif Variable("mode").get() == "real":
                         # Sell crypto
                         try :
                             order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
@@ -90,8 +90,6 @@ def ProcessPeakDetection():
                             log_error_minor(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}. Traceback : {tb}")
 
 
-
-            time.sleep(Variable("time_loop_PeakDetection_process").get())
 
 
     except KeyboardInterrupt:

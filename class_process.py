@@ -8,6 +8,7 @@ Date : march 22, 2024
 
 from typing import Callable
 import time
+from functions_log import *
 
 
 class PROCESS:
@@ -19,9 +20,21 @@ class PROCESS:
 
         self.last_loop_date = None
 
+
+        self.loop_start_time = None
+        self.loop_stop_time = None
+        self.process_time = None
+
     def loop(self):
         if self.trig():
+            self.loop_start_time = time.time()
             self.process_function()
+            self.loop_stop_time = time.time()
+            self.process_time = self.get_process_time()
+
+            loop_time_message = f"Process time : {self.process_function.__name__}     {self.process_time}"
+            print(loop_time_message)
+            log_write("process_loop_time", loop_time_message)
 
     def trig(self):
         
@@ -35,5 +48,8 @@ class PROCESS:
             return True
         
         return False
+    
+    def get_process_time(self):
+        return round(self.loop_stop_time - self.loop_start_time, 3)
 
 

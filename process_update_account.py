@@ -24,28 +24,23 @@ def ProcessUpdateAccount():
     
 
     try:
+        log_write("working process", "ProcessUpdateAccount")
+
+        """
+        DEBUG
+        """
+        Continue = Variable("program_on")
+
+        print("ProcessUpdateAccount")
         
-        
-        if Variable("program_on"):
+        CRYPTOS_object = CRYPTOS()
+        CRYPTOS_object.getCRYPTO_json()
+        CRYPTOS_object.actualise_crypto_account()
 
-            log_write("working process", "ProcessUpdateAccount")
+        CRYPTOS_object.set_buy_prices()
 
-            """
-            DEBUG
-            """
-            Continue = Variable("program_on")
+        CRYPTOS_object.writeCRYPTO_json()
 
-            print("ProcessUpdateAccount")
-            
-            CRYPTOS_object = CRYPTOS()
-            CRYPTOS_object.getCRYPTO_json()
-            CRYPTOS_object.actualise_crypto_account()
-
-            CRYPTOS_object.set_buy_prices()
-
-            CRYPTOS_object.writeCRYPTO_json()
-
-            time.sleep(Variable("time_loop_update_account_process").get())
 
 
     except KeyboardInterrupt:

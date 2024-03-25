@@ -51,7 +51,6 @@ def ProcessUpdatePrice_ALL():
 
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(Variable("time_loop_update_price_all_process").get())
 
 
     except KeyboardInterrupt:
@@ -95,7 +94,6 @@ def ProcessUpdatePrice():
 
             CRYPTOS_object.writeCRYPTO_json()
 
-            time.sleep(Variable("time_loop_update_price_process").get())
 
 
     except KeyboardInterrupt:
