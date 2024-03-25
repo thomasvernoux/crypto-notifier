@@ -41,15 +41,15 @@ if __name__ == "__main__":
 
     Variable("recursiv_call_number").set(0)
 
-    Variable("mode").set("test")                   # test or real
+    Variable("mode").set("real")                   # test or real
 
 
     """
     Processes creation
     """
 
-    ProcessUpdateAccount     = PROCESS(ProcessUpdateAccount, loop_time_min = 60)
-    ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 60*5)
+    ProcessUpdateAccount     = PROCESS(ProcessUpdateAccount, loop_time_min = 60*5)
+    ProcessUpdatePrice_ALL   = PROCESS(ProcessUpdatePrice_ALL, loop_time_min = 60*20)
     
     ProcessUpdatePrice       = PROCESS(ProcessUpdatePrice, loop_time_min = 30)
     ProcessPeakDetection     = PROCESS(ProcessPeakDetection, loop_time_min = 30)
