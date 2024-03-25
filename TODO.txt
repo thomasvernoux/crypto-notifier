@@ -16,4 +16,9 @@ Il faut tout revoir de ce cote la
 Aussi, quand j'appelle l'api coinbase pour avoir mes accounts, j'ai pas la crypto AVT ...
 
 
+mettre get price dans une methode de crypto pour pouvoir faire l'actualisation de max price en meme temps
+
+
 todo : understand eth2 exception
+
+log error critic devrait etre juste de l'ecriture dans les log et pas arreter le programme

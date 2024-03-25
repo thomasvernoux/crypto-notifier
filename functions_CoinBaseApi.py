@@ -50,7 +50,7 @@ def get_accounts_from_api_OLD():
     accounts = client.get_accounts()
 
     for i in accounts["data"] : 
-        log_write("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n")
         
     log_write("coinbase api call history", f"\n")
 
@@ -63,7 +63,7 @@ def get_accounts_from_api():
     
 
     for i in accounts : 
-        log_write("coinbase api call history", f"{i}\n\n\n\n")
+        log_write("coinbase api call history", f"{i}\n")
         
     log_write("coinbase api call history", f"\n")
 
@@ -125,7 +125,8 @@ def sell_crypto_for_USDC(crypto_symbol):
         available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
     
     except Exception as e :
-        log_error_minor(e)
+        tb = traceback.format_exc()
+        log_error_minor(tb)
     
     #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
     preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
@@ -135,7 +136,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
                    persistant= True)
     
-    if Variable("mode").get() == "real":
+    if Variable("coinbase_api_sell_activated").get():
         log_write("sell order history",
                    f"""market order sell send. Parameters :
                    client_order_id : {str(preview_order["errs"])}
@@ -176,8 +177,7 @@ def get_sell_price_coinabse_api(crypto, iteration_number = 0):
         if Variable("recursiv_call_number").get() > 5 :
             log_error_critic("cannot get crypto price with coinbase api. 5 recursiv call were done, and the price is still None")
         else : 
-            rec_cal_numb = Variable("recursiv_call_number").get() + 1
-            Variable("recursiv_call_number").set(rec_cal_numb)
+            Variable("recursiv_call_number").set((Variable("recursiv_call_number").get() + 1))
             crypto_price = get_sell_price_coinabse_api(crypto)
 
     return crypto_price

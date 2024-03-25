@@ -12,19 +12,13 @@ from functions_specials_alerts import *
 from functions_log import *
 from class_cryptos import *
 
-import inspect
 
 
 
-
-def process():
+def depreciated_process():
     """
     Process the crypto-notifier program
     """
-
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-
-    
 
     """
     ###
@@ -35,16 +29,13 @@ def process():
     VARIABLES
     """
 
-    loop_intervall_seconds = 30                 # Second intervall between two loops
-
-    global_variables_init()
-
+    loop_intervall_seconds = 60                 # Second intervall between two loops
 
     # MODE to real (the test mode can be use for test purpose)
-    Variable("mode").set("test")
-
-
-    
+    Variable("mode").set("real")                   # real  / test
+    Variable("sound_activated").set(False)         # Global variable for sound. Used when a crypto is sell
+    Variable("extern_change_detected").set(False)
+    Variable("recursiv_call_number").set(0)
     """
     CRYPTOS OBJECT
     """
@@ -94,10 +85,10 @@ def process():
         Detect extern changes
         """
         
-        if Variable("extern_change_detected").get():
+        if Variable("extern_cnahge_detected").get():
             
             # Set the flag back to False
-            Variable("extern_change_detected").set(False)
+            Variable("extern_cnahge_detected").set(False)
 
             # Refresh the amount of crypto from coinbase API
             CRYPTOS_object.actualise_crypto_account()

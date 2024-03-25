@@ -5,8 +5,6 @@ Author : Thomas Vernoux
 Date : March 3, 2024
 """
 
-
-
 import json
 import os
 import shutil
@@ -56,13 +54,11 @@ class Variable:
                 with open(filename, 'r') as f:
                     return json.load(f)
      
-            except : 
-                rec_number = Variable("recursiv_call_number").get()
-                if rec_number < 10 :
-                    Variable("recursiv_call_number").set(rec_number + 1)
-                    return self.get()
-                else : 
-                    None
+            except Exception as e:
+                tb = traceback.format_exc()
+                print(f"error while getting variable : {self.name}")
+                print(tb)
+            
         except Exception as e:
             tb = traceback.format_exc()
             message = f"Erreur lors de la récupération de la variable JSON : {self.name},\ntraceback :\n{tb}"
@@ -93,16 +89,9 @@ def global_variables_init():
     """
 
     Variable("filename_dic").set({})
-    Variable("trace_activated").set(True)
+    Variable("trace_activated").set(False)
     Variable("time_loop_update_account_process").set(60*5)
     Variable("time_loop_update_price_all_process").set(60*5)
-
-
-    Variable("sound_activated").set(False)
-    Variable("extern_change_detected").set(False)
-    Variable("recursiv_call_number").set(0)
-
-    return 
 
 
 

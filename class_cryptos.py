@@ -59,7 +59,7 @@ class Crypto:
         self.number_of_alert_authorized -=1    # decrase parameter 
         self.write_variables_to_json_file()    # Write the parameter on json file
 
-    def cryptoprocess(self):
+    def cryptoprocess_depreciated(self):
         """
         The cryptoprocess function process a crypto once.
         """
@@ -84,22 +84,10 @@ class Crypto:
         ###########################################################################################
         # Max price actualisation
         ###########################################################################################
-        if self.max_price == None : 
-            self.max_price = self.current_price
-        if self.current_price > self.max_price :
-            self.max_price = self.current_price
 
 
-        ###########################################################################################
-        # USDC balance actualisation
-        ###########################################################################################
-        self.USDC_balance = round(self.amount * self.current_price, 2)
-        try : 
-            self.profit_percent = self.current_price / self.buy_price * 100
-        except : 
-            None
 
-
+        
         ###########################################################################################
         # Save price history
         ###########################################################################################
@@ -116,10 +104,7 @@ class Crypto:
             # Peak Detected ::: Send an email + laptop notification + sell crypto + update last notification time
             ###########################################################################################
             
-            if Variable("mode").get() == "test":
-                # if test mode, set the mail flag to True
-                Variable("test_mail_send").set(True)
-                return True
+            
             
             # Send an email
             subject = "Time to sell alert"
@@ -129,20 +114,6 @@ class Crypto:
             # simple notification on laptop
             sound_notification()
             
-            # Sell crypto
-            try :
-                order = self.sell_for_USDC()
-                send_email("Sell order done", str(order))
-                self.max_price = 0
-                self.buy_price = 0
-                self.amount = 0
-                self.USDC_balance = 0
-                Variable("extern_change_detected").set(True)
-                self.write_variables_to_json_file()
-
-            except Exception as e : 
-                print(f"Error while trying to sell crypto : {self.name}")
-                log_error_minor(f"Error while trying to sell crypto : {self.name}. Traceback : {e}")
 
             # update last notification time
             self.last_notification_time = time.time()
@@ -217,6 +188,23 @@ class Crypto:
             # Charger le contenu JSON sous forme de liste d'objets Python
             cryptos_data = json.load(f)
 
+    def update_USDC_balance(self):
+        """
+        Update USDC bamlance using crypto price and crypto amount
+        """
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
+        self.USDC_balance = round(self.amount * self.current_price, 2)
+        return 
+
+    def update_max_price(self):
+        if self.max_price == None : 
+            self.max_price = self.current_price
+        if self.current_price > self.max_price :
+            self.max_price = self.current_price
+
+        self.write_variables_to_json_file()
+
+
 class CRYPTOS:
     def __init__(self):
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
@@ -229,14 +217,23 @@ class CRYPTOS:
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         self.cryptos_list = []
 
+
         folder_path = "CRYPTO json"
+        if not(os.path.exists(folder_path)):
+            return []
         crypto_list = os.listdir(folder_path)
         for crypto_name in crypto_list :
             crypto_path = f"{folder_path}/{crypto_name}/{crypto_name}.json"
             
             with open(crypto_path, "r") as f:
                 # Charger le contenu JSON sous forme de liste d'objets Python
-                crypto_data = json.load(f)
+                try :
+                    crypto_data = json.load(f)
+                except Exception as e:
+                    tb = traceback.format_exc()
+                    error_message = f"error in getcrypto_json : {crypto_name}  \n{tb}"
+                    print(error_message)
+                    log_error_critic(error_message)
 
         
                 crypto = Crypto()
@@ -296,7 +293,8 @@ class CRYPTOS:
                     f.write("\n")
             f.close()
         except Exception as e:
-            log_error_minor(f"Cannot write in crypto userfriendly: {str(e)}")
+            tb = traceback.format_exc()
+            log_error_minor(f"Cannot write in crypto userfriendly: {str(tb)}")
 
     def cryptos_reset_max_price(self):
         """
@@ -375,8 +373,8 @@ class CRYPTOS:
             crypto_name = self.cryptos_list[i].name
             
             if not (crypto_name in dic_amount_api):
-                log_error_minor("crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
-                #self.cryptos_list[i].amount = 0
+                log_write("info", "crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
+                self.cryptos_list[i].amount = 0
                 continue
                
         
@@ -402,11 +400,13 @@ class CRYPTOS:
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
+                self.cryptos_list[-1].break_even_point = 103
+                self.cryptos_list[-1].peak_target = 99
                 #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
-
-        self.writeCRYPTO_json()
+                self.writeCRYPTO_json()
+        
         return
 
     def set_crypto_peak_target(self, peak_target):

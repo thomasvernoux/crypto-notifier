@@ -23,6 +23,7 @@ from functions_basics import *
 
 
 
+
 Variable("mode").set("real")
 crypto = Crypto()
 crypto.name = "SEAM"

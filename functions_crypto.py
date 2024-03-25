@@ -13,6 +13,8 @@ import traceback
 from functions_log import *
 from functions_CoinBaseApi import *
 
+from class_cryptos import *
+
 
 
 
@@ -90,35 +92,30 @@ def get_crypto_price_coingecko(crypto):
     cg = CoinGeckoAPI()
     return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
-def get_price(crypto):
+def get_price(crypto : Crypto, NumberOfReccursion : int = 3):
     """
     Get price :
     try to use coinbase API , then coingecko to get the price, if it is not possible, try with cryptocompare
+    Reccursiv function
     """
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+
+    if NumberOfReccursion < 1 :
+        error_message = "Critical error : get_price, functions_crypto : NumberOfReccursion < 1"
+        print(error_message)
+        log_error_critic(error_message)
+    
     price = None
     
     try : 
         price = get_sell_price_coinabse_api(crypto)
     except :
-        log_error_minor(f"cannot get price from coinbase api, crypto : {crypto.name}")
-
-        if crypto.name_coingecko != None :
-            try :
-                price = get_crypto_price_coingecko(crypto)
-            except Exception : 
-                print ("coingecko error")
-                traceback.print_exc()
-
-
-                if crypto.name_cryptocompare != None :
-                    try : 
-                            price = get_crypto_price_cryptocompare(crypto)
-                    except Exception: 
-                        print ("cryptocompare error")
-                        traceback.print_exc()
-
+        message = f"cannot get price from coinbase api, crypto : {crypto}\nTry again, reccursivity : {NumberOfReccursion}"
+        log_error_minor(message)
+        print(message)
+        get_price(crypto, NumberOfReccursion -1)
+        
 
 
     if isinstance(price, float):
@@ -127,10 +124,68 @@ def get_price(crypto):
 
         return price
     else:
-        log_error_critic("crypto price is not float : \n" + crypto.get_crypto_info_str() + "Price after the ':' : " + str(price))
+        message = f"cannot get price from coinbase api, crypto : {crypto}\nTry again, reccursivity : {NumberOfReccursion}"
+        log_error_minor(message)
+        print(message)
+        get_price(crypto, NumberOfReccursion -1)
 
+    return None
 
+def refresh_crypto_data():
+    """
+    If change detected, refresh crypto data
+    """
 
-    
+    # Set the flag back to False
+    Variable("extern_change_detected").set(False)
+
+    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object.getCRYPTO_json()
+
+    # Refresh the amount of crypto from coinbase API
+    CRYPTOS_object.actualise_crypto_account()
+
+    # Refresh buy prices
+    CRYPTOS_object.set_buy_prices()
+
+    # update USDC Balance
+    CRYPTOS_object.initialise_all_USDC_balance()
+
+    # Set detection variables
+    CRYPTOS_object.set_crypto_peak_target(99)
+    CRYPTOS_object.set_crypto_break_even_point(103)
+
+    # Save data
+    CRYPTOS_object.writeCRYPTO_json()
+
+def setup_crypto():
+    """
+    Setup crypto parameters
+    """
+
+    # Set up CRYPTOS object
+    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object.getCRYPTO_json()
+
+    # reset maximums prices for peak detection
+    #CRYPTOS_object.cryptos_reset_max_price()
+
+    # set the number of notification authorized for a crypto
+    CRYPTOS_object.cryptos_set_notifications_authorisations(20)
+
+    # Refresh buy prices
+    CRYPTOS_object.set_buy_prices()
+
+    # update USDC blance
+    CRYPTOS_object.initialise_all_USDC_balance()
+
+    # Set detection variables
+    CRYPTOS_object.set_crypto_peak_target(99)
+    CRYPTOS_object.set_crypto_break_even_point(103)
+
+    # Save data
+    CRYPTOS_object.writeCRYPTO_json()
+
+    return 
 
 
