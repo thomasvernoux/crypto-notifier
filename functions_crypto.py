@@ -13,7 +13,8 @@ import traceback
 from functions_log import *
 from functions_CoinBaseApi import *
 
-from class_cryptos import *
+import class_cryptos
+
 
 
 
@@ -124,7 +125,7 @@ def get_price(crypto, NumberOfReccursion : int = 3):
 
         return price
     else:
-        message = f"cannot get price from coinbase api, crypto : {crypto}\nTry again, reccursivity : {NumberOfReccursion}"
+        message = f"cannot get price from coinbase api, crypto : {crypto.get_crypto_info_str()}\nTry again, reccursivity : {NumberOfReccursion}"
         log_error_minor(message)
         print(message)
         get_price(crypto, NumberOfReccursion -1)
@@ -139,7 +140,7 @@ def refresh_crypto_data():
     # Set the flag back to False
     Variable("extern_change_detected").set(False)
 
-    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object = class_cryptos.CRYPTOS()
     CRYPTOS_object.getCRYPTO_json()
 
     # Refresh the amount of crypto from coinbase API
@@ -164,7 +165,7 @@ def setup_crypto():
     """
 
     # Set up CRYPTOS object
-    CRYPTOS_object = CRYPTOS()
+    CRYPTOS_object = class_cryptos.CRYPTOS()
     CRYPTOS_object.getCRYPTO_json()
 
     # reset maximums prices for peak detection

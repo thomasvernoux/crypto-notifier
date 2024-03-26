@@ -132,7 +132,10 @@ class Crypto:
         Update USDC bamlance using crypto price and crypto amount
         """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
-        self.USDC_balance = round(self.amount * self.current_price, 2)
+        try :
+            self.USDC_balance = round(self.amount * self.current_price, 2)
+        except : 
+            log_error_minor(f"Cannot determinate USDC balance (self.USDC_balance = round(self.amount * self.current_price, 2)) for ctypto : {self.get_crypto_info_str()}")
         return 
 
     def update_max_price(self):
