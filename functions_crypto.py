@@ -92,7 +92,7 @@ def get_crypto_price_coingecko(crypto):
     cg = CoinGeckoAPI()
     return cg.get_price(ids=crypto.name_coingecko, vs_currencies='usd')[crypto.name_coingecko]["usd"]
 
-def get_price(crypto : Crypto, NumberOfReccursion : int = 3):
+def get_price(crypto, NumberOfReccursion : int = 3):
     """
     Get price :
     try to use coinbase API , then coingecko to get the price, if it is not possible, try with cryptocompare

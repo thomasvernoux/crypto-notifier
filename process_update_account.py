@@ -26,10 +26,7 @@ def ProcessUpdateAccount():
     try:
         log_write("working process", "ProcessUpdateAccount")
 
-        """
-        DEBUG
-        """
-        Continue = Variable("program_on")
+
 
         print("ProcessUpdateAccount")
         

@@ -252,13 +252,13 @@ class CRYPTOS:
                 crypto.break_even_point = crypto_data.get("break_even_point")
 
                 if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
-                    crypto.buy_price = -1
+                    crypto.buy_price = None
 
                 if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
-                    crypto.current_price = -1
+                    crypto.current_price = None
 
                 if not (isinstance(crypto.max_price, float) or crypto.max_price == 0):
-                    crypto.max_price = -1
+                    crypto.max_price = None
             
 
             self.cryptos_list.append(crypto)

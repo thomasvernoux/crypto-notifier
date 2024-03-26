@@ -59,7 +59,7 @@ def get_accounts_from_api_OLD():
 def get_accounts_from_api():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
-    accounts = client.get_accounts()["accounts"]
+    accounts = client.get_accounts(250)["accounts"]
     
 
     for i in accounts : 
@@ -72,7 +72,7 @@ def get_accounts_from_api():
 def update_account_id_dico():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
-    accounts = client.get_accounts()
+    accounts = client.get_accounts(250)
     
     global dico_account_id
     dico_account_id = {}
@@ -91,7 +91,7 @@ def sell_crypto_for_USDC(crypto_symbol):
     # Initialiser le client REST avec votre clé d'API Coinbase
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
 
-    accounts = client.get_accounts()
+    accounts = client.get_accounts(250)
 
 
     matching_account = None
