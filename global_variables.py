@@ -83,15 +83,8 @@ def remove_global_variables():
     return
 
 
-def global_variables_init():
-    """
-    Variables init
-    """
 
-    Variable("filename_dic").set({})
-    Variable("trace_activated").set(False)
-    Variable("time_loop_update_account_process").set(60*5)
-    Variable("time_loop_update_price_all_process").set(60*5)
+
 
 
 

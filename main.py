@@ -25,12 +25,10 @@ if __name__ == "__main__":
 
 
     remove_global_variables()
-    global_variables_init()
 
-    # Variable("time_loop_update_account_process").set(60)
-    # Variable("time_loop_update_price_process").set(10)
-    # Variable("time_loop_update_price_all_process").set(60)
-    # Variable("time_loop_PeakDetection_process").set(10)
+    """
+    Global variables init
+    """
 
     Variable("coinbase_api_sell_activated").set(False)
     Variable("coinbase_api_getprice_activated").set(True)
@@ -42,6 +40,9 @@ if __name__ == "__main__":
     Variable("recursiv_call_number").set(0)
 
     Variable("mode").set("real")                   # test or real
+
+    Variable("filename_dic").set({})
+    Variable("trace_activated").set(True)
 
 
     """
