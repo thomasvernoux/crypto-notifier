@@ -1,7 +1,4 @@
 
-
-
-
 import time
 
 from functions_crypto import *
@@ -14,16 +11,13 @@ from functions_basics import *
 import inspect
 
 
-
 def ProcessUpdatePrice_ALL():
     """
     Update all prices
     """
-
     
-
     try:
-        if Variable("program_on").get():
+        
             print("ProcessUpdatePrice_ALL loop")
             log_write("working process", "ProcessUpdatePrice_ALL")
             
@@ -31,8 +25,8 @@ def ProcessUpdatePrice_ALL():
             CRYPTOS_object.getCRYPTO_json()
             
             for i in range (len(CRYPTOS_object.cryptos_list)):
-                if Variable("coinbase_api_getprice_activated").get() :
-                    CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+                
+                CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
                 """
                 Update USDC Balance
@@ -66,38 +60,36 @@ def ProcessUpdatePrice():
     log_write("working process", "ProcessUpdatePrice")
 
     try:
-        if Variable("program_on").get():
-            print("ProcessUpdatePrice loop")
-            
-            CRYPTOS_object = CRYPTOS()
-            CRYPTOS_object.getCRYPTO_json()
-            
-            for i in range (len(CRYPTOS_object.cryptos_list)):
-                if CRYPTOS_object.cryptos_list[i].USDC_balance > 0.5:
-                    if Variable("coinbase_api_getprice_activated").get() :
-                        CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
+        
+        
+        CRYPTOS_object = CRYPTOS()
+        CRYPTOS_object.getCRYPTO_json()
+        
+        for i in range (len(CRYPTOS_object.cryptos_list)):
+            if CRYPTOS_object.cryptos_list[i].USDC_balance > 0.5:
+                
+                CRYPTOS_object.cryptos_list[i].current_price = get_price(CRYPTOS_object.cryptos_list[i])
 
-                    """
-                    Update USDC Balance
-                    """
-                    CRYPTOS_object.cryptos_list[i].update_USDC_balance()
+                """
+                Update USDC Balance
+                """
+                CRYPTOS_object.cryptos_list[i].update_USDC_balance()
 
-                    """
-                    Update max price
-                    """
-                    CRYPTOS_object.cryptos_list[i].update_max_price()
+                """
+                Update max price
+                """
+                CRYPTOS_object.cryptos_list[i].update_max_price()
 
-                    """
-                    Store to SQLite database
-                    """
-                    functions_SQLite.add_value(crypto_name = CRYPTOS_object.cryptos_list[i].name, data_tuple = (time.time(),CRYPTOS_object.cryptos_list[i].current_price))
+                """
+                Store to SQLite database
+                """
+                functions_SQLite.add_value(crypto_name = CRYPTOS_object.cryptos_list[i].name, data_tuple = (time.time(),CRYPTOS_object.cryptos_list[i].current_price))
 
-            CRYPTOS_object.writeCRYPTO_json()
+        CRYPTOS_object.writeCRYPTO_json()
 
 
 
     except KeyboardInterrupt:
-        Variable("program_on").set(False)
         print("End of ProcessUpdatePrice")
 
 

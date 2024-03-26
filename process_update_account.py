@@ -25,10 +25,6 @@ def ProcessUpdateAccount():
 
     try:
         log_write("working process", "ProcessUpdateAccount")
-
-
-
-        print("ProcessUpdateAccount")
         
         CRYPTOS_object = CRYPTOS()
         CRYPTOS_object.getCRYPTO_json()
@@ -41,7 +37,6 @@ def ProcessUpdateAccount():
 
 
     except KeyboardInterrupt:
-        Variable("program_on").set(False)
         print("End of ProcessUpdateAccount")
 
     

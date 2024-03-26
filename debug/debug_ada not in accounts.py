@@ -18,6 +18,8 @@ from functions_basics import *
 
 client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
 accounts = client.get_accounts(250)["accounts"]
+if len(accounts) > 240:
+        log_error_critic("maximum len for accounts - accounts = client.get_accounts(250), len > 240")
 print(len(accounts))
 
 for a in accounts : 

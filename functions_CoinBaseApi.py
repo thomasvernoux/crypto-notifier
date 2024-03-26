@@ -38,23 +38,22 @@ def load_var_from_json(filename, variable):
 api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
 api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
 
-def get_accounts_from_api_OLD():
+
+def update_account_id_dico():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = Client(api_key, api_secret)
-    user = client.get_current_user()
-    #print(user)
-    p = client.get_buy_price(currency_pair = 'BTC-USD')
-    #print(p)
+    accounts = client.get_accounts(250)
+    if len(accounts) > 240:
+        log_error_critic("maximum len for accounts - accounts = client.get_accounts(250), len > 240")
+    
+    global dico_account_id
+    dico_account_id = {}
+    for i in accounts["data"]:
+        key = i.currency.code
+        value = i.currency.asset_id
+        dico_account_id[key] = value
 
-
-    accounts = client.get_accounts()
-
-    for i in accounts["data"] : 
-        log_write("coinbase api call history", f"{i}\n")
-        
-    log_write("coinbase api call history", f"\n")
-
-    return accounts
+    Variable("dico_account_id").set(dico_account_id)
 
 def get_accounts_from_api():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
@@ -68,20 +67,6 @@ def get_accounts_from_api():
     log_write("coinbase api call history", f"\n")
 
     return accounts
-
-def update_account_id_dico():
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    client = Client(api_key, api_secret)
-    accounts = client.get_accounts(250)
-    
-    global dico_account_id
-    dico_account_id = {}
-    for i in accounts["data"]:
-        key = i.currency.code
-        value = i.currency.asset_id
-        dico_account_id[key] = value
-
-    Variable("dico_account_id").set(dico_account_id)
 
 def sell_crypto_for_USDC(crypto_symbol):
     """

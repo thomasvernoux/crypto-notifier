@@ -59,67 +59,6 @@ class Crypto:
         self.number_of_alert_authorized -=1    # decrase parameter 
         self.write_variables_to_json_file()    # Write the parameter on json file
 
-    def cryptoprocess_depreciated(self):
-        """
-        The cryptoprocess function process a crypto once.
-        """
-        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-        ###########################################################################################
-        # Price actualisation
-        ###########################################################################################
-
-        if Variable("mode").get() == "real":
-            self.current_price = get_price(self)
-        
-
-        if self.current_price == None : 
-            log_error_minor("function cryptoprocess : self.current_price == None")
-            return
-        
-        # Detect missing informations on cryptos
-        if (self.USDC_balance >= 0.5):
-            if (self.current_price == 0 or self.current_price == None) : 
-                log_error_critic(f"Cannot get price of a crypto in the wallet : {self.name} : \n {self.get_crypto_info_str()}")
-
-        ###########################################################################################
-        # Max price actualisation
-        ###########################################################################################
-
-
-
-        
-        ###########################################################################################
-        # Save price history
-        ###########################################################################################
-        if Variable("mode").get() == "real":
-            functions_SQLite.add_value(crypto_name = self.name, data_tuple = (time.time(),self.current_price))
-
-
-        
-        ###########################################################################################
-        # Peak detection
-        ###########################################################################################
-        if peak_detection_O1(self):
-            ###########################################################################################
-            # Peak Detected ::: Send an email + laptop notification + sell crypto + update last notification time
-            ###########################################################################################
-            
-            
-            
-            # Send an email
-            subject = "Time to sell alert"
-            body = f"{self.name} is {self.peak_target}% of maximum value.\nMax value : {self.max_price}\nCurrent value : {self.current_price}\nBuy price : {self.buy_price}"
-            send_email(subject, body)
-            
-            # simple notification on laptop
-            sound_notification()
-            
-
-            # update last notification time
-            self.last_notification_time = time.time()
-
-        return self
-
     def get_crypto_info_str(self):
         """
         Return crypto info str printable

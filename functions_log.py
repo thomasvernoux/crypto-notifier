@@ -121,16 +121,13 @@ def log_error_critic(error_message : str):
     prints a notification about the critical error, and terminates the program.
     """
 
-    Variable("program_on").set(False)
-
     # Log the critical error message
     log_write("errors", "CRITICAL error: " + error_message)
 
     # Print a notification about the critical error
     print("Critical error detected. Please check the error log file for more details.")
 
-    # Turn off all process
-    Variable("program_on").set(False)
+
 
 
 def log_error_minor(error_message):
