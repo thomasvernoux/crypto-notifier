@@ -136,7 +136,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
                    persistant= True)
     
-    if Variable("coinbase_api_sell_activated").get():
+    if Variable("mode").get() == "real":
         log_write("sell order history",
                    f"""market order sell send. Parameters :
                    client_order_id : {str(preview_order["errs"])}
@@ -155,7 +155,7 @@ def sell_crypto_for_USDC(crypto_symbol):
 
 
     elif Variable("mode").get() == "test":
-        None
+        order = None
         
         
     return order
