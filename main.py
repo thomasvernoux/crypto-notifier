@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     Variable("recursiv_call_number").set(0)
 
-    Variable("mode").set("test")                   # test or real
+    Variable("mode").set("real")                   # test or real
 
 
     """
