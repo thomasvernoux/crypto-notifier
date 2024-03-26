@@ -139,8 +139,12 @@ class Crypto:
         return 
 
     def update_max_price(self):
+        if self.current_price == None :
+            log_error_minor("self.current_price == None in update_max_price in class_cryptos.py (Crypto)")
+            return
         if self.max_price == None : 
             self.max_price = self.current_price
+        
         if self.current_price > self.max_price :
             self.max_price = self.current_price
 
