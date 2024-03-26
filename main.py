@@ -11,26 +11,34 @@ from process_update_account import *
 from process_peak_detection import *
 
 if __name__ == "__main__":
-    # Clear global variables
-    remove_global_variables()
+    try :
+        # Clear global variables
+        remove_global_variables()
 
-    # Global variables initialization
-    Variable("trace_activated").set(True)
+        # Global variables initialization
+        Variable("trace_activated").set(True)
 
-    Variable("mode").set("real")  # test or real
-    
-    Variable("filename_dic").set({})
-    Variable("trace_activated").set(True)
+        Variable("mode").set("real")  # test or real
+        
+        Variable("filename_dic").set({})
+        Variable("trace_activated").set(True)
 
-    # Processes creation
-    ProcessUpdateAccount = PROCESS(ProcessUpdateAccount, loop_time_min=60*5)
-    ProcessUpdatePrice_ALL = PROCESS(ProcessUpdatePrice_ALL, loop_time_min=60*20)
-    ProcessUpdatePrice = PROCESS(ProcessUpdatePrice, loop_time_min=30)
-    ProcessPeakDetection = PROCESS(ProcessPeakDetection, loop_time_min=30)
+        # Processes creation
+        ProcessUpdateAccount = PROCESS(ProcessUpdateAccount, loop_time_min=60*5)
+        ProcessUpdatePrice_ALL = PROCESS(ProcessUpdatePrice_ALL, loop_time_min=60*20)
+        ProcessUpdatePrice = PROCESS(ProcessUpdatePrice, loop_time_min=30)
+        ProcessPeakDetection = PROCESS(ProcessPeakDetection, loop_time_min=30)
 
-    # Infinite loop to run processes
-    while True:
-        ProcessUpdateAccount.loop()
-        ProcessUpdatePrice_ALL.loop()
-        ProcessUpdatePrice.loop()
-        ProcessPeakDetection.loop()
+        # Infinite loop to run processes
+        while True:
+            ProcessUpdateAccount.loop()
+            ProcessUpdatePrice_ALL.loop()
+            ProcessUpdatePrice.loop()
+            ProcessPeakDetection.loop()
+
+    except Exception as e:
+        tb = traceback.format_exc()
+        error_message = f"Error in main program :\n{tb}"
+        print(error_message)
+        send_email("Error", error_message)
+        log_error_critic(error_message)
