@@ -9,7 +9,7 @@ Date : March 3, 2024
 
 
 
-import winsound
+#import winsound
 import time
 
 
@@ -43,7 +43,7 @@ def sound_notification():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     if Variable("sound_activated").get():
         for i in range(3):
-            winsound.Beep(1000, 2000)
+            #winsound.Beep(1000, 2000)
             time.sleep(2)
 
 def get_last_buy_price(orders,crypto):
