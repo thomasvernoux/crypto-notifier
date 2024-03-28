@@ -19,7 +19,7 @@ if __name__ == "__main__":
         # Global variables initialization
         Variable("trace_activated").set(True)
 
-        Variable("mode").set("real")  # test or real
+        Variable("mode").set("test")  # test or real
         
         Variable("filename_dic").set({})
         Variable("trace_activated").set(True)

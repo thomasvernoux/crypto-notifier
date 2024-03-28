@@ -85,8 +85,14 @@ def peak_detection_O1(crypto):
 
     ## percentage of accomplishment for break_even_point
     pafbep = round(((crypto.current_price - crypto.buy_price) / (break_even_value - crypto.buy_price)) * 100, 1)
-    print(f"{crypto.name}  percentage of accomplishment for break_even_point : ", pafbep, "%   -  ", "crypto value/max : ", round(crypto.current_price/crypto.max_price * 100, 2))
-    log_write(f"peak detection", f"{crypto.name} - percentage of accomplishment for break_even_point : {pafbep} %\n")
+    message = f"{crypto.name}  percentage of accomplishment for break_even_point : {pafbep}% - crypto value/max : {round(crypto.current_price/crypto.max_price * 100, 2)}"
+    print(message)
+    log_write(f"peak detection", message)
+
+    # write info to heartbeat message
+    v = str(Variable("heartbeat_message").get())
+    v = v + message + "\n"
+    Variable("heartbeat_message").set(v)
 
     if crypto.current_price < break_even_value : 
         # cryptocurrency is not profitable
