@@ -15,42 +15,6 @@ from functions_peak_detection import *
 
 import inspect
 
-def specials_alerts(CRYPTOS) :
-    """
-    Specials alerts for some cryptos at a certain value
-    """
 
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    
-    for crypto in CRYPTOS : 
-        if (crypto.name == "AUCTION") & (crypto.buy_price < crypto.current_price) : 
-            
-            subject = "Special alert"
-            body = f"{crypto.name} : \nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-            send_email(subject, body)
-        
-        if (crypto.name == "PNG") & (crypto.buy_price < crypto.current_price) : 
-            
-            subject = "Special alert"
-            body = f"{crypto.name} : \nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-            send_email(subject, body)
-
-        if (crypto.name == "FOX") & (crypto.buy_price < crypto.current_price) : 
-            
-            subject = "Special alert"
-            body = f"{crypto.name} : \nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-            send_email(subject, body)
-
-        if (crypto.name == "NCT") & (crypto.buy_price < crypto.current_price) : 
-            
-            subject = "Special alert"
-            body = f"{crypto.name} : \nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-            send_email(subject, body)
-
-        if (crypto.name == "PRQ") & (crypto.buy_price < crypto.current_price) : 
-            
-            subject = "Special alert"
-            body = f"{crypto.name} : \nCurrent value : {crypto.current_price}\nBuy price : {crypto.buy_price}"
-            send_email(subject, body)
 
 

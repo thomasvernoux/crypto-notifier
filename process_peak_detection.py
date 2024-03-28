@@ -79,7 +79,7 @@ def ProcessPeakDetection():
                         order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
                         send_email("Sell order done", str(order))
                         CRYPTOS_object.cryptos_list[i].max_price = 0
-                        CRYPTOS_object.cryptos_list[i].buy_price = 0
+                        CRYPTOS_object.cryptos_list[i].last_order_buy_price = 0
                         CRYPTOS_object.cryptos_list[i].amount = 0
                         CRYPTOS_object.cryptos_list[i].USDC_balance = 0
                         Variable("extern_change_detected").set(True)

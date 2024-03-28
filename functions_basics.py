@@ -71,10 +71,10 @@ def get_last_buy_price(orders,crypto):
         fitting_orders.append(i)
     
     if fitting_orders == []:
-        return []
+        return None, None
     
     elif len(fitting_orders) == 1:
-        return float(fitting_orders[0]["average_filled_price"])
+        return float(fitting_orders[0]["average_filled_price"]), fitting_orders[0]["created_time"]
 
     elif len(fitting_orders) > 1:
         # find the last order
@@ -83,7 +83,7 @@ def get_last_buy_price(orders,crypto):
             if i["created_time"] > the_last_oder["created_time"]:
                 the_last_oder = i
         price = float(the_last_oder["average_filled_price"])
-        return price
+        return price, the_last_oder["created_time"]
 
 def truncate_number(number_str, significant_digits=4):
 

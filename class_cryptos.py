@@ -39,7 +39,8 @@ class Crypto:
         self.name_cryptocompare = None        # Crypto name on cryptocompare
         self.name_coingecko = None            # Crypto name on coingeko
         self.amount = 0                       # Amount of crypto
-        self.buy_price = 0                    # Price I bought this crypto
+        self.last_order_buy_price = 0         # Price I bought this crypto
+        self.last_order_buy_datetime = 0          # Time I bought this crypto
         self.max_price = 0                    # Maximum price reached by this crypto
         self.current_price = 0                # Last update price of the crypto
         self.USDC_balance = 0                 # USDC equivalance of the crypto
@@ -188,7 +189,8 @@ class CRYPTOS:
                 crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
                 crypto.name_coingecko = crypto_data.get("name_coingecko")
                 crypto.amount = crypto_data.get("amount")
-                crypto.buy_price = crypto_data.get("buy_price")
+                crypto.last_order_buy_price = crypto_data.get("last_order_buy_price")
+                crypto.last_order_buy_datetime = crypto_data.get("last_order_buy_datetime")
                 crypto.max_price = crypto_data.get("max_price")
                 crypto.current_price = crypto_data.get("current_price")
                 crypto.USDC_balance = crypto_data.get("USDC_balance")
@@ -197,8 +199,8 @@ class CRYPTOS:
                 crypto.peak_target = crypto_data.get("peak_target")
                 crypto.break_even_point = crypto_data.get("break_even_point")
 
-                if not (isinstance(crypto.buy_price, float) or crypto.buy_price == 0):
-                    crypto.buy_price = None
+                if not (isinstance(crypto.last_order_buy_price, float) or crypto.last_order_buy_price == 0):
+                    crypto.last_order_buy_price = None
 
                 if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
                     crypto.current_price = None
@@ -229,7 +231,7 @@ class CRYPTOS:
                 for crypto in cryptos:
                     f.write(f"crypto            : {crypto.name_cryptocompare}\n")
                     f.write(f"ammount           : {crypto.amount}\n")
-                    f.write(f"buy price         : {crypto.buy_price}\n")
+                    f.write(f"buy price         : {crypto.last_order_buy_price}\n")
                     f.write(f"maximum price     : {crypto.max_price}\n")
                     f.write(f"current price     : {crypto.current_price}\n")
                     f.write(f"USDC_balance      : {crypto.USDC_balance}\n")
@@ -340,6 +342,9 @@ class CRYPTOS:
             # Add the crypto
             else : 
                 if k == "ETH2":
+                    """
+                    TODO : debug
+                    """
                     # special exception to debug
                     continue
                 self.cryptos_list.append(Crypto())
@@ -348,7 +353,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].coinbaseId = k
                 self.cryptos_list[-1].break_even_point = 103
                 self.cryptos_list[-1].peak_target = 99
-                #self.cryptos_list[-1].buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
+                #self.cryptos_list[-1].last_order_buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
                 self.writeCRYPTO_json()
@@ -383,8 +388,10 @@ class CRYPTOS:
         orders = client.list_orders()
 
         for c in self.cryptos_list :
-            price = get_last_buy_price(orders, c)
-            c.buy_price = price
+            price, time = get_last_buy_price(orders, c)
+            c.last_order_buy_price = price
+            c.last_order_buy_datetime = time
+
         
         self.writeCRYPTO_json()
     

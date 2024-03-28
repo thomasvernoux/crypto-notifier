@@ -26,7 +26,7 @@ def crypto_check_peak_detection(crypto):
     # Variables that cannot be null for peak detection
     no_null_variable = [crypto.name, 
                         crypto.amount, 
-                        crypto.buy_price,
+                        crypto.last_order_buy_price,
                         crypto.break_even_point,
                         crypto.current_price,
                         crypto.coinbaseId,
@@ -39,8 +39,19 @@ def crypto_check_peak_detection(crypto):
 
     for paramater in no_null_variable :
         if paramater in null_values:
-            print(f"critical error detected in crypto_check_peak_detection : {crypto.get_crypto_info_str}")
-            log_error_critic(f"critical error detected in crypto_check_peak_detection : {crypto.get_crypto_info_str}")
+            message = (
+                f"critical error detected in crypto_check_peak_detection : {crypto.get_crypto_info_str()}\n"
+                "The following parameters cannot be in null_values = [0, -1, None] :\n"
+                f"crypto.name, \n"
+                f"crypto.amount, \n"
+                f"crypto.last_order_buy_price,\n"
+                f"crypto.break_even_point,\n"
+                f"crypto.current_price,\n"
+                f"crypto.coinbaseId,\n"
+                f"crypto.max_price,\n"
+                f"crypto.peak_target\n")
+            print(message)
+            log_error_critic(message)
             return False
 
     return True
@@ -77,15 +88,15 @@ def peak_detection_O1(crypto):
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     peak_limit_value = crypto.peak_target / 100 * crypto.max_price
-    break_even_value = crypto.buy_price * crypto.break_even_point / 100
+    break_even_value = crypto.last_order_buy_price * crypto.break_even_point / 100
 
     # Simple check
-    if crypto.buy_price == None :
+    if crypto.last_order_buy_price == None :
         log_error_critic(f"buy price is missing for : {crypto.name}")
 
     ## percentage of accomplishment for break_even_point
-    pafbep = round(((crypto.current_price - crypto.buy_price) / (break_even_value - crypto.buy_price)) * 100, 1)
-    message = f"{crypto.name}  percentage of accomplishment for break_even_point : {pafbep}% - crypto value/max : {round(crypto.current_price/crypto.max_price * 100, 2)}"
+    pafbep = round(((crypto.current_price - crypto.last_order_buy_price) / (break_even_value - crypto.last_order_buy_price)) * 100, 1)
+    message = f"{crypto.name}  percentage of accomplishment for break_even_point : {pafbep}% - crypto value/max : {round(crypto.current_price/crypto.max_price * 100, 2)}\nBuy order datetime : {crypto.last_order_buy_datetime}"
     print(message)
     log_write(f"peak detection", message)
 
