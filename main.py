@@ -29,7 +29,7 @@ if __name__ == "__main__":
         ProcessUpdatePrice_ALL = PROCESS(ProcessUpdatePrice_ALL, loop_time_min=60*20)
         ProcessUpdatePrice     = PROCESS(ProcessUpdatePrice, loop_time_min=30)
         ProcessPeakDetection   = PROCESS(ProcessPeakDetection, loop_time_min=30)
-        ProcessHeartBeat       = PROCESS(ProcessHeartBeat, loop_time_min=60*30)
+        ProcessHeartBeat       = PROCESS(ProcessHeartBeat, loop_time_min=60*60*6)
 
         # Infinite loop to run processes
         while True:
