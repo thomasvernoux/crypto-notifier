@@ -22,3 +22,6 @@ mettre get price dans une methode de crypto pour pouvoir faire l'actualisation d
 todo : understand eth2 exception
 
 log error critic devrait etre juste de l'ecriture dans les log et pas arreter le programme
+
+regarder quand on get l'odre, 250 max ?
+
