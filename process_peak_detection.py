@@ -39,11 +39,6 @@ def ProcessPeakDetection():
         CRYPTOS_object.getCRYPTO_json()
         
         for i in range (len(CRYPTOS_object.cryptos_list)):
-            """
-            DEBUG
-            """
-            if CRYPTOS_object.cryptos_list[i].name == "ADA":
-                a = 3
 
             if CRYPTOS_object.cryptos_list[i].USDC_balance < 0.5 :
                 continue

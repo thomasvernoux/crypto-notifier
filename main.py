@@ -24,6 +24,8 @@ if __name__ == "__main__":
         Variable("filename_dic").set({})
         Variable("trace_activated").set(True)
 
+        Variable("break_even_point").set(104)
+
         # Processes creation
         ProcessUpdateAccount   = PROCESS(ProcessUpdateAccount, loop_time_min=60*5)
         ProcessUpdatePrice_ALL = PROCESS(ProcessUpdatePrice_ALL, loop_time_min=60*20)

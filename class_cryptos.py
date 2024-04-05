@@ -351,7 +351,7 @@ class CRYPTOS:
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
                 self.cryptos_list[-1].coinbaseId = k
-                self.cryptos_list[-1].break_even_point = 103
+                self.cryptos_list[-1].break_even_point = Variable("break_even_point").get()
                 self.cryptos_list[-1].peak_target = 99
                 #self.cryptos_list[-1].last_order_buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 Variable("extern_change_detected").set(True)

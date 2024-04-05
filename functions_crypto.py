@@ -154,7 +154,7 @@ def refresh_crypto_data():
 
     # Set detection variables
     CRYPTOS_object.set_crypto_peak_target(99)
-    CRYPTOS_object.set_crypto_break_even_point(103)
+    CRYPTOS_object.set_crypto_break_even_point(Variable("break_even_point").get())
 
     # Save data
     CRYPTOS_object.writeCRYPTO_json()
@@ -182,7 +182,7 @@ def setup_crypto():
 
     # Set detection variables
     CRYPTOS_object.set_crypto_peak_target(99)
-    CRYPTOS_object.set_crypto_break_even_point(103)
+    CRYPTOS_object.set_crypto_break_even_point(Variable("break_even_point").get())
 
     # Save data
     CRYPTOS_object.writeCRYPTO_json()
