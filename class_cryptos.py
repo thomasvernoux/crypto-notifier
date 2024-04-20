@@ -23,7 +23,6 @@ from functions_peak_detection import *
 from functions_CoinBaseApi import *
 from functions_log import *
 
-from old.class_order import *
 
 import functions_CoinBaseApi
 import functions_basics
