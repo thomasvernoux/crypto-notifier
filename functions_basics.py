@@ -20,7 +20,7 @@ from functions_log import *
 from decimal import Decimal
 import inspect
 
-from old.class_order import *
+
 from class_cryptos import *
 
 from coinbase.rest import RESTClient
