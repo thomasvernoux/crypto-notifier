@@ -25,3 +25,45 @@ log error critic devrait etre juste de l'ecriture dans les log et pas arreter le
 
 regarder quand on get l'odre, 250 max ?
 
+
+
+
+Try again, reccursivity : 3
+2024/04/05 18:03:59 : Minor error: Cannot determinate USDC balance (self.USDC_balance = round(self.amount * self.current_price, 2)) for ctypto : name TIA
+coinbaseId TIA
+name_cryptocompare None
+name_coingecko None
+amount 0.0796322385595865
+last_order_buy_price 13.626999999999999
+last_order_buy_datetime 2024-04-01T08:36:45.008915Z
+max_price 13.671
+current_price None
+USDC_balance 0.94
+number_of_alert_authorized 0
+last_notification_time 0
+peak_target 99
+break_even_point 103
+profit_percent 0
+
+
+
+ici, il faut jouter un mesage d'alerte, si je n'ai pas assez de crypto, je ne pourrai pas la vendre.
+
+2024/04/06 05:21:53 : order_variable recieved from coinbase api :
+{'success': False, 'failure_reason': 'UNKNOWN_FAILURE_REASON', 'order_id': '', 'error_response': {'error': 'UNKNOWN_FAILURE_REASON', 'message': '', 'error_d>
+2024/04/06 05:50:53 : Errors detected in preview order :
+['PREVIEW_INVALID_BASE_SIZE_TOO_SMALL']
+2024/04/06 05:50:53 : market order sell send. Parameters :
+                   client_order_id : ['PREVIEW_INVALID_BASE_SIZE_TOO_SMALL']
+                   product_id : IOTX-USDC
+                   base size : 1.50e1
+
+
+
+!!! Mettre tout ce qui ceoncerne coinbbase dans le fichier python coinbase
+
+dans le management order history, j'ai applatis le dicitonnaire. Normalement, c'etait un dictionnaire qui en contanait un autre. Je doit revenir a cette configuration pour un stockage optimal dans json
+
+
+
+

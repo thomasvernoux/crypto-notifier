@@ -19,6 +19,8 @@ from class_cryptos import *
 from functions_basics import *
 import inspect
 
+import functions_SQLite
+
 
 
 
@@ -28,6 +30,7 @@ def update_crypto_prices(cryptos_list, min_usdc_balance=None):
     Update prices of cryptocurrencies in cryptos_list.
     If min_usdc_balance is specified, only update prices for cryptocurrencies with USDC balance > min_usdc_balance.
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     for crypto in cryptos_list:
         if min_usdc_balance is None or crypto.USDC_balance > min_usdc_balance:
             # Update information for an individual cryptocurrency
@@ -37,6 +40,7 @@ def update_single_crypto(crypto):
     """
     Update price, USDC balance, max price, and store data in SQLite database for a single cryptocurrency.
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name) + crypto.name)
     try:
         # Get the current price of the cryptocurrency
         crypto.current_price = get_price(crypto)
@@ -46,8 +50,7 @@ def update_single_crypto(crypto):
         crypto.update_max_price()
         # Store the current price in the SQLite database
         functions_SQLite.add_value(crypto_name=crypto.name, data_tuple=(time.time(), crypto.current_price))
-        # Update USDC balance
-        crypto.update_USDC_balance()
+
 
     except KeyboardInterrupt:
         # Catch a keyboard interruption (Ctrl+C) and display a message
@@ -57,6 +60,7 @@ def ProcessUpdatePrice_ALL():
     """
     Update prices for all cryptocurrencies.
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     try:
         # Display a message indicating the start of the process
         print("Updating prices for all cryptocurrencies")
@@ -78,6 +82,7 @@ def ProcessUpdatePrice():
     """
     Update prices for cryptocurrencies with USDC balance > 0.5.
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     # Write the start of the process to the logs
     log_write("working process", "ProcessUpdatePrice")
     try:

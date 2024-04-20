@@ -31,7 +31,7 @@ def ProcessPeakDetection():
     try:
 
         # reset Variable : heartbeat_message
-        Variable("heartbeat_message").set("")
+        Variable("heartbeat_message").set({})
 
         log_write("working process", "ProcessPeakDetection")
         

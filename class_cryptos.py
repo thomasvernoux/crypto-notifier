@@ -22,7 +22,13 @@ from functions_basics import *
 from functions_peak_detection import *
 from functions_CoinBaseApi import *
 from functions_log import *
-import functions_SQLite
+
+from old.class_order import *
+
+import functions_CoinBaseApi
+import functions_basics
+import functions_CoinBaseApi
+
 
 
 fichier_userfriendly = "user_data_userfriendly.txt"
@@ -40,7 +46,7 @@ class Crypto:
         self.name_coingecko = None            # Crypto name on coingeko
         self.amount = 0                       # Amount of crypto
         self.last_order_buy_price = 0         # Price I bought this crypto
-        self.last_order_buy_datetime = 0          # Time I bought this crypto
+        self.last_order_buy_datetime = 0      # Time I bought this crypto
         self.max_price = 0                    # Maximum price reached by this crypto
         self.current_price = 0                # Last update price of the crypto
         self.USDC_balance = 0                 # USDC equivalance of the crypto
@@ -49,7 +55,8 @@ class Crypto:
         self.peak_target = 0                  # % of max value. When reached, send a notification
         self.break_even_point = 0             # % of the cryptocurrency price to be reached to make money
         self.profit_percent = 0               # Profitability
-        
+        self.last_buy_order = {}              # Last buy order
+
 
     def decrase_number_of_alert_authorized(self):
         """
@@ -137,7 +144,7 @@ class Crypto:
             self.USDC_balance = round(self.amount * self.current_price, 2)
         except : 
             log_error_minor(f"Cannot determinate USDC balance (self.USDC_balance = round(self.amount * self.current_price, 2)) for ctypto : {self.get_crypto_info_str()}")
-        return 
+        return
 
     def update_max_price(self):
         if self.current_price == None :
@@ -176,41 +183,39 @@ class CRYPTOS:
                 # Charger le contenu JSON sous forme de liste d'objets Python
                 try :
                     crypto_data = json.load(f)
+
+                    crypto = Crypto()
+                    crypto.name = crypto_data.get("name")
+                    crypto.coinbaseId = crypto_data.get("coinbaseId")
+                    crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
+                    crypto.name_coingecko = crypto_data.get("name_coingecko")
+                    crypto.amount = crypto_data.get("amount")
+                    crypto.last_order_buy_price = crypto_data.get("last_order_buy_price")
+                    crypto.last_order_buy_datetime = crypto_data.get("last_order_buy_datetime")
+                    crypto.max_price = crypto_data.get("max_price")
+                    crypto.current_price = crypto_data.get("current_price")
+                    crypto.USDC_balance = crypto_data.get("USDC_balance")
+                    crypto.number_of_alert_authorized = crypto_data.get("number_of_alert_authorized")
+                    crypto.last_notification_time = crypto_data.get("last_notification_time")
+                    crypto.peak_target = crypto_data.get("peak_target")
+                    crypto.break_even_point = crypto_data.get("break_even_point")
+                    crypto.profit_percent = crypto_data.get("profit_percent")
+                    crypto.last_buy_order = crypto_data.get("last_buy_order")
+
+
+                    self.cryptos_list.append(crypto)
+        
+                
                 except Exception as e:
                     tb = traceback.format_exc()
                     error_message = f"error in getcrypto_json : {crypto_name}  \n{tb}"
                     print(error_message)
                     log_error_critic(error_message)
 
-        
-                crypto = Crypto()
-                crypto.name = crypto_data.get("name")
-                crypto.coinbaseId = crypto_data.get("coinbaseId")
-                crypto.name_cryptocompare = crypto_data.get("name_cryptocompare")
-                crypto.name_coingecko = crypto_data.get("name_coingecko")
-                crypto.amount = crypto_data.get("amount")
-                crypto.last_order_buy_price = crypto_data.get("last_order_buy_price")
-                crypto.last_order_buy_datetime = crypto_data.get("last_order_buy_datetime")
-                crypto.max_price = crypto_data.get("max_price")
-                crypto.current_price = crypto_data.get("current_price")
-                crypto.USDC_balance = crypto_data.get("USDC_balance")
-                crypto.number_of_alert_authorized = crypto_data.get("number_of_alert_authorized")
-                crypto.last_notification_time = crypto_data.get("last_notification_time")
-                crypto.peak_target = crypto_data.get("peak_target")
-                crypto.break_even_point = crypto_data.get("break_even_point")
-
-                if not (isinstance(crypto.last_order_buy_price, float) or crypto.last_order_buy_price == 0):
-                    crypto.last_order_buy_price = None
-
-                if not (isinstance(crypto.current_price, float) or crypto.current_price == 0):
-                    crypto.current_price = None
-
-                if not (isinstance(crypto.max_price, float) or crypto.max_price == 0):
-                    crypto.max_price = None
-            
-
-            self.cryptos_list.append(crypto)
         return self.cryptos_list[:]
+
+        
+                
     
     def writeCRYPTO_json(self):
         """
@@ -282,7 +287,7 @@ class CRYPTOS:
         refresh crypto account in json file
         """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-        data_api = get_accounts_from_api()
+        data_api = functions_CoinBaseApi.get_accounts_from_api()
         #print(data)
         
         # """
@@ -292,6 +297,10 @@ class CRYPTOS:
         # for v in data_api : 
         #     print(v["balance"]["currency"])
 
+
+        """
+        Set dict ammount api
+        """
         dic_amount_api = {}
         for data_C in data_api : 
             
@@ -356,8 +365,12 @@ class CRYPTOS:
                 #self.cryptos_list[-1].last_order_buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
-                self.writeCRYPTO_json()
         
+        """
+        TODO
+        Delete following line
+        """
+        #self.writeCRYPTO_json()
         return
 
     def set_crypto_peak_target(self, peak_target):
@@ -382,31 +395,47 @@ class CRYPTOS:
 
         self.writeCRYPTO_json()
 
-    def set_buy_prices(self):
+    def set_buy_prices_depreciated(self):
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
         orders = client.list_orders()
 
         for c in self.cryptos_list :
-            price, time = get_last_buy_price(orders, c)
+            price, time = functions_CoinBaseApi.get_last_buy_price(orders, c)
             c.last_order_buy_price = price
             c.last_order_buy_datetime = time
 
         
         self.writeCRYPTO_json()
+        
+        
+    def update_last_order_for_each_crypto(self):
+        """
+        TODO : add this function to the code and also finish it
+        """
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     
-
-
-
-
-    
-
-
-
-
-
-
-
+        """
+        Find the last order
+        """
+        for c in self.cryptos_list :
+            corresponding_order = functions_CoinBaseApi.get_last_order(c)
+            if corresponding_order == None :
+                log_error_minor(str(inspect.currentframe().f_back.f_code.co_name) + "cannot find a corresponding buy order for the crypto  " + 
+                                 f"{c.name}")
+            
+            """
+            Add the last order to the crypto
+            """
+            if corresponding_order != None :
+                c.last_buy_order = corresponding_order
+                c.last_order_buy_price = float(corresponding_order['average_filled_price'])
+                c.last_order_buy_datetime = corresponding_order['created_time']
+                """
+                TODO 
+                delete foloowing line
+                """
+                #self.writeCRYPTO_json()
 
 
 

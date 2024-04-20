@@ -59,7 +59,7 @@ def get_accounts_from_api():
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
     accounts = client.get_accounts(250)["accounts"]
-    
+
 
     for i in accounts : 
         log_write("coinbase api call history", f"{i}\n")
@@ -167,7 +167,52 @@ def get_sell_price_coinabse_api(crypto, iteration_number = 0):
 
     return crypto_price
 
+def get_last_order(crypto):
+    """
+    Return the corresponding order (dict) for the crypto
+    """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name) + f" {crypto.name}")
+
+
+    client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
+    dict_orders = client.list_orders(f"{crypto.coinbaseId}-USDC")['orders']
+        
+    orders = []
+    for order in dict_orders :
+        orders.append(order)
+
+
+    fitting_orders = []
+    for i in orders : 
+        ### Select right orders
+        if not(i['product_id'] == f"{crypto.coinbaseId}-USDC"):
+            continue
+        if i['completion_percentage'] == 0:
+            continue
+        if i['side'] == "SELL" :
+            continue
+        if i['status'] != "FILLED" :
+            continue
+        
+        fitting_orders.append(i)
     
+    if fitting_orders == []:
+        message = f"{str(inspect.currentframe().f_back.f_code.co_name)}, {crypto.name} No fitting order found for crypto : {crypto.name}"
+        print(message)
+        log_error_minor(message)
+        return None
+    
+    elif len(fitting_orders) == 1:
+        return fitting_orders[0]
+
+    elif len(fitting_orders) > 1:
+        # find the last order
+        the_last_oder = fitting_orders[0]
+        for i in fitting_orders[1:]:
+            if i['created_time'] > the_last_oder['created_time']:
+                the_last_oder = i
+        price = float(the_last_oder['average_filled_price'])
+        return the_last_oder
 
 
 

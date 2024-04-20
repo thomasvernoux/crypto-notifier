@@ -20,7 +20,10 @@ from functions_log import *
 from decimal import Decimal
 import inspect
 
+from old.class_order import *
+from class_cryptos import *
 
+from coinbase.rest import RESTClient
 
 
 
@@ -84,6 +87,7 @@ def get_last_buy_price(orders,crypto):
                 the_last_oder = i
         price = float(the_last_oder["average_filled_price"])
         return price, the_last_oder["created_time"]
+
 
 def truncate_number(number_str, significant_digits=4):
 

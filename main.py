@@ -6,7 +6,7 @@ Date: March 3, 2024
 
 import traceback
 from class_process import *
-from process_price_update import *
+from process_update_price import *
 from process_update_account import *
 from process_peak_detection import *
 from process_heart_beat import *

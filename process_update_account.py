@@ -30,7 +30,16 @@ def ProcessUpdateAccount():
         CRYPTOS_object.getCRYPTO_json()
         CRYPTOS_object.actualise_crypto_account()
 
-        CRYPTOS_object.set_buy_prices()
+        """
+        TODO 
+        revoir cette fonction set buy price qui est torp vieille et fais redondance avec update last order for each crypto
+        """
+        """
+        Doto : manage le buy price
+        """
+        #CRYPTOS_object.set_buy_prices()
+
+        CRYPTOS_object.update_last_order_for_each_crypto()
 
         CRYPTOS_object.writeCRYPTO_json()
 
