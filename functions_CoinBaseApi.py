@@ -175,8 +175,21 @@ def get_last_order(crypto):
 
 
     client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
-    dict_orders = client.list_orders(f"{crypto.coinbaseId}-USDC")['orders']
-        
+
+    try : 
+        dict_orders = client.list_orders(f"{crypto.coinbaseId}-USDC")['orders']
+    
+    except : 
+        try :
+            # try a second time
+            dict_orders = client.list_orders(f"{crypto.coinbaseId}-USDC")['orders']
+    
+        except Exception as e:
+            tb = traceback.format_exc()
+            error_message = f"error in get_last_order, functions_CoinbaseApi ({log_trace(str(inspect.currentframe().f_back.f_code.co_name) + f" {crypto.name}")}) \ntraceback : {tb}"
+            print(error_message)
+            log_error_critic(error_message)
+
     orders = []
     for order in dict_orders :
         orders.append(order)
