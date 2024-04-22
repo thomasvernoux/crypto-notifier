@@ -37,3 +37,6 @@ An API key file is required. Get an API key from Coinbase and place it in the ap
 
 Advanced Trade API welcome: https://docs.cloud.coinbase.com/advanced-trade-api/docs/welcome
 Advanced Trade API documentation: https://coinbase.github.io/coinbase-advanced-py
+
+## Usefull commands
+scp copy for logs :  scp -r ubuntu@XXX.XXX.XXX.XXX:/home/ubuntu/Documents/crypto-notifier/log C:\Users\thoma\Downloads\
