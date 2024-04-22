@@ -86,7 +86,7 @@ class Crypto:
         """
         
         log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
-        order = sell_crypto_for_USDC(self.name)                          # Sell Crypto
+        order = functions_CoinBaseApi.sell_crypto_for_USDC(self.name)                          # Sell Crypto
         
         
         
