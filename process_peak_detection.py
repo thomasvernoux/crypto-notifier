@@ -62,7 +62,7 @@ def ProcessPeakDetection():
                 log_error_critic(tb)
 
             if peak_detection :
-                log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \npeak detection", "we are in : if peak_detection : ")
+                log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \npeak detection we are in : if peak_detection : ")
                 # peak detected, the crypto has to be sold
 
                 if Variable("mode").get() == "test":

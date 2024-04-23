@@ -85,9 +85,11 @@ class Crypto:
         Sell the maximum amount of this crypto for USDC
         """
         
-        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
-        order = functions_CoinBaseApi.sell_crypto_for_USDC(self.name)                          # Sell Crypto
         
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
+        log_write("peak detection", str(inspect.currentframe().f_back.f_code.co_name) + self.name)
+        order = functions_CoinBaseApi.sell_crypto_for_USDC(self.name)                          # Sell Crypto
+        log_write("peak detection", f"order : {str(order)}")
         
         
         
