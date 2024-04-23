@@ -72,12 +72,7 @@ def peak_detection_O1(crypto):
     Detect crypto price peak using the max value. 
     Detect when the crypto price is under a certain % of the max value
     """
-
-    """
-    DEBUG
-    """
-    if crypto.name == "RBN":
-        a = 3
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
 
     if crypto.peak_target == 0:
         log_error_critic(f"crypto.peak_target == 0 : {crypto.name}")
@@ -86,7 +81,7 @@ def peak_detection_O1(crypto):
         log_error_critic(f"crypto.break_even_point == 0 : {crypto.name}")
         return False
 
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+    
     peak_limit_value = crypto.peak_target / 100 * crypto.max_price
     break_even_value = crypto.last_order_buy_price * crypto.break_even_point / 100
 
@@ -113,7 +108,7 @@ def peak_detection_O1(crypto):
         return False
 
 
-    if crypto.current_price > break_even_value :                             
+    if crypto.current_price > break_even_value :                           
         log_write("peak detection", f"      crypto.current_price > break_even_value : {crypto.name} peak limit value : {peak_limit_value}, break even value : {break_even_value}" )
         if (crypto.current_price < peak_limit_value):                                     # on est sur la phase descendante du pic
             log_write("peak detection", f"  crypto.current_price < peak_limit : {crypto.name}, peak limit : {peak_limit_value}" )

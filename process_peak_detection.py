@@ -25,6 +25,7 @@ def ProcessPeakDetection():
     """
     Peak detection process
     """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
 
     
 
@@ -61,6 +62,7 @@ def ProcessPeakDetection():
                 log_error_critic(tb)
 
             if peak_detection :
+                log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \npeak detection", "we are in : if peak_detection : ")
                 # peak detected, the crypto has to be sold
 
                 if Variable("mode").get() == "test":
@@ -69,9 +71,11 @@ def ProcessPeakDetection():
                     return True
                 
                 elif Variable("mode").get() == "real":
+                    log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \nelif Variable('mode').get() == 'real':")
                     # Sell crypto
                     try :
                         order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
+                        log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \norder = CRYPTOS_object.cryptos_list[i].sell_for_USDC()\n order : {str(order)}")
                         send_email("Sell order done", str(order))
                         CRYPTOS_object.cryptos_list[i].max_price = 0
                         CRYPTOS_object.cryptos_list[i].last_order_buy_price = 0

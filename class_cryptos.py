@@ -287,14 +287,6 @@ class CRYPTOS:
         """
         log_trace(str(inspect.currentframe().f_back.f_code.co_name))
         data_api = functions_CoinBaseApi.get_accounts_from_api()
-        #print(data)
-        
-        # """
-        # Print variables in data_api
-        # """
-        # print("Print variables in data_api")
-        # for v in data_api : 
-        #     print(v["balance"]["currency"])
 
 
         """
@@ -312,13 +304,8 @@ class CRYPTOS:
             amount_str = data_C["available_balance"]["value"]
             amount = float(amount_str)
 
+            dic_amount_api[data_C["currency"]] = amount
 
-            if amount > 0:
-                dic_amount_api[data_C["currency"]] = amount
-            else : 
-                log_write("info", f"crypto amount equal 0 : {amount}")
-
-        #print (dic_price_api)
         list_of_my_cryptos = []
         for i in self.cryptos_list:
             list_of_my_cryptos.append(i.name)
@@ -329,7 +316,9 @@ class CRYPTOS:
             crypto_name = self.cryptos_list[i].name
             
             if not (crypto_name in dic_amount_api):
-                log_write("info", "crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str())
+                message = "crypto_name is not in dic_price_api : \n" + self.cryptos_list[i].get_crypto_info_str()
+                log_write("info", message)
+                log_error_minor(message)
                 self.cryptos_list[i].amount = 0
                 continue
                
@@ -364,12 +353,7 @@ class CRYPTOS:
                 #self.cryptos_list[-1].last_order_buy_price = float(input(f"New crypto detected, please insert buy price for : {k}"))
                 Variable("extern_change_detected").set(True)
                 log_write("New crypto detected", f"New crypto detected : {str(self.cryptos_list[-1].name)}")
-        
-        """
-        TODO
-        Delete following line
-        """
-        #self.writeCRYPTO_json()
+
         return
 
     def set_crypto_peak_target(self, peak_target):
@@ -419,9 +403,10 @@ class CRYPTOS:
         """
         for c in self.cryptos_list :
             corresponding_order = functions_CoinBaseApi.get_last_order(c)
+            
             if corresponding_order == None :
-                log_error_minor(str(inspect.currentframe().f_back.f_code.co_name) + "cannot find a corresponding buy order for the crypto  " + 
-                                 f"{c.name}")
+                None
+                #No orders found (possible if you bought the crypto througt eur wallet)
             
             """
             Add the last order to the crypto
@@ -430,11 +415,7 @@ class CRYPTOS:
                 c.last_buy_order = corresponding_order
                 c.last_order_buy_price = float(corresponding_order['average_filled_price'])
                 c.last_order_buy_datetime = corresponding_order['created_time']
-                """
-                TODO 
-                delete foloowing line
-                """
-                #self.writeCRYPTO_json()
+                
 
 
 

@@ -128,7 +128,7 @@ def sell_crypto_for_USDC(crypto_symbol):
                    product_id : {product_id}
                    base size : {available_sell_quantity}\n""", 
                    persistant= True)
-        order = client.market_order_sell(client_order_id = "OrderByPython" + str(time.time()), product_id = product_id, base_size = available_sell_quantity)
+        order = client.market_order_sell(client_order_id = "Python Order" + str(time.time()), product_id = product_id, base_size = available_sell_quantity)
         print("order : ", order)
         print("preview order : " , preview_order)
         log_write("sell order history", "order_variable recieved from coinbase api :\n" + str(order), persistant=True)
@@ -186,7 +186,7 @@ def get_last_order(crypto):
     
         except Exception as e:
             tb = traceback.format_exc()
-            error_message = f"error in get_last_order, functions_CoinbaseApi ({log_trace(str(inspect.currentframe().f_back.f_code.co_name) + f" {crypto.name}")}) \ntraceback : {tb}"
+            error_message = f"error in get_last_order, functions_CoinbaseApi ({str(inspect.currentframe().f_back.f_code.co_name)})" + f" {crypto.name} \ntraceback : {tb}"
             print(error_message)
             log_error_critic(error_message)
 
@@ -211,8 +211,9 @@ def get_last_order(crypto):
     
     if fitting_orders == []:
         message = f"{str(inspect.currentframe().f_back.f_code.co_name)}, {crypto.name} No fitting order found for crypto : {crypto.name}"
-        print(message)
-        log_error_minor(message)
+        # The fitting_ordres variable can be [] if you have a crypto throught your eur != USDC wallet.
+        #print(message)
+        #log_error_minor(message)
         return None
     
     elif len(fitting_orders) == 1:
