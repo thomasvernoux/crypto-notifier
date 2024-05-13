@@ -10,6 +10,7 @@ This file contain the peak detection process
 
 import time
 
+
 from functions_crypto import *
 from functions_email import *
 from functions_specials_alerts import *
@@ -47,6 +48,7 @@ def ProcessPeakDetection():
             Error check
             """
             if not(crypto_check_peak_detection(CRYPTOS_object.cryptos_list[i])):
+                log_error_critic("if not(crypto_check_peak_detection(CRYPTOS_object.cryptos_list[i])):")
                 continue
             """
             end of Error check 
@@ -65,29 +67,26 @@ def ProcessPeakDetection():
                 log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \npeak detection we are in : if peak_detection : ")
                 # peak detected, the crypto has to be sold
 
-                if Variable("mode").get() == "test":
-                    # if test mode, set the mail flag to True
-                    Variable("test_mail_send").set(True)
-                    return True
+    
                 
-                elif Variable("mode").get() == "real":
-                    log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \nelif Variable('mode').get() == 'real':")
-                    # Sell crypto
-                    try :
-                        order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
-                        log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \norder = CRYPTOS_object.cryptos_list[i].sell_for_USDC()\n order : {str(order)}")
-                        send_email("Sell order done", str(order))
-                        CRYPTOS_object.cryptos_list[i].max_price = 0
-                        CRYPTOS_object.cryptos_list[i].last_order_buy_price = 0
-                        CRYPTOS_object.cryptos_list[i].amount = 0
-                        CRYPTOS_object.cryptos_list[i].USDC_balance = 0
-                        Variable("extern_change_detected").set(True)
-                        CRYPTOS_object.cryptos_list[i].write_variables_to_json_file()
 
-                    except Exception as e : 
-                        tb = traceback.format_exc()
-                        print(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}")
-                        log_error_minor(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}. Traceback : {tb}")
+                log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \nelif Variable('mode').get() == 'real':")
+                # Sell crypto
+                try :
+                    order = CRYPTOS_object.cryptos_list[i].sell_for_USDC()
+                    log_write(f"peak detection", f"message from {str(inspect.currentframe().f_back.f_code.co_name)} \norder = CRYPTOS_object.cryptos_list[i].sell_for_USDC()\n order : {str(order)}")
+                    send_email("Sell order done", str(order))
+                    CRYPTOS_object.cryptos_list[i].max_price = 0
+                    CRYPTOS_object.cryptos_list[i].last_order_buy_price = 0
+                    CRYPTOS_object.cryptos_list[i].amount = 0
+                    CRYPTOS_object.cryptos_list[i].USDC_balance = 0
+                    Variable("extern_change_detected").set(True)
+                    CRYPTOS_object.cryptos_list[i].write_variables_to_json_file()
+
+                except Exception as e : 
+                    tb = traceback.format_exc()
+                    print(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}")
+                    log_error_minor(f"Error while trying to sell crypto : {CRYPTOS_object.cryptos_list[i].name}. Traceback : {tb}")
 
 
 

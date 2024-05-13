@@ -35,7 +35,7 @@ def load_var_from_json(filename, variable):
     return keys[variable]
 
 
-api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key")
+api_key  = load_var_from_json('api_keys/api_key_001.json', "api_key") 
 api_secret = load_var_from_json('api_keys/api_key_001.json', "api_secret")
 
 
@@ -72,62 +72,72 @@ def sell_crypto_for_USDC(crypto_symbol):
     """
     Request API for selling the maximum of the parameter crypto
     """
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    # Initialiser le client REST avec votre clé d'API Coinbase
-    client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
 
-    accounts = client.get_accounts(250)
+    if Variable("mode").get() == "test":
+        Variable("test_variable_sell_order_done").set(True)
+        order = "sell_crypto_for_USDC in test mode"
 
+        return order
 
-    matching_account = None
-
-    for account in accounts["accounts"]:
-        if account['currency'] == crypto_symbol:
-            matching_account = account
-            break
-
-    if matching_account:
-        print("Compte correspondant au symbole {} trouvé:".format(crypto_symbol))
-        print(matching_account)
-    else:
-        message = "Aucun compte correspondant au symbole {} trouvé.".format(crypto_symbol)
-        print(message)
-        log_error_critic(message)
+    elif Variable("mode").get() == "real":
 
 
+        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+        # Initialiser le client REST avec votre clé d'API Coinbase
+        client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
 
-    product_id = f"{crypto_symbol}-USDC"
-    available_sell_quantity = matching_account["available_balance"]["value"]
-    if available_sell_quantity == '':
-        log_error_minor("available_sell_quantity == ''")
-        print("available_sell_quantity == '', error rised")
-        Variable("extern_change_detected").set(True)
-        return False
-    
-    try :  
-        # Get the specifiities of the product (increment)
-        product = client.get_product(product_id)
-        available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
-    
-    except Exception as e :
-        tb = traceback.format_exc()
-        log_error_minor(tb)
-    
-    #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
-    preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
-    if preview_order["errs"] != []:
-        print("errors detected in preview order")
+        accounts = client.get_accounts(250)
+
+
+        matching_account = None
+
+        for account in accounts["accounts"]:
+            if account['currency'] == crypto_symbol:
+                matching_account = account
+                break
+
+        if matching_account:
+            print("Compte correspondant au symbole {} trouvé:".format(crypto_symbol))
+            print(matching_account)
+        else:
+            message = "Aucun compte correspondant au symbole {} trouvé.".format(crypto_symbol)
+            print(message)
+            log_error_critic(message)
+
+
+
+        product_id = f"{crypto_symbol}-USDC"
+        available_sell_quantity = matching_account["available_balance"]["value"]
+        if available_sell_quantity == '':
+            log_error_minor("available_sell_quantity == ''")
+            print("available_sell_quantity == '', error rised")
+            Variable("extern_change_detected").set(True)
+            return None
+        
+        try :  
+            # Get the specifiities of the product (increment)
+            product = client.get_product(product_id)
+            available_sell_quantity = calculate_sell_quantity(product, available_sell_quantity)
+        
+        except Exception as e :
+            tb = traceback.format_exc()
+            log_error_minor(tb)
+        
+        #binary_confirmation(f"Your are selling {available_sell_quantity} of {product_id}. Process ?")
+        preview_order = client.preview_market_order_sell(product_id = product_id, base_size = available_sell_quantity)
+        if preview_order["errs"] != []:
+            print("errors detected in preview order")
+            log_write("sell order history",
+                    f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
+                    persistant= True)
+
+        
         log_write("sell order history",
-                   f"Errors detected in preview order : \n{str(preview_order['errs'])}", 
-                   persistant= True)
-    
-    if Variable("mode").get() == "real":
-        log_write("sell order history",
-                   f"""market order sell send. Parameters :
-                   client_order_id : {str(preview_order["errs"])}
-                   product_id : {product_id}
-                   base size : {available_sell_quantity}\n""", 
-                   persistant= True)
+                    f"""market order sell send. Parameters :
+                    client_order_id : {str(preview_order["errs"])}
+                    product_id : {product_id}
+                    base size : {available_sell_quantity}\n""", 
+                    persistant= True)
         order = client.market_order_sell(client_order_id = "Python Order" + str(time.time()), product_id = product_id, base_size = available_sell_quantity)
         print("order : ", order)
         print("preview order : " , preview_order)
@@ -139,11 +149,10 @@ def sell_crypto_for_USDC(crypto_symbol):
         log_write("debug_order", "order : " + str(order))
 
 
-    elif Variable("mode").get() == "test":
-        order = None
         
-        
-    return order
+            
+            
+        return order
 
 def get_sell_price_coinabse_api(crypto, iteration_number = 0):
     

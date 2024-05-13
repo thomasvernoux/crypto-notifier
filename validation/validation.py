@@ -3,6 +3,11 @@
 import sys
 sys.path.append('./')
 
+import os
+import shutil
+
+import process_peak_detection
+
 
 from functions_crypto import *
 import cryptocompare
@@ -17,158 +22,84 @@ Variable("sound_activated").set(False)
 
 all_test_passed = True
 
-def test_peak_detection1():
-    """ 
-    Simple peak detection test
+
+
+
+def test_sell_001():
+    """
+    Test the sell functionnality
+    Date : 2024/05/09
+    Author : Thomas
     """
 
     global all_test_passed
-    Variable("test_mail_send").set(False)
 
-    crypto1 = Crypto()
-    crypto1.name = "Test01"
-    crypto1.amount = 8                 
-    crypto1.last_order_buy_price = 30               
-    crypto1.max_price = 120                 
-    crypto1.current_price = 105            
-    crypto1.USDC_balance = 1             
-    crypto1.number_of_alert_authorized = 1  
-    crypto1.last_notification_time = 0       
-    crypto1.peak_target = 95   
-    crypto1.break_even_point = 105              
+    CRYPTOS_object = CRYPTOS()
+    
+    crypto = Crypto()
+    crypto.name = "Test"
+    crypto.coinbaseId = "Test"
+    crypto.name_cryptocompare = None
+    crypto.name_coingecko = None
+    crypto.amount = 1
+    crypto.last_order_buy_price = 100
+    crypto.last_order_buy_datetime = None
+    crypto.max_price = 120
+    crypto.current_price = 110
+    crypto.USDC_balance = 1
+    crypto.number_of_alert_authorized = None
+    crypto.last_notification_time = None
+    crypto.peak_target = 99
+    crypto.break_even_point = 101
+    crypto.profit_percent = None
+    crypto.last_buy_order = None
 
 
-    crypto1.cryptoprocess()
+    CRYPTOS_object.cryptos_list = [crypto]
+
+    
+
+    directory = "CRYPTO json/"
+    try:
+        shutil.rmtree(directory)
+        #print(f"Le répertoire {directory} a été supprimé avec succès.")
+    except Exception as e:
+        print(f"Erreur lors de la suppression du répertoire : {e}")
+
+
+    CRYPTOS_object.writeCRYPTO_json()
 
 
 
-    if not(Variable("test_mail_send").get()):
+
+    process_peak_detection.ProcessPeakDetection()
+
+    if Variable("test_variable_sell_order_done").get():
+        None
+    else : 
         all_test_passed = False
-        print("test_peak_detection1 failed")
 
-def test_peak_detection2():
-    """ 
-    Simple peak detection test
-    Out of notification authorized
-    """
-
-    global all_test_passed
-    Variable("test_mail_send").set(False)
-
-    crypto1 = Crypto()
-    crypto1.name = "Test01"
-    crypto1.amount = 8                 
-    crypto1.last_order_buy_price = 30               
-    crypto1.max_price = 120                 
-    crypto1.current_price = 105            
-    crypto1.USDC_balance = 1             
-    crypto1.number_of_alert_authorized = 0  
-    crypto1.last_notification_time = 0       
-    crypto1.peak_target = 95   
-    crypto1.break_even_point = 105              
-
-
-    crypto1.cryptoprocess()
+    directory = "CRYPTO json/"
+    try:
+        shutil.rmtree(directory)
+        print(f"Le répertoire {directory} a été supprimé avec succès.")
+    except Exception as e:
+        print(f"Erreur lors de la suppression du répertoire : {e}")
 
 
 
-    if Variable("test_mail_send").get():
-        all_test_passed = False
-        print("test_peak_detection 2 failed")
-
-def test_peak_detection3():
-    """ 
-    current price too low, under buy price * break_even_point
-    """
-
-    global all_test_passed
-    Variable("test_mail_send").set(False)
-
-    crypto1 = Crypto()
-    crypto1.name = "Test01"
-    crypto1.amount = 8                 
-    crypto1.last_order_buy_price = 119               
-    crypto1.max_price = 120                 
-    crypto1.current_price = 105            
-    crypto1.USDC_balance = 1             
-    crypto1.number_of_alert_authorized = 1  
-    crypto1.last_notification_time = 0       
-    crypto1.peak_target = 95   
-    crypto1.break_even_point = 105              
-
-
-    crypto1.cryptoprocess()
 
 
 
-    if Variable("test_mail_send").get():
-        all_test_passed = False
-        print("test_peak_detection 3 failed")
-
-def test_peak_detection4():
-    """ 
-    Price still growing
-    """
-
-    global all_test_passed
-    Variable("test_mail_send").set(False)
-
-    crypto1 = Crypto()
-    crypto1.name = "Test01"
-    crypto1.amount = 8                 
-    crypto1.last_order_buy_price = 30               
-    crypto1.max_price = 120                 
-    crypto1.current_price = 121            
-    crypto1.USDC_balance = 1             
-    crypto1.number_of_alert_authorized = 1  
-    crypto1.last_notification_time = 0       
-    crypto1.peak_target = 95   
-    crypto1.break_even_point = 105              
-
-
-    crypto1.cryptoprocess()
-
-
-    if Variable("test_mail_send").get():
-        all_test_passed = False
-        print("test_peak_detection 4 failed")
-
-def test_peak_detection5():
-    """ 
-    Price not under the peak target
-    """
-
-    global all_test_passed
-    Variable("test_mail_send").set(False)
-
-    crypto1 = Crypto()
-    crypto1.name = "Test01"
-    crypto1.amount = 8                 
-    crypto1.last_order_buy_price = 30               
-    crypto1.max_price = 120                 
-    crypto1.current_price = crypto1.max_price * 95.1/100            
-    crypto1.USDC_balance = 1             
-    crypto1.number_of_alert_authorized = 1  
-    crypto1.last_notification_time = 0       
-    crypto1.peak_target = 95   
-    crypto1.break_even_point = 105              
-
-
-    crypto1.cryptoprocess()
 
 
 
-    if Variable("test_mail_send").get():
-        all_test_passed = False
-        print("test_peak_detection 5 failed")
 
 
 
-test_peak_detection1()    # Simple peak detection test
-test_peak_detection2()    # out of notification test
-test_peak_detection3()    # current price under buy price test
-test_peak_detection4()    # price still growing
-test_peak_detection5()    # price not under peak target
+
+
+test_sell_001()
 
 
 print("All tests passed : ", all_test_passed)
