@@ -20,6 +20,10 @@ if __name__ == "__main__":
         Variable("trace_activated").set(True)
 
         Variable("mode").set("real")  # test or real
+        Variable("sell_activated").set(True)  
+        Variable("coinbase_api_call_activated").set(True) 
+        Variable("mail_activated").set(True)
+
         
         Variable("filename_dic").set({})
         Variable("trace_activated").set(True)

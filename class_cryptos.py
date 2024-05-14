@@ -92,7 +92,7 @@ class Crypto:
         log_write("peak detection", f"order : {str(order)}")
         
         
-        
+        # TODO delete the following line ?
         Variable("extern_change_detected").set(True)                # Change hasbeen detected in crypto accounts
         return(order)
 
@@ -122,19 +122,40 @@ class Crypto:
         with open(path, 'w') as f:                             # Open json file
             json.dump(self.__dict__, f, indent=4)              # dump all variables
 
-    def get_variables_from_json_file(self):
+    def get_crypto_from_json_file(self):
         """
-        This function get all crypto variables from json file
-        Actually not use in the code ? 
+         
         """
 
         log_trace(str(inspect.currentframe().f_back.f_code.co_name) + self.name)
-        folder_path = f"CRYPTO json/{self.name}"               # Path to json folder
-        path =  f"CRYPTO json/{self.name}/{self.name}.json"    # Path to json file
         
-        with open("cryptos.json", "r") as f:
+        folder_path = "CRYPTO json"
+        crypto_path = f"{folder_path}/{self.name}/{self.name}.json"
+            
+        with open(crypto_path, "r") as f:
             # Charger le contenu JSON sous forme de liste d'objets Python
-            cryptos_data = json.load(f)
+
+            crypto_data = json.load(f)
+
+            self.name = crypto_data.get("name")
+            self.coinbaseId = crypto_data.get("coinbaseId")
+            self.name_cryptocompare = crypto_data.get("name_cryptocompare")
+            self.name_coingecko = crypto_data.get("name_coingecko")
+            self.amount = crypto_data.get("amount")
+            self.last_order_buy_price = crypto_data.get("last_order_buy_price")
+            self.last_order_buy_datetime = crypto_data.get("last_order_buy_datetime")
+            self.max_price = crypto_data.get("max_price")
+            self.current_price = crypto_data.get("current_price")
+            self.USDC_balance = crypto_data.get("USDC_balance")
+            self.number_of_alert_authorized = crypto_data.get("number_of_alert_authorized")
+            self.last_notification_time = crypto_data.get("last_notification_time")
+            self.peak_target = crypto_data.get("peak_target")
+            self.break_even_point = crypto_data.get("break_even_point")
+            self.profit_percent = crypto_data.get("profit_percent")
+            self.last_buy_order = crypto_data.get("last_buy_order")
+
+
+
 
     def update_USDC_balance(self):
         """
@@ -214,10 +235,7 @@ class CRYPTOS:
                     log_error_critic(error_message)
 
         return self.cryptos_list[:]
-
-        
-                
-    
+ 
     def writeCRYPTO_json(self):
         """
         Write all cryptos info to json
@@ -380,18 +398,6 @@ class CRYPTOS:
 
         self.writeCRYPTO_json()
 
-    def set_buy_prices_depreciated(self):
-        log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-        client = RESTClient(key_file="api_keys/coinbase_cloud_api_key V2.json")
-        orders = client.list_orders()
-
-        for c in self.cryptos_list :
-            price, time = functions_CoinBaseApi.get_last_buy_price(orders, c)
-            c.last_order_buy_price = price
-            c.last_order_buy_datetime = time
-
-        
-        self.writeCRYPTO_json()
         
         
     def update_last_order_for_each_crypto(self):

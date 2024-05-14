@@ -19,7 +19,8 @@ from functions_log import *
 
 from decimal import Decimal
 import inspect
-
+import shutil
+import os
 
 from class_cryptos import *
 
@@ -49,46 +50,6 @@ def sound_notification():
             #winsound.Beep(1000, 2000)
             time.sleep(2)
 
-def get_last_buy_price(orders,crypto):
-    """
-    Return last buy price for a crypto
-    inputs : 
-    orders : list of all orders
-    crypto : crypto class object
-    """
-
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name) + f" {crypto.name}")
-    orders = orders["orders"]
-    fitting_orders = []
-    for i in orders : 
-        ### Select right orders
-        if not(i["product_id"] == f"{crypto.coinbaseId}-USDC"):
-            continue
-        if i["completion_percentage"] == 0:
-            continue
-        if i["side"] == "SELL" :
-            continue
-        if i["status"] != "FILLED" :
-            continue
-        
-        fitting_orders.append(i)
-    
-    if fitting_orders == []:
-        return None, None
-    
-    elif len(fitting_orders) == 1:
-        return float(fitting_orders[0]["average_filled_price"]), fitting_orders[0]["created_time"]
-
-    elif len(fitting_orders) > 1:
-        # find the last order
-        the_last_oder = fitting_orders[0]
-        for i in fitting_orders[1:]:
-            if i["created_time"] > the_last_oder["created_time"]:
-                the_last_oder = i
-        price = float(the_last_oder["average_filled_price"])
-        return price, the_last_oder["created_time"]
-
-
 def truncate_number(number_str, significant_digits=4):
 
     log_trace(str(inspect.currentframe().f_back.f_code.co_name))
@@ -107,19 +68,6 @@ def truncate_number(number_str, significant_digits=4):
 
     ret_value = f"{number}e{exponent}"
     return ret_value
-
-def test_truncate_number():
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    input_values = ["1", "2.123456789876", "0.999991567", "0.00000000005679988"]
-    expected_output = ["1.000e0", "2.123e0", "9.999e-1", "5.679e-11"]
-    significant_digits = 4
-
-    output = [truncate_number(str(value), significant_digits) for value in input_values]
-    
-    if expected_output == output:
-        return True
-    else : 
-        log_error_critic("error in test truncate number")
 
 def calculate_sell_quantity(product_info, sell_quantity_str):
     """
@@ -167,84 +115,28 @@ def calculate_sell_quantity(product_info, sell_quantity_str):
     
     return conform_sell_quantuty    
 
-def tests_calculate_sell_quantity():
+def delete_directory_if_exists(directory_path):
     """
-    Function to test the calculation of sell quantity for a given product.
+    Check if the directory exists and delete it if it exists.
 
     Args:
-        None
+    directory_path (str): The path to the directory to be deleted.
 
     Returns:
-        bool: True if the test passes, False otherwise.
-
-    Description:
-    This function tests the calculation of sell quantity for a given product.
-    It calculates the sell quantity based on the provided product information and input value.
-    Then, it compares the calculated sell quantity with the expected output.
-    If the calculated sell quantity matches the expected output, it returns True,
-    otherwise, it logs an error and returns False.
+    None
     """
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    # Sample product information
-    product = {
-        'product_id': 'SEAM-USDC',
-        'price': '4.2229',
-        'price_percentage_change_24h': '-7.31530661516176',
-        'volume_24h': '49758.5',
-        'volume_percentage_change_24h': '-36.36540352788765',
-        'base_increment': '0.1',
-        'quote_increment': '0.0001',
-        'quote_min_size': '2',
-        'quote_max_size': '10000000',
-        'base_min_size': '0.1',
-        'base_max_size': '30303030.303030303030303',
-        'base_name': 'Seamless',
-        'quote_name': 'USDC',
-        'watched': False,
-        'is_disabled': False,
-        'new': False,
-        'status': 'online',
-        'cancel_only': False,
-        'limit_only': False,
-        'post_only': False,
-        'trading_disabled': False,
-        'auction_mode': False,
-        'product_type': 'SPOT',
-        'quote_currency_id': 'USDC',
-        'base_currency_id': 'SEAM',
-        'fcm_trading_session_details': None,
-        'mid_market_price': '',
-        'alias': 'SEAM-USD',
-        'alias_to': [],
-        'base_display_symbol': 'SEAM',
-        'quote_display_symbol': 'USD',
-        'view_only': False,
-        'price_increment': '0.0001',
-        'display_name': 'SEAM-USDC',
-        'product_venue': 'CBE'
-    }
 
-    # Input values for the test
-    input_values = ["0.800123798"]
-    
-    # Expected output for the test
-    expected_output = ["8.00e-1"]
-
-    # Calculating sell quantity based on the product and input values
-    output = [calculate_sell_quantity(product, value) for value in input_values]
-
-    # Comparing calculated sell quantity with expected output
-    if expected_output == output:
-        return True
+    # Check if the directory exists
+    if os.path.exists(directory_path):
+        try:
+            # Delete the directory and its contents
+            shutil.rmtree(directory_path)
+            #print("Directory deleted successfully.")
+        except OSError as e:
+            print(f"Error: {directory_path} : {e.strerror}")
+            
     else:
-        # Logging an error if the test fails
-        log_error_critic("tests_calculate_sell_quantity")
-
-    return False 
+        #print("Directory does not exist.")
+        None
 
 
-
-
-
-#test_truncate_number()
-#tests_calculate_sell_quantity()

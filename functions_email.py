@@ -21,16 +21,21 @@ def send_email(subject, body):
    Sent an email to thomas@vernoux.be
    """
 
-   log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-   msg = MIMEText(body)
-   msg['Subject'] = subject
-   msg['From'] = sender
-   msg['To'] = ', '.join(recipients)
-   with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-      smtp_server.login(sender, password)
-      smtp_server.sendmail(sender, recipients, msg.as_string())
-      
-   print("Message sent!")  
+   if Variable("mail_activated").get():
+
+      log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+      msg = MIMEText(body)
+      msg['Subject'] = subject
+      msg['From'] = sender
+      msg['To'] = ', '.join(recipients)
+      with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+         smtp_server.login(sender, password)
+         smtp_server.sendmail(sender, recipients, msg.as_string())
+         
+      print("Message sent!")  
+   
+   else : 
+      print("Mail cannot be sent because of Variable('mail_activated')")
 
    
             

@@ -39,22 +39,30 @@ def update_crypto_prices(cryptos_list, min_usdc_balance=None):
 def update_single_crypto(crypto):
     """
     Update price, USDC balance, max price, and store data in SQLite database for a single cryptocurrency.
+    write crypto data into json file
     """
     log_trace(str(inspect.currentframe().f_back.f_code.co_name) + crypto.name)
-    try:
-        # Get the current price of the cryptocurrency
-        crypto.current_price = get_price(crypto)
-        # Update the USDC balance for the cryptocurrency
-        crypto.update_USDC_balance()
-        # Update the maximum recorded price for the cryptocurrency
-        crypto.update_max_price()
-        # Store the current price in the SQLite database
-        functions_SQLite.add_value(crypto_name=crypto.name, data_tuple=(time.time(), crypto.current_price))
+    
+    # Get the current price of the cryptocurrency
+    crypto.current_price = get_price(crypto)
+    # Update the USDC balance for the cryptocurrency
+    crypto.update_USDC_balance()
+    # Update the maximum recorded price for the cryptocurrency
+    crypto.update_max_price()
+    # Store the current price in the SQLite database
+    functions_SQLite.add_value(crypto_name=crypto.name, data_tuple=(time.time(), crypto.current_price))
+
+    # write crypto data into json file
+    crypto.write_variables_to_json_file()
+
+    return True
 
 
-    except KeyboardInterrupt:
-        # Catch a keyboard interruption (Ctrl+C) and display a message
-        print(f"End of update for {crypto.name}")
+    
+
+    
+
+    
 
 def ProcessUpdatePrice_ALL():
     """

@@ -85,9 +85,7 @@ def peak_detection_O1(crypto):
     peak_limit_value = crypto.peak_target / 100 * crypto.max_price
     break_even_value = crypto.last_order_buy_price * crypto.break_even_point / 100
 
-    # Simple check
-    if crypto.last_order_buy_price == None :
-        log_error_critic(f"buy price is missing for : {crypto.name}")
+    
 
     ## percentage of accomplishment for break_even_point
     pafbep = round(((crypto.current_price - crypto.last_order_buy_price) / (break_even_value - crypto.last_order_buy_price)) * 100, 1)
