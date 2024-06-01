@@ -139,4 +139,17 @@ def delete_directory_if_exists(directory_path):
         #print("Directory does not exist.")
         None
 
+def depreciated_load_var_from_json(filename, variable):
+    """
+    Load a variable from json
+    @filename : path to json
+    @variable : name of the variable to find in the json
+
+    this function is designed to work with variable in a dictionnary
+    """
+    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
+    with open(filename, 'r') as file:
+        keys = json.load(file)
+    return keys[variable]
+
 

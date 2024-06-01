@@ -23,22 +23,6 @@ import inspect
 API rate limit : https://docs.cloud.coinbase.com/advanced-trade-api/docs/rest-api-rate-limits
 """
 
-def depreciated_load_var_from_json(filename, variable):
-    """
-    Load a variable from json
-    @filename : path to json
-    @variable : name of the variable to find in the json
-
-    this function is designed to work with variable in a dictionnary
-
-    TODO : move this function to functions_basics
-    """
-    log_trace(str(inspect.currentframe().f_back.f_code.co_name))
-    with open(filename, 'r') as file:
-        keys = json.load(file)
-    return keys[variable]
-
-
 def get_accounts_from_api():
 
     if Variable("coinbase_api_call_activated").get():

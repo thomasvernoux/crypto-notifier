@@ -358,12 +358,6 @@ class CRYPTOS:
             # the Crypto from API is not in my json file (local)
             # Add the crypto
             else : 
-                if k == "ETH2":
-                    """
-                    TODO : debug
-                    """
-                    # special exception to debug
-                    continue
                 self.cryptos_list.append(Crypto())
                 self.cryptos_list[-1].name = k
                 self.cryptos_list[-1].amount = dic_amount_api[self.cryptos_list[-1].name]
